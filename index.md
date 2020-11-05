@@ -9,7 +9,7 @@ country: "us"      # lowercase two-letter ISO country code such as "fr" (see htt
 language: "en"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the
 latitude: "41.842258"        # decimal latitude of workshop venue (use https://www.latlong.net/)
 longitude: "-88.245781"       # decimal longitude of the workshop venue (use https://www.latlong.net)
-humandate: "Mid-November, 2020 to January, 2021"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
+humandate: "Asynchronously from mid-November, 2020 to January, 2021"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
 humantime: "24/7"    # human-readable times for the workshop (e.g., "9:00 am - 4:30 pm")
 startdate: 2020-11-15      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
 enddate: 2021-01-05        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
@@ -20,17 +20,6 @@ email: ["cmsdasatlpc@fnal.gov"]    # boxed, comma-separated list of contact emai
 collaborative_notes:  # optional: URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document (e.g., https://pad.carpentries.org/2015-01-01-euphoria)
 eventbrite:           # optional: alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
 ---
-
-{% comment %} See instructions in the comments below for how to edit specific sections of this workshop template. {% endcomment %}
-
-{% comment %}
-HEADER
-
-Edit the values in the block above to be appropriate for your workshop.
-If the value is not 'true', 'false', 'null', or a number, please use
-double quotation marks around the value, unless specified otherwise.
-And run 'make workshop-check' *before* committing to make sure that changes are good.
-{% endcomment %}
 
 {% comment %}
 Check DC curriculum
@@ -168,7 +157,7 @@ SPECIAL REQUIREMENTS
 Modify the block below if there are any special requirements.
 {% endcomment %}
 <p id="requirements">
-  <strong>Requirements:</strong> Participants must bring a laptop with a Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) that they have administrative privileges on. They should have a few specific software packages installed (listed on the <a href="setup.html">setup</a> page). The user must also obtain certain accounts (listed in <a href="#prerequisites">below</a>).
+  <strong>Requirements:</strong> Participants must have access to a computer with internet access for which they have administrative privileges. Acceptable operating systems include Mac OS, Linux, or Windows (preferably not a tablet, Chromebook, etc.). The <a href="setup.html">setup</a> page will have more information about any additional pieces of software that must be installed or any accounts which must be obtained.
 </p>
 
 {% comment %}
@@ -253,7 +242,11 @@ Display the contact email address set in the configuration file.
   {% else %}
   to-be-announced
   {% endif %}
-  for more information.
+  for more information or assistance.
+</p>
+
+<p id="chat">
+   <strong>Mattermost:</strong> The <a href="https://mattermost.web.cern.ch/cmsdaslpc2021/channels/preexercises">PreExercises</a> channel will be available once you join the CMSDAS@LPC2021 team. Direction for how to join this Mattermost team can be found on the <a href="setup.html">setup</a> page.
 </p>
 
 {% comment %}
@@ -282,11 +275,6 @@ during the workshop.
 
 > ## Prerequisites
 >
-> Follow the setup instructions on the [setup page](setup.md).
+> **Before going any further, please follow the instructions on the [setup page](setup.md).**
 >
-> Have access to 
->
-> A VO registered grid certificate ([request directions](http://www.uscms.org/uscms_at_work/computing/getstarted/get_grid_cert.shtml)) setup on your local machine ([setup directions](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookStartingGrid#ObtainingCert))
->
-> **(optional)** A GitLab account (CMS users have access to CERN's GitLab instance)
 {: .prereq}

@@ -2,45 +2,30 @@
 title: Setup
 ---
 
-## Docker installation
+# Support
 
-To install Docker Community Edition on your Linux, Mac, or Windows 10 (Pro, Enterprise, and Education) machine follow the [instructions in the Docker docs](https://docs.docker.com/get-docker/). If you are using Windows 10 Home you will need to follow [this Docker doc](https://docs.docker.com/docker-for-windows/install-windows-home/). Fair warning, the Windows 10 Home installation is more involved and requires Windows Subsystem for Linux 2 (WSL2), among other intricacies.
+ If you have not used the Linux command line before, you may learn more at [WorkBookBasicLinux](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookBasicLinux).
 
-## Docker Hub
+## Support email
 
-To sign up for Docker Hub, follow the instructions [here](https://hub.docker.com/signup).
+For CMSDAS@LCP2021, you may e-mail [cmsdasatlpc@fnal.gov](mailto:cmsdasatlpc@fnal.gov) with a detailed description of your problem. The instructors will be happy to help you.
 
-## Docker image pulls
+## Mattermost (chat)
 
-Once you've got docker up and running, do the following docker image pulls in advance to save waiting during the tutorial:
+There is a dedicated Mattermost team, called CMSDAS@LPC2021, setup to facilitate communication and discussions via live chat (which is also archived). The channel is hosted by the [CERN Mattermost instance](https://mattermost.web.cern.ch).
 
-~~~bash
-docker pull sl:latest
-docker pull sl:7
-docker pull aperloff/cms-cvmfs-docker:latest
-docker pull gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cms
-docker pull gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cvmfs
-# The next two images are optional.
-# You will need 8+25 GB of space available to your Docker Engine.
-docker pull fnallpc/fnallpc-docker:pytorch-1.5-cuda10.1-cudnn7-runtime-singularity
-docker pull gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cmssw_10_2_21-slc7_amd64_gcc700:2020-09-22-ef834977
-~~~
+If you have never used Mattermost at CERN, please know that you will need your CERN login credentials (SSO) and you will need to join the private CMSDAS@LPC2021 team in order to be able to see (or find using the search channels functionality) the channels setup for communications related to the school.
 
-Most of these images are relatively small (a few 100 MB at most). However, the last two images are almost 8 and 25 GB, respecitvely. These may take a good amount of time to download.
+If you already have used Mattermost at CERN, please know that when you click direct links to channels (as you will find below) that are within the CMSDAS@LPC2021 team, you **may** be redirected to the last Mattermost team you used. If this happens, remember to click the [signup link to join the CMSDAS@LPC2021 team](https://mattermost.web.cern.ch/signup_user_complete/?id=kayhqykwg3fhuc7gp1j4aw941c) to switch to the correct team from which you should be able to see the individual channels. If that still doesn't work, remove all cookies associated with cern.ch and restart your browser.
 
-## OSX specific setup
+The [PreExercisesChannel](https://mattermost.web.cern.ch/cmsdaslpc2021/channels/preexercises) will be available once you join or switch to the CMSDAS@LPC2021 team!
 
-Follow the direction to install [XQuartz](https://www.xquartz.org/). Once installed, start the program and navigate to *XQuartz* -> *Preferences* -> *Security*. Make sure that both the "Authenticate connections" and "Allow connections from network clients" checkboxes are selected. If you change any settings, you will need to restart XQuartz.
+Note that you can access Mattermost via browser or you can download the corresponding application running standalone on your laptop or smartphone. The laptop application does not work with CERN certificate login.
 
-<img src="fig/XQuartz.png" alt="XQuartz" style="width:400px"> 
+# Obtain a Computer Account
 
-## Windows specific setup
+## Obtain a Grid Certificate and CMS VO Registration
 
-If you are not using cygwin and want to use X11, you will need to install an xwindow program. A popular options for Windows are xming and 
-VcXsrv, though there are others available.
-
-If you would like to use cygwin, you will need to install [winpty](https://github.com/rprichard/winpty) and prefix your docker command like `winpty docker`.
-
-**We will also introduce a VNC option, which doesn't reply on X11.**
+## Obtain a GitHub Account
 
 {% include links.md %}
