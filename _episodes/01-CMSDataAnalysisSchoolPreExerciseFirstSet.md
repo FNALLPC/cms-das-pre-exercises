@@ -98,7 +98,7 @@ Unknown user: gbenelli.
 {: .output}
 
 > ## Question 1
-> Post the alphanumeric string of characters unique to your username. For CMSDAS@LPC {{ site.year }} please submit your answers for the [CMSDAS@LPC {{ site.year }} Google Form first set](https://forms.gle/RBZ6faVi6xn7ZhHX7).
+> Post the alphanumeric string of characters unique to your username. For CMSDAS@LPC {{ site.year }} please submit your answers for the [CMSDAS@LPC {{ site.year }} Google Form first set](https://forms.gle/yZmRUNkfk2E2tD7Y8).
 {: .challenge}
 
 # Exercise 2 - Simple edit exercise
@@ -197,7 +197,7 @@ cmsenv
 ```
 {: .source}
 
-To be able to check out specific CMSSW packages from [GitHub], you will need to configure your local account following the [FifthSet PreExecises Git configuration](_episodes/05-CMSDataAnalysisSchoolPreExerciseFifthSet.md). You only have to do this command once for a cluster you are working on: 
+To be able to check out specific CMSSW packages from [GitHub], you will need to configure your local account following the [FifthSet PreExecises Git configuration](_episodes/05-CMSDataAnalysisSchoolPreExerciseFifthSet.md). You only have to do this command **once** for any given cluster you are working on: 
 
 ```shell
 git config --global user.name [Name]
@@ -205,6 +205,15 @@ git config --global user.email [Email]
 git config --global user.github [Account]
 ```
 {: .source}
+
+> ## Note
+> To see your current git configuration you can use the following command:
+> ~~~shell
+> git config --global -l
+> ~~~
+> {: .source}
+> More information will be given in the [fifth set of pre-exercises](_episodes/05-CMSDataAnalysisSchoolPreExerciseFifthSet.md).
+{: .callout}
 
 Now you can initialize the CMSSW area as a local git repository:
 
@@ -226,7 +235,9 @@ echo $CMSSW_BASE
 > Paste the result of executing the above command in the form.
 {: .challenge}
 
-**Note**: The directory (on **cmslpc-sl7**) `~/nobackup/YOURWORKINGAREA/CMSSW_10_6_18/src` is referred to as your *WORKING DIRECTORY*.
+> ## Note
+> The directory (on **cmslpc-sl7**) `~/nobackup/YOURWORKINGAREA/CMSSW_10_6_18/src` is referred to as your *WORKING DIRECTORY*.
+{: .callout}
 
 Every time you log out or exit a session you will need to setup your environment in your working directory again. To do so, once you have executed once the steps above (assuming you have added the `source /cvmfs/cms.cern.ch/cmsset_default.(c)sh` in your `~/.tcshrc` or `~/.bash_profile` file), you simply:
 
@@ -240,63 +251,63 @@ And you are ready to go!
 
 # Exercise 4 - Find data in the Data Aggregation Service (DAS)
 
-In this exercise we will locate the MC dataset **RelValZMM** and the collision dataset **/DoubleMuon/Run2018A-PromptReco-v1/MINIAOD** using the **Data Aggregation Service** (not to be confused with the **Data Analysis School** in which you are partaking!). Also be aware that DAS is an improved database access service known many years ago as DBS (Dataset Bookkeeping System).
+In this exercise we will locate the MC dataset **RelValZMM** and the collision dataset **/DoubleMuon/Run2018A-PromptReco-v1/MINIAOD** using the **Data Aggregation Service** (not to be confused with the **Data Analysis School** in which you are partaking!). Also be aware that [DAS][das] is an improved database access service known many years ago as DBS (Dataset Bookkeeping System).
 
 Go to the [DAS][das] webpage. You will be asked for your Grid certificate, which you should have loaded into your browser by now. Also note that there may be a security warning message, which you will need to ignore and still load the page. From there, enter the following into the space provided:
 
 ```
-dataset release=CMSSW_10_6_18 dataset=/RelValZMM*/*CMSSW_10_6_18*/MINIAOD*
+dataset release=CMSSW_10_6_14 dataset=/RelValZMM*/*CMSSW_10_6_14*/MINIAOD*
 ```
 {: .source}
 
-This will search for datasets, processed with release `CMSSW_10_6_18`, which is named like `/RelValZMM*/*CMSSW_10_6_18*/MINIAOD*`. The syntax for searches is found [here](https://cmsweb.cern.ch/das/faq), with many useful common search patterns under "CMS Queries".
+This will search for datasets, processed with release `CMSSW_10_6_14`, which is named like `/RelValZMM*/*CMSSW_10_6_14*/MINIAOD*`. The syntax for searches is found [here](https://cmsweb.cern.ch/das/faq), with many useful common search patterns under "CMS Queries".
 
-For this query, several results should be displayed (you may be queried for security exceptions in the process). Select (click) on the dataset name **/RelValZMM_13/CMSSW_10_6_18-PUpmx25ns_106X_upgrade2018_realistic_v9-v1/MINIAODSIM** and after a few seconds another page will appear.
+For this query, several results should be displayed (you may be queried for security exceptions in the process). Select (click) on the dataset name **/RelValZMM_13/CMSSW_10_6_14-106X_mc2017_realistic_v7-v1/MINIAODSIM** and after a few seconds another page will appear.
 
 > ## Question 4.1a
-> What is the size of this dataset?
+> What is the size of this dataset in MB? Make sure your answer is only numerical (no units)
 {: .challenge}
 
 > ## Question 4.1b
-> Click on "Sites" to get a list of sites hosting this data. Is this data at FNAL? Is this data at DESY?
+> Click on "Sites" to get a list of sites hosting this data. Is this data at FNAL or DESY?
 {: .challenge}
 
 Back in the main dataset page, click on the "Files" link to get a list of the ROOT files in our selected dataset. One of the files it contains should look like this:
 
 ```
-/store/relval/CMSSW_10_6_4/RelValZMM_13/MINIAODSIM/PUpmx25ns_106X_upgrade2018_realistic_v9-v1/10000/DBE18AD9-E36D-B449-B659-A71362DAC57A.root
+/store/relval/CMSSW_10_6_14/RelValZMM_13/MINIAODSIM/106X_mc2017_realistic_v7-v1/10000/0EB976F4-F84B-814D-88DA-CB2C29A52D72.root
 ```
 {: .output}
 
 If you want to know the name of the dataset from the name of a file, one can go to [DAS][das] and type:
 
 ```
-dataset file=/store/relval/CMSSW_10_6_4/RelValZMM_13/MINIAODSIM/PUpmx25ns_106X_upgrade2018_realistic_v9-v1/10000/DBE18AD9-E36D-B449-B659-A71362DAC57A.root 
+dataset file=/store/relval/CMSSW_10_6_14/RelValZMM_13/MINIAODSIM/106X_mc2017_realistic_v7-v1/10000/0EB976F4-F84B-814D-88DA-CB2C29A52D72.root 
 ```
 {: .source}
 
-in the command line and hit "Enter". 
+and hit "Enter". 
 
 Now we will locate a collisions dataset skim using the keyword search, which is sometimes more convenient if you know the dataset you are looking for.
 
 In [DAS][das] type:
 
 ```
- dataset=/DoubleMu*/*Run2018A*/MINIAOD* 
+dataset=/DoubleMu*/*Run2018A*/MINIAOD* 
 ```
 {: .source}
 
 and hit "Enter".
 
 > ## Question 4.2
-> What release was the dataset containing PromptReco -v1 collected in?
+> What release was the dataset **/DoubleMuon/Run2018A-12Nov2019_UL2018-v2/MINIAOD** collected in?
 > 
 > **Note:** If you see more than one release, just answer with a single release.
 {: .challenge}
 
-Having set your CMSSW environment one can also search for the dataset **/DoubleMuon/Run2018A-PromptReco-v1/MINIAOD** by invoking the [DAS][das] command in your *WORKING DIRECTORY*. The [DAS][das] command `dasgoclient` is in the path for CMSSW_9_X_Y versions and above, so you do not need to download anything additional. More about `dasgoclient` can be found [here](https://cmsweb.cern.ch/das/faq).
+Having set your CMSSW environment one can also search for the dataset **/DoubleMuon/Run2018A-12Nov2019_UL2018-v2/MINIAOD** by invoking the [DAS][das] command in your *WORKING DIRECTORY*. The [DAS][das] command `dasgoclient` is in the path for CMSSW_9_X_Y versions and above, so you do not need to download anything additional. More about `dasgoclient` can be found [here](https://cmsweb.cern.ch/das/faq).
 
-The query we're interested in is: **/DoubleMuon/Run2018A-PromptReco-v1/MINIAOD**, see the commands below on how to execute it in the command-line. This assumes that you have installed your CERN grid certificate on **cmslpc-sl7**, if not, follow [Step 5](http://uscms.org/uscms_at_work/physics/computing/getstarted/get_grid_cert.shtml) to install.
+The query we're interested in is: **/DoubleMuon/Run2018A-12Nov2019_UL2018-v2/MINIAOD**, see the commands below on how to execute it in the command-line. This assumes that you have installed your CERN grid certificate on **cmslpc-sl7**, if not, follow [Step 5](http://uscms.org/uscms_at_work/physics/computing/getstarted/get_grid_cert.shtml) to install.
 
 **Note:** For **cmslpc-sl7** at the LPC at Fermilab you will need to init your Grid proxy beforehand:
 
@@ -308,15 +319,14 @@ voms-proxy-init --voms cms
 You will be asked for your grid certificate passphrase. Then you can execute the query with:
 
 ```shell
-dasgoclient --query="dataset=/DoubleMuon*/Run2018A-PromptReco-v1/MINIAOD" --format=plain
+dasgoclient --query="dataset=/DoubleMuon/Run2018A-12Nov2019_UL2018-v2/MINIAOD" --format=plain
 ```
 {: .source}
 
 You will see something like:
 
 ```
-/DoubleMuon/Run2018A-PromptReco-v1/MINIAOD
-/DoubleMuonLowMass/Run2018A-PromptReco-v1/MINIAOD
+/DoubleMuon/Run2018A-12Nov2019_UL2018-v2/MINIAOD
 ```
 {: .output}
 
@@ -333,14 +343,14 @@ First we will use the `edmFileUtil` to find the **physical file name** (PFN) whe
 To do this, execute:
 
 ```shell
-edmFileUtil -d /store/relval/CMSSW_10_6_4/RelValZMM_13/MINIAODSIM/PUpmx25ns_106X_upgrade2018_realistic_v9-v1/10000/DBE18AD9-E36D-B449-B659-A71362DAC57A.root
+edmFileUtil -d /store/relval/CMSSW_10_6_14/RelValZMM_13/MINIAODSIM/106X_mc2017_realistic_v7-v1/10000/0EB976F4-F84B-814D-88DA-CB2C29A52D72.root
 ```
 {: .source}
 
 On **cmslpc-sl7** this will return:
 
 ```
-root://cmsxrootd-site.fnal.gov//store/relval/CMSSW_10_6_4/RelValZMM_13/MINIAODSIM/PUpmx25ns_106X_upgrade2018_realistic_v9-v1/10000/DBE18AD9-E36D-B449-B659-A71362DAC57A.root 
+root://cmsxrootd-site.fnal.gov//store/relval/CMSSW_10_6_14/RelValZMM_13/MINIAODSIM/106X_mc2017_realistic_v7-v1/10000/0EB976F4-F84B-814D-88DA-CB2C29A52D72.root
 ```
 {: .output}
 
@@ -351,35 +361,39 @@ Next we will use `edmDumpEventContent` to dump a summary of the products that ar
 If you want to look at a specific object (say, *slimmedMuons*), then execute:
 
 ```shell
-edmDumpEventContent --all --regex slimmedMuons root://cmsxrootd.fnal.gov//store/user/cmsdas/2019/pre_exercises/0EE14BA8-41BB-E611-AD2F-0CC47A4D760A.root 
+edmDumpEventContent --all --regex slimmedMuons root://cmsxrootd-site.fnal.gov//store/relval/CMSSW_10_6_14/RelValZMM_13/MINIAODSIM/106X_mc2017_realistic_v7-v1/10000/0EB976F4-F84B-814D-88DA-CB2C29A52D72.root
 ```
 {: .source}
 
 This will return:
 
 ```
-Type                   Module           Label     Process        Full Name
---------------------------------------------------------------------------
-vector<pat::Muon>      "slimmedMuons"   ""        "RECO"         patMuons_slimmedMuons__RECO
+Type                                  Module           Label     Process        Full Name
+-----------------------------------------------------------------------------------------
+edm::RangeMap<CSCDetId,edm::OwnVector<CSCSegment,edm::ClonePolicy<CSCSegment> >,edm::ClonePolicy<CSCSegment> >    "slimmedMuons"   ""        "RECO"         CSCDetIdCSCSegmentsOwnedRangeMap_slimmedMuons__RECO
+edm::RangeMap<DTChamberId,edm::OwnVector<DTRecSegment4D,edm::ClonePolicy<DTRecSegment4D> >,edm::ClonePolicy<DTRecSegment4D> >    "slimmedMuons"   ""        "RECO"         DTChamberIdDTRecSegment4DsOwnedRangeMap_slimmedMuons__RECO
+vector<pat::Muon>                     "slimmedMuons"   ""        "RECO"         patMuons_slimmedMuons__RECO
 ```
 {: .output}
 
 The output of `edmDumpEventContent` has information divided into four variable width columns. The first column is the C++ class type of the data, the second is module label, the third is product instance label, and the fourth is the process name. More information is available at [Identifying Data in the Event](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookCMSSWFramework#ModularEvtContent).
 
+Instead of the above, try without the option `--regex slimmedMuons`. This will dump the entire event content - a file with many lines. For this reason we'll send the output to a file called `EdmDumpEventContent.txt` with a UNIX pipe command:
+
+```shell
+edmDumpEventContent root://cmsxrootd-site.fnal.gov//store/relval/CMSSW_10_6_14/RelValZMM_13/MINIAODSIM/106X_mc2017_realistic_v7-v1/10000/0EB976F4-F84B-814D-88DA-CB2C29A52D72.root
+```
+{: .source}
+
 > ## Question 5.1a
 > How many modules produce products of type *vector*?
+> 
+> **Note:** We mean a plain `std::vector`, not a `BXVector` or any other type.
 {: .challenge}
 
 > ## Question 5.1b
 > What are the names of three of the modules that produce products of type *vector*?
 {: .challenge}
-
-Instead of the above, try without the option `--regex slimmedMuons`. This will dump the entire event content - a file with many lines. For this reason we'll send the output to a file called `EdmDumpEventContent.txt` with a UNIX pipe command:
-
-```shell
-edmDumpEventContent root://cmsxrootd.fnal.gov//store/user/cmsdas/2019/pre_exercises/0EE14BA8-41BB-E611-AD2F-0CC47A4D760A.root > EdmDumpEventContent.txt
-```
-{: .source}
 
 ## edmProvDump
 
@@ -388,11 +402,13 @@ To aid in understanding the full history of an analysis, the framework accumulat
 To do this on **cmslpc-sl7** execute:
 
 ```shell
-edmProvDump root://cmseos.fnal.gov//store/user/cmsdas/2019/pre_exercises/0EE14BA8-41BB-E611-AD2F-0CC47A4D760A.root > EdmProvDump.txt
+edmProvDump root://cmsxrootd-site.fnal.gov//store/relval/CMSSW_10_6_14/RelValZMM_13/MINIAODSIM/106X_mc2017_realistic_v7-v1/10000/0EB976F4-F84B-814D-88DA-CB2C29A52D72.root > EdmProvDump.txt
 ```
 {: .source}
 
-**Note:** EdmProvDump.txt is a very large file of the order of 40000-60000 lines. Open and look at this file and locate Processing History (about 20-40 lines from the top).
+> ## Note
+> EdmProvDump.txt is a very large file of the order of 40000-60000 lines. Open and look at this file and locate Processing History (about 20-40 lines from the top).
+{: .callout}
 
 > ## Question 5.2
 > Which version of CMSSW was used to produce the MiniAOD file? The answer will take the form *CMSSW_X_Y_Z*, where you will need to fill in the *X*, *Y*, and *Z* with the correct numerical values.
@@ -405,7 +421,7 @@ Finally we will execute `edmEventSize` to determine the size of different branch
 At **cmslpc-sl7** execute the following command:
 
 ```shell
-edmEventSize -v `edmFileUtil -d /store/user/cmsdas/2019/pre_exercises/0EE14BA8-41BB-E611-AD2F-0CC47A4D760A.root` > EdmEventSize.txt 
+edmEventSize -v `edmFileUtil -d /store/relval/CMSSW_10_6_14/RelValZMM_13/MINIAODSIM/106X_mc2017_realistic_v7-v1/10000/0EB976F4-F84B-814D-88DA-CB2C29A52D72.root` > EdmEventSize.txt 
 ```
 {: .source}
 
@@ -524,7 +540,7 @@ TBrowser b;
 > What is the mean value of the muon pt for the collision data (current file)?
 {: .challenge}
 
-> Be sure to submit your answers to the [Google Form first set](https://forms.gle/RBZ6faVi6xn7ZhHX7), then proceed to the [second set](_episodes/02-CMSDataAnalysisSchoolPreExerciseSecondSet.md).
+> Be sure to submit your answers to the [Google Form first set](https://forms.gle/yZmRUNkfk2E2tD7Y8), then proceed to the [second set](_episodes/02-CMSDataAnalysisSchoolPreExerciseSecondSet.md).
 {: .caution}
 
 {% include links.md %}
