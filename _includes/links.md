@@ -10,8 +10,10 @@
 [cran-checkpoint]: https://cran.r-project.org/package=checkpoint
 [cran-knitr]: https://cran.r-project.org/package=knitr
 [cran-stringr]: https://cran.r-project.org/package=stringr
+[das]: https://cmsweb.cern.ch/das/ 
 [dc-lessons]: http://www.datacarpentry.org/lessons/
 [email]: mailto:alexx.stephen.perloff@cern.ch
+[github]: https://github.com/
 [github-importer]: https://import.github.com/
 [importer]: https://github.com/new/import
 [jekyll-collection]: https://jekyllrb.com/docs/collections/

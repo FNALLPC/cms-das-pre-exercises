@@ -44,6 +44,8 @@ $color-testimonial: #fc8dc1 !default;
 .source  { @include cdSetup($color-source); }
 
 .bash, .language-bash     { @include cdSetup($color-source); }
+.shell, .language-shell   { @include cdSetup($color-source); }
+.sh, .language-sh     { @include cdSetup($color-source); }
 .make, .language-make     { @include cdSetup($color-source); }
 .matlab, .language-matlab { @include cdSetup($color-source); }
 .python, .language-python { @include cdSetup($color-source); }
@@ -55,6 +57,8 @@ $color-testimonial: #fc8dc1 !default;
 .output::before,
 .source::before,
 .bash::before, .language-bash::before,
+.sh::before, .language-sh::before,
+.shell::before, .language-shell::before,
 .make::before, .language-make::before,
 .matlab::before, .language-matlab::before,
 .python::before, .language-python::before,
@@ -71,6 +75,8 @@ $color-testimonial: #fc8dc1 !default;
 .output::before { background-color: #efefef; content: "Output"; }
 .source::before { content: "Code"; }
 .bash::before, .language-bash::before { content: "Bash"; }
+.sh::before, .language-sh::before { content: "(t)csh"; }
+.shell::before, .language-shell::before { content: "Shell"; }
 .make::before, .language-make::before { content: "Make"; }
 .matlab::before, .language-matlab::before { content: "Matlab"; }
 .python::before, .language-python::before { content: "Python"; }

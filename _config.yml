@@ -45,6 +45,8 @@ flavor: "C++/Python"
 # https://github.com/carpentries/workshop-template#creating-extra-pages
 title: "CMS DAS Pre-Exercises"
 
+# Overal year for the Workshop
+year: 2021
 
 #------------------------------------------------------------
 # Generic settings (should not need to change).

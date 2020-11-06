@@ -246,7 +246,7 @@ Display the contact email address set in the configuration file.
 </p>
 
 <p id="chat">
-   <strong>Mattermost:</strong> The <a href="https://mattermost.web.cern.ch/cmsdaslpc2021/channels/preexercises">PreExercises</a> channel will be available once you join the CMSDAS@LPC2021 team. Direction for how to join this Mattermost team can be found on the <a href="setup.html">setup</a> page.
+   <strong>Mattermost:</strong> The <a href="https://mattermost.web.cern.ch/cmsdaslpc{{ site.year }}/channels/preexercises">PreExercises</a> channel will be available once you join the CMSDAS@LPC {{ site.year }} team. Direction for how to join this Mattermost team can be found on the <a href="setup.html">setup</a> page.
 </p>
 
 {% comment %}
