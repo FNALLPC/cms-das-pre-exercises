@@ -35,7 +35,7 @@ This exercise is designed to run only on **cmslpc-sl7** as copies of the scripts
 
 Login to the **cmslpc-sl7** cluster. If you are preparing for CMSDAS@LPC {{ site.year }} please know that the **cmslpc-sl7** is the cluster you are supposed to use. By now you should have a FNAL account that you can use to get kerberos credential and follow the instructions on how to log in to the LPC cluster.
 
-As the exercises often require copying and pasting from instruction, we will make sure that you will have no problems. To verify if cut and paste to/from a terminal window works, first copy the script runThisCommand.py as follows.
+As the exercises often require copying and pasting from instruction, we will make sure that you will have no problems. To verify if cut and paste to/from a terminal window works, first copy the script [runThisCommand.py]({{ page.root }}{% link code/runThisCommand.py %}) as follows.
 
 To connect to **cmslpc-sl7** at Fermilab, try the following commands (Mac/Linux, Windows use the putty or cygwin instructions above):
 ```shell
@@ -105,7 +105,7 @@ Unknown user: gbenelli.
 
  This exercise is designed to run only on **cmslpc-sl7**.
 
-The purpose of this exercise is to ensure that the user can edit files. *This means that you need to be able to use one of the standard text editors (emacs, pico, nano, vi, vim, etc.) available on the cluster you are running (**cmslpc-sl7**), open a file, edit it and save it!*
+The purpose of this exercise is to ensure that the user can edit files. We will first copy and then edit the [editThisCommand.py]({{ page.root }}{% link code/editThisCommand.py %}) script. *This means that you need to be able to use one of the standard text editors (emacs, pico, nano, vi, vim, etc.) available on the cluster you are running (**cmslpc-sl7**), open a file, edit it and save it!*
 
 On the **cmslpc-sl7** cluster, run:
 
@@ -197,7 +197,7 @@ cmsenv
 ```
 {: .source}
 
-To be able to check out specific CMSSW packages from [GitHub], you will need to configure your local account following the [FifthSet PreExecises Git configuration](_episodes/05-CMSDataAnalysisSchoolPreExerciseFifthSet.md). You only have to do this command **once** for any given cluster you are working on: 
+To be able to check out specific CMSSW packages from [GitHub], you will need to configure your local account following the [FifthSet PreExecises Git configuration]({{ page.root }}{% link _episodes/05-CMSDataAnalysisSchoolPreExerciseFifthSet.md %}). You only have to do this command **once** for any given cluster you are working on: 
 
 ```shell
 git config --global user.name [Name]
@@ -212,7 +212,7 @@ git config --global user.github [Account]
 > git config --global -l
 > ~~~
 > {: .source}
-> More information will be given in the [fifth set of pre-exercises](_episodes/05-CMSDataAnalysisSchoolPreExerciseFifthSet.md).
+> More information will be given in the [fifth set of pre-exercises]({{ page.root }}{% link _episodes/05-CMSDataAnalysisSchoolPreExerciseFifthSet.md %}).
 {: .callout}
 
 Now you can initialize the CMSSW area as a local git repository:
@@ -548,7 +548,7 @@ TBrowser b;
 > What is the mean value of the muon pt for the collision data (current file)?
 {: .challenge}
 
-> Be sure to submit your answers to the [Google Form first set](https://forms.gle/yZmRUNkfk2E2tD7Y8), then proceed to the [second set](_episodes/02-CMSDataAnalysisSchoolPreExerciseSecondSet.md).
+> Be sure to submit your answers to the [Google Form first set](https://forms.gle/yZmRUNkfk2E2tD7Y8), then proceed to the [second set]({{ page.root }}{% link _episodes/02-CMSDataAnalysisSchoolPreExerciseSecondSet.md %}).
 {: .caution}
 
 > ## Helpful Hint
