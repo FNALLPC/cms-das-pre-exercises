@@ -15,6 +15,7 @@
 [email]: mailto:alexx.stephen.perloff@cern.ch
 [github]: https://github.com/
 [github-importer]: https://import.github.com/
+[gitlab]: https://gitlab.cern.ch/
 [importer]: https://github.com/new/import
 [jekyll-collection]: https://jekyllrb.com/docs/collections/
 [jekyll-install]: https://jekyllrb.com/docs/installation/
