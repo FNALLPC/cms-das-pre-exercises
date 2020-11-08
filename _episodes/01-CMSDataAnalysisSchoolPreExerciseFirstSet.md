@@ -450,11 +450,11 @@ The main contents of the MiniAOD are:
   - **MC Truth information:** a subset of the genParticles enough to describe the hard scattering process, jet flavour information, and final state leptons and photons; GenJets with pT > 8 GeV are also stored, and so are the other mc summary information (e.g event weight, LHE header, PDF, PU information). In addition, all the stable genParticles with mc status code 1 are also saved, to allow reclustering of GenJets with different algorithms and substructure studies.
   - **Trigger information:** MiniAOD contains the trigger bits associated to all paths, and all the trigger objects that have contributed to firing at least one filter within the trigger. In addition, we store all objects reconstructed at L1 and the L1 global trigger summary, and the prescale values of all the triggers.
 
-Please note that the files used in the following are from older releases, but they still illustrate the points they intended to. To avoid the fact that RelVal files (produced to validate new release in the rapid CMSSW development cycle) become unavailable on a short (month) timescale, a small set of files have been copied to the LPC EOS storage. They are available at `root://cmseos.fnal.gov//store/user/cmsdas/2019/pre_exercises/`.
+Please note that the files used in the following are from older releases, but they still illustrate the points they intended to. To avoid the fact that RelVal files (produced to validate new release in the rapid CMSSW development cycle) become unavailable on a short (month) timescale, a small set of files have been copied to the LPC EOS storage. They are available at `root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/`.
 
-The Z to dimoun MC file `root://cmseos.fnal.gov//store/user/cmsdas/2019/pre_exercises/CMSDataAnaSch_MiniAODZMM730pre1.root` is made in `CMSSW_7_3_0_pre1` release and the datafile `root://cmseos.fnal.gov//store/user/cmsdas/2019/pre_exercises/CMSDataAnaSch_Data_706_MiniAOD.root` made from the collisions dataskim **/DoubleMu/CMSSW_7_0_6-GR_70_V2_AN1_RelVal_zMu2011A-v1/MINIAOD**.
+The Z to dimoun MC file `root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root` is made in `CMSSW_7_3_0_pre1` release and the datafile `root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_Data_706_MiniAOD.root` made from the collisions dataskim **/DoubleMu/CMSSW_7_0_6-GR_70_V2_AN1_RelVal_zMu2011A-v1/MINIAOD**.
 
-In your working directory, try to open the root file r`oot://cmseos.fnal.gov//store/user/cmsdas/2019/pre_exercises/CMSDataAnaSch_MiniAODZMM730pre1.root`. Begin by opening ROOT:
+In your working directory, try to open the root file r`oot://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root`. Begin by opening ROOT:
 
 ```shell
 root -l
@@ -474,7 +474,7 @@ gSystem->Load("libDataFormatsFWLite.so");
 gROOT->SetStyle ("Plain");
 gStyle->SetOptStat(111111);
 
-TFile *theFile = TFile::Open("root://cmseos.fnal.gov//store/user/cmsdas/2019/pre_exercises/CMSDataAnaSch_MiniAODZMM730pre1.root");
+TFile *theFile = TFile::Open("root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root");
 
 TBrowser b;
 ```
@@ -482,6 +482,14 @@ TBrowser b;
 
 > ## Note
 > The TBrowser is a graphical ROOT file browser. It runs on the computer, where you started ROOT. Its graphical interface needs to be forwarded to your computer. This can be very slow. You either need a lot of patience, a good connection or you can try to run ROOT locally, copying the root files that are to be inspected. Since everyone is running a different operating system on their local computer, we do not support the setup of ROOT on your local computer. However, instructions exist on the [official ROOT website](https://root.cern.ch/downloading-root).
+{: .callout}
+
+> ## Note
+> You can start the ROOT interpreter and open the file in a single step by doing:
+> ~~~
+> root -l <filename>
+> ~~~
+> {: .source} 
 {: .callout}
 
 To be able to use the member functions of a CMSSW data class from within ROOT, a 'dictionary' for that class needs to be available to ROOT. To obtain that dictionary, it is necessary to load the proper library into ROOT. The first three lines of the code above do exactly that. More information is at [WorkBookFWLiteExamples](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookFWLiteExamples). Note that `gROOT->SetStyle ("Plain");` sets a plain white background for all the plots in ROOT.
@@ -498,7 +506,7 @@ In this window click on `ROOT Files` on the left menu and now the window looks l
 
 <img align="center" src="../fig/MiniAOD_View2.png" alt="TBrowser 'ROOT Files' view" style="width:600px">
 
-Double-click on the ROOT file you opened: `root://cmseos.fnal.gov//store/user/cmsdas/2019/pre_exercises/CMSDataAnaSch_MiniAODZMM730pre1.root`, then `Events`, then scroll down and click `patMuons_slimmedMuons__PAT` (or the little + that appears next to it), and then `patMuons_slimmedMuons__PAT.obj`. A window appears that looks like this:
+Double-click on the ROOT file you opened: `root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root`, then `Events`, then scroll down and click `patMuons_slimmedMuons__PAT` (or the little + that appears next to it), and then `patMuons_slimmedMuons__PAT.obj`. A window appears that looks like this:
 
 <img align="center" src="../fig/MiniAOD_View3.png" alt="TBrowser slimmedMuons view" style="width:600px">
 
@@ -507,14 +515,14 @@ Scroll a long way down the file (not too fast) and click on `pt()`. A PAT Muon P
 <img align="center" src="../fig/MiniAOD_View4.png" alt="TBrowser slimmedMuons pt() view" style="width:600px">
 
 > ## Question 6.1
-> What is the mean value of the muon pt for this file (`root://cmseos.fnal.gov//store/user/cmsdas/2019/pre_exercises/CMSDataAnaSch_MiniAODZMM730pre1.root`)?
+> What is the mean value of the muon pt for this file (`root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root`)?
 {: .challenge}
 
 > ## Note
 > To exit ROOT simply type `.q` in the command line.
 {: .callout}
 
-Now open the data file `root://cmseos.fnal.gov//store/user/cmsdas/2019/pre_exercises/CMSDataAnaSch_Data_706_MiniAOD.root`. Similarly run the following command, and answer the following question:
+Now open the data file `root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_Data_706_MiniAOD.root`. Similarly run the following command, and answer the following question:
 
 ```shell
 root -l
@@ -530,7 +538,7 @@ gSystem->Load("libDataFormatsFWLite.so");
 gROOT->SetStyle ("Plain");
 gStyle->SetOptStat(111111);
 
-TFile *theFile = TFile::Open("root://cmseos.fnal.gov//store/user/cmsdas/2019/pre_exercises/CMSDataAnaSch_Data_706_MiniAOD.root");
+TFile *theFile = TFile::Open("root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_Data_706_MiniAOD.root");
 
 TBrowser b;
 ```
@@ -542,5 +550,15 @@ TBrowser b;
 
 > Be sure to submit your answers to the [Google Form first set](https://forms.gle/yZmRUNkfk2E2tD7Y8), then proceed to the [second set](_episodes/02-CMSDataAnalysisSchoolPreExerciseSecondSet.md).
 {: .caution}
+
+> ## Helpful Hint
+> Rather than using the TBrowser, you can perform the drawing action using ROOT interpreter. An example is shown below:
+> 
+> ~~~
+> root -l root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root
+> Events->Draw("patMuons_slimmedMuons__PAT.obj.pt()")
+> ~~~
+> {: .source}
+{: .callout}
 
 {% include links.md %}
