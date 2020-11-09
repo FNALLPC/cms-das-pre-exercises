@@ -1,5 +1,9 @@
 ---
 title: Setup
+questions:
+- "What accounts do I need to perform my work on CMS?"
+- "How do I obtain and install a grid certificate?"
+- "Who can I contact if I need help with the pre-exercises?"
 ---
 
 # Support
