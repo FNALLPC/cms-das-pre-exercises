@@ -33,37 +33,37 @@ In this exercise we will analyze the skimmed [MiniAODs][miniaod] created in the 
 
 > ## Example file list
 > ```
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_1.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_10.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_11.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_12.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_13.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_14.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_15.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_16.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_17.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_18.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_19.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_2.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_20.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_21.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_22.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_23.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_24.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_25.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_26.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_27.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_28.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_29.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_3.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_30.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_31.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_4.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_5.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_6.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_7.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_8.root
-> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_9.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_1.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_10.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_11.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_12.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_13.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_14.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_15.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_16.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_17.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_18.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_19.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_2.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_20.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_21.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_22.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_23.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_24.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_25.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_26.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_27.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_28.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_29.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_3.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_30.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_31.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_4.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_5.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_6.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_7.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_8.root
+> root://cmseos.fnal.gov//eos/uscms/store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_9.root
 > ```
 {: .solution}
 
@@ -161,7 +161,7 @@ Next, replace the existing `$CMSSW_BASE/src/PhysicsTools/FWLite/bin/FWLiteWithPy
 > 
 > `parameters.py` will read from area `root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/`. You should have a similar location from where you can read your [CRAB][crab] output `ROOT` files. You can edit the `parameters.py` file to use the [MiniAOD][miniaod] files you made in [Exercise 13]({{ page.root }}{% link _episodes/03-CMSDataAnalysisSchoolPreExerciseThirdSet.md %}#exercise-13---running-on-dataset-with-crab) by replacing the location of the input files:
 > ```
-> 'root://cmseos.fnal.gov//store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_1.root', (at cmslpc)
+> 'root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_1.root', (at cmslpc)
 > 'file:/afs/cern.ch/work/d/dmoon/public/CMSDAS_Files/Exe4/slimMiniAOD_data_MuEle_1.root', (at lxplus or Bari) or
 > 'file:/cmsdas/data/pre_exercises/Exe4/slimMiniAOD_data_MuEle_1.root', (at KNU) or
 > 'file:/pnfs/desy.de/cms/tier2/store/user/your_username/DoubleMuon/crab_CMSDAS_Data_analysis_test0/160718_090558/0000/slimMiniAOD_data_MuEle_1.root' (at nafhh-cms)
