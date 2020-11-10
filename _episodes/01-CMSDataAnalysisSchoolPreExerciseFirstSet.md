@@ -251,7 +251,7 @@ And you are ready to go!
 
 # Exercise 4 - Find data in the Data Aggregation Service (DAS)
 
-In this exercise we will locate the MC dataset **RelValZMM** and the collision dataset **/DoubleMuon/Run2018A-PromptReco-v1/MINIAOD** using the **Data Aggregation Service** (not to be confused with the **Data Analysis School** in which you are partaking!). Also be aware that [DAS][das] is an improved database access service known many years ago as DBS (Dataset Bookkeeping System).
+In this exercise we will locate the MC dataset **RelValZMM** and the collision dataset **/DoubleMuon/Run2018A-12Nov2019_UL2018-v2/MINIAOD** using the **Data Aggregation Service** (not to be confused with the **Data Analysis School** in which you are partaking!). Also be aware that [DAS][das] is an improved database access service known many years ago as DBS (Dataset Bookkeeping System).
 
 Go to the [DAS][das] webpage. You will be asked for your Grid certificate, which you should have loaded into your browser by now. Also note that there may be a security warning message, which you will need to ignore and still load the page. From there, enter the following into the space provided:
 

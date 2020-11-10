@@ -217,8 +217,8 @@ The main intention of fitting the Z mass peak is to show how to fit a distributi
 
 > ## File list
 > ```
-> root://cmseos.fnal.gov//store/user/cmsdas/2020/pre_exercises/Set4/Output/myZPeakCRAB.root # cmslpc
-> root://cmseos.fnal.gov//store/user/cmsdas/2020/pre_exercises/Set4/Output/myZPeakCRAB_fwlite.root # cmslpc
+> root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set4/Output/myZPeakCRAB.root # cmslpc
+> root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set4/Output/myZPeakCRAB_fwlite.root # cmslpc
 > /afs/cern.ch/cms/Tutorials/TWIKI_DATA/CMSDataAnaSch/myZPeakCRAB.root # lxplus or Bari
 > ```
 {: .solution}
