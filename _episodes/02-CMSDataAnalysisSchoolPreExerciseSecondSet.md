@@ -1,17 +1,19 @@
 ---
 title: "CMS Data Analysis School Pre-Exercises - Second Set"
 teaching: 0
-exercises: 60
+exercises: 30
 questions:
 - "How to slim a MiniAOD file?"
 - "How to know the size of a MiniAOD file?"
 - "How to use FWLite to analyze data and MC?"
 objectives:
-- "Learn how to reduce the size of a MiniAOD by only keeping variables of interest."
+- "Learn how to reduce the size of a MiniAOD by only keeping physics objects of interest."
 - "Learn how to determine the size of a MiniAOD file using EDM standalone utilities"
 - "Learn to use FWLite to perform simple analysis."
 keypoints:
-- ""
+- "A MiniAOD file can be `slimmed` by just retaining physics objects of interest."
+- "EDM standalone utilities can be used to determine the size of MiniAOD files."
+- "FWLite is a useful tool to perform simple analysis on a MiniAOD file."
 ---
 
 # Introduction
@@ -234,6 +236,128 @@ With this executable we will use the command line options. More about these can 
 
 To make a `ZPeak` from this executable, using the MC [MiniAOD](https://twiki.cern.ch/twiki/bin/view/CMS/MiniAOD), run the following command (which will not work out of the box, see below): 
 
+```shell
+FWLiteHistograms inputFiles=slimMiniAOD_MC_MuEle.root outputFile=ZPeak_MC.root maxEvents=-1 outputEvery=100
+```
+{: .source}
+
+You can see that you will get the following error
+
+```
+terminate called after throwing an instance of 'cms::Exception'
+  what():  An exception of category 'ProductNotFound' occurred.
+Exception Message:
+getByLabel: Found zero products matching all criteria
+Looking for type: edm::Wrapper<std::vector<reco::Muon> >
+Looking for module label: muons
+Looking for productInstanceName: 
+
+The data is registered in the file but is not available for this event
+```
+{: .output}
+
+This error occurs because your input files `slimMiniAOD_MC_MuEle.root` is a [MiniAOD](https://twiki.cern.ch/twiki/bin/view/CMS/MiniAOD) and does not contain reco::Muon whose label is muons. It contains, however, slimmedMuons (check yourself by opening the root file with ROOT browser). However, in the code [FWLiteHistograms.cc](https://github.com/cms-sw/cmssw/blob/CMSSW_10_6_18/PhysicsTools/FWLite/bin/FWLiteHistograms.cc) there are lines that say: 
+
+```
+using reco::Muon;
+```
+{: .source}
+
+and
+
+```
+event.getByLabel(std::string("muons"), muons);
+```
+{: .source}
+
+This means you need to change `reco::Muon` to `pat::Muon`, and `muons` to `slimmedMuons`.
+
+To implement these changes, open the code `$CMSSW_BASE/src/PhysicsTools/FWLite/bin/FWLiteHistograms.cc`. In this code, look at the line that says: 
+
+```
+using reco::Muon;
+```
+{: .source}
+
+and change it to
+
+```
+using pat::Muon;
+```
+{: .source}
+
+and in this:
+
+```
+event.getByLabel(std::string("muons"), muons);
+```
+{: .source}
+
+and change it to:
+
+```
+event.getByLabel(std::string("slimmedMuons"), muons);
+
+```
+{: .source}
+
+Now you need to re-compile: 
+
+```shell
+scram b
+```
+{: .source}
+
+Now again run the executable as follows:
+
+```shell
+FWLiteHistograms inputFiles=slimMiniAOD_MC_MuEle.root outputFile=ZPeak_MC.root maxEvents=-1 outputEvery=100
+```
+{: .source}
+
+You can see that now it runs successfully and you get a ROOT file with a histogram called ZPeak_MC.root. Open this ROOT file and see the Z mass peak histogram called mumuMass. Answer the following question.
+
+> ## Question 8.1a
+> What is mean mass of the ZPeak for your MC [MiniAOD](https://twiki.cern.ch/twiki/bin/view/CMS/MiniAOD)? 
+{: .challenge}
+
+> ## Question 8.1b
+> QUESTION 8.1b - How can you increase statistics in your ZPeak histogram? 
+{: .challenge}
+
+**Now a little bit about the command that you executed.**
+
+In the command above, it is obvious that `slimMiniAOD_MC_MuEle.root` is the input file, `ZPeak_MC.root` is output file. `maxEvents` is the events you want to run over. You can change it any other number. The option `-1` means running over all the events which is 1000 in this case. `outputEvery` means after how any events should the code report the number of event being processed. As you may have noticed, as you specified, when your executable runs, it says `processing event:` after every 100 events.
+
+
+If you look at the code [FWLiteHistograms.cc](https://github.com/cms-sw/cmssw/blob/CMSSW_10_6_18/PhysicsTools/FWLite/bin/FWLiteHistograms.cc) , it also contains the defaults corresponding to the above command line options. Answer the following question:
+
+
+> ## Question 8.2
+> What is the default name of the output file? 
+{: .challenge}
+
+
+# Exercise 9 - Re-run the above executable with the data MiniAOD
+
+Re-run the above executable with the data [MiniAOD](https://twiki.cern.ch/twiki/bin/view/CMS/MiniAOD) file called `slimMiniAOD_data_MuEle.root` as follows:
+
+```shell
+FWLiteHistograms inputFiles=slimMiniAOD_data_MuEle.root outputFile=ZPeak_data.root maxEvents=-1 outputEvery=100
+```
+{: .source}
+
+This will create an output histogram `ROOT` file called `ZPeak_data.root`
+
+Then answer the following question.
+
+> ## Question 9a
+>  What is mean mass of the ZPeak for your data [MiniAOD](https://twiki.cern.ch/twiki/bin/view/CMS/MiniAOD)?
+{: .challenge}
+
+> ## Question 9b
+>  How can you increase statistics in your ZPeak histogram? 
+{: .challenge}
 
 {% include links.md %}
 
