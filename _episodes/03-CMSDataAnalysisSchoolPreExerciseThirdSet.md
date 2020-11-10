@@ -1,7 +1,7 @@
 ---
 title: "CMS Data Analysis School Pre-Exercises - Third Set"
 teaching: 0
-exercises: 240 (with breaks)
+exercises: 240
 questions:
 - "How do I do an analysis with so much data that I cannot run it
 interactively on my computer?"
