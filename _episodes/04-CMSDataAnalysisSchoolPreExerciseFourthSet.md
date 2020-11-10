@@ -129,7 +129,7 @@ Successful running of the above config file will produce an output file `myZPeak
 {: .callout}
 
 > ## Question 15
-> What is the number of entries in the `mumuMass` plot?
+> What is the number of entries in the `mumuMass` plot if you just used the first input file, probably named `slimMiniAOD_data_MuEle_1.root`?
 {: .challenge}
 
 # Exercise 16 - Analyzing MiniAOD with an FWLite executable
@@ -146,6 +146,15 @@ git cms-addpkg PhysicsTools/UtilAlgos
 {: .source}
 
 Next, replace the existing `$CMSSW_BASE/src/PhysicsTools/FWLite/bin/FWLiteWithPythonConfig.cc` with this [FWLiteWithPythonConfig.cc]({{ page.root }}{% link code/FWLiteWithPythonConfig.cc %}). You are simply updating an existing analyzer. Then, create the file [$CMSSW_BASE/src/parameters.py]({{ page.root }}{% link code/parameters.py %}).
+
+> ## Hint
+> You can easily download the needed files by running the following commands:
+> ~~~shell
+> wget https://fnallpc.github.io/cms-das-pre-exercises/code/FWLiteWithPythonConfig.cc -O $CMSSW_BASE/src/PhysicsTools/FWLite/bin/FWLiteWithPythonConfig.cc
+> wget https://fnallpc.github.io/cms-das-pre-exercises/code/parameters.py -O $CMSSW_BASE/src/parameters.py
+> ~~~
+> {: . source}
+{: .callout}
 
 > ## Note
 > In case you have completed [Exercise Set 3]({{ page.root }}{% link _episodes/03-CMSDataAnalysisSchoolPreExerciseThirdSet.md %}) successfully, put the names and path of the `ROOT` files that you made yourself via submitting CRAB job, instead of those currently in `parameters.py`.
@@ -199,7 +208,7 @@ A successful running of the FWLite executable, `FWLiteWithPythonConfig`, results
 The output `ROOT` file `myZPeakCRAB_fwlite.root` is a bit different from `myZPeakCRAB.root` made in [Exercise 15](#exercise-15---analyzing-miniaod-with-an-edanalyzer) since we did not make any of the electron histograms. The histograms do have the `mumuMass`, besides, `muonEta`, `muonPhi`, and `muonPt`.
 
 > ## Question 16
-> What is the number in entries in the `mumuMass` obtained in [Exercise 16](#exercise-16---analyzing-miniaod-with-an-fwlite-executable)?
+> What is the number in entries in the `mumuMass` obtained in [Exercise 16](#exercise-16---analyzing-miniaod-with-an-fwlite-executable), again using only the first input file.?
 {: .challenge}
 
 # Exercise 17 - Fitting the Z mass peak

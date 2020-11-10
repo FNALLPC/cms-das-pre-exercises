@@ -73,7 +73,9 @@ MyZPeakAnalyzer::analyze(const edm::Event& iEvent,
             if (it2 > it){
                // check only muon pairs of unequal charge 
                if( it->charge()*it2->charge()<0){
-                  histContainer_["mumuMass"]->Fill((it->p4()+it2->p4()).mass());
+                  if( it2->pt()>20 && fabs(it2->eta())<2.1 ){
+                     histContainer_["mumuMass"]->Fill((it->p4()+it2->p4()).mass());
+                  }
                }
             }
          }

@@ -12,9 +12,10 @@ process.source = cms.Source("PoolSource",
   )
 )
 
-process.MessageLogger = cms.Service("MessageLogger")
+process.load("FWCore.MessageLogger.MessageLogger_cfi")
+process.MessageLogger.cerr.FwkReport.reportEvery = 1000
 process.maxEvents = cms.untracked.PSet( 
-    input = cms.untracked.int32(10000) 
+    input = cms.untracked.int32(-1) 
 )
 
 process.analyzeBasicPat = cms.EDAnalyzer("MyZPeakAnalyzer",
