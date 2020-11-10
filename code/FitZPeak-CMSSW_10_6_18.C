@@ -38,9 +38,9 @@ void FitZPeak(bool save = false, vector<string> formats = {".eps"}){
    ////////////////
 
    TF1 *func = new TF1("mygauss",mygauss,massMIN, massMAX,3); 
-   func->SetParameter(0,1.0);   func->SetParName(0,"const");  
+   func->SetParameter(0,100.0); func->SetParName(0,"const");  
    func->SetParameter(2,5.0);   func->SetParName(2,"sigma");  
-   func->SetParameter(1,95.0);     func->SetParName(1,"mean");
+   func->SetParameter(1,95.0);  func->SetParName(1,"mean");
 
    Z_mass->Fit("mygauss","QR");
    TF1 *fit = Z_mass->GetFunction("mygauss");

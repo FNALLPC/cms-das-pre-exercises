@@ -35,7 +35,7 @@ void RooFitMacro(){
    dh.statOn(frame);  //this will display hist stat on canvas
 
    RooRealVar mean("mean","mean",95.0, 70.0, 120.0);
-   RooRealVar width("width","width",5.0, 0.0, 120.0);
+   RooRealVar width("width","width",1.0, 0.0, 120.0);
    RooRealVar sigma("sigma","sigma",5.0, 0.0, 120.0);
    RooGaussian gauss("gauss","gauss",x,mean,sigma);
    //RooBreitWigner gauss("gauss","gauss",x,mean,sigma);

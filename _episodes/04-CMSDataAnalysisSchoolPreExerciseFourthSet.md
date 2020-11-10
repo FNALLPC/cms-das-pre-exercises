@@ -476,7 +476,7 @@ This should pop a histogram (shown below) and you will find yourself in `ROOT` s
 {: .callout}
 
 > ## Question 17.4a
-> What is the mean for the convolved fit using the macro?
+> What is the mean for the Breit-Wigner fit using the macro?
 {: .challenge}
 
 > ## Question 17.4b
