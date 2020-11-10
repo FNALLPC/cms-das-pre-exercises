@@ -47,7 +47,7 @@ keypoints:
 
 > ## Question
 > Questions for each exercise are in boxes such as this. <br>
-For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form first set](XXXX LINK).
+For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form first set](https://forms.gle/63gJw2uvyHfHAjK77).
 {: .challenge}
 
 
@@ -94,7 +94,7 @@ If you do not have the first attribute line listed above, you have not completed
 
 > ## Question 10
 > Copy the output corresponding to the text in the output box above. <br>
-> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](XXXX LINK).
+> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](https://forms.gle/63gJw2uvyHfHAjK77).
 {: .challenge}
 
 
@@ -118,7 +118,7 @@ The most recent CRAB3 tutorial is always in the [WorkBook](https://twiki.cern.ch
 
 In this exercise, we will use `CMSSW_10_6_4`.
 
-You can follow the same instructions from [Exercise 3]({{ page.root }}{% link _episodes/01-CMSDataAnalysisSchoolPreExerciseFirstSet.md %}). The instructions are reproduced here:
+You can follow the same instructions from [Exercise 3]({{ page.root }}{% link _episodes/01-CMSDataAnalysisSchoolPreExerciseFirstSet.md %}#exercise-3---setup-a-cmssw-release-area). The instructions are reproduced here:
 
 ```shell
 cd ~/nobackup/YOURWORKINGAREA
@@ -235,7 +235,7 @@ crab checkwrite --site=T3_US_FNALLPC
 
 > ## Question 11
 > What is the name of your directory name in eos? <br>
-> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](XXXX LINK).
+> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](https://forms.gle/63gJw2uvyHfHAjK77).
 {: .challenge}
 
 
@@ -633,7 +633,7 @@ This MC generation code will then produce an EDM output file called `step1.root`
 
 > ## Question 12.1
 > What is the file size of `step1.root`? <br>
-> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](XXXX LINK).
+> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](https://forms.gle/63gJw2uvyHfHAjK77).
 {: .challenge}
 
 ## Generate and publish MC dataset using CRAB
@@ -759,12 +759,12 @@ From the bottom of the output, you can see the name of the dataset and the DAS l
 
 > ## Question 12.2
 > What is the dataset name you published? <br>
-> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](XXXX LINK).
+> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](https://forms.gle/63gJw2uvyHfHAjK77).
 {: .challenge}
 
 # Exercise 13 - Running on a dataset with CRAB
 
- Now we're going to apply what you've learned using CRAB to the `MiniAOD` exercises you've been working on in the first two sets of exercises. Make sure that you finished and still have the scripts from [Exercise 7]({{ page.root }}{% link _episodes/02-CMSDataAnalysisSchoolPreExerciseSecondSet.md %}) under the `YOURWORKINGAREA/CMSSW_10_6_4/src`.
+Now we're going to apply what you've learned using CRAB to the `MiniAOD` exercises you've been working on in the first two sets of exercises. Make sure that you finished and still have the scripts from [Exercise 7]({{ page.root }}{% link _episodes/02-CMSDataAnalysisSchoolPreExerciseSecondSet.md %}#exercise-7---slim-miniaod-sample-to-reduce-its-size-by-keeping-only-muon-and-electron-branches) under the `YOURWORKINGAREA/CMSSW_10_6_4/src`.
 
 ##  Set up CRAB to run your MiniAOD jobs 
 
@@ -881,7 +881,7 @@ Log file is /uscms_data/d3/haweber/cmsdaspre/crab_projects/crab_CMSDAS_Data_anal
 
 > ## Question 13
 > How many events were analyzed? (n.b. the number in the above example were randomized) <BR>
-> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](XXXX LINK).
+> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](https://forms.gle/63gJw2uvyHfHAjK77).
 {: .challenge}
 
 ## Optional: View the reconstructed Z peak in the combined data 
@@ -972,7 +972,7 @@ In the example of that other json file, the total recorded luminosity for those 
 
 > ## Question 14
 >  What is the reported number of inverse femtobarns analyzed? (n.b. it is not the same sample as listed above with luminosity 2.6<sup>-1</sup>. )
-> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](XXXX LINK).
+> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](https://forms.gle/63gJw2uvyHfHAjK77).
 {: .challenge}
 
 #  Where to find more on CRAB 
@@ -986,3 +986,5 @@ Note also that all CMS members using the Grid subscribe to the [Grid Annoucement
 <br><br>
 _Last reviewed: 2020/11/09 by Hannsj&ouml;rg Weber_
 <br>
+
+{% include links.md %}
