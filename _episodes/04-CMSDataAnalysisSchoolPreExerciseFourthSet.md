@@ -24,7 +24,7 @@ In this set of exercises, we will analyze the [MiniAOD][miniaod] file that was m
 {: .prereq}
 
 > ## Note
-> Please post your answers to the questions in the [online response form](https://forms.gle/kHZ71u12kDfrTd2f8.
+> Please post your answers to the questions in the [online response form](https://forms.gle/kHZ71u12kDfrTd2f8).
 {: .objectives}
 
 # Exercise 15 - Analyzing MiniAOD with an EDAnalyzer
@@ -67,7 +67,7 @@ In this exercise we will analyze the skimmed [MiniAODs][miniaod] created in the 
 > ```
 {: .solution}
 
-First we will add the [PhysicsTools](https://twiki.cern.ch/twiki/bin/view/CMS/PhysicsTools)/PatExamples package as follows to `<YOURWORKINGAREA>/CMSSW_10_6_18/src`. As always, feel free to use whatever path you'd like in place of `<YOURWORKINGAREA>`. The `PatExamples` package has lot of examples for a user to try. However, we will add our own code and config file to it and then compile. To add this package, do this:
+First we will add the [PhysicsTools](https://twiki.cern.ch/twiki/bin/view/CMS/PhysicsTools)/PatExamples package as follows to `<YOURWORKINGAREA>/CMSSW_10_6_18/src`. The `PatExamples` package has lot of examples for a user to try. However, we will add our own code and config file to it and then compile. To add this package, do this:
 
 ```shell
 cd $CMSSW_BASE/src/
@@ -75,9 +75,22 @@ git cms-addpkg PhysicsTools/PatExamples
 ```
 {: .source}
 
+> ## Note
+> We are assuming that you've already checked out a CMSSW_10_6_18 release and have performed the `cmsenv` setup command.
+{: .callout}
+
 In this package, you will find the python configuration file `$CMSSW_BASE/src/PhysicsTools/PatExamples/test/analyzePatBasics_cfg.py`. You will also see the EDAnalyzer in `$CMSSW_BASE/src/PhysicsTools/PatExamples/plugins/PatBasicAnalyzer.cc`.
 
-Next, create the following two files (copy, paste, and save): [$CMSSW_BASE/src/PhysicsTools/PatExamples/src/MyZPeakAnalyzer.cc]({{ page.root }}{% link code/MyZPeakAnalyzer-CMSSW_10_6_18.cc %}) and [$CMSSW_BASE/src/MyZPeak_cfg.py]({{ page.root }}{% link code/MyZPeak_cfg.py %}).
+Next, create the following two files (download/save): [$CMSSW_BASE/src/PhysicsTools/PatExamples/src/MyZPeakAnalyzer.cc]({{ page.root }}{% link code/MyZPeakAnalyzer-CMSSW_10_6_18.cc %}) and [$CMSSW_BASE/src/MyZPeak_cfg.py]({{ page.root }}{% link code/MyZPeak_cfg.py %}).
+
+> ## Hint
+> A quick way to do this on Linux, or any machine with `wget`, is by using the following commands:
+> ~~~shell
+> wget https://fnallpc.github.io/cms-das-pre-exercises/code/MyZPeakAnalyzer-CMSSW_10_6_18.cc -O $CMSSW_BASE/src/PhysicsTools/PatExamples/src/MyZPeakAnalyzer.cc
+> wget https://fnallpc.github.io/cms-das-pre-exercises/code/MyZPeak_cfg.py -O $CMSSW_BASE/src/MyZPeak_cfg.py
+> ~~~
+> {: .source}
+{: .callout}
 
 Then we will compile the code that you just saved by doing:
 
