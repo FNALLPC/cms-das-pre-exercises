@@ -200,7 +200,7 @@ The environment variable CMSSW_BASE will point to the base area of current CMSSW
 
 Check out a package from [GitHub](https://github.com/).
 
-Make sure that you get github setup properly as in obtain a GitHub account. It's particularly important to set up ssh keys so that you can check out code without problems: [https://help.github.com/articles/generating-ssh-keys](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh)
+Make sure that you get github setup properly as in [obtain a GitHub account]({{ page.root }}{% link setup.md %}#obtain-a-github-account). It's particularly important to set up ssh keys so that you can check out code without problems: [https://help.github.com/articles/generating-ssh-keys](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh)
 
 To check out the package, run:
 
@@ -233,6 +233,7 @@ To make a Z peak, we will use the FWLite executable called `FWLiteHistograms`. T
 With this executable we will use the command line options. More about these can be learned from [SWGuideCommandLineParsing](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideCommandLineParsing?redirectedfrom=CMS.SWGuideCommandLineParsing).
 
 To make a `ZPeak` from this executable, using the MC [MiniAOD](https://twiki.cern.ch/twiki/bin/view/CMS/MiniAOD), run the following command (which will not work out of the box, see below): 
+
 
 {% include links.md %}
 
