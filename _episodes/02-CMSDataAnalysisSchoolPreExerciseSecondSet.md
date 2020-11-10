@@ -34,35 +34,6 @@ The MC file is called **DYJetsToLL**. You will need to get used to cryptic names
 
 **We assume that having done the first set of pre-exercises by now, one is comfortable with logging onto** `cmslpc-sl7.fnal.gov` **and setting up the cms environment.**
 
-# Support
-
-## Support email
-A large amount of additional information about these exercises is available in the twikis that we reference. Please remember that twikis evolve but aim to provide with the best information at any given time. If problems are encountered please e-mail the -
-
-> ## Email
-> **LPC contact** `CMSDASATLPC@fnal.gov` for CMSDAS@LPC{{site.year}}
-{: .callout}
-
-## Support chat: Mattermost
-There is a dedicated Mattermost team, called CMSDAS@LPC2021, setup to facilitate communication and discussions via live chat (which is also archived). You will need your CERN login credentials (SSO) and you will need to join the private CMSDAS@LPC{{site.year}} team in order to be able to see (or find using the search channels functionality) the channels setup for communications related to the school.
-
-> ## Mattermost
-> [CMSDAS@LPC{{site.year}} team](https://mattermost.web.cern.ch/signup_user_complete/?id=dshu1agmwpd4dqxw49ij8wcuec)
-{: .callout}
-
-> ## Pre-Exercise Channel
->[Pre Exercise channel](https://mattermost.web.cern.ch/cmsdaslpc2021/channels/preexercises)
-{: .callout}
-
-# Obtain a CERN account (in case you don't have one already)
-Use the following link for a CMS CERN account: [CMS CERN account](https://account.cern.ch/account/Management/NewAccount.aspx)
-A CERN account is needed, for example, to login in to any e-learning web-site, or obtain a file from the afs area. A CERN account will be needed for future exercises.
-**Obtaining a CERN account can be time-consuming and requires people at CERN to process applications during business hours. The relevant institutional team leader must start the CERN account request. Try to initiate this process as early as possible.**
-
-#  Obtain a Grid Certificate and CMS VO registration
-A Grid Certificate and CMS VO registration will be needed for the Grid Exercises. The registration process can be time-consuming (actions by several people are required), so it is important to start it as soon as possible. There are two main requirements which can be simply summarized: A certificate ensures that you are who you claim to be. A registration in the VO recognizes you (identified by your certificate) as a member of CMS. Use the following link for this: [Get Your Grid Certificate and CMSVO](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookRunningGrid#GetCert). Both are needed to submit jobs on the Grid. Make sure you follow any additional instructions for US-CMS users.
-
-
 # Exercise 7 - Slim MiniAOD sample to reduce its size by keeping only Muon and Electron branches
 In order to reduce the size of the [MiniAOD](https://twiki.cern.ch/twiki/bin/view/CMS/MiniAOD) we would like to keep only the slimmedMuons and slimmedElectrons objects and drop all others. The config files should now look like [slimMiniAOD_MC_MuEle_cfg.py]({{ page.root }}{% link code/slimMiniAOD_MC_MuEle_cfg.py %}) and [slimMiniAOD_data_MuEle_cfg.py]({{ page.root}}{% link code/slimMiniAOD_data_MuEle_cfg.py %}). To work with this config file and make the slim MiniAOD, execute the following steps in the directory `YOURWORKINGAREA/CMSSW_10_6_18/src`
 
