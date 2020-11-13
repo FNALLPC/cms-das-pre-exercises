@@ -62,6 +62,10 @@ In order to checkout and develop CMS software, you will need a github account, w
 
 To install Docker Community Edition on your Linux, Mac, or Windows 10 (Pro, Enterprise, and Education) machine follow the [instructions in the Docker docs](https://docs.docker.com/get-docker/). If you are using Windows 10 Home you will need to follow [this Docker doc](https://docs.docker.com/docker-for-windows/install-windows-home/). Fair warning, the Windows 10 Home installation is more involved and requires Windows Subsystem for Linux 2 (WSL2), among other intricacies.
 
+## Windows specific setup
+
+If you would like to use cygwin, you will need to install [winpty](https://github.com/rprichard/winpty) and prefix your docker command like `winpty docker`.
+
 ## Docker Hub
 
 To sign up for Docker Hub, follow the instructions [here](https://hub.docker.com/signup).
