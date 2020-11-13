@@ -454,7 +454,7 @@ Please note that the files used in the following are from older releases, but th
 
 The Z to dimoun MC file `root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root` is made in `CMSSW_7_3_0_pre1` release and the datafile `root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_Data_706_MiniAOD.root` made from the collisions dataskim **/DoubleMu/CMSSW_7_0_6-GR_70_V2_AN1_RelVal_zMu2011A-v1/MINIAOD**.
 
-In your working directory, try to open the root file r`oot://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root`. Begin by opening ROOT:
+In your working directory, try to open the root file `root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root`. Begin by opening ROOT:
 
 ```shell
 root -l
