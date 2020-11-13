@@ -768,7 +768,7 @@ Hello World!
 You will notice that the startup time for the container is significantly reduced.
 
 > ## Question 24.1
-> What is the size of the singularity sandbox?
+> What is the size of the singularity sandbox? **Hint:** Use the command `du -hs <sandbox>`.
 {: .challenge}
 
 {% include links.md %}
