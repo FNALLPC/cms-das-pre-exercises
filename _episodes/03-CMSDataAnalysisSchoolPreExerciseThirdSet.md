@@ -136,7 +136,7 @@ git cms-init
 {: .source}
 
 
-After setting up the CMSSW environment via cmsenv, you'll have access to the latest version of CRAB. It is possible to use CRAB from any directory after setup. One can check that the crab command is indeed available and the version being used by executing:
+After setting up the CMSSW environment via `cmsenv`, you'll have access to the latest version of CRAB. It is possible to use CRAB from any directory after setup. One can check that the crab command is indeed available and the version being used by executing:
 
 ```shell
 which crab
