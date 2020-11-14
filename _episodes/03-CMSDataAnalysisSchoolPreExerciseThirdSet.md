@@ -136,15 +136,7 @@ git cms-init
 {: .source}
 
 
-Now setup crab:
-
-```shell
-source /cvmfs/cms.cern.ch/crab3/crab.sh   # for bash
-#source /cvmfs/cms.cern.ch/crab3/crab.csh   # for c-shells
-```
-{: .source}
-
-This script always points to the latest version of CRAB. After sourcing this script, it is possible to use CRAB from any directory. One can check that the crab command is indeed available and the version being used by executing:
+After setting up the CMSSW environment via cmsenv, you'll have access to the latest version of CRAB. It is possible to use CRAB from any directory after setup. One can check that the crab command is indeed available and the version being used by executing:
 
 ```shell
 which crab
