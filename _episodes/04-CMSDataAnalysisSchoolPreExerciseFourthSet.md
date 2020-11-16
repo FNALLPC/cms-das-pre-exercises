@@ -179,7 +179,7 @@ scram b -j 4
 You should see among the output a line like the one below. If not, it is probable that you haven't compiled the code on which we are working.
 
 ```
->> Compiling  /your_path/YOURWORKINGAREA/CMSSW_10_6_4/src/PhysicsTools/FWLite/bin/FWLiteWithPythonConfig.cc
+>> Compiling  /your_path/YOURWORKINGAREA/CMSSW_10_6_18/src/PhysicsTools/FWLite/bin/FWLiteWithPythonConfig.cc
 ```
 {: .output}
 

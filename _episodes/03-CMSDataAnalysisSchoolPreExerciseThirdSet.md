@@ -116,7 +116,7 @@ The most recent CRAB3 tutorial is always in the [WorkBook](https://twiki.cern.ch
 
 ## Setup CRAB
 
-In this exercise, we will use `CMSSW_10_6_4`.
+In this exercise, we will use `CMSSW_10_6_18`.
 
 You can follow the same instructions from [Exercise 3]({{ page.root }}{% link _episodes/01-CMSDataAnalysisSchoolPreExerciseFirstSet.md %}#exercise-3---setup-a-cmssw-release-area). The instructions are reproduced here:
 
@@ -128,8 +128,8 @@ export SCRAM_ARCH=slc7_amd64_gcc700
 setenv SCRAM_ARCH slc7_amd64_gcc700
 ###
 
-cmsrel CMSSW_10_6_4
-cd CMSSW_10_6_4/src
+cmsrel CMSSW_10_6_18
+cd CMSSW_10_6_18/src
 cmsenv
 git cms-init
 ```
@@ -661,7 +661,7 @@ Below you also find the file:
 > config.Site.storageSite = 'T3_US_FNALLPC'
 > ```
 {: .solution}
-Put the copy of  `crabConfig_MC_generation.py` under `YOURWORKINGAREA/CMSSW_10_6_4/src`. 
+Put the copy of  `crabConfig_MC_generation.py` under `YOURWORKINGAREA/CMSSW_10_6_18/src`. 
 
 
 All available CRAB configuration parameters are defined at [CRAB3Configuration](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookCRAB3Tutorial#CRAB_configuration_file).
@@ -690,7 +690,7 @@ Log file is /uscms_data/d3/haweber/cmsdaspre/crab_projects/crab_CMSDAS_MC_genera
 ```
 {: .output}
 
- Now you might notice a directory called `crab_projects` is created under `CMSSW_10_6_4/src/`. *See what is under that directory.* After you submitted the job successfully (give it a few moments), you can check the status of a task by executing the following CRAB command: 
+ Now you might notice a directory called `crab_projects` is created under `CMSSW_10_6_18/src/`. *See what is under that directory.* After you submitted the job successfully (give it a few moments), you can check the status of a task by executing the following CRAB command: 
  
  ```shell
  crab status [-t] <CRAB-project-directory>
@@ -756,11 +756,11 @@ From the bottom of the output, you can see the name of the dataset and the DAS l
 
 # Exercise 13 - Running on a dataset with CRAB
 
-Now we're going to apply what you've learned using CRAB to the `MiniAOD` exercises you've been working on in the first two sets of exercises. Make sure that you finished and still have the scripts from [Exercise 7]({{ page.root }}{% link _episodes/02-CMSDataAnalysisSchoolPreExerciseSecondSet.md %}#exercise-7---slim-miniaod-sample-to-reduce-its-size-by-keeping-only-muon-and-electron-branches) under the `YOURWORKINGAREA/CMSSW_10_6_4/src`.
+Now we're going to apply what you've learned using CRAB to the `MiniAOD` exercises you've been working on in the first two sets of exercises. Make sure that you finished and still have the scripts from [Exercise 7]({{ page.root }}{% link _episodes/02-CMSDataAnalysisSchoolPreExerciseSecondSet.md %}#exercise-7---slim-miniaod-sample-to-reduce-its-size-by-keeping-only-muon-and-electron-branches) under the `YOURWORKINGAREA/CMSSW_10_6_18/src`.
 
 ##  Set up CRAB to run your MiniAOD jobs 
 
-If you forget, go back to the `YOURWORKINGAREA/CMSSW_10_6_4/src` and setup crab.
+If you forget, go back to the `YOURWORKINGAREA/CMSSW_10_6_18/src` and setup crab.
 
 ```shell
 source /cvmfs/cms.cern.ch/crab3/crab.sh
