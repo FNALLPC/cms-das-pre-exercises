@@ -147,7 +147,7 @@ This block displays the date and links to Google Calendar.
 <p id="when">
   <strong>When:</strong>
   {{page.humandate}}.
-  {% include workshop_calendar.html %}
+  <!--{% include workshop_calendar.html %}-->
 </p>
 {% endif %}
 
@@ -220,6 +220,10 @@ special instructions.
    {% endfor %}
 </p>
 
+<p id="chat">
+   <strong>Mattermost:</strong> The <a href="https://mattermost.web.cern.ch/cmsdaslpc{{ site.year }}/channels/preexercises">PreExercises</a> channel will be available once you join the CMSDAS@LPC {{ site.year }} team. Direction for how to join this Mattermost team can be found on the <a href="setup.html">setup</a> page.
+</p>
+
 {% comment %}
 CONTACT EMAIL ADDRESS
 
@@ -243,10 +247,6 @@ Display the contact email address set in the configuration file.
   to-be-announced
   {% endif %}
   for more information or assistance.
-</p>
-
-<p id="chat">
-   <strong>Mattermost:</strong> The <a href="https://mattermost.web.cern.ch/cmsdaslpc{{ site.year }}/channels/preexercises">PreExercises</a> channel will be available once you join the CMSDAS@LPC {{ site.year }} team. Direction for how to join this Mattermost team can be found on the <a href="setup.html">setup</a> page.
 </p>
 
 {% comment %}
