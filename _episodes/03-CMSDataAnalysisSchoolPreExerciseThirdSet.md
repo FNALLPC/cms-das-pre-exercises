@@ -944,7 +944,7 @@ cd .local/bin/
 
 if the above does not work, try instead:
 
-./brilcalc lumi -b "STABLE BEAMS" --normtag --normtag /afs/cern.ch/user/l/lumipro/public/Normtags/normtag_DATACERT.json -i processedLumis.json -c /cvmfs/cms.cern.ch/SITECONF/T0_CH_CERN/JobConfig/site-local-config.xml -u /fb
+./brilcalc lumi -b "STABLE BEAMS" --normtag /afs/cern.ch/user/l/lumipro/public/Normtags/normtag_DATACERT.json -i processedLumis.json -c /cvmfs/cms.cern.ch/SITECONF/T0_CH_CERN/JobConfig/site-local-config.xml -u /fb
 ```
 
  The end of the output should look similar to this (note this example summary is for a different json file): 
