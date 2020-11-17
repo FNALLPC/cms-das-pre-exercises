@@ -378,10 +378,10 @@ vector<pat::Muon>                     "slimmedMuons"   ""        "RECO"         
 
 The output of `edmDumpEventContent` has information divided into four variable width columns. The first column is the C++ class type of the data, the second is module label, the third is product instance label, and the fourth is the process name. More information is available at [Identifying Data in the Event](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookCMSSWFramework#ModularEvtContent).
 
-Instead of the above, try without the option `--regex slimmedMuons`. This will dump the entire event content - a file with many lines. For this reason we'll send the output to a file called `EdmDumpEventContent.txt` with a UNIX pipe command:
+Instead of the above, try without the option `--regex slimmedMuons`. This will dump the entire event content - a file with many lines. For this reason we'll send the output to a file called `EdmDumpEventContent.txt` with a UNIX output redirection command (then you can inspect the file with your favorite editor or with `less EdmDumpEventContent.txt`:
 
 ```shell
-edmDumpEventContent root://cmsxrootd-site.fnal.gov//store/relval/CMSSW_10_6_14/RelValZMM_13/MINIAODSIM/106X_mc2017_realistic_v7-v1/10000/0EB976F4-F84B-814D-88DA-CB2C29A52D72.root
+edmDumpEventContent root://cmsxrootd-site.fnal.gov//store/relval/CMSSW_10_6_14/RelValZMM_13/MINIAODSIM/106X_mc2017_realistic_v7-v1/10000/0EB976F4-F84B-814D-88DA-CB2C29A52D72.root > EdmDumpEventContent.txt
 ```
 {: .source}
 
