@@ -114,7 +114,7 @@ cp ~cmsdas/editThisCommand.py .
 ```
 {: .source}
 
-Then open `editThisCommand.py` with your favorite editor (e.g. `emacs -nw editThisCommand.py`) and make sure that the 11th line has `#`` (hash character) as the first character of the line. If not, explicitly change the following three lines:
+Then open `editThisCommand.py` with your favorite editor (e.g. `emacs -nw editThisCommand.py`) and make sure that the 11th line has `#` (hash character) as the first character of the line. If not, explicitly change the following three lines:
 
 ```python
 # Please comment the line below out by adding a '#' to the front of
