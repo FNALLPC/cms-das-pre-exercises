@@ -11,7 +11,7 @@ objectives:
 - "Understand how to setup a CMSSW release."
 - "Know how to find a CMS dataset."
 - "Know how to use the EDM utilities to find information about a dataset."
-- "Become failiar with the MiniAOD format."
+- "Become familiar with the MiniAOD format."
 keypoints:
 - "Setting up CMSSW requires some environment setup and the `cmsrel` command."
 - "You can use the web portal for DAS or the dasgoclient to find information about a given dataset."
