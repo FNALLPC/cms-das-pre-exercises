@@ -312,7 +312,7 @@ The query we're interested in is: **/DoubleMuon/Run2018A-12Nov2019_UL2018-v2/MIN
 **Note:** For **cmslpc-sl7** at the LPC at Fermilab you will need to init your Grid proxy beforehand:
 
 ```shell
-voms-proxy-init --voms cms
+voms-proxy-init --valid 192:00 --voms cms
 ```
 {: .source}
 
