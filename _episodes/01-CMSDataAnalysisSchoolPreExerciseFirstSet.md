@@ -43,7 +43,7 @@ kinit <YourUsername>@FNAL.GOV
 ```
 {: .source}
 
-replacing `<YourUsername>` with your actual username. Then enter the kerberos principle password for your account. Next, connect to the cluster using the command:
+replacing `<YourUsername>` with your actual username. Then enter the kerberos principal password for your account. Next, connect to the cluster using the command:
 ```shell
 ssh -Y <YourUsername>@cmslpc-sl7.fnal.gov
 ```
