@@ -232,7 +232,7 @@ echo $CMSSW_BASE
 {: .source}
 
 > ## Question 3
-> Paste the result of executing the above command in the form.
+> Paste the result of executing the above command (`echo $CMSSW_BASE`) in the form provided.
 {: .challenge}
 
 > ## Note
@@ -265,7 +265,7 @@ This will search for datasets, processed with release `CMSSW_10_6_14`, which is 
 For this query, several results should be displayed (you may be queried for security exceptions in the process). Select (click) on the dataset name **/RelValZMM_13/CMSSW_10_6_14-106X_mc2017_realistic_v7-v1/MINIAODSIM** and after a few seconds another page will appear.
 
 > ## Question 4.1a
-> What is the size of this dataset in MB? Make sure your answer is only numerical (no units)
+> What is the size of this (/RelValZMM_13/CMSSW_10_6_14-106X_mc2017_realistic_v7-v1/MINIAODSIM)dataset in MB? Make sure your answer is only numerical (no units)
 {: .challenge}
 
 > ## Question 4.1b
@@ -386,7 +386,7 @@ edmDumpEventContent root://cmsxrootd-site.fnal.gov//store/relval/CMSSW_10_6_14/R
 {: .source}
 
 > ## Question 5.1a
-> How many modules produce products of type *vector*?
+> How many modules produce products of type *vector* in this particular MiniAOD file?
 > 
 > **Note:** We mean a plain `std::vector`, not a `BXVector` or any other type.
 {: .challenge}
@@ -426,13 +426,13 @@ edmEventSize -v `edmFileUtil -d /store/relval/CMSSW_10_6_14/RelValZMM_13/MINIAOD
 {: .source}
 
 > ## Question 5.3
-> What is the number of events if you execute the command at cmslpc-sl7?
+> What is the number of events processed (contained in this file) if you execute the edmEventSize command at cmslpc-sl7?
 {: .challenge}
 
 Open and look at file *EdmEventSize.txt* and locate the line containing the text `patJets_slimmedJetsPuppi__RECO`. There are two numbers following this text that measure the plain and the compressed size of this branch.
 
 > ## Question 5.4
-> What are these two numbers?
+> What are the plain and compressed size numbers for the branch `patJets_slimmedJetsPuppi__RECO` in this file?
 {: .challenge}
 
 # Exercise 6 - Get familiar with the MiniAOD format
