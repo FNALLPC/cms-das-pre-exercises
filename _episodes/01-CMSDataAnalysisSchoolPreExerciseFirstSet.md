@@ -157,7 +157,7 @@ RuntimeError: You need to comment out this line with a #
 {: .output}
 
 > ## Question 2
-> Paste the line beginning with "success" into the form provided.
+> Paste the line beginning with "success", resulting from the execution of `./editThisCommand.py`, into the form provided.
 {: .challenge}
 
 # Exercise 3 - Setup a CMSSW release area
