@@ -52,7 +52,7 @@ void FitZPeak(bool save = false, vector<string> formats = {".eps"}){
    TF1 *func = new TF1("mybw",mybw,massMIN, massMAX,3);
    func->SetParameter(0,1.0);   func->SetParName(0,"const");
    func->SetParameter(2,5.0);     func->SetParName(1,"sigma");
-   func->SetParameter(1,95.0);    func->SetParName(2,"mean");
+   func->SetParameter(1,94.0);    func->SetParName(2,"mean");
    
    Z_mass->Fit("mybw","QR");
    TF1 *fit = Z_mass->GetFunction("mybw");
