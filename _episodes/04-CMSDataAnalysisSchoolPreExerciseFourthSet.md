@@ -96,7 +96,7 @@ Then we will compile the code that you just saved by doing:
 
 ```shell
 cd $CMSSW_BASE/src/
-scram b -j 4
+scram b
 ```
 {: .source}
 
