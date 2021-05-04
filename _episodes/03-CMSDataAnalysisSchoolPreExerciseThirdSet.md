@@ -789,7 +789,7 @@ We will make another CRAB config file: `crabConfig_data_slimMiniAOD.py`. Copy it
 > config.Data.inputDBS = 'global'
 > config.Data.splitting = 'LumiBased'
 > config.Data.unitsPerJob = 50
-> config.Data.lumiMask = 'https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions16/13TeV/Cert_271036-275783_13TeV_PromptReco_Collisions16_JSON.txt'
+> config.Data.lumiMask = 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions16/13TeV/Cert_271036-275783_13TeV_PromptReco_Collisions16_JSON.txt'
 > config.Data.runRange = '275776-275782'
 >
 > config.section_("Site")
