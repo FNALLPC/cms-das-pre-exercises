@@ -762,7 +762,8 @@ Now we're going to apply what you've learned using CRAB to the `MiniAOD` exercis
 
 If you forget, go back to the `YOURWORKINGAREA/CMSSW_10_6_18/src` and setup crab.
 
-```cmsenv
+```shell
+cmsenv
 ```
 {: .source}
 
