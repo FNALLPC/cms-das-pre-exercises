@@ -187,10 +187,10 @@ Proceed with the creation of a working area (called YOURWORKINGAREA in the follo
 cd ~/nobackup
 mkdir YOURWORKINGAREA
 cd YOURWORKINGAREA
-### If you are using the default tcsh shell (or csh shell)
-setenv SCRAM_ARCH slc7_amd64_gcc700 
-### Alternatively, If you are using Bash shell 
+### If you are using Bash shell 
 export SCRAM_ARCH=slc7_amd64_gcc700
+### Alternatively, If you are using the default tcsh shell (or csh shell)
+setenv SCRAM_ARCH slc7_amd64_gcc700 
 cmsrel CMSSW_10_6_18
 cd CMSSW_10_6_18/src
 cmsenv
