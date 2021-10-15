@@ -28,16 +28,16 @@ For CMSDAS@LPC {{ site.year }}, you may e-mail [cmsdasatlpc@fnal.gov](mailto:cms
 
 # Obtain a Computer Account
 
-To get a CERN account, please have a look at [Get Account at CERN](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookGetAccount). Obtaining a CERN account can be time-consuming and requires response from people at CERN during CERN business hours. CERN is closed Dec. 19, 2020 - Jan. 3, 2021. CERN account application starts with the institutional team leader filling out a pre-registration form, so your institutional team leader also needs to be available for this task.
+To get a CERN account, please have a look at [Get Account at CERN](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookGetAccount). Obtaining a CERN account can be time-consuming and requires response from people at CERN during CERN business hours. CERN is closed Dec. 22, 2021 - Jan. 4, 2022. CERN account application starts with the institutional team leader filling out a pre-registration form, so your institutional team leader also needs to be available for this task.
 
 > ## Site specific instructions
->   * [LPC/Fermilab](http://www.uscms.org/uscms_at_work/computing/getstarted/getaccount_fermilab.shtml) - this can take some time and also requires people to be available to approve accounts, start the request early! 
+>   * [LPC/Fermilab](http://www.uscms.org/uscms_at_work/computing/getstarted/getaccount_fermilab.shtml) - this can take some time (up to 4-6 weeks!) and also requires people to be available to approve accounts, start the request early! 
 >     * [Configure your laptop to connect to the cmslpc-sl7 LPC UAF cluster at Fermilab](http://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml)
->     * [Windows Kerberos at FNAL]https://fermi.servicenowservices.com/wp/?id=evg-kb-article&sys_id=701fe5b96fe4ed0032544d1fde3ee434)
+>     * [Windows Kerberos at FNAL](https://fermi.servicenowservices.com/wp/?id=kb_article&sysparm_article=KB0011316)
 {: .callout}
 
 Here are some additional links in case you are using Windows:
-  * [Hints for setting up Cygwin](http://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml#windowsXServers)
+  * [Hints for setting up Cygwin - preferred](http://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml#windowsXServers)
   * How to install and configure [PuTTy](http://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml#windowsKerberosPuTTY)
 
 > ## Warning
