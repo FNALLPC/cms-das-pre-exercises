@@ -506,7 +506,7 @@ In this window click on `ROOT Files` on the left menu and now the window looks l
 
 <img align="center" src="../fig/MiniAOD_View2.png" alt="TBrowser 'ROOT Files' view" style="width:600px">
 
-Double-click on the ROOT file you opened: `root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root`, then `Events`, then scroll down and click `patMuons_slimmedMuons__PAT` (or the little + that appears next to it), and then `patMuons_slimmedMuons__PAT.obj`. A window appears that looks like this:
+Double-click on the ROOT file you opened: `root://cmseos.fnal.gov//store/user/cmsdas/2022/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root`, then `Events`, then scroll down and click `patMuons_slimmedMuons__PAT` (or the little + that appears next to it), and then `patMuons_slimmedMuons__PAT.obj`. A window appears that looks like this:
 
 <img align="center" src="../fig/MiniAOD_View3.png" alt="TBrowser slimmedMuons view" style="width:600px">
 
