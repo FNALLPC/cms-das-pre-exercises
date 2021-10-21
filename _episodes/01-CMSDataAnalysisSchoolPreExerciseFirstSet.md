@@ -20,7 +20,7 @@ keypoints:
 
 # Introduction
 
-Welcome to the first set of CMS Data Analysis School (CMSDAS) pre-exercises. The purpose of these exercises is to become familiar with the basic software tools required to perform physics analysis at the school. Please run and complete these exercises. Throughout the exercises there will be questions for you to answer. Submit your answers in the online response form available from **the course web area** - For CMSDAS@LPC {{ site.year }}, Fermilab, the complete set of links can be found at the [CMSDAS pre-exercises indico page](https://indico.cern.ch/event/966368/). A large amount of additional information about these exercises is available in the twikis that we reference. Please remember that twikis evolve but aim to provide the best information at any time.
+Welcome to the first set of CMS Data Analysis School (CMSDAS) pre-exercises. The purpose of these exercises is to become familiar with the basic software tools required to perform physics analysis at the school. Please run and complete these exercises. Throughout the exercises there will be questions for you to answer. Submit your answers in the online response form available from **the course web area** - For CMSDAS@LPC {{ site.year }}, Fermilab, the complete set of links can be found at the [CMSDAS pre-exercises indico page](https://indico.cern.ch/e/cmsdas2022). A large amount of additional information about these exercises is available in the twikis that we reference. Please remember that twikis evolve but aim to provide the best information at any time.
 
 > ## Note
 > The CMSDAS exercises (pre-exercises as well as exercises during the school) are intended to be as generic as possible. However, CMSDAS is held at different CMS collaborating institutes - e.g. the LPC at Fermilab, DESY, etc.) Participants are expected to **request and obtain local (at the intended school location) computer accounts** well in advance of the school start date, to ensure they will be able to work right away. It is very important for participants to use the pre-exercises as a setup tool, so we recommend for everyone to **use the same laptop they intend to bring with them at the school** (NO computer/laptop will be provided at the school), and to **connect to the local computing resources that will be used for the school**. In most cases laptops will need to be registered to be used in the local school network, so please make sure you take care of this aspect too. 
@@ -452,9 +452,9 @@ The main contents of the MiniAOD are:
 
 Please note that the files used in the following are from older releases, but they still illustrate the points they intended to. To avoid the fact that RelVal files (produced to validate new release in the rapid CMSSW development cycle) become unavailable on a short (month) timescale, a small set of files have been copied to the LPC EOS storage. They are available at `root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/`.
 
-The Z to dimoun MC file `root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root` is made in `CMSSW_7_3_0_pre1` release and the datafile `root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_Data_706_MiniAOD.root` made from the collisions dataskim **/DoubleMu/CMSSW_7_0_6-GR_70_V2_AN1_RelVal_zMu2011A-v1/MINIAOD**.
+The Z to dimoun MC file `root://cmseos.fnal.gov//store/user/cmsdas/2022/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root` is made in `CMSSW_7_3_0_pre1` release and the datafile `root://cmseos.fnal.gov//store/user/cmsdas/2022/pre_exercises/Set1/CMSDataAnaSch_Data_706_MiniAOD.root` made from the collisions dataskim **/DoubleMu/CMSSW_7_0_6-GR_70_V2_AN1_RelVal_zMu2011A-v1/MINIAOD**.
 
-In your working directory, try to open the root file `root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root`. Begin by opening ROOT:
+In your working directory, try to open the root file `root://cmseos.fnal.gov//store/user/cmsdas/2022/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root`. Begin by opening ROOT:
 
 ```shell
 root -l
@@ -474,7 +474,7 @@ gSystem->Load("libDataFormatsFWLite.so");
 gROOT->SetStyle ("Plain");
 gStyle->SetOptStat(111111);
 
-TFile *theFile = TFile::Open("root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root");
+TFile *theFile = TFile::Open("root://cmseos.fnal.gov//store/user/cmsdas/20212/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root");
 
 TBrowser b;
 ```
@@ -515,14 +515,14 @@ Scroll a long way down the file (not too fast) and click on `pt()`. A PAT Muon P
 <img align="center" src="../fig/MiniAOD_View4.png" alt="TBrowser slimmedMuons pt() view" style="width:600px">
 
 > ## Question 6.1
-> What is the mean value of the muon pt for this file (`root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root`)?
+> What is the mean value of the muon pt for this file (`root://cmseos.fnal.gov//store/user/cmsdas/2022/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root`)?
 {: .challenge}
 
 > ## Note
 > To exit ROOT simply type `.q` in the command line.
 {: .callout}
 
-Now open the data file `root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_Data_706_MiniAOD.root`. Similarly run the following command, and answer the following question:
+Now open the data file `root://cmseos.fnal.gov//store/user/cmsdas/2022/pre_exercises/Set1/CMSDataAnaSch_Data_706_MiniAOD.root`. Similarly run the following command, and answer the following question:
 
 ```shell
 root -l
@@ -538,7 +538,7 @@ gSystem->Load("libDataFormatsFWLite.so");
 gROOT->SetStyle ("Plain");
 gStyle->SetOptStat(111111);
 
-TFile *theFile = TFile::Open("root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_Data_706_MiniAOD.root");
+TFile *theFile = TFile::Open("root://cmseos.fnal.gov//store/user/cmsdas/2022/pre_exercises/Set1/CMSDataAnaSch_Data_706_MiniAOD.root");
 
 TBrowser b;
 ```
@@ -555,7 +555,7 @@ TBrowser b;
 > Rather than using the TBrowser, you can perform the drawing action using ROOT interpreter. An example is shown below:
 > 
 > ~~~
-> root -l root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root
+> root -l root://cmseos.fnal.gov//store/user/cmsdas/2022/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root
 > Events->Draw("patMuons_slimmedMuons__PAT.obj.pt()")
 > ~~~
 > {: .source}
