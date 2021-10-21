@@ -450,7 +450,7 @@ The main contents of the MiniAOD are:
   - **MC Truth information:** a subset of the genParticles enough to describe the hard scattering process, jet flavour information, and final state leptons and photons; GenJets with pT > 8 GeV are also stored, and so are the other mc summary information (e.g event weight, LHE header, PDF, PU information). In addition, all the stable genParticles with mc status code 1 are also saved, to allow reclustering of GenJets with different algorithms and substructure studies.
   - **Trigger information:** MiniAOD contains the trigger bits associated to all paths, and all the trigger objects that have contributed to firing at least one filter within the trigger. In addition, we store all objects reconstructed at L1 and the L1 global trigger summary, and the prescale values of all the triggers.
 
-Please note that the files used in the following are from older releases, but they still illustrate the points they intended to. To avoid the fact that RelVal files (produced to validate new release in the rapid CMSSW development cycle) become unavailable on a short (month) timescale, a small set of files have been copied to the LPC EOS storage. They are available at `root://cmseos.fnal.gov//store/user/cmsdas/2021/pre_exercises/Set1/`.
+Please note that the files used in the following are from older releases, but they still illustrate the points they intended to. To avoid the fact that RelVal files (produced to validate new release in the rapid CMSSW development cycle) become unavailable on a short (month) timescale, a small set of files have been copied to the LPC EOS storage. They are available at `root://cmseos.fnal.gov//store/user/cmsdas/2022/pre_exercises/Set1/`.
 
 The Z to dimoun MC file `root://cmseos.fnal.gov//store/user/cmsdas/2022/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root` is made in `CMSSW_7_3_0_pre1` release and the datafile `root://cmseos.fnal.gov//store/user/cmsdas/2022/pre_exercises/Set1/CMSDataAnaSch_Data_706_MiniAOD.root` made from the collisions dataskim **/DoubleMu/CMSSW_7_0_6-GR_70_V2_AN1_RelVal_zMu2011A-v1/MINIAOD**.
 
@@ -474,7 +474,7 @@ gSystem->Load("libDataFormatsFWLite.so");
 gROOT->SetStyle ("Plain");
 gStyle->SetOptStat(111111);
 
-TFile *theFile = TFile::Open("root://cmseos.fnal.gov//store/user/cmsdas/20212/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root");
+TFile *theFile = TFile::Open("root://cmseos.fnal.gov//store/user/cmsdas/2022/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root");
 
 TBrowser b;
 ```
