@@ -26,7 +26,7 @@ This exercise is intended to provide you with basic familiarity with Git and [Gi
 {: .prereq}
 
 > ## Note
-> Please post your answers to the questions in the [online response form](https://forms.gle/RoE46nE3DXwrdUnDA).
+> Please post your answers to the questions in the [Google form fifth set](https://forms.gle/NgVcm7o4CbboeKCX9).
 {: .objectives}
 
 # Exercise 18 - Learning Git and GitHub
@@ -406,7 +406,7 @@ Send a pull request to the master branch of the upstream repo (GitHATSLPC).
 > ## Question 18.1
 > Post the link to your pull request.
 > 
-> For CMSDAS@LPC {{ site.year }} please submit your answer at the [Google Form fifth set](https://forms.gle/RoE46nE3DXwrdUnDA).
+> For CMSDAS@LPC {{ site.year }} please submit your answer at the [Google Form fifth set](https://forms.gle/NgVcm7o4CbboeKCX9).
 {: .challenge}
 
 > ## Optional
