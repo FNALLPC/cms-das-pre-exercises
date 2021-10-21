@@ -23,7 +23,7 @@ keypoints:
 {: .prereq}
 
 > ## Note
-> Please post your answers to the questions in the [online response form](https://forms.gle/v6Fyeim8GYVCLCws9).
+> Please post your answers to the questions in the [Google form seventh set](https://forms.gle/kqNcbn3j3RuU8bVP6).
 {: .objectives}
 
 > ## Limitation
