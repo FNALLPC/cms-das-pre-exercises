@@ -20,7 +20,7 @@ keypoints:
 Welcome to the second set of CMSDAS pre-exercises. As you know by now, the purpose of the pre-workshop exercises is for prospective workshop attendees to become familiar with the basic software tools required to perform physics analysis at CMS before the workshop begins. Post the answers in the online response form available from the **course web area:**
 
 > ## Indico page
->[CMSDAS pre-exercises indico page](https:/indico.cern.ch/event/966368/)
+>[CMSDAS pre-exercises indico page](https://indico.cern.ch/e/cmsdas2022)
 >
 {: .callout} 
 
@@ -119,7 +119,7 @@ To quit ROOT application, execute:
 ```
 {: .source}
 
->For CMSDAS@LPC{{site.year}}  please submit your answers at the [Google Form second set](https://forms.gle/6zX8sFFkq1jGTY7B7).
+>For CMSDAS@LPC{{site.year}}  please submit your answers at the [Google Form second set](https://forms.gle/aKcUCZMNkd1H4Pgu7).
 {:.caution}
 
 > ## Question 7.1a
@@ -143,7 +143,7 @@ To quit ROOT application, execute:
 > What is the size of the slimmed output file compared to the original sample?
 {: .challenge}
 
-Compare one of your slimmed output files to the original MiniAOD file it came from. To find sizes in EOS, you can use  [`eosls -alh /store/user/filepath/filename.root`](https://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml#listFilesOnEOS) with the appropriate path and filename.
+Compare one of your slimmed output files to the original MiniAOD file it came from. To find sizes in EOS, you can use  [`eosls -alh /store/user/filepath/filename.root`](https://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml#listFilesOnEOS) with the appropriate username, path and filename.
 
 > ## Question 7.3b
 > Is the mean eta for muons for MC and data the same as in the original sample in Exercise 6?
