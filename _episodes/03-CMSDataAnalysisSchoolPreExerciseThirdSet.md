@@ -47,7 +47,7 @@ keypoints:
 
 > ## Question
 > Questions for each exercise are in boxes such as this. <br>
-For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form first set](https://forms.gle/63gJw2uvyHfHAjK77).
+For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](https://forms.gle/yQmfoKVJFk8HtcUi7).
 {: .challenge}
 
 
@@ -59,8 +59,8 @@ For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ s
 > team in order to be able to see (or find using the search
 > channels functionality) the channels setup for communications
 > related to the school. The sign-up link is
-> [here](https://mattermost.web.cern.ch/signup_user_complete/?id=kayhqykwg3fhuc7gp1j4aw941c)
-> and the Preexercises channel can be found [here]( https://mattermost.web.cern.ch/cmsdaslpc2020/channels/preexercises).
+> [here](https://mattermost.web.cern.ch/signup_user_complete/?id=d8srmhn7ut8o3egmgww6m4ofyy)
+> and the Preexercises channel can be found [here]( https://mattermost.web.cern.ch/cmsdaslpc2022/channels/preexercises).
 >
 {: .support}
 
@@ -194,26 +194,26 @@ crab checkwrite --site=T3_US_FNALLPC
 > Will use `gfal-copy`, `gfal-rm` commands for checking write permissions
 > Will check write permission in /store/user/haweber on site T3_US_FNALLPC
 > 
-> Attempting to create (dummy) directory crab3checkwrite_20201106_145207 and copy (dummy) file crab3checkwrite_20201106_145207.tmp to /store/user/haweber
+> Attempting to create (dummy) directory crab3checkwrite_20211021_145207 and copy (dummy) file crab3checkwrite_20211021_145207.tmp to /store/user/haweber
 > 
-> Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-copy -p -v -t 180 file:///uscms_data/d3/haweber/cmsdaspre/crab3checkwrite_20201106_145207.tmp 'gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20201106_145207/crab3checkwrite_20201106_145207.tmp'
+> Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-copy -p -v -t 180 file:///uscms_data/d3/haweber/cmsdaspre/crab3checkwrite_20211021_145207.tmp 'gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20211021_145207/crab3checkwrite_20211021_145207.tmp'
 > Please wait...
 > 
-> Successfully created directory crab3checkwrite_20201106_145207 and copied file crab3checkwrite_20201106_145207.tmp to /store/user/haweber
+> Successfully created directory crab3checkwrite_20211021_145207 and copied file crab3checkwrite_20211021_145207.tmp to /store/user/haweber
 > 
-> Attempting to delete file gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20201106_145207/crab3checkwrite_20201106_145207.tmp
+> Attempting to delete file gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20211021_145207/crab3checkwrite_20211021_145207.tmp
 > 
-> Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-rm -v -t 180 'gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20201106_145207/crab3checkwrite_20201106_145207.tmp'
+> Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-rm -v -t 180 'gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20211021_145207/crab3checkwrite_20211021_145207.tmp'
 > Please wait...
 > 
-> Successfully deleted file gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20201106_145207/crab3checkwrite_20201106_145207.tmp
+> Successfully deleted file gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20211106_145207/crab3checkwrite_20211021_145207.tmp
 > 
-> Attempting to delete directory gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20201106_145207/
+> Attempting to delete directory gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20211106_145207/
 > 
-> Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-rm -r -v -t 180 'gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20201106_145207/'
+> Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-rm -r -v -t 180 'gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20211106_145207/'
 > Please wait...
 > 
-> Successfully deleted directory gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20201106_145207/
+> Successfully deleted directory gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20211106_145207/
 > 
 > Checkwrite Result:
 > Success: Able to write in /store/user/haweber on site T3_US_FNALLPC
@@ -283,7 +283,7 @@ This MC generation code will then produce an EDM output file called `step1.root`
 >  |  |   P  P   Y Y     T    H   H   I    A A     This is PYTHIA version 8.240      |  | 
 >  |  |   PPP     Y      T    HHHHH   I   AAAAA    Last date of change: 20 Dec 2018  |  | 
 >  |  |   P       Y      T    H   H   I   A   A                                      |  | 
->  |  |   P       Y      T    H   H  III  A   A    Now is 06 Nov 2020 at 14:57:40    |  | 
+>  |  |   P       Y      T    H   H  III  A   A    Now is 21 Oct 2021 at 14:57:40    |  | 
 >  |  |                                                                              |  | 
 >  |  |   Christian Bierlich;  Department of Astronomy and Theoretical Physics,      |  | 
 >  |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
@@ -349,7 +349,7 @@ This MC generation code will then produce an EDM output file called `step1.root`
 >  |  |   P  P   Y Y     T    H   H   I    A A     This is PYTHIA version 8.240      |  | 
 >  |  |   PPP     Y      T    HHHHH   I   AAAAA    Last date of change: 20 Dec 2018  |  | 
 >  |  |   P       Y      T    H   H   I   A   A                                      |  | 
->  |  |   P       Y      T    H   H  III  A   A    Now is 06 Nov 2020 at 14:57:40    |  | 
+>  |  |   P       Y      T    H   H  III  A   A    Now is 21 Oct 2021 at 14:57:40    |  | 
 >  |  |                                                                              |  | 
 >  |  |   Christian Bierlich;  Department of Astronomy and Theoretical Physics,      |  | 
 >  |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
@@ -518,7 +518,7 @@ This MC generation code will then produce an EDM output file called `step1.root`
 > 
 >  --------  End PYTHIA Particle Data Table  -----------------------------------------------------------------------------------------
 > 
-> Begin processing the 1st record. Run 1, Event 1, LumiSection 1 on stream 0 at 06-Nov-2020 14:57:45.332 CST
+> Begin processing the 1st record. Run 1, Event 1, LumiSection 1 on stream 0 at 21-Oct-2021 14:57:45.332 CST
 > 
 >  --------  PYTHIA Info Listing  ---------------------------------------- 
 >  
@@ -554,15 +554,15 @@ This MC generation code will then produce an EDM output file called `step1.root`
 >                                    Charge sum: -0.667           Momentum sum:      0.000      0.000     -8.967      9.739      3.799
 > 
 >  --------  End PYTHIA Event Listing  -----------------------------------------------------------------------------------------------
-> Begin processing the 2nd record. Run 1, Event 2, LumiSection 1 on stream 0 at 06-Nov-2020 14:57:50.885 CST
-> Begin processing the 3rd record. Run 1, Event 3, LumiSection 1 on stream 0 at 06-Nov-2020 14:57:52.508 CST
-> Begin processing the 4th record. Run 1, Event 4, LumiSection 1 on stream 0 at 06-Nov-2020 14:57:59.755 CST
-> Begin processing the 5th record. Run 1, Event 5, LumiSection 1 on stream 0 at 06-Nov-2020 14:57:59.758 CST
-> Begin processing the 6th record. Run 1, Event 6, LumiSection 1 on stream 0 at 06-Nov-2020 14:58:11.723 CST
-> Begin processing the 7th record. Run 1, Event 7, LumiSection 1 on stream 0 at 06-Nov-2020 14:58:11.965 CST
-> Begin processing the 8th record. Run 1, Event 8, LumiSection 1 on stream 0 at 06-Nov-2020 14:58:15.726 CST
-> Begin processing the 9th record. Run 1, Event 9, LumiSection 1 on stream 0 at 06-Nov-2020 14:58:17.689 CST
-> Begin processing the 10th record. Run 1, Event 10, LumiSection 1 on stream 0 at 06-Nov-2020 14:58:18.260 CST
+> Begin processing the 2nd record. Run 1, Event 2, LumiSection 1 on stream 0 at 21-Oct-2021 14:57:50.885 CST
+> Begin processing the 3rd record. Run 1, Event 3, LumiSection 1 on stream 0 at 21-Oct-2021 14:57:52.508 CST
+> Begin processing the 4th record. Run 1, Event 4, LumiSection 1 on stream 0 at 21-Oct-2021 14:57:59.755 CST
+> Begin processing the 5th record. Run 1, Event 5, LumiSection 1 on stream 0 at 21-Oct-2021 14:57:59.758 CST
+> Begin processing the 6th record. Run 1, Event 6, LumiSection 1 on stream 0 at 21-Oct-2021 14:58:11.723 CST
+> Begin processing the 7th record. Run 1, Event 7, LumiSection 1 on stream 0 at 21-Oct-2021 14:58:11.965 CST
+> Begin processing the 8th record. Run 1, Event 8, LumiSection 1 on stream 0 at 21-Oct-2021 14:58:15.726 CST
+> Begin processing the 9th record. Run 1, Event 9, LumiSection 1 on stream 0 at 21-Oct-2021 14:58:17.689 CST
+> Begin processing the 10th record. Run 1, Event 10, LumiSection 1 on stream 0 at 21-Oct-2021 14:58:18.260 CST
 > 
 >  *-------  PYTHIA Event and Cross Section Statistics  -------------------------------------------------------------*
 >  |                                                                                                                 |
@@ -655,7 +655,7 @@ Below you also find the file:
 > NJOBS = 10  # This is not a configuration parameter, but an auxiliary variable that we use in the next line.
 > config.Data.totalUnits = config.Data.unitsPerJob * NJOBS
 > config.Data.publication = True
-> config.Data.outputDatasetTag = 'CMSDAS2020_CRAB3_MC_generation_test0'
+> config.Data.outputDatasetTag = 'CMSDAS2021_CRAB3_MC_generation_test0'
 > 
 > config.section_("Site")
 > config.Site.storageSite = 'T3_US_FNALLPC'
@@ -740,8 +740,8 @@ Jobs status:                    finished             100.0% (10/10)
 Publication status of 1 dataset(s):    new                  100.0% (10/10)
 (from CRAB internal bookkeeping in transferdb)
 
-Output dataset:            /MinBias/haweber-CMSDAS2020_CRAB3_MC_generation_test0-f244c58da308a9098da32f1c6183b066/USER
-Output dataset DAS URL:        https://cmsweb.cern.ch/das/request?input=%2FMinBias%2Fhaweber-CMSDAS2020_CRAB3_MC_generation_test0-f244c58da308a9098da32f1c6183b066%2FUSER&instance=prod%2Fphys03
+Output dataset:            /MinBias/haweber-CMSDAS2021_CRAB3_MC_generation_test0-f244c58da308a9098da32f1c6183b066/USER
+Output dataset DAS URL:        https://cmsweb.cern.ch/das/request?input=%2FMinBias%2Fhaweber-CMSDAS2021_CRAB3_MC_generation_test0-f244c58da308a9098da32f1c6183b066%2FUSER&instance=prod%2Fphys03
 ```
 {: .output}
 
@@ -873,7 +873,7 @@ Log file is /uscms_data/d3/haweber/cmsdaspre/crab_projects/crab_CMSDAS_Data_anal
 
 > ## Question 13
 > How many events were analyzed? (n.b. the number in the above example were randomized) <BR>
-> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](https://forms.gle/63gJw2uvyHfHAjK77).
+> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](https://forms.gle/yQmfoKVJFk8HtcUi7).
 {: .challenge}
 
 ## Optional: View the reconstructed Z peak in the combined data 
@@ -964,7 +964,7 @@ In the example of that other json file, the total recorded luminosity for those 
 
 > ## Question 14
 >  What is the reported number of inverse femtobarns analyzed? (n.b. it is not the same sample as listed above with luminosity 2.6<sup>-1</sup>. )
-> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](https://forms.gle/63gJw2uvyHfHAjK77).
+> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](https://forms.gle/yQmfoKVJFk8HtcUi7).
 {: .challenge}
 
 #  Where to find more on CRAB 
