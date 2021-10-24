@@ -189,34 +189,35 @@ crab checkwrite --site=T3_US_FNALLPC
 >
 > ```
 > Will check write permission in the default location /store/user/<username>
-> Validating LFN /store/user/haweber...
-> LFN /store/user/haweber is valid.
-> Will use `gfal-copy`, `gfal-rm` commands for checking write permissions
-> Will check write permission in /store/user/haweber on site T3_US_FNALLPC
-> 
-> Attempting to create (dummy) directory crab3checkwrite_20211021_145207 and copy (dummy) file crab3checkwrite_20211021_145207.tmp to /store/user/haweber
-> 
-> Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-copy -p -v -t 180 file:///uscms_data/d3/haweber/cmsdaspre/crab3checkwrite_20211021_145207.tmp 'gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20211021_145207/crab3checkwrite_20211021_145207.tmp'
-> Please wait...
-> 
-> Successfully created directory crab3checkwrite_20211021_145207 and copied file crab3checkwrite_20211021_145207.tmp to /store/user/haweber
-> 
-> Attempting to delete file gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20211021_145207/crab3checkwrite_20211021_145207.tmp
-> 
-> Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-rm -v -t 180 'gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20211021_145207/crab3checkwrite_20211021_145207.tmp'
-> Please wait...
-> 
-> Successfully deleted file gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20211106_145207/crab3checkwrite_20211021_145207.tmp
-> 
-> Attempting to delete directory gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20211106_145207/
-> 
-> Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-rm -r -v -t 180 'gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20211106_145207/'
-> Please wait...
-> 
-> Successfully deleted directory gsiftp://cmseos-gridftp.fnal.gov//eos/uscms/store/user/haweber/crab3checkwrite_20211106_145207/
-> 
-> Checkwrite Result:
-> Success: Able to write in /store/user/haweber on site T3_US_FNALLPC
+Validating LFN /store/user/belt...
+LFN /store/user/belt is valid.
+Will use `gfal-copy`, `gfal-rm` commands for checking write permissions
+Will check write permission in /store/user/belt on site T3_US_FNALLPC
+Will use PFN: gsiftp://cmseos-gridftp.fnal.gov:2811/eos/uscms/store/user/belt/crab3checkwrite_20211024_163317/crab3checkwrite_20211024_163317.tmp
+
+Attempting to create (dummy) directory crab3checkwrite_20211024_163317 and copy (dummy) file crab3checkwrite_20211024_163317.tmp to /store/user/belt
+
+Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-copy -p -v -t 180 file:///uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crab3checkwrite_20211024_163317.tmp 'gsiftp://cmseos-gridftp.fnal.gov:2811/eos/uscms/store/user/belt/crab3checkwrite_20211024_163317/crab3checkwrite_20211024_163317.tmp'
+Please wait...
+
+Successfully created directory crab3checkwrite_20211024_163317 and copied file crab3checkwrite_20211024_163317.tmp to /store/user/belt
+
+Attempting to delete file gsiftp://cmseos-gridftp.fnal.gov:2811/eos/uscms/store/user/belt/crab3checkwrite_20211024_163317/crab3checkwrite_20211024_163317.tmp
+
+Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-rm -v -t 180 'gsiftp://cmseos-gridftp.fnal.gov:2811/eos/uscms/store/user/belt/crab3checkwrite_20211024_163317/crab3checkwrite_20211024_163317.tmp'
+Please wait...
+
+Successfully deleted file gsiftp://cmseos-gridftp.fnal.gov:2811/eos/uscms/store/user/belt/crab3checkwrite_20211024_163317/crab3checkwrite_20211024_163317.tmp
+
+Attempting to delete directory gsiftp://cmseos-gridftp.fnal.gov:2811/eos/uscms/store/user/belt/crab3checkwrite_20211024_163317/
+
+Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-rm -r -v -t 180 'gsiftp://cmseos-gridftp.fnal.gov:2811/eos/uscms/store/user/belt/crab3checkwrite_20211024_163317/'
+Please wait...
+
+Successfully deleted directory gsiftp://cmseos-gridftp.fnal.gov:2811/eos/uscms/store/user/belt/crab3checkwrite_20211024_163317/
+
+Checkwrite Result:
+Success: Able to write in /store/user/belt on site T3_US_FNALLPC
 > ```
 {: .solution}
 
@@ -664,7 +665,7 @@ Below you also find the file:
 Put the copy of  `crabConfig_MC_generation.py` under `YOURWORKINGAREA/CMSSW_10_6_18/src`. 
 
 
-All available CRAB configuration parameters are defined at [CRAB3Configuration](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookCRAB3Tutorial#CRAB_configuration_file).
+All available CRAB configuration parameters are defined at [CRAB3ConfigurationFile](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile).
 
 Now let us try to submit this job via crab by
 
@@ -683,10 +684,10 @@ Importing CMSSW configuration CMSDAS_MC_generation.py
 Finished importing CMSSW configuration CMSDAS_MC_generation.py
 Sending the request to the server at cmsweb.cern.ch
 Success: Your task has been delivered to the prod CRAB3 server.
-Task name: 201106_210309:haweber_crab_CMSDAS_MC_generation_test0
+Task name: 211024_214242:belt_crab_CMSDAS_MC_generation_test0
 Project dir: crab_projects/crab_CMSDAS_MC_generation_test0
 Please use ' crab status -d crab_projects/crab_CMSDAS_MC_generation_test0 ' to check how the submission process proceeds.
-Log file is /uscms_data/d3/haweber/cmsdaspre/crab_projects/crab_CMSDAS_MC_generation_test0/crab.log
+Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crab_projects/crab_CMSDAS_MC_generation_test0/crab.log
 ```
 {: .output}
 
@@ -706,19 +707,18 @@ crab status crab_projects/crab_CMSDAS_MC_generation_test0
 The `crab status` command will produce an output containing the task name, the status of the task as a whole, the details of how many jobs are in which state (submitted, running, transfering, finished, cooloff, etc.) and the location of the CRAB log (`crab.log`) file. It will also print the URLs of two web pages that one can use to monitor the jobs. In summary, it should look something like this: 
 
 ```
-CRAB project directory:        /uscms_data/d3/haweber/cmsdaspre/crab_projects/crab_CMSDAS_MC_generation_test0
-Task name:            201106_210309:haweber_crab_CMSDAS_MC_generation_test0
-Grid scheduler - Task Worker:    crab3@vocms0144.cern.ch - crab-prod-tw01
-Status on the CRAB server:    SUBMITTED
-Task URL to use for HELP:    https://cmsweb.cern.ch/crabserver/ui/task/201106_210309%3Ahaweber_crab_CMSDAS_MC_generation_test0
-Dashboard monitoring URL:    https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=haweber&var-task=201106_210309%3Ahaweber_crab_CMSDAS_MC_generation_test0&from=1604696589000&to=now
-In case of issues with the dashboard, please provide feedback to hn-cms-computing-tools@cern.ch
-Status on the scheduler:    SUBMITTED
-
-Jobs status:                    idle                 100.0% (10/10)
+CRAB project directory:		/uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crab_projects/crab_CMSDAS_MC_generation_test0
+Task name:			211024_214242:belt_crab_CMSDAS_MC_generation_test0
+Grid scheduler - Task Worker:	crab3@vocms0122.cern.ch - crab-prod-tw01
+Status on the CRAB server:	SUBMITTED
+Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/211024_214242%3Abelt_crab_CMSDAS_MC_generation_test0
+Dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=belt&var-task=211024_214242%3Abelt_crab_CMSDAS_MC_generation_test0&from=1635108162000&to=now
+Status on the scheduler:	SUBMITTED
+Task bootstrapped at 2021-10-24 21:43:47 UTC. 44 seconds ago
+Status information will be available within a few minutes
 
 No publication information available yet
-Log file is /uscms_data/d3/haweber/cmsdaspre/crab_projects/crab_CMSDAS_MC_generation_test0/crab.log
+Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crab_projects/crab_CMSDAS_MC_generation_test0/crab.log
 ```
 {: .output}
 
