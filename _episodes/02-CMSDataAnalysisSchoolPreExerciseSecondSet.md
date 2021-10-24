@@ -192,7 +192,7 @@ cmsenv
 
 
 > ## Note
->You can try `scram b -j 8` to speed up the compiling. Here `-j 8` will compile with 8 cores. When occupying several cores to compile, you will also make the interactive machine slower for others, since you are using more resources. Use with care! 
+>You can try `scram b -j 4` to speed up the compiling. Here `-j 4` will compile with 4 cores. When occupying several cores to compile, you will also make the interactive machine slower for others, since you are using more resources. Use with care! 
 >
 {: .callout}
 
