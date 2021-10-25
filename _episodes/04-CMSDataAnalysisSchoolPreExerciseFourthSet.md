@@ -67,7 +67,7 @@ In this exercise we will analyze the skimmed [MiniAODs][miniaod] created in the 
 > ```
 {: .solution}
 
-First we will add the [PhysicsTools](https://twiki.cern.ch/twiki/bin/view/CMS/PhysicsTools)/PatExamples package as follows to `<YOURWORKINGAREA>/CMSSW_10_6_18/src`. The `PatExamples` package has lot of examples for a user to try. However, we will add our own code and config file to it and then compile. To add this package, do this:
+First we will add the [PhysicsTools](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuidePhysicsTools)/PatExamples package as follows to `<YOURWORKINGAREA>/CMSSW_10_6_18/src`. The `PatExamples` package has lot of examples for a user to try. However, we will add our own code and config file to it and then compile. To add this package, do this:
 
 ```shell
 cd $CMSSW_BASE/src/
