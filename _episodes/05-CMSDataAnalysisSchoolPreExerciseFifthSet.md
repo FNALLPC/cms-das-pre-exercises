@@ -121,7 +121,6 @@ git clone git@github.com:[user]/GitHATS.git
 > ```
 > Cloning into 'GitHATS'...
 Enter passphrase for key '/home/------/.ssh/id_rsa': 
-X11 forwarding request failed on channel 0
 remote: Counting objects: 21, done.
 remote: Total 21 (delta 0), reused 0 (delta 0), pack-reused 21
 Receiving objects: 100% (21/21), done.
@@ -239,7 +238,6 @@ git pull upstream master
 
 > ## Output
 > ```
-> X11 forwarding request failed on channel 0
 From github.com:GitHATSLPC/GitHATS
  * branch            master     -> FETCH_HEAD
  * [new branch]      master     -> upstream/master
@@ -267,7 +265,6 @@ git push origin master
 
 > ## Output
 > ```
-> X11 forwarding request failed on channel 0
 Everything up-to-date
 > ```
 {: .solution}
@@ -381,14 +378,18 @@ git push origin MyBranch
 
 > ## Output
 > ```
-> X11 forwarding request failed on channel 0
-Counting objects: 3, done.
-Delta compression using up to 8 threads.
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
 Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 351 bytes | 0 bytes/s, done.
+Writing objects: 100% (3/3), 356 bytes | 356.00 KiB/s, done.
 Total 3 (delta 1), reused 0 (delta 0)
-remote: Resolving deltas: 100% (1/1), completed with 1 local objects.
-To git@github.com:kpedro88/GitHATS.git
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: 
+remote: Create a pull request for 'MyBranch' on GitHub by visiting:
+remote:      https://github.com/mtonjes/GitHATS/pull/new/MyBranch
+remote: 
+To github.com:mtonjes/GitHATS.git
  * [new branch]      MyBranch -> MyBranch
 > ```
 {: .solution}
