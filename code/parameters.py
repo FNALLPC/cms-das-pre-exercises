@@ -7,7 +7,7 @@ process.MuonAnalyzer = cms.PSet(
     fileNames   = cms.vstring(
         # Multiple file should be comma separated
         # This is the format for using a remote file
-        'root://cmseos.fnal.gov//store/user/cmsdas/2020/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_1.root',
+        'root://cmseos.fnal.gov//store/user/cmsdas/2022/pre_exercises/Set4/Input/DoubleMuon/slimMiniAOD_data_MuEle_1.root',
         # The format for using a local file can be found in the commented line below
         # 'file:slimMiniAOD_data_MuEle_1.root'
   ),
