@@ -829,22 +829,31 @@ We will make another CRAB config file: `crabConfig_data_slimMiniAOD.py`. Copy it
  After a while, you should see something like below: 
 
 ```
-CRAB project directory:        /uscms_data/d3/haweber/cmsdaspre/crab_projects/crab_CMSDAS_Data_analysis_test0
-Task name:            201106_225527:haweber_crab_CMSDAS_Data_analysis_test0
-Grid scheduler - Task Worker:    crab3@vocms0107.cern.ch - crab-prod-tw01
-Status on the CRAB server:    SUBMITTED
-Task URL to use for HELP:    https://cmsweb.cern.ch/crabserver/ui/task/201106_225527%3Ahaweber_crab_CMSDAS_Data_analysis_test0
-Dashboard monitoring URL:    https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=haweber&var-task=201106_225527%3Ahaweber_crab_CMSDAS_Data_analysis_test0&from=1604703327000&to=now
-In case of issues with the dashboard, please provide feedback to hn-cms-computing-tools@cern.ch
-Status on the scheduler:    COMPLETED
+CRAB project directory:		/uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crab_projects/crab_CMSDAS_Data_analysis_test0
+Task name:			211024_231817:belt_crab_CMSDAS_Data_analysis_test0
+Grid scheduler - Task Worker:	crab3@vocms0199.cern.ch - crab-prod-tw01
+Status on the CRAB server:	SUBMITTED
+Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/211024_231817%3Abelt_crab_CMSDAS_Data_analysis_test0
+Dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=belt&var-task=211024_231817%3Abelt_crab_CMSDAS_Data_analysis_test0&from=1635113897000&to=now
+Status on the scheduler:	COMPLETED
 
-Jobs status:                    finished             100.0% (31/31)
+Jobs status:                    finished     		100.0% (31/31)
 
-Publication status of 1 dataset(s):    done                 100.0% (31/31)
+Publication status of 1 dataset(s):	done         		100.0% (31/31)
 (from CRAB internal bookkeeping in transferdb)
 
-Output dataset:            /DoubleMuon/haweber-crab_CMSDAS_Data_analysis_test0-dfbd2918d11fceef1aa67bdee18b8002/USER
-Output dataset DAS URL:        https://cmsweb.cern.ch/das/request?input=%2FDoubleMuon%2Fhaweber-crab_CMSDAS_Data_analysis_test0-dfbd2918d11fceef1aa67bdee18b8002%2FUSER&instance=prod%2Fphys03
+Output dataset:			/DoubleMuon/belt-crab_CMSDAS_Data_analysis_test0-dfbd2918d11fceef1aa67bdee18b8002/USER
+Output dataset DAS URL:		https://cmsweb.cern.ch/das/request?input=%2FDoubleMuon%2Fbelt-crab_CMSDAS_Data_analysis_test0-dfbd2918d11fceef1aa67bdee18b8002%2FUSER&instance=prod%2Fphys03
+
+Warning: the max jobs runtime is less than 30% of the task requested value (1250 min), please consider to request a lower value for failed jobs (allowed through crab resubmit) and/or improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task.
+
+Summary of run jobs:
+ * Memory: 28MB min, 855MB max, 544MB ave
+ * Runtime: 0:04:25 min, 0:46:10 max, 0:07:33 ave
+ * CPU eff: 9% min, 89% max, 64% ave
+ * Waste: 2:27:43 (39% of total)
+
+Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crab_projects/crab_CMSDAS_Data_analysis_test0/crab.log
 ```
 {: .output}
 
@@ -860,22 +869,22 @@ crab report
 You'll get something like this
 ```
 Running crab status first to fetch necessary information.
-Will save lumi files into output directory /uscms_data/d3/haweber/cmsdaspre/crab_projects/crab_CMSDAS_Data_analysis_test0/results
+Will save lumi files into output directory /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crab_projects/crab_CMSDAS_Data_analysis_test0/results
 Summary from jobs in status 'finished':
-Number of files processed: 234
-Number of events read: 45713761
-Number of events written in EDM files: 45713761
-Number of events written in TFileService files: 0
-Number of events written in other type of files: 0
-Processed lumis written to processedLumis.json
+  Number of files processed: 64
+  Number of events read: 636670
+  Number of events written in EDM files: 636670
+  Number of events written in TFileService files: 0
+  Number of events written in other type of files: 0
+  Processed lumis written to processedLumis.json
 Summary from output datasets in DBS:
-Number of events:
-/DoubleMuon/haweber-crab_CMSDAS_Data_analysis_test0-dfbd2918d11fceef1aa67bdee18b8002/USER: 45713761
-Output datasets lumis written to outputDatasetsLumis.json
+  Number of events:
+    /DoubleMuon/belt-crab_CMSDAS_Data_analysis_test0-dfbd2918d11fceef1aa67bdee18b8002/USER: 636670
+  Output datasets lumis written to outputDatasetsLumis.json
 Additional report lumi files:
-Input dataset lumis (from DBS, at task submission time) written to inputDatasetLumis.json
-Lumis to process written to lumisToProcess.json
-Log file is /uscms_data/d3/haweber/cmsdaspre/crab_projects/crab_CMSDAS_Data_analysis_test0/crab.log
+  Input dataset lumis (from DBS, at task submission time) written to inputDatasetLumis.json
+  Lumis to process written to lumisToProcess.json
+Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crab_projects/crab_CMSDAS_Data_analysis_test0/crab.log
 ```
 {: .output}
 
@@ -901,7 +910,7 @@ FWLiteHistograms inputFiles=File1,File2,File3,... outputFile=ZPeak_data.root max
 ```
 {: .source}
 
-In my case, `File1=root://cmseos.fnal.gov//store/user/$USER/DoubleMuon/crab_CMSDAS_Data_analysis_test0/201106_225527/0000/slimMiniAOD_data_MuEle_1.root` etc.. Make sure there is no space in `File1,File2,File3,...`
+In my case, `File1=root://cmseos.fnal.gov//store/user/$USER/DoubleMuon/crab_CMSDAS_Data_analysis_test0/210504_204025/0000/slimMiniAOD_data_MuEle_1.root` etc.. Make sure there is no space in `File1,File2,File3,...`
 
 You may look at `ZPeak_data.root` using `TBrowser`. 
 
@@ -931,7 +940,7 @@ pip install --install-option="--prefix=$HOME/.local" brilws
 
 When running `crab report`, the report will give you the location of a **JSON-formatted file** containing the luminosity information
 ```
-Will save lumi files into output directory /uscms_data/d3/haweber/cmsdaspre/crab_projects/crab_CMSDAS_Data_analysis_test0/results
+Will save lumi files into output directory /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crab_projects/crab_CMSDAS_Data_analysis_test0/results
 ```
 {: .output}
 
@@ -984,7 +993,7 @@ In the example of that other json file, the total recorded luminosity for those 
 [CRAB FAQ](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3FAQ) <br>
 [CRAB troubleshooting guide](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3Troubleshoot): Steps to address the problems you experience with CRAB and how to ask for support. <br>
 [CMS Computing Tools mailing list](https://hypernews.cern.ch/HyperNews/CMS/get/computing-tools.html), where to send feedback and ask support in case of jobs problem (please send to us your crab task HELP URL from crab status output). <br>
-Note also that all CMS members using the Grid subscribe to the [Grid Annoucements CMS HyperNews forum](https://hypernews.cern.ch/HyperNews/CMS/get/gridAnnounce.html). <br>
+Note also that all CMS members using the Grid subscribe to the [Grid Annoucements CMS HyperNews forum](https://hypernews.cern.ch/HyperNews/CMS/get/gridAnnounce.html). Important CRAB announcements will be announced on the [CERN Computing Announcement HyperNews forum](https://hypernews.cern.ch/HyperNews/CMS/get/cernCompAnnounce.html). <br>
 
 <br><br>
 _Last reviewed: 2020/11/09 by Hannsj&ouml;rg Weber_
