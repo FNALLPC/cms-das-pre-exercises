@@ -200,7 +200,7 @@ cmsenv
 To be able to check out specific CMSSW packages from [GitHub], you will need to configure your local account following the [FifthSet PreExecises Git configuration]({{ page.root }}{% link _episodes/05-CMSDataAnalysisSchoolPreExerciseFifthSet.md %}). You only have to do this command **once** for any given cluster you are working on: 
 
 ```shell
-git config --global user.name [Name]
+git config --global user.name "[Name]"
 git config --global user.email [Email]
 git config --global user.github [Account]
 ```
