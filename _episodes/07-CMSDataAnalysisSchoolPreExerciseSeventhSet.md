@@ -85,8 +85,8 @@ docker pull sl
 ~~~
 Using default tag: latest
 latest: Pulling from library/sl
-32cc6c378ee5: Pull complete
-Digest: sha256:6cc5f47d16bd74ea8a2c3f68ead5ee893c032ccd75269d6d714cb34fc2153cb7
+175b929ba158: Pull complete 
+Digest: sha256:d38e6664757e138c43f1c144df20fb93538b75111f922fce57930797114b7728
 Status: Downloaded newer image for sl:latest
 docker.io/library/sl:latest
 ~~~
@@ -115,7 +115,7 @@ docker images sl
 
 ~~~
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-sl                  latest              dddf32954161        3 weeks ago         177MB
+sl                  latest              5237b847a4d0        2 weeks ago         186MB
 ~~~
 {: .output}
 
@@ -128,7 +128,7 @@ docker images --filter=reference="sl"
 
 ~~~
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-sl                  latest              dddf32954161        3 weeks ago         177MB
+sl                  latest              5237b847a4d0        2 weeks ago         186MB
 ~~~
 {: .output}
 
@@ -146,13 +146,13 @@ docker images sl
 
 ~~~
 7: Pulling from library/sl
-Digest: sha256:6cc5f47d16bd74ea8a2c3f68ead5ee893c032ccd75269d6d714cb34fc2153cb7
+Digest: sha256:d38e6664757e138c43f1c144df20fb93538b75111f922fce57930797114b7728
 Status: Downloaded newer image for sl:7
 docker.io/library/sl:7
 
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-sl                  7                   dddf32954161        3 weeks ago         177MB
-sl                  latest              dddf32954161        3 weeks ago         177MB
+sl                  7                   5237b847a4d0        2 weeks ago         186MB
+sl                  latest              5237b847a4d0        2 weeks ago         186MB
 ~~~
 {: .output}
 
@@ -169,19 +169,19 @@ sl                  latest              dddf32954161        3 weeks ago         
 > >
 > > ~~~
 > > 3.7-slim: Pulling from library/python
-d121f8d1c412: Pull complete
-ca572574cc82: Pull complete
-2bec6349c99d: Pull complete
-087ac0b72728: Pull complete
-6ca52d7c92b3: Pull complete
-Digest: sha256:e787b48ee93cad4d7157e13c01c109650ddad8f622fab6644ab5dd700eacae64
+7d63c13d9b9b: Pull complete 
+7c9d54bd144b: Pull complete 
+a7f085de2052: Pull complete 
+9027970cef28: Pull complete 
+97a32a5a9483: Pull complete 
+Digest: sha256:1189006488425ef977c9257935a38766ac6090159aa55b08b62287c44f848330
 Status: Downloaded newer image for python:3.7-slim
 docker.io/library/python:3.7-slim
 > > 
 > > REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-> > python              3.7-slim            4d4a9832278b        2 weeks ago         112MB
-> > sl                  7                   dddf32954161        3 weeks ago         177MB
-> > sl                  latest              dddf32954161        3 weeks ago         177MB
+> > python              3.7-slim            375e181c2688        13 days ago         120MB
+> > sl                  7                   5237b847a4d0        2 weeks ago         186MB
+> > sl                  latest              5237b847a4d0        2 weeks ago         186MB
 > > ~~~
 > > {: .output}
 > {: .solution}
@@ -212,28 +212,28 @@ ls -alh
 > ~~~
 > /
 > total 56K
-> drwxr-xr-x   1 root root 4.0K Sep 25 08:26 .
-> drwxr-xr-x   1 root root 4.0K Sep 25 08:26 ..
-> -rwxr-xr-x   1 root root    0 Sep 25 08:26 .dockerenv
-> lrwxrwxrwx   1 root root    7 Sep  1 13:06 bin -> usr/bin
+> drwxr-xr-x   1 root root 4.0K Oct 25 04:43 .
+> drwxr-xr-x   1 root root 4.0K Oct 25 04:43 ..
+> -rwxr-xr-x   1 root root    0 Oct 25 04:43 .dockerenv
+> lrwxrwxrwx   1 root root    7 Oct  4 13:19 bin -> usr/bin
 > dr-xr-xr-x   2 root root 4.0K Apr 12  2018 boot
-> drwxr-xr-x   5 root root  360 Sep 25 08:26 dev
-> drwxr-xr-x   1 root root 4.0K Sep 25 08:26 etc
-> drwxr-xr-x   2 root root 4.0K Sep  1 13:07 home
-> lrwxrwxrwx   1 root root    7 Sep  1 13:06 lib -> usr/lib
-> lrwxrwxrwx   1 root root    9 Sep  1 13:06 lib64 -> usr/lib64
+> drwxr-xr-x   5 root root  360 Oct 25 04:43 dev
+> drwxr-xr-x   1 root root 4.0K Oct 25 04:43 etc
+> drwxr-xr-x   2 root root 4.0K Oct  4 13:19 home
+> lrwxrwxrwx   1 root root    7 Oct  4 13:19 lib -> usr/lib
+> lrwxrwxrwx   1 root root    9 Oct  4 13:19 lib64 -> usr/lib64
 > drwxr-xr-x   2 root root 4.0K Apr 12  2018 media
 > drwxr-xr-x   2 root root 4.0K Apr 12  2018 mnt
 > drwxr-xr-x   2 root root 4.0K Apr 12  2018 opt
-> dr-xr-xr-x 210 root root    0 Sep 25 08:26 proc
-> dr-xr-x---   2 root root 4.0K Sep  1 13:07 root
-> drwxr-xr-x  11 root root 4.0K Sep  1 13:07 run
-> lrwxrwxrwx   1 root root    8 Sep  1 13:06 sbin -> usr/sbin
+> dr-xr-xr-x 170 root root    0 Oct 25 04:43 proc
+> dr-xr-x---   2 root root 4.0K Oct  4 13:19 root
+> drwxr-xr-x  11 root root 4.0K Oct  4 13:19 run
+> lrwxrwxrwx   1 root root    8 Oct  4 13:19 sbin -> usr/sbin
 > drwxr-xr-x   2 root root 4.0K Apr 12  2018 srv
-> dr-xr-xr-x  12 root root    0 Sep 23 04:12 sys
-> drwxrwxrwt   2 root root 4.0K Sep  1 13:07 tmp
-> drwxr-xr-x  13 root root 4.0K Sep  1 13:06 usr
-> drwxr-xr-x  18 root root 4.0K Sep  1 13:07 var
+> dr-xr-xr-x  13 root root    0 Oct 25 04:43 sys
+> drwxrwxrwt   2 root root 4.0K Oct  4 13:19 tmp
+> drwxr-xr-x  13 root root 4.0K Oct  4 13:19 usr
+> drwxr-xr-x  18 root root 4.0K Oct  4 13:19 var
 > ~~~
 {: .solution}
 
@@ -260,20 +260,20 @@ hostname
 > > 
 > > ~~~
 > > NAME="Scientific Linux"
-> > VERSION="7.8 (Nitrogen)"
+> > VERSION="7.9 (Nitrogen)"
 > > ID="scientific"
 > > ID_LIKE="rhel centos fedora"
-> > VERSION_ID="7.8"
-> > PRETTY_NAME="Scientific Linux 7.8 (Nitrogen)"
+> > VERSION_ID="7.9"
+> > PRETTY_NAME="Scientific Linux 7.9 (Nitrogen)"
 > > ANSI_COLOR="0;31"
-> > CPE_NAME="cpe:/o:scientificlinux:scientificlinux:7.8:GA"
+> > CPE_NAME="cpe:/o:scientificlinux:scientificlinux:7.9:GA"
 > > HOME_URL="http://www.scientificlinux.org//"
 > > BUG_REPORT_URL="mailto:scientific-linux-devel@listserv.fnal.gov"
 > > 
 > > REDHAT_BUGZILLA_PRODUCT="Scientific Linux 7"
-> > REDHAT_BUGZILLA_PRODUCT_VERSION=7.8
+> > REDHAT_BUGZILLA_PRODUCT_VERSION=7.9
 > > REDHAT_SUPPORT_PRODUCT="Scientific Linux"
-> > REDHAT_SUPPORT_PRODUCT_VERSION="7.8"
+> > REDHAT_SUPPORT_PRODUCT_VERSION="7.9"
 > > ~~~
 > > {: .output}
 > {: .solution}
@@ -281,7 +281,7 @@ hostname
 
 # Exercise 22 - Monitoring, Exiting, Restarting, and Stopping Containers
 
-## Monitoring You Containers
+## Monitoring Your Containers
 
 Open up a new terminal tab on the host machine and
 [list the containers that are currently running][docker-docs-ps]
@@ -403,7 +403,7 @@ ls -alh test.txt
 {: .source}
 
 ~~~
--rw-r--r-- 1 root root 0 Sep 25 08:39 test.txt
+-rw-r--r--   1 root root    0 Oct 25 04:46 test.txt
 ~~~
 {: .output}
 
@@ -492,8 +492,8 @@ docker rmi <IMAGE ID>
 > >docker.io/library/python:2.7-slim
 > >
 > >REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-> >python              2.7-slim            d75b4eed9ada        14 hours ago        886MB
-> >python              3.7-slim            e440e2151380        23 hours ago        918MB
+> >python              2.7-slim            eeb27ee6b893        14 hours ago        148MB
+> >python              3.7-slim            375e181c2688        13 days ago         120MB
 > >
 > >Untagged: python@sha256:<the relevant SHA hash>
 > >Deleted: sha256:<layer SHA hash>
@@ -508,7 +508,7 @@ docker rmi <IMAGE ID>
 > >Deleted: sha256:<layer SHA hash>
 > >
 > >REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-> >python              3.7-slim            e440e2151380        23 hours ago        918MB
+> >python              3.7-slim            375e181c2688        13 days ago        120MB
 > > ~~~
 > > {: .output}
 > {: .solution}
