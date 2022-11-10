@@ -548,6 +548,7 @@ TBrowser b;
 > What is the mean value of the muon pt for the collision data (current file)?
 {: .challenge}
 
+> ## Remember
 > Be sure to submit your answers to the [Google Form first set](https://forms.gle/D1RqvXk4M69oRdsS6), then proceed to the [second set]({{ page.root }}{% link _episodes/02-CMSDataAnalysisSchoolPreExerciseSecondSet.md %}).
 {: .caution}
 
