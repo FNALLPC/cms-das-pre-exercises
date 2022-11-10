@@ -20,7 +20,7 @@ keypoints:
 Welcome to the second set of CMSDAS pre-exercises. As you know by now, the purpose of the pre-workshop exercises is for prospective workshop attendees to become familiar with the basic software tools required to perform physics analysis at CMS before the workshop begins. Post the answers in the online response form available from the **course web area:**
 
 > ## Indico page
->[CMSDAS pre-exercises indico page](https://indico.cern.ch/e/cmsdas2022)
+>[CMSDAS pre-exercises indico page](https://indico.cern.ch/e/cmsdas2023)
 >
 {: .callout}
 
@@ -293,7 +293,7 @@ You can see that now it runs successfully and you get a ROOT file with a histogr
 {: .challenge}
 
 > ## Question 8.1b
-> How can you increase statistics in your ZPeak histogram? 
+> How can you increase statistics in your ZPeak histogram?
 {: .challenge}
 
 **Now a little bit about the command that you executed.**
