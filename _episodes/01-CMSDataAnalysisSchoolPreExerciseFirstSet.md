@@ -20,10 +20,10 @@ keypoints:
 
 # Introduction
 
-Welcome to the first set of CMS Data Analysis School (CMSDAS) pre-exercises. The purpose of these exercises is to become familiar with the basic software tools required to perform physics analysis at the school. Please run and complete these exercises. Throughout the exercises there will be questions for you to answer. Submit your answers in the online response form available from **the course web area** - For CMSDAS@LPC {{ site.year }}, Fermilab, the complete set of links can be found at the [CMSDAS pre-exercises indico page](https://indico.cern.ch/e/cmsdas2022). A large amount of additional information about these exercises is available in the twikis that we reference. Please remember that twikis evolve but aim to provide the best information at any time.
+Welcome to the first set of CMS Data Analysis School (CMSDAS) pre-exercises. The purpose of these exercises is to become familiar with the basic software tools required to perform physics analysis at the school. Please run and complete these exercises. Throughout the exercises there will be questions for you to answer. Submit your answers in the online response form available from **the course web area** - For CMSDAS@LPC {{ site.year }}, Fermilab, the complete set of links can be found at the [CMSDAS pre-exercises indico page](https://indico.cern.ch/e/cmsdas2023). A large amount of additional information about these exercises is available in the twikis that we reference. Please remember that twikis evolve but aim to provide the best information at any time.
 
 > ## Note
-> The CMSDAS exercises (pre-exercises as well as exercises during the school) are intended to be as generic as possible. However, CMSDAS is held at different CMS collaborating institutes - e.g. the LPC at Fermilab, DESY, etc.) Participants are expected to **request and obtain local (at the intended school location) computer accounts** well in advance of the school start date, to ensure they will be able to work right away. It is very important for participants to use the pre-exercises as a setup tool, so we recommend for everyone to **use the same laptop they intend to bring with them at the school** (NO computer/laptop will be provided at the school), and to **connect to the local computing resources that will be used for the school**. In most cases laptops will need to be registered to be used in the local school network, so please make sure you take care of this aspect too. 
+> The CMSDAS exercises (pre-exercises as well as exercises during the school) are intended to be as generic as possible. However, CMSDAS is held at different CMS collaborating institutes - e.g. the LPC at Fermilab, DESY, etc.) Participants are expected to **request and obtain local (at the intended school location) computer accounts** well in advance of the school start date, to ensure they will be able to work right away. It is very important for participants to use the pre-exercises as a setup tool, so we recommend for everyone to **use the same laptop they intend to bring with them at the school** (NO computer/laptop will be provided at the school), and to **connect to the local computing resources that will be used for the school**. In most cases laptops will need to be registered to be used in the local school network, so please make sure you take care of this aspect too.
 >
 {: .callout}
 
@@ -181,23 +181,23 @@ setenv CMSSW_GIT_REFERENCE /cvmfs/cms.cern.ch/cmssw.git.daily
 > Actually you should edit your `~/.tcshrc` file (or `~/.bash_profile` if bash is your default shell), create it if you do not have one, to include the above commands so that you do not have to execute each time you log into the cluster. **Note** If you wish to change your default shell, use the method [documented here in the setup software instructions](https://uscms.org/uscms_at_work/physics/computing/setup/setup_software.shtml#shell). A shell change will take up to 1 business day to complete.
 {: .callout}
 
-Proceed with the creation of a working area (called YOURWORKINGAREA in the following): 
+Proceed with the creation of a working area (called YOURWORKINGAREA in the following):
 
 ```shell
 cd ~/nobackup
 mkdir YOURWORKINGAREA
 cd YOURWORKINGAREA
-### If you are using Bash shell 
+### If you are using Bash shell
 export SCRAM_ARCH=slc7_amd64_gcc700
 ### Alternatively, If you are using the default tcsh shell (or csh shell)
-setenv SCRAM_ARCH slc7_amd64_gcc700 
+setenv SCRAM_ARCH slc7_amd64_gcc700
 cmsrel CMSSW_10_6_18
 cd CMSSW_10_6_18/src
 cmsenv
 ```
 {: .source}
 
-To be able to check out specific CMSSW packages from [GitHub], you will need to configure your local account following the [FifthSet PreExecises Git configuration]({{ page.root }}{% link _episodes/05-CMSDataAnalysisSchoolPreExerciseFifthSet.md %}). You only have to do this command **once** for any given cluster you are working on: 
+To be able to check out specific CMSSW packages from [GitHub], you will need to configure your local account following the [FifthSet PreExecises Git configuration]({{ page.root }}{% link _episodes/05-CMSDataAnalysisSchoolPreExerciseFifthSet.md %}). You only have to do this command **once** for any given cluster you are working on:
 
 ```shell
 git config --global user.name "[Name]"
@@ -282,18 +282,18 @@ Back in the main dataset page, click on the "Files" link to get a list of the RO
 If you want to know the name of the dataset from the name of a file, one can go to [DAS][das] and type:
 
 ```
-dataset file=/store/relval/CMSSW_10_6_14/RelValZMM_13/MINIAODSIM/106X_mc2017_realistic_v7-v1/10000/0EB976F4-F84B-814D-88DA-CB2C29A52D72.root 
+dataset file=/store/relval/CMSSW_10_6_14/RelValZMM_13/MINIAODSIM/106X_mc2017_realistic_v7-v1/10000/0EB976F4-F84B-814D-88DA-CB2C29A52D72.root
 ```
 {: .source}
 
-and hit "Enter". 
+and hit "Enter".
 
 Now we will locate a collisions dataset skim using the keyword search, which is sometimes more convenient if you know the dataset you are looking for.
 
 In [DAS][das] type:
 
 ```
-dataset=/DoubleMu*/*Run2018A*/MINIAOD* 
+dataset=/DoubleMu*/*Run2018A*/MINIAOD*
 ```
 {: .source}
 
@@ -301,7 +301,7 @@ and hit "Enter".
 
 > ## Question 4.2
 > What release was the dataset **/DoubleMuon/Run2018A-12Nov2019_UL2018-v2/MINIAOD** collected in?
-> 
+>
 > **Note:** If you see more than one release, just answer with a single release.
 {: .challenge}
 
@@ -334,7 +334,7 @@ More information about accessing data in the [Data Aggregation Service](https://
 
 # Exercise 5 - Event Data Model (EDM) standalone utilities
 
-The overall collection of CMS software, referred to as [CMSSW](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookCMSSWFramework), is built around a framework, an Event Data Model ([EDM](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookCMSSWFramework#EdM)), and services needed by the simulation, calibration and alignment, and reconstruction modules that process event data so that physicists can perform analysis. The primary goal of the Framework and EDM is to facilitate the development and deployment of reconstruction and analysis software. The CMS Event Data Model (EDM) is centered around the concept of an Event. An Event is a C++ object container for all RAW and reconstructed data related to a particular collision.To understand what is in a data file and more, several EDM utilities are available. In this exercise, one will use three of these EDM utilities. They will be very useful at CMSDAS and after. More about these EDM utilities can be found at [WorkBookEdmUtilities](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookEdmUtilities). These together with the [GitHub web interface for CMSSW](https://github.com/cms-sw/cmssw) and the [CMS LXR Cross Referencer](https://cmssdt.cern.ch/lxr/) are very useful to understand and write CMS code. 
+The overall collection of CMS software, referred to as [CMSSW](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookCMSSWFramework), is built around a framework, an Event Data Model ([EDM](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookCMSSWFramework#EdM)), and services needed by the simulation, calibration and alignment, and reconstruction modules that process event data so that physicists can perform analysis. The primary goal of the Framework and EDM is to facilitate the development and deployment of reconstruction and analysis software. The CMS Event Data Model (EDM) is centered around the concept of an Event. An Event is a C++ object container for all RAW and reconstructed data related to a particular collision.To understand what is in a data file and more, several EDM utilities are available. In this exercise, one will use three of these EDM utilities. They will be very useful at CMSDAS and after. More about these EDM utilities can be found at [WorkBookEdmUtilities](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookEdmUtilities). These together with the [GitHub web interface for CMSSW](https://github.com/cms-sw/cmssw) and the [CMS LXR Cross Referencer](https://cmssdt.cern.ch/lxr/) are very useful to understand and write CMS code.
 
 ## edmFileUtil
 
@@ -387,7 +387,7 @@ edmDumpEventContent root://cmsxrootd-site.fnal.gov//store/relval/CMSSW_10_6_14/R
 
 > ## Question 5.1a
 > How many modules produce products of type *vector* in this particular MiniAOD file?
-> 
+>
 > **Note:** We mean a plain `std::vector`, not a `BXVector` or any other type.
 {: .challenge}
 
@@ -397,7 +397,7 @@ edmDumpEventContent root://cmsxrootd-site.fnal.gov//store/relval/CMSSW_10_6_14/R
 
 ## edmProvDump
 
-To aid in understanding the full history of an analysis, the framework accumulates provenance for all data stored in the standard ROOT output files. Using the command `edmProvDump` one can print out all the tracked parameters used to create the data file. For example, one can see which modules were run and the CMSSW version used to make the MiniAOD file. In executing the command below it is important to follow the instructions carefully, otherwise a large number of warning messages may appear. The *ROOT* warning messages can be ignored. 
+To aid in understanding the full history of an analysis, the framework accumulates provenance for all data stored in the standard ROOT output files. Using the command `edmProvDump` one can print out all the tracked parameters used to create the data file. For example, one can see which modules were run and the CMSSW version used to make the MiniAOD file. In executing the command below it is important to follow the instructions carefully, otherwise a large number of warning messages may appear. The *ROOT* warning messages can be ignored.
 
 To do this on **cmslpc-sl7** execute:
 
@@ -421,7 +421,7 @@ Finally we will execute `edmEventSize` to determine the size of different branch
 At **cmslpc-sl7** execute the following command:
 
 ```shell
-edmEventSize -v `edmFileUtil -d /store/relval/CMSSW_10_6_14/RelValZMM_13/MINIAODSIM/106X_mc2017_realistic_v7-v1/10000/0EB976F4-F84B-814D-88DA-CB2C29A52D72.root` > EdmEventSize.txt 
+edmEventSize -v `edmFileUtil -d /store/relval/CMSSW_10_6_14/RelValZMM_13/MINIAODSIM/106X_mc2017_realistic_v7-v1/10000/0EB976F4-F84B-814D-88DA-CB2C29A52D72.root` > EdmEventSize.txt
 ```
 {: .source}
 
@@ -440,7 +440,7 @@ Open and look at file *EdmEventSize.txt* and locate the line containing the text
 Analyzing physics data at CMS is a very complicated task involving multiple steps, sharing of expertise, cross checks, and comparing different analysis. To maximize physics productivity, CMS developed a high-level data tier **MiniAOD** in Spring 2014 to serve the needs of the mainstream physics analyses while keeping a small event size (30-50 kb/event), with easy access to the algorithms developed by Physics Objects Groups (POGs) in the framework of the CMSSW offline software. The production of MiniAODs will be done centrally for common samples. Its goal is to centralize the production of PAT tuple which were used among the Physics Analysis Groups (PAGs) in Run 1. (Information about PAT can be found in [SWGuidePAT](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuidePAT) and in a [CMS conference note](http://cdsweb.cern.ch/record/1196152).) MiniAOD samples will be used in the Run 2 analysis. Hence it is important to know about this tool. More information about MiniAOD can be found in [WorkBookMiniAOD](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD).
 
 > ## Note
-> A new data tier called **NanoAOD** has recently been developed. The goal of this tier is to centralize the ntuple production of ~50% of analyses and to keep the event size below 2kb/event. However, this pre-exercise will not cover the use of NanoAOD. More information can be found at [WorkBookNanoAOD](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookNanoAOD). 
+> A new data tier called **NanoAOD** has recently been developed. The goal of this tier is to centralize the ntuple production of ~50% of analyses and to keep the event size below 2kb/event. However, this pre-exercise will not cover the use of NanoAOD. More information can be found at [WorkBookNanoAOD](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookNanoAOD).
 {: .callout}
 
 The main contents of the MiniAOD are:
@@ -462,7 +462,7 @@ root -l
 {: .source}
 
 >  ## Note
->  If you already have a custom `.rootrc` or `.rootlogon.C`, you can start ROOT without them by using the command `root -l -n`. 
+>  If you already have a custom `.rootrc` or `.rootlogon.C`, you can start ROOT without them by using the command `root -l -n`.
 {: .callout}
 
 On the *ROOT* prompt, type, or copy-paste, the following:
@@ -489,7 +489,7 @@ TBrowser b;
 > ~~~
 > root -l <filename>
 > ~~~
-> {: .source} 
+> {: .source}
 {: .callout}
 
 To be able to use the member functions of a CMSSW data class from within ROOT, a 'dictionary' for that class needs to be available to ROOT. To obtain that dictionary, it is necessary to load the proper library into ROOT. The first three lines of the code above do exactly that. More information is at [WorkBookFWLiteExamples](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookFWLiteExamples). Note that `gROOT->SetStyle ("Plain");` sets a plain white background for all the plots in ROOT.
@@ -510,7 +510,7 @@ Double-click on the ROOT file you opened: `root://cmseos.fnal.gov//store/user/cm
 
 <img align="center" src="../fig/MiniAOD_View3.png" alt="TBrowser slimmedMuons view" style="width:600px">
 
-Scroll a long way down the file (not too fast) and click on `pt()`. A PAT Muon Pt distribution will appear. These muons have been produced in the Z to mumu interactions as the name of the data sample implies. 
+Scroll a long way down the file (not too fast) and click on `pt()`. A PAT Muon Pt distribution will appear. These muons have been produced in the Z to mumu interactions as the name of the data sample implies.
 
 <img align="center" src="../fig/MiniAOD_View4.png" alt="TBrowser slimmedMuons pt() view" style="width:600px">
 
@@ -553,7 +553,7 @@ TBrowser b;
 
 > ## Helpful Hint
 > Rather than using the TBrowser, you can perform the drawing action using ROOT interpreter. An example is shown below:
-> 
+>
 > ~~~
 > root -l root://cmseos.fnal.gov//store/user/cmsdas/2022/pre_exercises/Set1/CMSDataAnaSch_MiniAODZMM730pre1.root
 > Events->Draw("patMuons_slimmedMuons__PAT.obj.pt()")
