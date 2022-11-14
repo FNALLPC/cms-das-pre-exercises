@@ -995,7 +995,7 @@ In the example of that other json file, the total recorded luminosity for those 
 Note also that all CMS members using the Grid subscribe to the [Grid Annoucements CMS HyperNews forum](https://hypernews.cern.ch/HyperNews/CMS/get/gridAnnounce.html). Important CRAB announcements will be announced on the [CERN Computing Announcement HyperNews forum](https://hypernews.cern.ch/HyperNews/CMS/get/cernCompAnnounce.html). <br>
 
 <br><br>
-_Last reviewed: 2020/11/09 by Hannsj&ouml;rg Weber_
+_Last reviewed: 2020/11/09 by Guillermo Fidalgo_
 <br>
 
 {% include links.md %}
