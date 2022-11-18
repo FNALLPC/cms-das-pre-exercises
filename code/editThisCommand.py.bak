@@ -14,4 +14,4 @@ import getpass
 user = getpass.getuser()
 crc32 = zlib.crc32(user)
 
-print("success: ", user, "0x%X" % crc32)
+print "success: ", user, "0x%X" % crc32
