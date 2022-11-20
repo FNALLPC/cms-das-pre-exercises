@@ -25,8 +25,8 @@ This exercise is intended to provide you with basic familiarity with Git and [Gi
 > As a prerequisite for this exercise, please make sure that you have correctly followed the instructions for obtaining a [GitHub] account in the [setup instructions]({{ page.root }}{% link setup.md %}).
 {: .prereq}
 
-> ## Note
-> Please post your answers to the questions in the [Google form fifth set](https://forms.gle/NgVcm7o4CbboeKCX9).
+> ## Google Form
+> Please post your answers to the questions in the [Google form fifth set][Set5_form].
 {: .objectives}
 
 # Exercise 18 - Learning Git and GitHub
@@ -284,7 +284,7 @@ Edit the table standard_model.md to add a new particle. The new particle is call
 
 > ## Note
 > Any resemblance to any other real or imaginary particles is entirely coincidental.
-{: .testimonial}
+{: .callout}
 
 Once you have made changes in your working area, you have to stage the changes and then commit them. First, you can inspect the status of your working area.
 
@@ -407,7 +407,7 @@ Send a pull request to the master branch of the upstream repo (GitHATSLPC).
 > ## Question 18.1
 > Post the link to your pull request.
 > 
-> For CMSDAS@LPC {{ site.year }} please submit your answer at the [Google Form fifth set](https://forms.gle/NgVcm7o4CbboeKCX9).
+> For CMSDAS@LPC {{ site.year }} please submit your answer at the [Google Form fifth set][Set5_form].
 {: .challenge}
 
 > ## Optional
@@ -421,3 +421,6 @@ Advanced topics not explored in this exercise include: merging, rebasing, cherry
 Students are encouraged to explore these topics on their own at [CMSGitTutorial](https://twiki.cern.ch/twiki/bin/view/CMS/CMSGitTutorial).
 
 {% include links.md %}
+
+
+[Set5_form]: https://forms.gle/DhL89BspbQRVLsHY7
