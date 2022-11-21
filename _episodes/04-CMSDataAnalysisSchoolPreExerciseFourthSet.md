@@ -24,7 +24,7 @@ In this set of exercises, we will analyze the [MiniAOD][miniaod] file that was m
 {: .prereq}
 
 > ## Note
-> Please post your answers to the questions in the [Google form fourth set](https://forms.gle/vEJnfpMLxXPci4Un9).
+> Please post your answers to the questions in the [Google form fourth set][Set4_form].
 {: .objectives}
 
 # Exercise 15 - Analyzing MiniAOD with an EDAnalyzer
@@ -554,3 +554,6 @@ This should pop a histogram (shown below) as follows and you will find yourself 
 {: .challenge}
 
 {% include links.md %}
+
+
+[Set4_form]: https://forms.gle/vEJnfpMLxXPci4Un9
