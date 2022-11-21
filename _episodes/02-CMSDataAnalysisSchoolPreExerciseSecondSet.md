@@ -120,7 +120,7 @@ To quit ROOT application, execute:
 {: .source}
 
 > ## Remember 
->For CMSDAS@LPC{{site.year}}  please submit your answers at the [Google Form second set](https://forms.gle/aKcUCZMNkd1H4Pgu7).
+>For CMSDAS@LPC{{site.year}}  please submit your answers at the [Google Form second set][Set2_form].
 {:.caution}
 
 > ## Question 7.1a
@@ -332,3 +332,6 @@ Then answer the following question.
 {: .challenge}
 
 {% include links.md %}
+
+
+[Set2_form]: https://forms.gle/us8xaot3tGQeZwt47

@@ -47,7 +47,7 @@ keypoints:
 
 > ## Question
 > Questions for each exercise are in boxes such as this. <br>
-For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](https://forms.gle/yQmfoKVJFk8HtcUi7).
+For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set][Set3_form].
 {: .challenge}
 
 
@@ -95,7 +95,7 @@ If you do not have the first attribute line listed above, you have not completed
 
 > ## Question 10
 > Copy the output corresponding to the text in the output box above. <br>
-> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](https://forms.gle/yQmfoKVJFk8HtcUi7).
+> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set][Set3_form].
 {: .challenge}
 
 
@@ -227,7 +227,7 @@ crab checkwrite --site=T3_US_FNALLPC
 
 > ## Question 11
 > What is the name of your directory name in eos? <br>
-> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](https://forms.gle/yQmfoKVJFk8HtcUi7).
+> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set][Set3_form].
 {: .challenge}
 
 
@@ -625,7 +625,7 @@ This MC generation code will then produce an EDM output file called `step1.root`
 
 > ## Question 12.1
 > What is the file size of `step1.root`? <br>
-> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](https://forms.gle/yQmfoKVJFk8HtcUi7).
+> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set][Set3_form].
 {: .challenge}
 
 ## Generate and publish MC dataset using CRAB
@@ -761,7 +761,7 @@ From the bottom of the output, you can see the name of the dataset and the DAS l
 
 > ## Question 12.2
 > What is the dataset name you published? <br>
-> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](https://forms.gle/yQmfoKVJFk8HtcUi7).
+> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set][Set3_form].
 {: .challenge}
 
 # Exercise 13 - Running on a dataset with CRAB
@@ -892,7 +892,7 @@ Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crab
 
 > ## Question 13
 > How many events were analyzed? (n.b. the number in the above example were randomized) <BR>
-> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](https://forms.gle/yQmfoKVJFk8HtcUi7).
+> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set][Set3_form].
 {: .challenge}
 
 ## Optional: View the reconstructed Z peak in the combined data
@@ -982,7 +982,7 @@ In the example of that other json file, the total recorded luminosity for those 
 
 > ## Question 14
 >  What is the reported number of inverse femtobarns analyzed? (n.b. it is not the same sample as listed above with luminosity 2.6<sup>-1</sup>. )
-> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set](https://forms.gle/yQmfoKVJFk8HtcUi7).
+> For CMSDAS@LPC{{ site.year }} please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form third set][Set3_form].
 {: .challenge}
 
 #  Where to find more on CRAB
@@ -999,3 +999,5 @@ _Last reviewed: 2020/11/09 by Guillermo Fidalgo_
 <br>
 
 {% include links.md %}
+
+[Set3_form]: https://forms.gle/TyZrUCJaCrnW17MW6

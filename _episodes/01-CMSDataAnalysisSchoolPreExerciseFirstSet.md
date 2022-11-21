@@ -98,7 +98,7 @@ Unknown user: gbenelli.
 {: .output}
 
 > ## Question 1
-> Post the alphanumeric string of characters unique to your username. For CMSDAS@LPC {{ site.year }} please submit your answers for the [CMSDAS@LPC {{ site.year }} Google Form first set](https://forms.gle/D1RqvXk4M69oRdsS6). NOTE, answer only Question 1 at this point. Question 2 in the form is related to the next exercise. There is a one-to-one correspondence between the question numbers here and in the Google Form.
+> Post the alphanumeric string of characters unique to your username. For CMSDAS@LPC {{ site.year }} please submit your answers for the [CMSDAS@LPC {{ site.year }} Google Form first set][Set1_form]. NOTE, answer only Question 1 at this point. Question 2 in the form is related to the next exercise. There is a one-to-one correspondence between the question numbers here and in the Google Form.
 {: .challenge}
 
 # Exercise 2 - Simple edit exercise
@@ -549,7 +549,7 @@ TBrowser b;
 {: .challenge}
 
 > ## Remember
-> Be sure to submit your answers to the [Google Form first set](https://forms.gle/D1RqvXk4M69oRdsS6), then proceed to the [second set]({{ page.root }}{% link _episodes/02-CMSDataAnalysisSchoolPreExerciseSecondSet.md %}).
+> Be sure to submit your answers to the [Google Form first set][Set1_form], then proceed to the [second set]({{ page.root }}{% link _episodes/02-CMSDataAnalysisSchoolPreExerciseSecondSet.md %}).
 {: .caution}
 
 > ## Helpful Hint
@@ -563,3 +563,6 @@ TBrowser b;
 {: .callout}
 
 {% include links.md %}
+
+
+[Set1_form]: https://forms.gle/i8KkgzLoAvQ9AQV6A
