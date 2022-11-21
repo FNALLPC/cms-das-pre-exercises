@@ -57,8 +57,8 @@ This allows us to package up an application with just the dependencies we need (
 For the purposes of this tutorial we will only be considering [Docker][docker] and [Singularity][singularity] for container runtimes. That said, these are really powerful tools which are so much more than just container runtimes. We encourage you to take the time to explore the [Docker][docker-docs] and [Singularity][singularity-docs] documentation. 
 
 <p float="middle">
-    <img src="{%link fig/docker-logo.png%}" alt="Docker logo" style="float:left; width:35%;" />
-    <img src="{%link fig/singularity-logo.png%}" alt="Singularity logo" style="float:right; width:25%;" />
+    <img src="../fig/docker-logo.png" alt="Docker logo" style="float:left; width:35%;" />
+    <img src="../fig/singularity-logo.png" alt="Singularity logo" style="float:right; width:25%;" />
 </p>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
