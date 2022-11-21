@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import warnings
 warnings.filterwarnings('ignore', category=FutureWarning)
@@ -13,12 +13,11 @@ if len(sys.argv) < 2:
     sys.exit()
 
 key = ''.join(sys.argv[1:])
-crc32 = zlib.crc32(key)
-
+crc32 = zlib.crc32(bytes(key,'utf-8'))
 key = 'asdf;klasdjf;kakjsdf;akjf;aksdljf;asldjfqewradsfafaw4efaefawefzdxffasdfw4ffawefawe4fawasdffadsfef'
 #print "crc32", crc32, crc32.__class__.__name__
 
-if crc32 != zlib.crc32 (key):
+if crc32 != zlib.crc32 (bytes(key,'utf-8')):
     print("Error: You didn't paste the correct input string")
     sys.exit()
 
@@ -32,4 +31,4 @@ for letter in user:
     elif 78 <= number <= 90 or 110 <= number <= 122:
         number -= 13
     other += chr (number)
-print("success: %s %s" % (user, other))
+print(f"success: {user} {other}")
