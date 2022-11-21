@@ -28,7 +28,7 @@ Whether you use python or C++ to complete your analysis is a personal preference
 {: .prereq}
 
 > ## Note
-> Please post your answers to the questions in the [Google form sixth set](https://forms.gle/eDZE2jqGf5fRvPoV7).
+> Please post your answers to the questions in the [Google form sixth set][Set6_form].
 {: .objectives}
 
 # Exercise 19 - Introduction to pyROOT and Jupyter
@@ -53,3 +53,6 @@ Advanced topics not explored in this exercise, but to be included on the pyROOT 
 Students are encouraged to explore these and other topics on their own and to assist with the CMS effort to document pyROOT by creating your own fork of [pyROOTforCMSDAS](https://github.com/FNALLPC/pyROOTforCMSDAS) and adding to the example scripts available there. 
 
 {% include links.md %}
+
+
+[Set6_form]: https://forms.gle/i5pAm573Z5JWb2Mo9

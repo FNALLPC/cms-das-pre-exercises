@@ -23,7 +23,7 @@ keypoints:
 {: .prereq}
 
 > ## Note
-> Please post your answers to the questions in the [Google form seventh set](https://forms.gle/kqNcbn3j3RuU8bVP6).
+> Please post your answers to the questions in the [Google form seventh set][Set7_form].
 {: .objectives}
 
 > ## Limitation
@@ -54,11 +54,11 @@ This allows us to package up an application with just the dependencies we need (
 
 ## Container Runtimes
 
-For the purposes of this tutorial we will only be considering [Docker][docker] and [Singularity][singularity] for container runtimes. That said, these are really powerful tools which are so much more than just container runtimes. We encourage you to take the time to explore the [Docker][docker-docs] and [Singularity][singularity-docs] documentation.
+For the purposes of this tutorial we will only be considering [Docker][docker] and [Singularity][singularity] for container runtimes. That said, these are really powerful tools which are so much more than just container runtimes. We encourage you to take the time to explore the [Docker][docker-docs] and [Singularity][singularity-docs] documentation. 
 
 <p float="middle">
-    <img src="https://www.docker.com/sites/default/files/social/docker_twitter_share_new.png" alt="Docker logo" style="float:left; width:40%;" />
-    <img src="https://sylabs.io/assets/svg/singularity-logo.svg" alt="Singularity logo" style="float:right; width:25%;" />
+    <img src="{%link fig/docker-logo.png%}" alt="Docker logo" style="float:left; width:35%;" />
+    <img src="{%link fig/singularity-logo.png%}" alt="Singularity logo" style="float:right; width:25%;" />
 </p>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
@@ -772,3 +772,6 @@ You will notice that the startup time for the container is significantly reduced
 {: .challenge}
 
 {% include links.md %}
+
+
+[Set7_form]: https://forms.gle/CSmhNxZW5QjXuvbB6
