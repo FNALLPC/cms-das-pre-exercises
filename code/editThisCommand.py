@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import warnings
 warnings.filterwarnings('ignore', category=FutureWarning)
@@ -12,6 +12,6 @@ import zlib
 
 import getpass
 user = getpass.getuser()
-crc32 = zlib.crc32(user)
+crc32 = zlib.crc32(bytes(user,'utf-8'))
 
-print("success: ", user, "0x%X" % crc32)
+print(f"success:  {user} 0x{crc32:X}")
