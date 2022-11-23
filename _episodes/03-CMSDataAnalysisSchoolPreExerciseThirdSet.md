@@ -193,27 +193,29 @@ crab checkwrite --site=T3_US_FNALLPC
 > > LFN /store/user/belt is valid.
 > > Will use `gfal-copy`, `gfal-rm` commands for checking write permissions
 > > Will check write permission in /store/user/belt on site T3_US_FNALLPC
-> > Will use PFN: gsiftp://cmseos-gridftp.fnal.gov:2811/eos/uscms/store/user/belt/crab3checkwrite_20211024_163317/crab3checkwrite_20211024_163317.tmp
-> >
-> > Attempting to create (dummy) directory crab3checkwrite_20211024_163317 and copy (dummy) file crab3checkwrite_20211024_163317.tmp to /store/user/belt
-> >
-> > Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-copy -p -v -t 180 file:///uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crab3checkwrite_20211024_163317.tmp 'gsiftp://cmseos-gridftp.fnal.gov:2811/eos/uscms/store/user/belt/crab3checkwrite_20211024_163317/crab3checkwrite_20211024_163317.tmp'
+> > Will use PFN: davs://cmseos.fnal.gov:9000/eos/uscms/store/user/belt/crab3checkwrite_20221123_113127/crab3checkwrite_20221123_113127.tmp
+> > 
+> > Attempting to create (dummy) directory crab3checkwrite_20221123_113127 and copy (dummy) file crab3checkwrite_20221123_113127.tmp to /store/user/belt
+> > 
+> > Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-copy -p -v -t 180 file:///uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crab3checkwrite_20221123_113127.tmp 'davs://cmseos.fnal.gov:9000/eos/uscms/store/user/belt/crab3checkwrite_20221123_113127/crab3checkwrite_20221123_113127.tmp'
 > > Please wait...
-> >
-> > Successfully created directory crab3checkwrite_20211024_163317 and copied file crab3checkwrite_20211024_163317.tmp to /store/user/belt
-> >
-> > Attempting to delete file gsiftp://cmseos-gridftp.fnal.gov:2811/eos/uscms/store/user/belt/crab3checkwrite_20211024_163317/crab3checkwrite_20211024_163317.tmp
-> >
-> > Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-rm -v -t 180 'gsiftp://cmseos-gridftp.fnal.gov:2811/eos/uscms/store/user/belt/crab3checkwrite_20211024_163317/crab3checkwrite_20211024_163317.tmp'
+> > 
+> > Successfully created directory crab3checkwrite_20221123_113127 and copied file crab3checkwrite_20221123_113127.tmp to /store/user/belt
+> > 
+> > Attempting to delete file davs://cmseos.fnal.gov:9000/eos/uscms/store/user/belt/crab3checkwrite_20221123_113127/crab3checkwrite_20221123_113127.tmp
+> > 
+> > Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-rm -v -t 180 'davs://cmseos.fnal.gov:9000/eos/uscms/store/user/belt/crab3checkwrite_20221123_113127/crab3checkwrite_20221123_113127.tmp'
 > > Please wait...
-> >
-> > Successfully deleted file gsiftp://cmseos-gridftp.fnal.gov:2811/eos/uscms/store/user/belt/crab3checkwrite_20211024_163317/crab3checkwrite_20211024_163317.tmp
-> >
-> > Attempting to delete directory gsiftp://cmseos-gridftp.fnal.gov:2811/eos/uscms/store/user/belt/crab3checkwrite_20211024_163317/
-> >
-> > Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-rm -r -v -t 180 'gsiftp://cmseos-gridftp.fnal.gov:2811/eos/uscms/store/user/belt/crab3checkwrite_20211024_163317/'
+> > 
+> > Successfully deleted file davs://cmseos.fnal.gov:9000/eos/uscms/store/user/belt/crab3checkwrite_20221123_113127/crab3checkwrite_20221123_113127.tmp
+> > 
+> > Attempting to delete directory davs://cmseos.fnal.gov:9000/eos/uscms/store/user/belt/crab3checkwrite_20221123_113127/
+> > 
+> > Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-rm -r -v -t 180 'davs://cmseos.fnal.gov:9000/eos/uscms/store/user/belt/crab3checkwrite_20221123_113127/'
 > > Please wait...
-> > Successfully deleted directory gsiftp://cmseos-gridftp.fnal.gov:2811/eos/uscms/store/user/belt/crab3checkwrite_20211024_163317/
+> > 
+> > Successfully deleted directory davs://cmseos.fnal.gov:9000/eos/uscms/store/user/belt/crab3checkwrite_20221123_113127/
+> > 
 > > Checkwrite Result:
 > > Success: Able to write in /store/user/belt on site T3_US_FNALLPC
 > > ```
