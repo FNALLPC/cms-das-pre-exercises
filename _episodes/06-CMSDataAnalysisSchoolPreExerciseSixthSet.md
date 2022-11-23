@@ -27,7 +27,7 @@ Whether you use python or C++ to complete your analysis is a personal preference
 > It is also helpful to have already completed the "Collaboration on GitHub" section of the [fifth set of exercises]({{ page.root }}{% link _episodes/05-CMSDataAnalysisSchoolPreExerciseFifthSet.md %}).
 {: .prereq}
 
-> ## Note
+> ## Objective
 > Please post your answers to the questions in the [Google form sixth set][Set6_form].
 {: .objectives}
 

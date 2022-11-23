@@ -23,7 +23,7 @@ In this set of exercises, we will analyze the [MiniAOD][miniaod] file that was m
 > To perform this set of exercises, an [LPC](https://twiki.cern.ch/twiki/bin/view/CMS/LPC) account, Grid Certificate, and CMS VO membership are required. You should already have these things, but if not, follow these instructions from the [setup instructions]({{ page.root }}{% link setup.md %}).
 {: .prereq}
 
-> ## Note
+> ## Objective
 > Please post your answers to the questions in the [Google form fourth set][Set4_form].
 {: .objectives}
 
@@ -196,8 +196,9 @@ FWLiteWithPythonConfig parameters.py
 > Take note of the extra `cmsenv` is to ensure the changes to files in the `bin` subdirectory are picked up in your path.
 {: .callout}
 
+> ## Warning
 > You might get a segfault when running this exercise. Just ignore it; the output `ROOT` file will still be created and be readable.
-{: .warning}
+{: .caution}
 
 > ## Note
 > Take a look at how the parameters defined in `parameters.py` get input to the executable code `FWLiteWithPythonConfig.cc`.

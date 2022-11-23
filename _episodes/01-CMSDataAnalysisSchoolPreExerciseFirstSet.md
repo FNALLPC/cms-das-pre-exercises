@@ -550,7 +550,7 @@ TBrowser b;
 
 > ## Remember
 > Be sure to submit your answers to the [Google Form first set][Set1_form], then proceed to the [second set]({{ page.root }}{% link _episodes/02-CMSDataAnalysisSchoolPreExerciseSecondSet.md %}).
-{: .caution}
+{: .objectives}
 
 > ## Helpful Hint
 > Rather than using the TBrowser, you can perform the drawing action using ROOT interpreter. An example is shown below:
