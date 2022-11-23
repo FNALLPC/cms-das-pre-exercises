@@ -491,7 +491,7 @@ TBrowser b;
 > ~~~
 > {: .source}
 {: .callout}
-This may have some issues when using the [xrootd redirector][https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookXrootdService#OpenwithRoot], here we are avoiding that by directly addressing the file on FNAL EOS (T3_US_FNALLPC).
+This may have some issues when using the [xrootd redirector](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookXrootdService#OpenwithRoot), here we are avoiding that by directly addressing the file on FNAL EOS (T3_US_FNALLPC).
 
 To be able to use the member functions of a CMSSW data class from within ROOT, a 'dictionary' for that class needs to be available to ROOT. To obtain that dictionary, it is necessary to load the proper library into ROOT. The first three lines of the code above do exactly that. More information is at [WorkBookFWLiteExamples](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookFWLiteExamples). Note that `gROOT->SetStyle ("Plain");` sets a plain white background for all the plots in ROOT.
 
