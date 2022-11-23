@@ -22,7 +22,7 @@ keypoints:
 > As a prerequisite for this exercise, please make sure that you have correctly followed the [setup instructions]({{ page.root }}{% link setup.md %}) for installing [Docker][docker] and obtaining a [DockerHub][docker-hub] account.
 {: .prereq}
 
-> ## Note
+> ## Objective
 > Please post your answers to the questions in the [Google form seventh set][Set7_form].
 {: .objectives}
 

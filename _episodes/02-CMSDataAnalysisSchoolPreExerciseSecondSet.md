@@ -121,7 +121,7 @@ To quit ROOT application, execute:
 
 > ## Remember 
 >For CMSDAS@LPC{{site.year}}  please submit your answers at the [Google Form second set][Set2_form].
-{: .caution}
+{: .objectives}
 
 > ## Question 7.1a
 > What is the size of the [MiniAOD](https://twiki.cern.ch/twiki/bin/view/CMS/MiniAOD) `slimMiniAOD_MC_MuEle.root`?
