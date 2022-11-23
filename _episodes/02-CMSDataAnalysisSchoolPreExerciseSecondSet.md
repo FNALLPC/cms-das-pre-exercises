@@ -124,11 +124,11 @@ To quit ROOT application, execute:
 {: .objectives}
 
 > ## Question 7.1a
-> What is the size of the [MiniAOD](https://twiki.cern.ch/twiki/bin/view/CMS/MiniAOD) `slimMiniAOD_MC_MuEle.root`?
+> What is the size of the [MiniAOD](https://twiki.cern.ch/twiki/bin/view/CMS/MiniAOD) `slimMiniAOD_MC_MuEle.root`in MB? Make sure your answer is only numerical (no units).
 {: .challenge}
 
 > ## Question 7.1b
-> What is the size of the [MiniAOD](https://twiki.cern.ch/twiki/bin/view/CMS/MiniAOD) `slimMiniAOD_data_MuEle.root`?
+> What is the size of the [MiniAOD](https://twiki.cern.ch/twiki/bin/view/CMS/MiniAOD) `slimMiniAOD_data_MuEle.root`in MB? Make sure your answer is only numerical (no units).
 {: .challenge}
 
 > ## Question 7.2a
