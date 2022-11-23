@@ -196,8 +196,9 @@ FWLiteWithPythonConfig parameters.py
 > Take note of the extra `cmsenv` is to ensure the changes to files in the `bin` subdirectory are picked up in your path.
 {: .callout}
 
+> ## Warning
 > You might get a segfault when running this exercise. Just ignore it; the output `ROOT` file will still be created and be readable.
-{: .warning}
+{: .caution}
 
 > ## Note
 > Take a look at how the parameters defined in `parameters.py` get input to the executable code `FWLiteWithPythonConfig.cc`.
