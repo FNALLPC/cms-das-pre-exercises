@@ -84,7 +84,7 @@ the pitch.
 {% endif %}
 
 <p id="what">
-  <strong>What:</strong> An introduction to the common pieces of software and workflows used by members of the CMS collaboration.
+  <strong>What:</strong> A series of pre-exercises to exercise all the needed tools with the laptop participants will bring to CMS DAS, so that they can be ready to go from the beginning of the school.
 </p>
 
 {% comment %}
