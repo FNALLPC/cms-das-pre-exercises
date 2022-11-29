@@ -933,7 +933,7 @@ Refer to [the documentation](http://cms-service-lumi.web.cern.ch/cms-service-lum
 ``` shell
 export PATH=$HOME/.local/bin:/afs/cern.ch/cms/lumi/brilconda-1.1.7/bin:$PATH  # bash
 #setenv PATH $HOME/.local/bin:/afs/cern.ch/cms/lumi/brilconda-1.1.7/bin:$PATH  # tcsh
-pip install --install-option="--prefix=$HOME/.local" brilws
+python -m pip install --install-option="--prefix=$HOME/.local" brilws 
 ```
 {: .source}
 
