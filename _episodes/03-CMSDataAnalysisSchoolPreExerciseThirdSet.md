@@ -926,14 +926,12 @@ You may look at `ZPeak_data.root` using `TBrowser`.
 
 We will use the BRIL work suite, a commandline toolkit for CMS Beam Radiation Instrumentation and Luminosity to calculate the total luminosity of the data we ran over.
 
-Refer to [the documentation](http://cms-service-lumi.web.cern.ch/cms-service-lumi/brilwsdoc.html) for further information on BRIL.
+Refer to [the documentation](https://cmslumi.web.cern.ch/) for further information on BRIL.
 
-**Login to lxplus** (use a seperate tab in your terminal!) then enter the following commands (if you are not in a bash shell the first command will fail, you could just execute the command bash before, or use the equivalent setenv command):
+**Login to lxplus** (use a seperate tab in your terminal!) then enter the following command:
 
 ``` shell
-export PATH=$HOME/.local/bin:/afs/cern.ch/cms/lumi/brilconda-1.1.7/bin:$PATH  # bash
-#setenv PATH $HOME/.local/bin:/afs/cern.ch/cms/lumi/brilconda-1.1.7/bin:$PATH  # tcsh
-python -m pip install --install-option="--prefix=$HOME/.local" brilws 
+/cvmfs/cms-bril.cern.ch/brilconda3/bin/python3 -m pip install --user --upgrade brilws
 ```
 {: .source}
 
