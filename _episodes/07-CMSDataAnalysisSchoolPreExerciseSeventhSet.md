@@ -79,6 +79,7 @@ docker pull sl
 
 #if you run into a premission error, use "sudo docker run ..." as a quick fix
 # to fix this for the future, see https://docs.docker.com/install/linux/linux-postinstall/
+# if you have a M1 chip Mac, you may want to do "docker pull sl --platform amd64"
 ~~~
 {: .source}
 
