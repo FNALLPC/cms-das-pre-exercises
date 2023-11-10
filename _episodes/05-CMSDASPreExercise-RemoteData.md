@@ -24,7 +24,7 @@ If you encounter any problems with the exercise, please reach out on Mattermost 
 
 > ## Note
 > **This section assumes that you have an account on the LPC computers
-> at FNAL.** How to get one is explained [here]({% link setup.md %}). However,
+> at FNAL.** How to get one is explained [here](https://dryrun.github.io/cms-das-pre-exercises/setup.html). However,
 > those familiar with the CERN computing environment and somewhat
 > familiar with CRAB can answer all the questions running at CERN
 > only. For CMSDAS, we recommend using a LPC account at FNAL and making sure you have write access to T3\_US\_FNALLPC. For T3\_US\_FNALLPC, you can get your EOS area mapped to your grid
@@ -33,7 +33,7 @@ If you encounter any problems with the exercise, please reach out on Mattermost 
 >
 > Later on, you can check with your university contact for Tier 2 or Tier 3 storage area. Once you are granted the write permission to the specified site, for later analysis you can use CRAB as the below exercise but store the output to your Tier 2 or Tier 3 storage area.
 >
-> AGAIN: To perform this set of exercises, an LPC account, Grid Certificate, and CMS VO membership are required. You should already have these things, but if not, follow the [setup instructions]({% link setup.md %}).
+> AGAIN: To perform this set of exercises, an LPC account, Grid Certificate, and CMS VO membership are required. You should already have these things, but if not, follow the [setup instructions](https://dryrun.github.io/cms-das-pre-exercises/setup.html).
 >
 {: .callout}
 
@@ -100,7 +100,7 @@ attribute : /cms/Role=NULL/Capability=NULL
 attribute : /cms/uscms/Role=NULL/Capability=NULL
 ```
 {: .output}
-If you do not have the first attribute line listed above, you probably did not finish the VO registration in the [setup]({% link setup.md %}). Double check this first, and otherwise reach out on Mattermost.
+If you do not have the first attribute line listed above, you probably did not finish the VO registration in the [setup](https://dryrun.github.io/cms-das-pre-exercises/setup.html). Double check this first, and otherwise reach out on Mattermost.
 
 > ## Question 5.2
 > Copy the output corresponding to the text in the output box above, using [Google form 5][Set5_form].
