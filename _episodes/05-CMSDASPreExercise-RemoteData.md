@@ -14,7 +14,7 @@ keypoints:
 ---
 
 > ## Questions
-For this lesson, please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form 5][Set5_form].
+For this lesson, please submit your answers using [Google Form 5][Set5_form].
 {: .challenge}
 
 # Before you start
