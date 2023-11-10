@@ -49,15 +49,16 @@ ssh -Y <YourUsername>@cmslpc-sl7.fnal.gov
 ```
 {: .source}
 
- Once connected use the following command to copy the `runThisCommand.py` script:
+ Once connected use the following command to copy the `runThisCommand.py` script and make it so that the script is executable (Mac/Linux/Windows):
 ```shell
 cp ~cmsdas/runThisCommand.py .
+chmod +x runThisCommand.py
 ```
 {: .source}
 
  Next, cut and paste the following and then hit return:
  ```shell
-python3 runThisCommand.py "asdf;klasdjf;kakjsdf;akjf;aksdljf;a" "sldjfqewradsfafaw4efaefawefzdxffasdfw4ffawefawe4fawasdffadsfef"
+./runThisCommand.py "asdf;klasdjf;kakjsdf;akjf;aksdljf;a" "sldjfqewradsfafaw4efaefawefzdxffasdfw4ffawefawe4fawasdffadsfef"
  ```
 {: .source}
 
@@ -167,9 +168,8 @@ At Fermilab **cmslpc-sl7** users have a 2GB home area at `/uscms/homes/Y/YOURUSE
 
 ```bash
 source /cvmfs/cms.cern.ch/cmsset_default.sh
+export CMSSW_GIT_REFERENCE=/cvmfs/cms.cern.ch/cmssw.git.daily
 ```
-<!--export CMSSW_GIT_REFERENCE=/cvmfs/cms.cern.ch/cmssw.git.daily-->
-
 {: .source}
 
 ```sh

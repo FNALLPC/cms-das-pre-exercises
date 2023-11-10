@@ -11,10 +11,10 @@ latitude: "41.842258"        # decimal latitude of workshop venue (use https://w
 longitude: "-88.245781"       # decimal longitude of the workshop venue (use https://www.latlong.net)
 humandate: "Asynchronously from November, 2022 to mid-December, 2022"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
 humantime: "24/7"    # human-readable times for the workshop (e.g., "9:00 am - 4:30 pm")
-startdate: 2024-01-08      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
-enddate: 2024-01-12        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
-instructor: ["Gabriele Benelli", "Marguerite Tonjes", "David Yu"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
-helper: ["Jyoti Babbar", "Michael Carrigan", "Tamer Elkafrawy", "Guillermo Antonio Fidalgo Rodriguez", "Georgios Krintiras", "Titas Roy", "Nick Smith"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
+startdate: 2021-10-15      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
+enddate: 2021-12-10        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
+instructor: ["Gabriele Benelli", "Marguerite Tonjes"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
+helper: ["Guillermo Antonio Fidalgo Rodriguez, Irene Zoi"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
 #helper: ["Tamer Elkafrawy", "Pampa Ghose", "Redwan Md Habibullah", "Christopher Madrid", "Christine McLean", "Andrew Melo", "Steve Mrenna", "Jingyu Zhang"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
 #email: ["gabriele.benelli@cern.ch", "tamer.elkafrawy@cern.ch", "pampa.ghose@cern.ch", "rmh16d@my.fsu.edu", "cmadrid@fnal.gov", "ch.mclean@cern.ch", andrew.malone.melo@cern.ch", "stephen.mrenna@cern.ch", "alexx.stephen.perloff@cern.ch", "marguerite.belt.tonjes@cern.ch", "hannsjorg.artur.weber@cern.ch", "jingyu.zhang@cern.ch"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
 email: ["cmsdasatlpc@fnal.gov"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
