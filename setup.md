@@ -6,9 +6,6 @@ questions:
 - "Who can I contact if I need help with the pre-exercises?"
 ---
 
-# Basic Linux
-
-If you have not used the Linux command line before, you may learn more at [WorkBookBasicLinux](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookBasicLinux).
 
 ## Mattermost (chat)
 
@@ -50,24 +47,18 @@ A Grid Certificate and CMS VO registration will be needed for the next set of ex
 
 ## Obtain a GitHub Account
 
-Since Summer 2013, most of the CMS software are hosted on [GitHub]. [GitHub] is a Git repository web-based hosting service, while Git is a distributed version control system. In your future analysis work, version control of your analysis code will become a very important task and git will be very useful. A small git tutorial will wait for you in the [fifth exercise set]({{ page.root }}{% link _episodes/05-CMSDataAnalysisSchoolPreExerciseFifthSet.md %}).
+Most CMS software is hosted on [GitHub]. [GitHub] is a Git repository web-based hosting service, while git is a distributed version control system. In your future analysis work, version control of your analysis code will become a very important task and git will be very useful. A small git tutorial will wait for you in the [fifth exercise set]({{ page.root }}{% link _episodes/05-CMSDataAnalysisSchoolPreExerciseFifthSet.md %}).
 
 In order to checkout and develop CMS software, you will need a github account, which is free.
-  * In case you don’t have one already, simply go to [https://github.com/join](https://github.com/join) and follow the instructions to create a new account. Make sure you use a username people can recognize easily or to specify your real name.
+  * In case you don’t have one already, simply go to [https://github.com/join](https://github.com/join) and follow the instructions to create a new account. Choose your username wisely, ideally based on your actual name, as it will be used to sign all of your contributions to CMS code! 
   * In case you already have an account you can simply use the "[Sign in](https://github.com/login)" dialog and put your username and password.
-  * Make sure you register your ssh key in [GitHub]. You can register more than one ssh key and it's usually a good idea to do so for every computer/cluster on which you regularly work (i.e. you laptop, cmslpc-sl7, your university cluster, etc.). You don't need to use an ssh-agent, but you can try if you want to. For more about ssh-agents, see [CMSGitTutorial#SSH_agent_in_logon_file](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CMSGitTutorialPublic#SSH_agent_in_logon_file).
+  * Make sure you register an ssh key in [GitHub]. You can register more than one ssh key and it's usually a good idea to do so for every computer/cluster on which you regularly work (i.e. you laptop, cmslpc-sl7, your university cluster, etc.). You don't need to use an ssh-agent, but you can try if you want to. For more about ssh-agents, see [CMSGitTutorial#SSH_agent_in_logon_file](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CMSGitTutorialPublic#SSH_agent_in_logon_file).
   * You will learn more about [GitHub] in the [fifth set of exercises]({{ page.root }}{% link _episodes/05-CMSDataAnalysisSchoolPreExerciseFifthSet.md %}).
 
-# Install Docker
-
-To install Docker Community Edition on your Linux, Mac, or Windows 10 (Pro, Enterprise, and Education) machine follow the [instructions in the Docker docs](https://docs.docker.com/get-docker/). If you are using Windows 10 Home you will need to follow [this Docker doc](https://docs.docker.com/docker-for-windows/install-windows-home/). Fair warning, the Windows 10 Home installation is more involved and requires Windows Subsystem for Linux 2 (WSL2), among other intricacies.
 
 ## Windows specific setup
 
 If you would like to use cygwin, you will need to install [winpty](https://github.com/rprichard/winpty) and prefix your docker command like `winpty docker`.
-
-## Docker Hub
-
-To sign up for Docker Hub, follow the instructions [here](https://hub.docker.com/signup).
+Windows Subsystem for Linux can also be used; once installed (whichever flavor of Linux you prefer), you can largely follow the Unix instructions. 
 
 {% include links.md %}
