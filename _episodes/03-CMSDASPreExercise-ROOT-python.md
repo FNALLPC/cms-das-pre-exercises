@@ -1,14 +1,15 @@
 ---
-title: "CMSDAS Pre-Exercises: ROOT and python"
+title: "CMSDAS Pre-Exercise 3: ROOT and python basics"
 teaching: 0
 exercises: 60
 questions:
-- "Learn how to use ROOT and python
 objectives:
 - "Learn how to use ROOT and python"
 - "Use ROOT and python to inspect a CMS NanoAOD file"
 keypoints:
-- "Learn how to use ROOT and python"
+- "ROOT and python are two key software tools in HEP."
+- "Many CMS analyses use the NanoAOD format, which are simple ROOT ntuples that can be analyzed with standalone ROOT or pyROOT."
+- "There are numerous ways to use ROOT, including the build-in command line interface (based on CINT, a C++ interpreter), pyROOT, Jupyter notebooks, compiled C++, and more."
 ---
 
 > ## Questions
@@ -158,3 +159,5 @@ A plot of the Z boson mass should appear, with a mean value close to the Z boson
 The plot includes a "stat box" with basic information about the plotted histogram. 
 Please fill in the mean of the distribution in the Google form. 
 {: .challenge}
+
+[Set3_form]: https://forms.gle/KpqmLGGk6aV1thbB8

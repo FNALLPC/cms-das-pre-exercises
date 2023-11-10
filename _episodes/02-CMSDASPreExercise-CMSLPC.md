@@ -1,5 +1,5 @@
 ---
-title: "CMSDAS Pre-Exercises: CMSLPC"
+title: "CMSDAS Pre-Exercises 2: Using the cmslpc cluster"
 teaching: 0
 exercises: 60
 questions:
@@ -12,7 +12,7 @@ keypoints:
 ---
 
 > ## Questions
-For this lesson, please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form 2][Set2_form].
+For this lesson, please submit your answers using [Google Form 2][Set2_form].
 {: .challenge}
 
 # Introduction
@@ -111,7 +111,7 @@ Unknown user: gbenelli.
 {: .output}
 
 ## Question 2.1
-Post the alphanumeric string of characters unique to your username. For CMSDAS@LPC {{ site.year }} please submit your answers for the [CMSDAS@LPC {{ site.year }} Google Form first set][Set1_form]. NOTE, answer only Question 1 at this point. Question 2 in the form is related to the next exercise. There is a one-to-one correspondence between the question numbers here and in the Google Form.
+Copy-and-paste the alphanumeric string of characters unique to your username in the Google form.
 {: .challenge}
 
 # Editing files on cmslpc
@@ -178,7 +178,7 @@ RuntimeError: You need to comment out this line with a #
 {: .output}
 
 ## Question 2.2
-Paste the line beginning with "success", resulting from the execution of `./editThisCommand.py`, into the Google form.
+Copy-and-paste the line beginning with "success", resulting from the execution of `./editThisCommand.py`, into the Google form.
 {: .challenge}
 
 
@@ -204,5 +204,7 @@ xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2024/preexercises/DYJetsToLL_M50
 ```
 {: .source}
 
-Using `ls -lh`, how big is this file? Write the answer in the Google form. 
+Using `ls -lh DYJetsToLL_M50.root`, how big is this file? Write the answer in the Google form. 
 {: .challenge}
+
+[Set2_form]: https://forms.gle/N8C48nTWoBk3omJKA

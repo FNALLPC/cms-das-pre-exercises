@@ -1,17 +1,22 @@
 ---
-title: "CMSDAS Pre-Exercises: ROOT and python"
+title: "CMSDAS Pre-Exercises: CMSSW basics"
 teaching: 0
 exercises: 60
 questions:
-- "Learn the basics of CMSSW"
 objectives:
-- "Learn the basics of CMSSW"
+- "Setup a CMSSW environment"
+- "Use git to download an example EDAnalyzer"
+- "Run a CMSSW job on real dimuon data to plot the Z peak"
 keypoints:
-- "Learn the basics of CMSSW"
+- "CMSSW is CMS's software framework for data processing."
+- "The framework consists of lots of C++ modules, which are configured using python."
+- "CMSSW jobs are launched using commands like `cmsRun myCfg.py`"
+- "We provide an example EDAnalyzer and cfg.py file for plotting a Z peak directly from a MiniAOD file."
+- "Analyzing simple ROOT ntuples like NanoAOD does not need CMSSW!"
 ---
 
 > ## Questions
-For this lesson, please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form 4][Set4_form].
+For this lesson, please submit your answers using [CMSDAS@LPC{{ site.year }} Google Form 4][Set4_form].
 {: .challenge}
 
 # CMSSW
@@ -61,16 +66,16 @@ cmsenv
 This will provide you with a number of commands and environment variables. For example `$CMSSW_BASE` is a handy variable that points to your CMSSW folder. 
 
 ## Question 4.1
-The following command prints the location of your CMSSW area. Copy-and-paste the answer into the Google form. 
+The following command prints the location of your CMSSW area. Copy-and-paste the answer into the [Google form 4][Set4_form]. 
 ```shell
 echo $CMSSW_BASE
 ```
 {: .challenge}
 
 ## Question 4.2
-CMSSW is connected to several external tools, for example the Pythia generator. The following command prints the version of Pythia connected to your current CMSSW release. Fill in the version number in the Google form.
+CMSSW is connected to several external tools, for example the Pythia generator. The following command prints the version of Pythia connected to your current CMSSW release. Fill in the version number in the [Google form 4][Set4_form].
 ```shell
-scram tool info pythia
+scram tool info pythia8
 ```
 {: .challenge}
 
@@ -101,7 +106,7 @@ git clone https://github.com/FNALLPC/LearnCMSSW MyAnalysis/LearnCMSSW
 This will copy all the code in the repository to `$CMSSW_BASE/src/MyAnalysis/LearnCMSSW`. Feel free to glance through it. 
 
 ## Question 4.3: git repo info
-Use the following commands to print out the URL of the remote repository, from which you cloned the code:
+When you cloned the repository, you not only downloaded the code, but also setup a local git repository connected to the remote repository. Use the following commands to print out the URL of the remote repository, from which you cloned the code:
 ```shell
 cd $CMSSW_BASE/src/MyAnalysis/LearnCMSSW
 git remote -v
@@ -140,3 +145,4 @@ root -l ZPeak.root
 Using the stat box drawn along with the histogram, what is the mean dimuon mass? Write your answer in the Google form. 
 {: .challenge}
 
+[Set4_form]: https://forms.gle/mSntaw8AAGty2Kmp8
