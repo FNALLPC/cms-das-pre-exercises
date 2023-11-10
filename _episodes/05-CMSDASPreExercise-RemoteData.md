@@ -234,7 +234,7 @@ We usually need millions of MC events for a CMS analysis. The collaboration prod
 CRAB is configured using python configuration files (once again!). The complete documentation for these configuration files is here: [CRAB3ConfigurationFile](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile). For now, we have prepared a CRAB config for you; download it to cmslpc using:
 ```shell
 cd $CMSSW_BASE/src
-wget {{ page.root }}{% link code/cmsdas_mc_crab.py %}
+wget fnallpc.github.io/cms-das-pre-exercises/code/cmsdas_mc_crab.py
 ```
 
 Below you also find the file:
@@ -379,7 +379,7 @@ Download another CRAB configuration file,
 
 ```shell
 cd $CMSSW_BASE/src
-wget {{ page.root }}{% link code/cmsdas_zpeak_crab.py %}
+wget fnallpc.github.io/cms-das-pre-exercises/code/cmsdas_zpeak_crab.py
 ```
 {: .source}
 
