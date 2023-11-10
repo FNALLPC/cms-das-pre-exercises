@@ -907,9 +907,6 @@ Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crab
 
 ## Optional: View the reconstructed Z peak in the combined data
 
-<!-- ## Note
-> You will be doing a short analysis later when going to [exercise set number four]({{ page.root }}{% link _episodes/04-CMSDataAnalysisSchoolPreExerciseFourthSet.md %}).
->
 {: .callout}-->
 
 Use the `FWLiteHistograms` executable you were using in the previous exercises to aggregate the data from all the CRAB output files. The root files created in the above step have been kept at the directory below: `/eos/uscms/store/user/$USER/DoubleMuon/crab_CMSDAS_Data_analysis_test0/` One can use the command:
