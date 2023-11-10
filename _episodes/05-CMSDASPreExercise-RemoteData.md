@@ -1,5 +1,5 @@
 ---
-title: "CMSDAS Pre-Exercises: Finding and analyzing remote data on the grid"
+title: "CMSDAS Pre-Exercise 5: Using the grid"
 teaching: 0
 exercises: 60
 objectives:
@@ -33,7 +33,7 @@ If you encounter any problems with the exercise, please reach out on Mattermost 
 >
 > Later on, you can check with your university contact for Tier 2 or Tier 3 storage area. Once you are granted the write permission to the specified site, for later analysis you can use CRAB as the below exercise but store the output to your Tier 2 or Tier 3 storage area.
 >
-> AGAIN: To perform this set of exercises, an LPC account, Grid Certificate, and CMS VO membership are required. You should already have these things, but if not, follow the [setup instructions]({{ page.root }}{% link _episodes/01-CMSDASPreExercise-UnixBasics.md %})  [first set of exercises]({{ page.root }}{% link setup.md %}).
+> AGAIN: To perform this set of exercises, an LPC account, Grid Certificate, and CMS VO membership are required. You should already have these things, but if not, follow the [setup instructions]({{ page.root }}{% link setup.md %}).
 >
 {: .callout}
 
@@ -362,7 +362,7 @@ From the bottom of the output, you can see the name of the dataset and the DAS l
 There is some magic going on under the hood here. For example, if you were to simply `cmsRun cmsdas_minbias_cfg.py` ten times, you would get 10 identical output files. CRAB takes care of assigning each job an independent seed for the random number generator, so that each file contains unique events!
 {: .callout}
 
-## Question 12.2
+## Question 5.4
 What is the dataset name you published?
 {: .challenge}
 
@@ -494,7 +494,7 @@ Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crab
 ```
 {: .output}
 
-> ## Question 13
+> ## Question 5.5
 > How many events were analyzed? Use `crab report -d crabsubmit/crab_cmsdas_zpeak_test0`. 
 {: .challenge}
 

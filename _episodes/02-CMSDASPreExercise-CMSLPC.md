@@ -1,5 +1,5 @@
 ---
-title: "CMSDAS Pre-Exercises 2: Using the cmslpc cluster"
+title: "CMSDAS Pre-Exercise 2: Using the cmslpc cluster"
 teaching: 0
 exercises: 60
 questions:

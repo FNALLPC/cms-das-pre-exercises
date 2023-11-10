@@ -1,5 +1,5 @@
 ---
-title: "CMSDAS Pre-Exercises: CMSSW basics"
+title: "CMSDAS Pre-Exercise 4: CMSSW basics"
 teaching: 0
 exercises: 60
 questions:
