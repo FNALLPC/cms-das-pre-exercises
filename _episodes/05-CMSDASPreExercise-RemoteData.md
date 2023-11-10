@@ -33,7 +33,7 @@ If, at any time problems are encountered with the exercise please reach out on M
 >
 > Later on, you can check with your university contact for Tier 2 or Tier 3 storage area. Once you are granted the write permission to the specified site, for later analysis you can use CRAB as the below exercise but store the output to your Tier 2 or Tier 3 storage area.
 >
-> AGAIN: To perform this set of exercises, an LPC account, lxplus access, Grid Certificate, and CMS VO membership are required. You should already have these things, but if not, follow these instructions from the [first set of exercises]({{ page.root }}{% link _episodes/01-CMSDataAnalysisSchoolPreExerciseFirstSet.md %}).
+> AGAIN: To perform this set of exercises, an LPC account, lxplus access, Grid Certificate, and CMS VO membership are required. You should already have these things, but if not, follow these instructions from the [first set of exercises]({{ page.root }}{% link _episodes/01-CMSDASPreExercise-UnixBasics.md %}).
 >
 {: .callout}
 
@@ -127,7 +127,7 @@ The most recent CRAB3 tutorial is always in the [WorkBook](https://twiki.cern.ch
 
 In this exercise, we will use `CMSSW_10_6_18`.
 
-You can follow the same instructions from [Exercise 3]({{ page.root }}{% link _episodes/01-CMSDataAnalysisSchoolPreExerciseFirstSet.md %}#exercise-3---setup-a-cmssw-release-area). The instructions are reproduced here:
+You can follow the same instructions from [Exercise 3]({{ page.root }}{% link _episodes/04-CMSDASPreExercise-CMSSW.md %}). The instructions are reproduced here:
 
 ```shell
 cd ~/nobackup/YOURWORKINGAREA
@@ -776,7 +776,7 @@ From the bottom of the output, you can see the name of the dataset and the DAS l
 
 # Exercise 13 - Running on a dataset with CRAB
 
-Now we're going to apply what you've learned using CRAB to the `MiniAOD` exercises you've been working on in the first two sets of exercises. Make sure that you finished and still have the scripts from [Exercise 7]({{ page.root }}{% link _episodes/02-CMSDataAnalysisSchoolPreExerciseSecondSet.md %}#exercise-7---slim-miniaod-sample-to-reduce-its-size-by-keeping-only-muon-and-electron-branches) under the `YOURWORKINGAREA/CMSSW_10_6_18/src`.
+Now we're going to apply what you've learned using CRAB to the `MiniAOD` exercises you've been working on in the first two sets of exercises. Make sure that you finished and still have the scripts from [Exercise 7]({{ page.root }}{% link _episodes/04-CMSDASPreExercise-CMSSW.md %}) under the `YOURWORKINGAREA/CMSSW_10_6_18/src`.
 
 ## Set up CRAB to run your MiniAOD jobs
 
@@ -907,10 +907,10 @@ Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crab
 
 ## Optional: View the reconstructed Z peak in the combined data
 
-> ## Note
+<!-- ## Note
 > You will be doing a short analysis later when going to [exercise set number four]({{ page.root }}{% link _episodes/04-CMSDataAnalysisSchoolPreExerciseFourthSet.md %}).
 >
-{: .callout}
+{: .callout}-->
 
 Use the `FWLiteHistograms` executable you were using in the previous exercises to aggregate the data from all the CRAB output files. The root files created in the above step have been kept at the directory below: `/eos/uscms/store/user/$USER/DoubleMuon/crab_CMSDAS_Data_analysis_test0/` One can use the command:
 

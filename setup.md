@@ -47,13 +47,14 @@ A Grid Certificate and CMS VO registration will be needed for the next set of ex
 
 ## Obtain a GitHub Account
 
-Most CMS software is hosted on [GitHub]. [GitHub] is a Git repository web-based hosting service, while git is a distributed version control system. In your future analysis work, version control of your analysis code will become a very important task and git will be very useful. A small git tutorial will wait for you in the [fifth exercise set]({{ page.root }}{% link _episodes/05-CMSDataAnalysisSchoolPreExerciseFifthSet.md %}).
+Most CMS software is hosted on [GitHub]. [GitHub] is a Git repository web-based hosting service, while git is a distributed version control system. In your future analysis work, version control of your analysis code will become a very important task and git will be very useful. 
+<!--A small git tutorial will wait for you in the [fifth exercise set]({{ page.root }}{% link _episodes/05-CMSDataAnalysisSchoolPreExerciseFifthSet.md %}).-->
 
 In order to checkout and develop CMS software, you will need a github account, which is free.
   * In case you don’t have one already, simply go to [https://github.com/join](https://github.com/join) and follow the instructions to create a new account. Choose your username wisely, ideally based on your actual name, as it will be used to sign all of your contributions to CMS code! 
   * In case you already have an account you can simply use the "[Sign in](https://github.com/login)" dialog and put your username and password.
   * Make sure you register an ssh key in [GitHub]. You can register more than one ssh key and it's usually a good idea to do so for every computer/cluster on which you regularly work (i.e. you laptop, cmslpc-sl7, your university cluster, etc.). You don't need to use an ssh-agent, but you can try if you want to. For more about ssh-agents, see [CMSGitTutorial#SSH_agent_in_logon_file](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CMSGitTutorialPublic#SSH_agent_in_logon_file).
-  * You will learn more about [GitHub] in the [fifth set of exercises]({{ page.root }}{% link _episodes/05-CMSDataAnalysisSchoolPreExerciseFifthSet.md %}).
+<!--  * You will learn more about [GitHub] in the [fifth set of exercises]({{ page.root }}{% link _episodes/05-CMSDataAnalysisSchoolPreExerciseFifthSet.md %}).-->
 
 
 ## Windows specific setup

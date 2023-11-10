@@ -137,6 +137,8 @@ f = ROOT.TFile("DYJetsToLL_M50.root", "READ")
 ```
 {: .source}
 
+You should see the same contents of the file as before. 
+
 `Long64_t TTree::Draw(const char * varexp, const char * selection, ...)` is a fast way to make a plot from a TTree. 
 The first argument, `varexp`, is what you want to plot (accepts single branches as well as expressions; the string is compiled on the fly by CINT). 
 The second argument, `selection`, allows you to filter events before plotting. 
@@ -152,7 +154,7 @@ The branch `GenPart_pdgId` contains the so-called [PDG ID](https://pdg.lbl.gov/2
 A plot of the Z boson mass should appear, with a mean value close to the Z boson mass of 91.1876 GeV. (If no plot appears, something is probably wrong with the X window system that displays graphical windows over SSH. Following [the cmslpc instructions](https://uscms.org/uscms_at_work/computing/getstarted/uaf.shtml), make sure you have an X windows program installed on your computer, and that you logged in using `ssh -Y`; ask Mattermost for more help.)
 
 
-## Question 3.1: Z mass plot
+## Question 3.2: Z mass plot
 The plot includes a "stat box" with basic information about the plotted histogram. 
 Please fill in the mean of the distribution in the Google form. 
 {: .challenge}
