@@ -524,6 +524,4 @@ Note also that all CMS members using the Grid subscribe to the [Grid Annoucement
 _Last reviewed: 2023/11/10 by David Yu
 <br>
 
-{% include links.md %}
-
 [Set5_form]: https://forms.gle/ztnCiLLrdiPRdhvn6
