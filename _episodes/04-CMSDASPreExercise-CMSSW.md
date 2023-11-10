@@ -15,7 +15,7 @@ keypoints:
 - "Analyzing simple ROOT ntuples like NanoAOD does not need CMSSW!"
 ---
 
-> ## Questions
+## Questions
 For this lesson, please submit your answers using [CMSDAS@LPC{{ site.year }} Google Form 4][Set4_form].
 {: .challenge}
 

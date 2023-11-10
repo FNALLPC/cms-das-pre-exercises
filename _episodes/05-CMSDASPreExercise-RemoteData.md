@@ -2,6 +2,7 @@
 title: "CMSDAS Pre-Exercise 5: Using the grid"
 teaching: 0
 exercises: 60
+questions:
 objectives:
 - "Learn how to find CMS data on the grid"
 - "Launch a MC generation job using CRAB"
@@ -13,7 +14,7 @@ keypoints:
 - "Grid jobs run around the world, typically (but not always) using CPUs at the same site as the data."
 ---
 
-> ## Questions
+## Questions
 For this lesson, please submit your answers using [Google Form 5][Set5_form].
 {: .challenge}
 
@@ -34,7 +35,6 @@ If you encounter any problems with the exercise, please reach out on Mattermost 
 > Later on, you can check with your university contact for Tier 2 or Tier 3 storage area. Once you are granted the write permission to the specified site, for later analysis you can use CRAB as the below exercise but store the output to your Tier 2 or Tier 3 storage area.
 >
 > AGAIN: To perform this set of exercises, an LPC account, Grid Certificate, and CMS VO membership are required. You should already have these things, but if not, follow the [setup instructions](https://dryrun.github.io/cms-das-pre-exercises/setup.html).
->
 {: .callout}
 
 
