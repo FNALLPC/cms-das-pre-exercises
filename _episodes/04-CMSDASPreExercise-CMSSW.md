@@ -82,7 +82,7 @@ This will provide you with a number of commands and environment variables. For e
 
 
 # Git
-CMS makes extensive use of `git` for code management, and you will use it throughout CMSDAS (CMSSW itself is managed as a git repository, but it's a rather complicated example, so we won't talk about CMSSW+git here). Here, we will simply use git to download some code. First, if you don't already have a github account, go back to the [setup]({{ pages.root }}{% link setup }) and follow the directions, including setting up the SSH keys. 
+CMS makes extensive use of `git` for code management, and you will use it throughout CMSDAS (CMSSW itself is managed as a git repository, but it's a rather complicated example, so we won't talk about CMSSW+git here). Here, we will simply use git to download some code. First, if you don't already have a github account, go back to the [setup]({{ pages.root }}{% link setup %}) and follow the directions, including setting up the SSH keys. 
 
 Choose your username wisely, it will appear on all your contributions to CMS code! In fact, even if you already have an account, if you have a username like `edgelord1337`, consider either changing it or making a second account.
 {: .callout}
