@@ -104,7 +104,7 @@ git clone git@github.com:FNALLPC/LearnCMSSW MyAnalysis/LearnCMSSW
 ```
 {: .source}
 
-> If the `git clone` fails, it's possible your SSH key was not setup correct. Double check the [setup instructions]({{ pages.root }}{% link setup }), and head to Mattermost for help. 
+> If the `git clone` fails, it's possible your SSH key was not setup correct. Double check the [setup instructions]({{ pages.root }}{% link setup %}), and head to Mattermost for help. 
 
 This will copy all the code in the repository to `$CMSSW_BASE/src/MyAnalysis/LearnCMSSW`. Feel free to glance through it. 
 
