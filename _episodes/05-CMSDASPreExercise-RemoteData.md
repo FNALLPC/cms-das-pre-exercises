@@ -472,27 +472,28 @@ crab report
 ````
 {: .source}
 
-You'll get something like this
-```
-Running crab status first to fetch necessary information.
-Will save lumi files into output directory /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/crab_CMSDAS_Data_analysis_test0/results
-Summary from jobs in status 'finished':
-  Number of files processed: 64
-  Number of events read: 1234567890
-  Number of events written in EDM files: 636670
-  Number of events written in TFileService files: 0
-  Number of events written in other type of files: 0
-  Processed lumis written to processedLumis.json
-Summary from output datasets in DBS:
-  Number of events:
-    /DoubleMuon/belt-crab_CMSDAS_Data_analysis_test0-dfbd2918d11fceef1aa67bdee18b8002/USER: 636670
-  Output datasets lumis written to outputDatasetsLumis.json
-Additional report lumi files:
-  Input dataset lumis (from DBS, at task submission time) written to inputDatasetLumis.json
-  Lumis to process written to lumisToProcess.json
-Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/crab_CMSDAS_Data_analysis_test0/crab.log
-```
-{: .output}
+You'll get something like this:
+> ```
+> Running crab status first to fetch necessary information.
+> Will save lumi files into output directory /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/crab_CMSDAS_Data_analysis_test0/results
+> Summary from jobs in status 'finished':
+>   Number of files processed: 64
+>   Number of events read: 1234567890
+>   Number of events written in EDM files: 636670
+>   Number of events written in TFileService files: 0
+>   Number of events written in other type of files: 0
+>   Processed lumis written to processedLumis.json
+> Summary from output datasets in DBS:
+>   Number of events:
+>     /DoubleMuon/belt-crab_CMSDAS_Data_analysis_test0-dfbd2918d11fceef1aa67bdee18b8002/USER: 636670
+>   Output datasets lumis written to outputDatasetsLumis.json
+> Additional report lumi files:
+>   Input dataset lumis (from DBS, at task submission time) written to inputDatasetLumis.json
+>   Lumis to process written to lumisToProcess.json
+> Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/crab_CMSDAS_Data_analysis_test0/crab.log
+> ```
+> {: .output}
+{: .solution}
 
 > ## Question 5.5
 > How many events were analyzed? Use `crab report -d crabsubmit/crab_cmsdas_zpeak_test0`. 
@@ -521,7 +522,7 @@ Open the new `ZPeak.root` file , and plot the histogram. You should have many mo
 Note also that all CMS members using the Grid subscribe to the [Grid Annoucements CMS HyperNews forum](https://hypernews.cern.ch/HyperNews/CMS/get/gridAnnounce.html). Important CRAB announcements will be announced on the [CERN Computing Announcement HyperNews forum](https://hypernews.cern.ch/HyperNews/CMS/get/cernCompAnnounce.html). <br>
 
 <br><br>
-_Last reviewed: 2023/11/10 by David Yu
+_Last reviewed: 2023/11/10 by David Yu_
 <br>
 
 [Set5_form]: https://forms.gle/Ue9WFirVNWjTZgwA7
