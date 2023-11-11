@@ -15,8 +15,8 @@ keypoints:
 - "Analyzing simple ROOT ntuples like NanoAOD does not need CMSSW!"
 ---
 
-## Questions
-For this lesson, please submit your answers using [CMSDAS@LPC{{ site.year }} Google Form 4][Set4_form].
+> ## Questions
+> For this lesson, please submit your answers using [CMSDAS@LPC{{ site.year }} Google Form 4][Set4_form].
 {: .challenge}
 
 # CMSSW
@@ -65,18 +65,19 @@ cmsenv
 
 This will provide you with a number of commands and environment variables. For example `$CMSSW_BASE` is a handy variable that points to your CMSSW folder. 
 
-## Question 4.1
-The following command prints the location of your CMSSW area. Copy-and-paste the answer into the [Google form 4][Set4_form]. 
-```shell
-echo $CMSSW_BASE
-```
+> ## Question 4.1
+> The following command prints the location of your CMSSW area. Copy-and-paste the answer into the [Google form 4][Set4_form]. 
+> ```shell
+> echo $CMSSW_BASE
+> ```
+> {: .source}
 {: .challenge}
 
-## Question 4.2
-CMSSW is connected to several external tools, for example the Pythia generator. The following command prints the version of Pythia connected to your current CMSSW release. Fill in the version number in the [Google form 4][Set4_form].
-```shell
-scram tool info pythia8
-```
+> ## Question 4.2
+> CMSSW is connected to several external tools, for example the Pythia generator. The following command prints the version of Pythia connected to your current CMSSW release. Fill in the version number in the [Google form 4][Set4_form].
+> ```shell
+> scram tool info pythia8
+> ```
 {: .challenge}
 
 
@@ -105,14 +106,14 @@ git clone https://github.com/FNALLPC/LearnCMSSW MyAnalysis/LearnCMSSW
 
 This will copy all the code in the repository to `$CMSSW_BASE/src/MyAnalysis/LearnCMSSW`. Feel free to glance through it. 
 
-## Question 4.3: git repo info
-When you cloned the repository, you not only downloaded the code, but also setup a local git repository connected to the remote repository. Use the following commands to print out the URL of the remote repository, from which you cloned the code:
-```shell
-cd $CMSSW_BASE/src/MyAnalysis/LearnCMSSW
-git remote -v
-```
-Copy and paste the first line into the Google form. 
-
+> ## Question 4.3: git repo info
+> When you cloned the repository, you not only downloaded the code, but also setup a local git repository connected to the remote repository. Use the following commands to print out the URL of the remote repository, from which you cloned the code:
+> ```shell
+> cd $CMSSW_BASE/src/MyAnalysis/LearnCMSSW
+> git remote -v
+> ```
+> Copy and paste the first line into the Google form. 
+{: .challenge}
 
 # Running a CMSSW job
 Now that we have the source code, we have to compile it. Execute the following to compile the package using [scram](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideScram), CMSSW's build tool:
@@ -141,8 +142,8 @@ root -l ZPeak.root
 [1] dimuonMass->Draw()
 ```
 
-## Question 4.4
-Using the stat box drawn along with the histogram, what is the mean dimuon mass? Write your answer in the Google form. 
+> ## Question 4.4
+> Using the stat box drawn along with the histogram, what is the mean dimuon mass? Write your answer in the Google form. 
 {: .challenge}
 
 [Set4_form]: https://forms.gle/mSntaw8AAGty2Kmp8

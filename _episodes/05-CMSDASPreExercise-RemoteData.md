@@ -14,8 +14,8 @@ keypoints:
 - "Grid jobs run around the world, typically (but not always) using CPUs at the same site as the data."
 ---
 
-## Questions
-For this lesson, please submit your answers using [Google Form 5][Set5_form].
+> ## Questions
+> For this lesson, please submit your answers using [Google Form 5][Set5_form].
 {: .challenge}
 
 # Before you start
@@ -57,13 +57,13 @@ Let's click on "Files," which actually performs another search (you can see the 
 
 Finally, click on "Sites" for a single file. This will show the sites around the world that have this file available. This particular file is available at numerous sites, including T1_US_FNAL_Disk, T2_US_MIT, and T2_US_Purdue in the US. 
 
-## Question 5.1
-Now let's use the command line implementation of DAS to find some real collision data. The `dasgoclient` lets you query DAS just like the web interface. On cmslpc, enter the following query (along with a `grep` command to filter the result):
-```shell
-dasgoclient -query="dataset dataset=/JetHT/Run2018C-UL2018_MiniAODv2_NanoAODv9-v1/NANOAOD" -json | grep "nevents"
-```
-{: .source}
-How many events are in this dataset? Enter the result in the Google form. 
+> ## Question 5.1
+> Now let's use the command line implementation of DAS to find some real collision data. The `dasgoclient` lets you query DAS just like the web interface. On cmslpc, enter the following query (along with a `grep` command to filter the result):
+> ```shell
+> dasgoclient -query="dataset dataset=/JetHT/Run2018C-UL2018_MiniAODv2_NanoAODv9-v1/NANOAOD" -json | grep "nevents"
+> ```
+> {: .source}
+> How many events are in this dataset? Enter the result in the Google form. 
 {: .challenge}
 
 More information about accessing data in the [Data Aggregation Service](https://cmsweb.cern.ch/das/faq) can be found in [WorkBookDataSamples](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookDataSamples).
@@ -362,8 +362,8 @@ From the bottom of the output, you can see the name of the dataset and the DAS l
 There is some magic going on under the hood here. For example, if you were to simply `cmsRun cmsdas_minbias_cfg.py` ten times, you would get 10 identical output files. CRAB takes care of assigning each job an independent seed for the random number generator, so that each file contains unique events!
 {: .callout}
 
-## Question 5.4
-What is the dataset name you published?
+> ## Question 5.4
+> What is the dataset name you published?
 {: .challenge}
 
 # Processing MiniAOD with CRAB

@@ -12,7 +12,7 @@ keypoints:
 ---
 
 > ## Questions
-For this lesson, please submit your answers using [Google Form 2][Set2_form].
+> For this lesson, please submit your answers using [Google Form 2][Set2_form].
 {: .challenge}
 
 # Introduction
@@ -110,8 +110,8 @@ Unknown user: gbenelli.
 ```
 {: .output}
 
-## Question 2.1
-Copy-and-paste the alphanumeric string of characters unique to your username in the Google form.
+> ## Question 2.1
+> Copy-and-paste the alphanumeric string of characters unique to your username in the Google form.
 {: .challenge}
 
 # Editing files on cmslpc
@@ -177,8 +177,8 @@ RuntimeError: You need to comment out this line with a #
 ```
 {: .output}
 
-## Question 2.2
-Copy-and-paste the line beginning with "success", resulting from the execution of `./editThisCommand.py`, into the Google form.
+> ## Question 2.2
+> Copy-and-paste the line beginning with "success", resulting from the execution of `./editThisCommand.py`, into the Google form.
 {: .challenge}
 
 
@@ -193,18 +193,18 @@ The LFNs usually start with `/store/...`.
 - Similarly to `ls`, the cmslpc-specific equivalents of `mkdir` and `mv` are `eosmkdir` and `eosmv`. (You can do `alias eosmkdir` to see the full command behind the alias.)
 - The equivalent of `cp` is `xrdcp`: for example, `xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2024/preexercises/DYJetsToLL_M50.root .`. The `root://cmseos.fnal.gov` bit tells `xrdcp` which EOS instance to use (only one instance for cmslpc users; lxplus has several, e.g., `root://eoscms.cern.ch` for CMS data and `root://eosuser.cern.ch` for user data). 
 
-## Question 2.3
-We will copy a small file from EOS to your nobackup area, containing 10,000 simulated $Z\rightarrow\mu^+\mu^-$ events in the CMS NanoAOD format. We will use this file in later exercises, so make sure not to lose track of it. 
-
-Execute the following:
-
-```shell
-cd ~/nobackup/cmsdas/
-xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2024/preexercises/DYJetsToLL_M50.root .
-```
-{: .source}
-
-Using `ls -lh DYJetsToLL_M50.root`, how big is this file? Write the answer in the Google form. 
+> ## Question 2.3
+> We will copy a small file from EOS to your nobackup area, containing 10,000 simulated $Z\rightarrow\mu^+\mu^-$ events in the CMS NanoAOD format. We will use this file in later exercises, so make sure not to lose track of it. 
+> 
+> Execute the following:
+> 
+> ```shell
+> cd ~/nobackup/cmsdas/
+> xrdcp root://cmseos.fnal.gov//store/user/cmsdas/2024/preexercises/DYJetsToLL_M50.root .
+> ```
+> {: .source}
+> 
+> Using `ls -lh DYJetsToLL_M50.root`, how big is this file? Write the answer in the Google form. 
 {: .challenge}
 
 [Set2_form]: https://forms.gle/N8C48nTWoBk3omJKA

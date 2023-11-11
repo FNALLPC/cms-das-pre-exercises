@@ -13,7 +13,7 @@ keypoints:
 ---
 
 > ## Questions
-For this lesson, please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form 3][Set3_form].
+> For this lesson, please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form 3][Set3_form].
 {: .challenge}
 
 # Python and ROOT
@@ -111,14 +111,14 @@ root [8] Events->Print("Muon*")
 {: .output}
 
 
-## Question 3.1
-The method ``Long64_t TTree:GetEntries (const char *selection)`` accepts a selection string, and returns the number of events passing the selection criteria (note: written in C++). Use this method to get the number of events with two reconstructed muons:
-
-```shell
-root [0] Events->GetEntries("nMuons >= 2")
-```
-
-Write the number of events with at least 2 muons in the Google form. 
+> ## Question 3.1
+> The method ``Long64_t TTree:GetEntries (const char *selection)`` accepts a selection string, and returns the number of events passing the selection criteria (note: written in C++). Use this method to get the number of events with two reconstructed muons:
+> 
+> ```shell
+> root [0] Events->GetEntries("nMuons >= 2")
+> ```
+> 
+> Write the number of events with at least 2 muons in the Google form. 
 {: .challenge}
 
 # Plotting with pyROOT
@@ -155,9 +155,8 @@ The branch `GenPart_pdgId` contains the so-called [PDG ID](https://pdg.lbl.gov/2
 A plot of the Z boson mass should appear, with a mean value close to the Z boson mass of 91.1876 GeV. (If no plot appears, something is probably wrong with the X window system that displays graphical windows over SSH. Following [the cmslpc instructions](https://uscms.org/uscms_at_work/computing/getstarted/uaf.shtml), make sure you have an X windows program installed on your computer, and that you logged in using `ssh -Y`; ask Mattermost for more help.)
 
 
-## Question 3.2: Z mass plot
-The plot includes a "stat box" with basic information about the plotted histogram. 
-Please fill in the mean of the distribution in the Google form. 
+> ## Question 3.2: Z mass plot
+> The plot includes a "stat box" with basic information about the plotted histogram. Please fill in the mean of the distribution in the Google form. 
 {: .challenge}
 
 [Set3_form]: https://forms.gle/KpqmLGGk6aV1thbB8
