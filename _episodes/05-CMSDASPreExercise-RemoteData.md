@@ -421,7 +421,7 @@ Most of this file is similar to the previous MC generation job, but there are a 
  Now go through the same process for this config file. You submit it with
 
  ```shell
- crab submit -c crabConfig_data_slimMiniAOD.py
+ crab submit -c cmsdas_zpeak_crab.py
  ```
  {: .source}
 
@@ -524,4 +524,4 @@ Note also that all CMS members using the Grid subscribe to the [Grid Annoucement
 _Last reviewed: 2023/11/10 by David Yu
 <br>
 
-[Set5_form]: https://forms.gle/ztnCiLLrdiPRdhvn6
+[Set5_form]: https://forms.gle/Ue9WFirVNWjTZgwA7

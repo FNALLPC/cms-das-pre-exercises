@@ -100,9 +100,11 @@ Next, run the following commands to "clone" a repository. Make sure not to skip 
 
 ```shell
 cd $CMSSW_BASE/src
-git clone https://github.com/FNALLPC/LearnCMSSW MyAnalysis/LearnCMSSW
+git clone git@github.com:FNALLPC/LearnCMSSW MyAnalysis/LearnCMSSW
 ```
 {: .source}
+
+> If the `git clone` fails, it's possible your SSH key was not setup correct. Double check the [setup instructions]({{ pages.root }}{% link setup }), and head to Mattermost for help. 
 
 This will copy all the code in the repository to `$CMSSW_BASE/src/MyAnalysis/LearnCMSSW`. Feel free to glance through it. 
 
@@ -123,7 +125,7 @@ cd $CMSSW_BASE/src
 scram b
 ```
 
-`scram b` accept an argument `-j` to use more cores for the compilation. Don't go above `-j4`, hogging the cores will negatively impact other users on your interactive node. 
+`scram b` accept an argument `-j` to use more cores for the compilation. Don't go above `-j4`, as hogging the cores will negatively impact other users on your interactive node. 
 {: .callout}
 
 Finally, let's actually run some code. CMSSW jobs are configured through python files. We will use `$CMSSW_BASE/src/MyAnalysis/test/zpeak_cfg.py`, which is a simple configuration file that loads the plugin at `$CMSSW_BASE/src/MyAnalysis/LearnCMSSW/plugins/ZPeakAnalyzer.cc`. The `ZPeakAnalyzer` processes some dimuon events in MiniAOD format and produces some histograms (a bit of an uncommon workflow, as it is typically more efficient to make histograms from NanoAOD or another slimmed-down format). Launch CMSSW with the following:
