@@ -30,11 +30,11 @@ This exercise is intended to provide you with basic familiarity with Git and [Gi
 {: .prereq}
 
 
-# Exercise 18 - Learning Git and GitHub
+# Learning Git and GitHub
 
 ## Git Configuration
 
-Begin by setting up your .gitconfig on your local machine or cmslpc:
+If you haven't setup git on yet, execute the following three commands (note: you should probably do this both on cmslpc and your own laptop, plus any other clusters or computers you use for development).
 
 ```shell
 git config --global user.name "[Name]"
@@ -114,6 +114,7 @@ Clone your fork of the repository to a scratch directory on your local machine o
 
 ```shell
 mkdir scratch
+cd scratch
 git clone git@github.com:[user]/GitHATS.git
 ```
 {: .source}
