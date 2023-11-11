@@ -1,6 +1,6 @@
 ---
 title: "CMSDAS Pre-Exercise 1: Unix basics"
-teaching: 30
+teaching: 25
 exercises: 5
 questions:
 - "How do I get started with Unix?"
