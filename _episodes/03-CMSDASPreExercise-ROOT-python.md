@@ -20,7 +20,7 @@ keypoints:
 
 Python and ROOT are two of the most important software tools in HEP. If you have never used python before, we highly recommend you go through a tutorial, for example the [HSF python lesson](https://swcarpentry.github.io/python-novice-inflammation/). If you are comfortable with basic python, feel free to proceed, as you will learn by doing in the following exercises. 
 
-For ROOT, please follow the lesson on the HEP Software Foundation website for [ROOT](https://swcarpentry.github.io/python-novice-inflammation/), up through at least the fifth lesson, "05-tfile-read-write-ttrees.ipynb" (of course, you can keep going and learn about RDataFrames, but we won't use them here). We recommend you click the "SWAN" button, which opens a session in CERN's "Service for Web-based ANalysis." From the service, you can open and run code through Jupyter notebooks, all inside the web browser.
+For ROOT, please follow the lesson on the HEP Software Foundation website for [ROOT](https://github.com/root-project/software-carpentry), up through at least the fifth lesson, "05-tfile-read-write-ttrees.ipynb" (of course, you can keep going and learn about RDataFrames, but we won't use them here). We recommend you click the "SWAN" button, which opens a session in CERN's "Service for Web-based ANalysis." From the service, you can open and run code through Jupyter notebooks, all inside the web browser.
 
 # Inspect a NanoAOD file with ROOT
 Once you're comfortable with python and ROOT, let's go back to cmslpc and look at some real CMS data. 
@@ -46,17 +46,17 @@ source /cvmfs/sft.cern.ch/lcg/views/LCG_104/x86_64-centos7-gcc12-opt/setup.sh
 
  ```shell
 cd ~/nobackup/cmsdas
-root -l DYJetsToLL_M50.root
+root -l DYJetsToLL_M50_NANOAOD.root
 # Note: the -l option stops ROOT from displaying its logo image, which is very slow over SSH
 ```
  {: .source}
 
-CINT is a quick way to inspect files (to exit CINT, just type `.q`). First, let's see what's in the file:
+CINT is a quick way to inspect files (to exit CINT, just type `.q`). First, let's see what's in the file. Enter `_file0->ls()` into the interpreter:
 
 ```shell
 root [1] _file0->ls()
-TFile**		DYJetsToLL_M50.root	
- TFile*		DYJetsToLL_M50.root	
+TFile**		DYJetsToLL_M50_NANOAOD.root	
+ TFile*		DYJetsToLL_M50_NANOAOD.root	
   KEY: TTree	Events;1	Events
 ```
 {: .output}
@@ -87,6 +87,19 @@ root [6] Events->Print()
 *Br    2 :event     : event/l                                                *
 *Entries :    10000 : Total  Size=      80641 bytes  File Size  =      20690 *
 *Baskets :        2 : Basket Size=      58880 bytes  Compression=   3.87     *
+...
+...
+...
+*............................................................................*
+*Br 1626 :HLTriggerFinalPath : HLTriggerFinalPath/O                          *
+*Entries :    10000 : Total  Size=      10705 bytes  File Size  =        280 *
+*Baskets :        2 : Basket Size=       8192 bytes  Compression=  36.34     *
+*............................................................................*
+*Br 1627 :L1simulation_step : L1simulation_step/O                            *
+*Entries :    10000 : Total  Size=      10699 bytes  File Size  =        279 *
+*Baskets :        2 : Basket Size=       8192 bytes  Compression=  36.46     *
+*............................................................................*
+
 ```
 {: .output}
 
@@ -115,7 +128,7 @@ root [8] Events->Print("Muon*")
 > The method ``Long64_t TTree:GetEntries (const char *selection)`` accepts a selection string, and returns the number of events passing the selection criteria (note: written in C++). Use this method to get the number of events with two reconstructed muons:
 > 
 > ```shell
-> root [0] Events->GetEntries("nMuons >= 2")
+> root [0] Events->GetEntries("nMuon >= 2")
 > ```
 > 
 > Write the number of events with at least 2 muons in the Google form. 
@@ -125,15 +138,11 @@ root [8] Events->Print("Muon*")
 You can also use ROOT in python, almost identically to CINT except with python instead of C++. 
 (This is possible because of pyROOT, a wrapper around ROOT that creates a nearly 1-to-1 map of all the C++ classes to python classes.)
 Make sure you're logged into cmslpc, and that you have called the LCG setup script in the session. 
-Then, let's reopen the NanoAOD file in python (note: enter ctrl-d to quit):
+Then, let's reopen the NanoAOD file in python. Start a python interactive session by entering `python` (type ctrl-d to quit), then enter the following into the python interpreter:
 
 ```shell
-cmslpc169:~/nobackup/DAS/2024/preexercises --> python
-Python 3.9.12 (main, Oct 19 2022, 15:11:58) 
-[GCC 12.1.0] on linux
-Type "help", "copyright", "credits" or "license" for more information.
 >>> import ROOT
-f = ROOT.TFile("DYJetsToLL_M50.root", "READ")
+>>> f = ROOT.TFile("DYJetsToLL_M50_NANOAOD.root", "READ")
 >>> f.ls()
 ```
 {: .source}
