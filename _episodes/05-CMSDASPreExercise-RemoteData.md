@@ -240,7 +240,6 @@ wget {{ pages.root }}{% link code/cmsdas_mc_crab.py %}
 
 Below you also find the file:
 > ## Show/Hide
->
 > ```
 > from WMCore.Configuration import Configuration
 > config = Configuration()
