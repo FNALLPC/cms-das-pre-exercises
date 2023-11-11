@@ -37,4 +37,4 @@ If you have never used Unix before, please follow the lesson on the [HEP Softwar
 > wget https://fnallpc.github.io/cms-das-pre-exercises/code/parameters.py -O $CMSSW_BASE/src/parameters.py
 > ~~~
 > {: . source}
-{: .callout}
+{: .challenge}
