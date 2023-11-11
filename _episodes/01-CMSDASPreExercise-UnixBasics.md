@@ -19,11 +19,22 @@ If you have never used Unix before, please follow the lesson on the [HEP Softwar
 
 > ## Question 1.1
 > All CMSDAS@LPC2024 participants should submit answers to the questions in these exercises. Each lesson has it's own Google form. Head to [Google form 1][Set1_form]. The first question verifies that you have a working Unix environment. Copy-and-paste the following into your shell:
-> ```shell
+> ~~~shell
 > echo "$(whoami) $(date)"
-> ```
+> ~~~
 > {:.source}
 > This should print your username followed by the current date and time. Copy-and-paste the output into the Google form. 
 > {: .challenge}
 
 [Set1_form]: https://forms.gle/hK38xSuBXvzYBhJe6
+
+
+
+> ## Hint
+> You can easily download the needed files by running the following commands:
+> ~~~shell
+> wget https://fnallpc.github.io/cms-das-pre-exercises/code/FWLiteWithPythonConfig.cc -O $CMSSW_BASE/src/PhysicsTools/FWLite/bin/FWLiteWithPythonConfig.cc
+> wget https://fnallpc.github.io/cms-das-pre-exercises/code/parameters.py -O $CMSSW_BASE/src/parameters.py
+> ~~~
+> {: . source}
+{: .callout}
