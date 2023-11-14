@@ -11,7 +11,6 @@ objectives:
 - "Learn how to use folders and files in Unix."
 keypoints:
 - "Unix is the primary OS used in HEP, CMS included."
-- ""
 
 ---
 
@@ -28,13 +27,3 @@ If you have never used Unix before, please follow the lesson on the [HEP Softwar
 
 [Set1_form]: https://forms.gle/hK38xSuBXvzYBhJe6
 
-
-
-> ## Hint
-> You can easily download the needed files by running the following commands:
-> ~~~shell
-> wget https://fnallpc.github.io/cms-das-pre-exercises/code/FWLiteWithPythonConfig.cc -O $CMSSW_BASE/src/PhysicsTools/FWLite/bin/FWLiteWithPythonConfig.cc
-> wget https://fnallpc.github.io/cms-das-pre-exercises/code/parameters.py -O $CMSSW_BASE/src/parameters.py
-> ~~~
-> {: . source}
-{: .challenge}
