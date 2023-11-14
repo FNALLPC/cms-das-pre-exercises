@@ -141,9 +141,9 @@ Make sure you're logged into cmslpc, and that you have called the LCG setup scri
 Then, let's reopen the NanoAOD file in python. Start a python interactive session by entering `python` (type ctrl-d to quit), then enter the following into the python interpreter:
 
 ```shell
->>> import ROOT
->>> f = ROOT.TFile("DYJetsToLL_M50_NANOAOD.root", "READ")
->>> f.ls()
+import ROOT
+f = ROOT.TFile("DYJetsToLL_M50_NANOAOD.root", "READ")
+f.ls()
 ```
 {: .source}
 
@@ -156,8 +156,10 @@ Let's use this function to plot the generator-level Z boson mass distribution, i
 The branch `GenPart_mass` contains the mass of all generator-level particles. 
 The branch `GenPart_pdgId` contains the so-called [PDG ID](https://pdg.lbl.gov/2023/mcdata/mc_particle_id_contents.html) of the generator-level particles; Z bosons are assigned a PDG ID of 23. 
 ```python
->>> events = f.Get("Events")
->>> events.Draw("GenPart_mass", "GenPart_pdgId==23")
+events = f.Get("Events")
+c = ROOT.TCanvas()
+events.Draw("GenPart_mass", "GenPart_pdgId==23")
+c.Draw()
 ```
 {: .source}
 
