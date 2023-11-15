@@ -24,11 +24,11 @@ For ROOT, please follow the lesson on the HEP Software Foundation website for [R
 
 # Inspect a NanoAOD file with ROOT
 Once you're comfortable with python and ROOT, let's go back to cmslpc and look at some real CMS data. 
-Login to the cluster again:
+Login to the cluster again from your computer:
 
 ```shell
-kinit -f <YourUsername>@FNAL.GOV
-ssh -Y <YourUsername>@cmslpc-sl7.fnal.gov
+kinit <YourUsername>@FNAL.GOV
+ssh Y <YourUsername>@cmslpc-sl7.fnal.gov
 ```
  {: .source}
 
@@ -51,7 +51,7 @@ root -l DYJetsToLL_M50_NANOAOD.root
 ```
  {: .source}
 
-CINT is a quick way to inspect files (to exit CINT, just type `.q`). First, let's see what's in the file. Enter `_file0->ls()` into the interpreter:
+CINT is a quick way to inspect files (to exit CINT/ROOT, just type `.q`). First, let's see what's in the file. Enter `_file0->ls()` into the interpreter:
 
 ```shell
 root [1] _file0->ls()
@@ -131,14 +131,14 @@ root [8] Events->Print("Muon*")
 > root [0] Events->GetEntries("nMuon >= 2")
 > ```
 > 
-> Write the number of events with at least 2 muons in the Google form. 
+> Write the number of events with at least 2 muon candidates in the Google form. 
 {: .challenge}
 
 # Plotting with pyROOT
 You can also use ROOT in python, almost identically to CINT except with python instead of C++. 
 (This is possible because of pyROOT, a wrapper around ROOT that creates a nearly 1-to-1 map of all the C++ classes to python classes.)
 Make sure you're logged into cmslpc, and that you have called the LCG setup script in the session. 
-Then, let's reopen the NanoAOD file in python. Start a python interactive session by entering `python` (type ctrl-d to quit), then enter the following into the python interpreter:
+Then, let's reopen the NanoAOD file in python. Start a python interactive session by entering `python3` (type ctrl-d or ``exit()`` to quit), then enter the following into the python interpreter:
 
 ```shell
 import ROOT
