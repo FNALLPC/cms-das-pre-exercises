@@ -87,7 +87,7 @@ CMS makes extensive use of `git` for code management, and you will use it throug
 Choose your username wisely, it will appear on all your contributions to CMS code! In fact, even if you already have an account, if you have a username like `edgelord1337`, consider either changing it or making a second account.
 {: .callout}
 
-Once you have an account, run the following commands to configure git on cmslpc:
+Once you have an account, run the following commands to configure git on cmslpc replacing everything including the ``[brackets]``, ``[Account]`` is your github account username:
 
 ```shell
 git config --global user.name "[Your name]"
@@ -104,7 +104,7 @@ git clone git@github.com:FNALLPC/LearnCMSSW MyAnalysis/LearnCMSSW
 ```
 {: .source}
 
-> If the `git clone` fails, it's possible your SSH key was not setup correct. Double check the [setup instructions]({{ pages.root }}{% link setup.md %}), and head to Mattermost for help. 
+> If the `git clone` fails, it's possible your SSH key was not setup correctly. Double check the [setup instructions]({{ pages.root }}{% link setup.md %}), and head to Mattermost for help. 
 
 This will copy all the code in the repository to `$CMSSW_BASE/src/MyAnalysis/LearnCMSSW`. Feel free to glance through it. 
 
@@ -125,7 +125,7 @@ cd $CMSSW_BASE/src
 scram b
 ```
 
-`scram b` accept an argument `-j` to use more cores for the compilation. Don't go above `-j4`, as hogging the cores will negatively impact other users on your interactive node. 
+`scram b` accept an argument `-j` to use more cores for the compilation. Don't go above `-j4`, as overloading the cores will negatively impact other users on your cmslpc interactive node. 
 {: .callout}
 
 Finally, let's actually run some code. CMSSW jobs are configured through python files. We will use `$CMSSW_BASE/src/MyAnalysis/test/zpeak_cfg.py`, which is a simple configuration file that loads the plugin at `$CMSSW_BASE/src/MyAnalysis/LearnCMSSW/plugins/ZPeakAnalyzer.cc`. The `ZPeakAnalyzer` processes some dimuon events in MiniAOD format and produces some histograms (a bit of an uncommon workflow, as it is typically more efficient to make histograms from NanoAOD or another slimmed-down format). Launch CMSSW with the following:
