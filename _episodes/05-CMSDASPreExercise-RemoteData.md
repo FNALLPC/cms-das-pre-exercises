@@ -509,7 +509,7 @@ hadd ZPeak.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_z
 ```
 {: .source}
 
-Note: the author of this exercise did not actually type out this command by hand! Rather, I first obtained a list of files using `eosls /store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/`, and then used multiple cursors in Sublime Text/Visual Studio Code to turn the list into this long command. You could also generate the command programatically. Tricks like this often come in handy. 
+Note: the author of this exercise did not actually type out this command by hand! Rather, I first obtained a list of files using `eosls /store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/`, and then used multiple cursors in Sublime Text/Visual Studio Code to turn the list into this long command. You could also generate the command programatically. Tricks like this often come in handy. Also note that the final file is less than 5GB in size. Many filesystems/networks do not do well with much larger files.
 {: .callout}
 
 Open the new `ZPeak.root` file , and plot the histogram. You should have many more events than the last exercise!
