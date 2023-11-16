@@ -9,11 +9,11 @@ questions:
 
 ## Mattermost (chat)
 
-There is a dedicated Mattermost team, called [CMSDAS@LPC {{ site.year }}]([https://mattermost.web.cern.ch/signup_user_complete/?id=xywbon1zutbqj8a53rzqomrp9r](https://mattermost.web.cern.ch/signup_user_complete/?id=7hedxbi647dbbqouez9449g3ba)), setup to facilitate communication and discussions via live chat (which is also archived). The channel is hosted by the [CERN Mattermost instance](https://mattermost.web.cern.ch).
+=There is a dedicated Mattermost team, called [CMSDAS@LPC {{ site.year }}](https://mattermost.web.cern.ch/signup_user_complete/?id=7hedxbi647dbbqouez9449g3ba), setup to facilitate communication and discussions via live chat (which is also archived). The channel is hosted by the [CERN Mattermost instance](https://mattermost.web.cern.ch).
 
 If you have never used Mattermost at CERN, please know that you will need your CERN login credentials (SSO) and you will need to join the private CMSDAS@LPC {{ site.year }} team in order to be able to see (or find using the search channels functionality) the channels setup for communications related to the school.
 
-If you already have used Mattermost at CERN, please know that when you click direct links to channels (as you will find below) that are within the CMSDAS@LPC {{ site.year }} team, you **may** be redirected to the last Mattermost team you used. If this happens, remember to click the [signup link to join the CMSDAS@LPC {{ site.year }} team]([https://mattermost.web.cern.ch/signup_user_complete/?id=xywbon1zutbqj8a53rzqomrp9r](https://mattermost.web.cern.ch/signup_user_complete/?id=7hedxbi647dbbqouez9449g3ba)) to switch to the correct team from which you should be able to see the individual channels. If that still doesn't work, remove all cookies associated with cern.ch and restart your browser.
+If you already have used Mattermost at CERN, please know that when you click direct links to channels (as you will find below) that are within the CMSDAS@LPC {{ site.year }} team, you **may** be redirected to the last Mattermost team you used. If this happens, remember to click the [signup link to join the CMSDAS@LPC {{ site.year }} team](https://mattermost.web.cern.ch/signup_user_complete/?id=7hedxbi647dbbqouez9449g3ba)) to switch to the correct team from which you should be able to see the individual channels. If that still doesn't work, remove all cookies associated with cern.ch and restart your browser.
 
 The [PreExercisesChannel](https://mattermost.web.cern.ch/cmsdaslpc{{ site.year }}/channels/preexercises) will be available once you join or switch to the CMSDAS@LPC {{ site.year }} team!
 

@@ -4,7 +4,6 @@ teaching: 0
 exercises: 10
 questions:
 - "Learn how to use the CMSLPC cluster"
-- 
 objectives:
 - "Learn how to use the CMSLPC cluster"
 keypoints:
@@ -34,24 +33,24 @@ Let's try logging in to `cmslpc` using SSH. SSH is a very widely used program fo
 First, if you have not configured SSH and kerberos on your own computer, please follow [these directions](https://uscms.org/uscms_at_work/computing/getstarted/uaf.shtml). Once you have the cmslpc-specific SSH and kerberos configuration, execute the following command in the terminal on your own computer:
 
 ```shell
-kinit -f <YourUsername>@FNAL.GOV
-# kinit -f <YourUsername>@CERN.CH for lxplus users
+kinit <YourUsername>@FNAL.GOV
+# kinit <YourUsername>@CERN.CH for lxplus users
 ```
 
-Enter the kerberos password for your Fermilab account. You now have login access to cmslpc for 24 hours. If you get an error message, double-check that you [configure kerberos properly](https://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml), or head to Mattermost for help. 
+Enter the [kerberos password][https://uscms.org/uscms_at_work/computing/getstarted/password_fermilab.shtml#passwordObtain] for your Fermilab account. You now have login access to cmslpc for 24 hours. If you get an error message, double-check that you [configure kerberos properly](https://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml), or head to Mattermost for help. 
 
 Next, execute the following to login:
 
 ```shell
 ssh -Y <YourUsername>@cmslpc-sl7.fnal.gov
-# ssh -Y <YourUsername>@lxplus.cern.ch for lxplus users
+# ssh -Y <YourUsername>@lxplus7.cern.ch for lxplus users
 ```
 
 If you see a welcome message followed by a return to a command prompt, congratulations, you have successfully logged in! The commands you enter into the command prompt will now be executed on the cmslpc interactive node. If you see an error message instead, something has probably gone wrong with the authentication; please head to Mattermost and post your error message, and an instructor can help you out. 
 
 # Running simple commands on cmslpc
 
-Note: this exercise is will only work on **cmslpc-sl7**.
+Note: this exercise will only work on **cmslpc-sl7**.
 
 In this exercise, we will run a few simple commands on cmslpc. At the end, you will type an answer into a spreadsheet (experienced users should feel free to breeze through, but please do upload your answer so we can follow everyone's progress). 
 
