@@ -203,7 +203,7 @@ The LFNs usually start with `/store/...`.
 > ```
 > {: .source}
 > 
-> Using `ls -l DYJetsToLL_M50_NANOAOD.root`, how big is this file? (It's the large number.) Write the answer in the Google form. 
+> Using `ls -lh DYJetsToLL_M50_NANOAOD.root`, how big is this file? (It's the large number.) Write the answer in the Google form. 
 {: .challenge}
 
 [Set2_form]: https://forms.gle/N8C48nTWoBk3omJKA
