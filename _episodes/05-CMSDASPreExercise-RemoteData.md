@@ -97,7 +97,9 @@ If you do not have the first attribute line listed above, you probably did not f
 > Copy the output corresponding to the text in the output box above, using [Google form 5][Set5_form].
 {: .challenge}
 
-> ## DAS client Question 5.1
+Now that you have a valid grid proxy in the CMS VO, we will be able to run a command line client to check DAS to find CMS files and their information. 
+
+> ## DAS client Question 5.2
 > Now let's use the command line implementation of DAS to find some real collision data. This requires the valid CMS grid proxy. The `dasgoclient` lets you query DAS just like the web interface. On cmslpc, enter the following query (along with a `grep` command to filter the result):
 > ```shell
 > dasgoclient -query="dataset dataset=/JetHT/Run2018C-UL2018_MiniAODv2_NanoAODv9-v1/NANOAOD" -json | grep "nevents"
