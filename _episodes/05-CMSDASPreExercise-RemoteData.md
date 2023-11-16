@@ -5,7 +5,7 @@ exercises: 60
 questions:
 objectives:
 - "Learn how to find CMS data on the grid"
-- "Launch a MC generation job using CRAB"
+- "Launch a MC (Monte Carlo) generation job using CRAB"
 - "Launch a MiniAOD processing job using CRAB"
 keypoints:
 - "CMS data is stored around the world at various T1, T2, and T3 computing sites."
@@ -29,19 +29,19 @@ If you encounter any problems with the exercise, please reach out on Mattermost 
 > those familiar with the CERN computing environment and somewhat
 > familiar with CRAB can answer all the questions running at CERN
 > only. For CMSDAS, we recommend using a LPC account at FNAL and making sure you have write access to T3\_US\_FNALLPC. For T3\_US\_FNALLPC, you can get your EOS area mapped to your grid
-> certificate by following these instructions to do a CMS Storage
+> certificate by following [these instructions](https://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml#createEOSArea) to do a CMS Storage
 > Space Request.
 >
 > Later on, you can check with your university contact for Tier 2 or Tier 3 storage area. Once you are granted the write permission to the specified site, for later analysis you can use CRAB as the below exercise but store the output to your Tier 2 or Tier 3 storage area.
 >
-> AGAIN: To perform this set of exercises, an LPC account, Grid Certificate, and CMS VO membership are required. You should already have these things, but if not, follow the [[setup instructions]({{ pages.root }}{% link setup.md %}).
+> AGAIN: To perform this set of exercises, an LPC account, Grid Certificate, and CMS VO membership are required. You should already have these things, but if not, follow the [setup instructions]({{ pages.root }}{% link setup.md %}).
 {: .callout}
 
 
 # Finding data on the grid
 In this exercise, we will learn to locate CMS data on the grid. CMS data is stored around the world at various T1, T2, and T3 computing sites. We will first learn how to use the **Data Aggregation Service (DAS)** to locate data (not to be confused with the data analysis school in which you are partaking!). 
 
-There are two ways to use DAS to find data: through a website or via the command line. First, let's use [DAS](https://cmsweb.cern.ch/das) website. You will be asked for your grid certificate, which you should have loaded into your browser. (Also note that there may be a security warning message, which you will need to bypass.) Enter the following into the form:
+There are two ways to use DAS to find data: through a website or via the command line. First, let's use the [DAS](https://cmsweb.cern.ch/das) website. You will be asked for your grid certificate, which you should have loaded into your browser. (Also note that there may be a security warning message, which you will need to bypass.) Enter the following into the form:
 
 ```
 dataset dataset=/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM
@@ -56,15 +56,6 @@ Let's click on "Files," which actually performs another search (you can see the 
 [image]
 
 Finally, click on "Sites" for a single file. This will show the sites around the world that have this file available. This particular file is available at numerous sites, including T1_US_FNAL_Disk, T2_US_MIT, and T2_US_Purdue in the US. 
-
-> ## Question 5.1
-> Now let's use the command line implementation of DAS to find some real collision data. The `dasgoclient` lets you query DAS just like the web interface. On cmslpc, enter the following query (along with a `grep` command to filter the result):
-> ```shell
-> dasgoclient -query="dataset dataset=/JetHT/Run2018C-UL2018_MiniAODv2_NanoAODv9-v1/NANOAOD" -json | grep "nevents"
-> ```
-> {: .source}
-> How many events are in this dataset? Enter the result in the Google form. 
-{: .challenge}
 
 More information about accessing data in the [Data Aggregation Service](https://cmsweb.cern.ch/das/faq) can be found in [WorkBookDataSamples](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookDataSamples).
 
@@ -102,15 +93,24 @@ attribute : /cms/uscms/Role=NULL/Capability=NULL
 {: .output}
 If you do not have the first attribute line listed above, you probably did not finish the VO registration in the [setup](https://dryrun.github.io/cms-das-pre-exercises/setup.html). Double check this first, and otherwise reach out on Mattermost.
 
-> ## Question 5.2
+> ## Question 5.1
 > Copy the output corresponding to the text in the output box above, using [Google form 5][Set5_form].
+{: .challenge}
+
+> ## DAS client Question 5.1
+> Now let's use the command line implementation of DAS to find some real collision data. This requires the valid CMS grid proxy. The `dasgoclient` lets you query DAS just like the web interface. On cmslpc, enter the following query (along with a `grep` command to filter the result):
+> ```shell
+> dasgoclient -query="dataset dataset=/JetHT/Run2018C-UL2018_MiniAODv2_NanoAODv9-v1/NANOAOD" -json | grep "nevents"
+> ```
+> {: .source}
+> How many events are in this dataset? Enter the result in the Google form. 
 {: .challenge}
 
 ## Obtain a /store/user area
 This exercise pertains specifically to cmslpc. When you obtained your cmslpc account, you should have automatically been granted EOS storage at `/store/user/YourUsername`. (As a refresher, you can review the instructions for using EOS at [Using EOS at LPC](http://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml#checkEOS).) You will configure your CRAB jobs to write output files to this space. However, **it will not yet be linked to your grid certificate unless you provided it in the application form.** If not linked, put in a Fermilab ServiceNow request following directions for [CMS Storage Space Request](http://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml#createEOSArea). Note that this can take up to 1 business day (FNAL hours). 
 
 # Setting up CRAB
-Once you have a /store/user/ area connected with your grid certificate, we can starting using CRAB.
+Once you have a /store/user/ area connected with your grid certificate, we can start using CRAB.
 In this exercise, you will generate a small MC sample yourself, and then publish it using DAS. 
 We will use `CMSSW_13_0_13`. Let's setup a new CMSSW area for this exercise:
 
@@ -122,7 +122,7 @@ cmsenv
 ```
 {: .source}
 
-CRAB is packaged along with CMSSW, so you should actually have it available now. Verify this by executing `which crab`; this should return something like `/cvmfs/cms.cern.ch/common/crab`. 
+CRAB is packaged along with CMSSW, so you should have it available now. Verify this by executing `which crab`; this should return something like `/cvmfs/cms.cern.ch/common/crab`. 
 
 Next, we will verify that your CRAB jobs have permission to write to your EOS storage. First, initialize your proxy:
 
@@ -149,13 +149,13 @@ crab checkwrite --site=T3_US_FNALLPC
 
 ```shell
 Will check write permission in the default location /store/user/<username>
-Validating LFN /store/user/YourUsername...
+Validating LFN /store/user/YourCERNUsername...
 LFN /store/user/YourUsername is valid.
 Will use `gfal-copy`, `gfal-rm` commands for checking write permissions
-Will check write permission in /store/user/YourUsername on site T3_US_FNALLPC
+Will check write permission in /store/user/YourCERNUsername on site T3_US_FNALLPC
 ...
 ...
-Success: Able to write in /store/user/YourUsername on site T3_US_FNALLPC
+Success: Able to write in /store/user/YourCERNUsername on site T3_US_FNALLPC
 ```
 {: .output}
 
@@ -163,7 +163,7 @@ Success: Able to write in /store/user/YourUsername on site T3_US_FNALLPC
 
 # Generate and publish a minimum-bias dataset with CRAB
 
-In this exercise, we will generate a minimum bias Monte Carlo sample. 
+In this exercise, we will generate a minimum bias Monte Carlo (MC) sample. 
 A typical CMS MC job is configured with a "python fragment," which is a small piece of python containing the necessary code to configure the generator inside CMSSW. 
 Let's download a recent minimum bias fragment:
 
@@ -229,7 +229,7 @@ This job will take a few minutes to run; you will see quite a lot of output from
 
 ## Generate and publish MC dataset using CRAB
 
-We usually need millions of MC events for a CMS analysis. The collaboration produces a lot of samples centrally, but you will occasionally need to make new samples for your analysis. In this example, we will use CRAB to launch many minimum bias production jobs on the grid. 
+We usually need millions of MC events for a CMS analysis. The collaboration produces a lot of samples centrally, but you will occasionally need to make new samples for your analysis, or test MC. In this example, we will use CRAB to launch many minimum bias production jobs on the grid. 
 
 CRAB is configured using python configuration files (once again!). The complete documentation for these configuration files is here: [CRAB3ConfigurationFile](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile). For now, we have prepared a CRAB config for you; download it to cmslpc using:
 ```shell
