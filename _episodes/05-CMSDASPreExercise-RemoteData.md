@@ -306,56 +306,58 @@ crab status -d crabsubmit/cmsdas_minbias_test0
 
 The `crab status` command will produce an output containing the task name, the status of the task as a whole, the details of how many jobs are in which state (submitted, running, transfering, finished, cooloff, etc.) and the location of the CRAB log (`crab.log`) file. It will also print the URLs of two web pages that one can use to monitor the jobs. In summary, it should look something like this:
 
-```
-cmslpc178:~/nobackup/cmsdas/CMSSW_13_0_13_mcgen/src --> crab status -d crabsubmit/crab_cmsdas_minbias_test0
-CRAB project directory:     /uscms_data/d3/username/cmsdas/CMSSW_13_0_13_mcgen/src/crabsubmit/crab_cmsdas_minbias_test0
-Task name:          231110_212908:username_crab_cmsdas_minbias_test0
-Grid scheduler - Task Worker:   crab3@vocms0198.cern.ch - crab-prod-tw01
-Status on the CRAB server:  SUBMITTED
-Task URL to use for HELP:   https://cmsweb.cern.ch/crabserver/ui/task/231110_212908%3Ausername_crab_cmsdas_minbias_test0
-Dashboard monitoring URL:   https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=username&var-task=231110_212908%3Ausername_crab_cmsdas_minbias_test0&from=1699648148000&to=now
-Status on the scheduler:    SUBMITTED
-
-Jobs status:                    idle                100.0% (10/10)
-
-No publication information available yet
-Log file is /uscms_data/d3/username/cmsdas/CMSSW_13_0_13_mcgen/src/crabsubmit/crab_cmsdas_minbias_test0/crab.log
-```
-{: .output}
+> ## Show/Hide
+> ```
+> cmslpc178:~/nobackup/cmsdas/CMSSW_13_0_13_mcgen/src --> crab status -d crabsubmit/crab_cmsdas_minbias_test0
+> CRAB project directory:     /uscms_data/d3/username/cmsdas/CMSSW_13_0_13_mcgen/src/crabsubmit/crab_cmsdas_minbias_test0
+> Task name:          231110_212908:username_crab_cmsdas_minbias_test0
+> Grid scheduler - Task Worker:   crab3@vocms0198.cern.ch - crab-prod-tw01
+> Status on the CRAB server:  SUBMITTED
+> Task URL to use for HELP:   https://cmsweb.cern.ch/crabserver/ui/task/231110_212908%3Ausername_crab_cmsdas_minbias_test0
+> Dashboard monitoring URL:   https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=username&var-task=231110_212908%3Ausername_crab_cmsdas_minbias_test0&from=1699648148000&to=now
+> Status on the scheduler:    SUBMITTED
+> 
+> Jobs status:                    idle                100.0% (10/10)
+> 
+> No publication information available yet
+> Log file is /uscms_data/d3/username/cmsdas/CMSSW_13_0_13_mcgen/src/crabsubmit/crab_cmsdas_minbias_test0/crab.log
+> ```
+{: .solution}
 
 Now you can take a break and have some fun. Come back after couple hours or so and check the status again.
 
-```
-[tonjes@cmslpc101 src]$ crab status crabsubmit/cmsdas_minbias_test0
-CRAB project directory:		/uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/cmsdas_minbias_test0
-Task name:			211024_214242:belt_cmsdas_minbias_test0
-Grid scheduler - Task Worker:	crab3@vocms0122.cern.ch - crab-prod-tw01
-Status on the CRAB server:	SUBMITTED
-Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/211024_214242%3Abelt_cmsdas_minbias_test0
-Dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=belt&var-task=211024_214242%3Abelt_cmsdas_minbias_test0&from=1635108162000&to=now
-Status on the scheduler:	COMPLETED
-
-Jobs status:                    finished     		100.0% (10/10)
-
-Publication status of 1 dataset(s):	done         		100.0% (10/10)
-(from CRAB internal bookkeeping in transferdb)
-
-Output dataset:			/MinBias/belt-CMSDAS2021_CRAB3_MC_generation_test0-67359df6f8a0ef3c567d7c8fea38a809/USER
-Output dataset DAS URL:		https://cmsweb.cern.ch/das/request?input=%2FMinBias%2Fbelt-CMSDAS2021_CRAB3_MC_generation_test0-67359df6f8a0ef3c567d7c8fea38a809%2FUSER&instance=prod%2Fphys03
-
-Warning: the max jobs runtime is less than 30% of the task requested value (1250 min), please consider to request a lower value for failed jobs (allowed through crab resubmit) and/or improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task.
-
-Warning: the average jobs CPU efficiency is less than 50%, please consider to improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task
-
-Summary of run jobs:
- * Memory: 39MB min, 84MB max, 43MB ave
- * Runtime: 0:04:55 min, 0:45:15 max, 0:08:59 ave
- * CPU eff: 7% min, 73% max, 22% ave
- * Waste: 1:15:29 (46% of total)
-
-Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/cmsdas_minbias_test0/crab.log
-```
-{: .output}
+> ## Show/Hide
+> ```
+> [tonjes@cmslpc101 src]$ crab status crabsubmit/cmsdas_minbias_test0
+> CRAB project directory:		/uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/cmsdas_minbias_test0
+> Task name:			211024_214242:belt_cmsdas_minbias_test0
+> Grid scheduler - Task Worker:	crab3@vocms0122.cern.ch - crab-prod-tw01
+> Status on the CRAB server:	SUBMITTED
+> Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/211024_214242%3Abelt_cmsdas_minbias_test0
+> Dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=belt&var-task=211024_214242%3Abelt_cmsdas_minbias_test0&from=1635108162000&to=now
+> Status on the scheduler:	COMPLETED
+> 
+> Jobs status:                    finished     		100.0% (10/10)
+> 
+> Publication status of 1 dataset(s):	done         		100.0% (10/10)
+> (from CRAB internal bookkeeping in transferdb)
+> 
+> Output dataset:			/MinBias/belt-CMSDAS2021_CRAB3_MC_generation_test0-67359df6f8a0ef3c567d7c8fea38a809/USER
+> Output dataset DAS URL:		https://cmsweb.cern.ch/das/request?input=%2FMinBias%2Fbelt-CMSDAS2021_CRAB3_MC_generation_test0-67359df6f8a0ef3c567d7c8fea38a809%2FUSER&instance=prod%2Fphys03
+> 
+> Warning: the max jobs runtime is less than 30% of the task requested value (1250 min), please consider to request a lower value for failed jobs (allowed through crab resubmit) and/or improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task.
+> 
+> Warning: the average jobs CPU efficiency is less than 50%, please consider to improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task
+> 
+> Summary of run jobs:
+>  * Memory: 39MB min, 84MB max, 43MB ave
+>  * Runtime: 0:04:55 min, 0:45:15 max, 0:08:59 ave
+>  * CPU eff: 7% min, 73% max, 22% ave
+>  * Waste: 1:15:29 (46% of total)
+> 
+> Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/cmsdas_minbias_test0/crab.log
+> ```
+{: .solution}
 
 **Note**: If you specified T3_US_FNALLPC as your output directory, CRAB will write the output to your eos area. You can see them at something like `eosls /store/user/username/MinBias/MinBias_TuneCP5_13p6TeV-pythia8_cmsdas2024_test0/...`. 
 
@@ -436,34 +438,35 @@ Most of this file is similar to the previous MC generation job, but there are a 
 
  After a while, you should see something like below:
 
-```
-CRAB project directory:		/uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/crab_CMSDAS_Data_analysis_test0
-Task name:			211024_231817:belt_crab_CMSDAS_Data_analysis_test0
-Grid scheduler - Task Worker:	crab3@vocms0199.cern.ch - crab-prod-tw01
-Status on the CRAB server:	SUBMITTED
-Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/211024_231817%3Abelt_crab_CMSDAS_Data_analysis_test0
-Dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=belt&var-task=211024_231817%3Abelt_crab_CMSDAS_Data_analysis_test0&from=1635113897000&to=now
-Status on the scheduler:	COMPLETED
-
-Jobs status:                    finished     		100.0% (31/31)
-
-Publication status of 1 dataset(s):	done         		100.0% (31/31)
-(from CRAB internal bookkeeping in transferdb)
-
-Output dataset:			/DoubleMuon/belt-crab_CMSDAS_Data_analysis_test0-dfbd2918d11fceef1aa67bdee18b8002/USER
-Output dataset DAS URL:		https://cmsweb.cern.ch/das/request?input=%2FDoubleMuon%2Fbelt-crab_CMSDAS_Data_analysis_test0-dfbd2918d11fceef1aa67bdee18b8002%2FUSER&instance=prod%2Fphys03
-
-Warning: the max jobs runtime is less than 30% of the task requested value (1250 min), please consider to request a lower value for failed jobs (allowed through crab resubmit) and/or improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task.
-
-Summary of run jobs:
- * Memory: 28MB min, 855MB max, 544MB ave
- * Runtime: 0:04:25 min, 0:46:10 max, 0:07:33 ave
- * CPU eff: 9% min, 89% max, 64% ave
- * Waste: 2:27:43 (39% of total)
-
-Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/crab_CMSDAS_Data_analysis_test0/crab.log
-```
-{: .output}
+> ## Show/Hide
+> ```
+> CRAB project directory:		/uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/crab_CMSDAS_Data_analysis_test0
+> Task name:			211024_231817:belt_crab_CMSDAS_Data_analysis_test0
+> Grid scheduler - Task Worker:	crab3@vocms0199.cern.ch - crab-prod-tw01
+> Status on the CRAB server:	SUBMITTED
+> Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/211024_231817%3Abelt_crab_CMSDAS_Data_analysis_test0
+> Dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=belt&var-task=211024_231817%3Abelt_crab_CMSDAS_Data_analysis_test0&from=1635113897000&to=now
+> Status on the scheduler:	COMPLETED
+> 
+> Jobs status:                    finished     		100.0% (31/31)
+> 
+> Publication status of 1 dataset(s):	done         		100.0% (31/31)
+> (from CRAB internal bookkeeping in transferdb)
+> 
+> Output dataset:			/DoubleMuon/belt-crab_CMSDAS_Data_analysis_test0-dfbd2918d11fceef1aa67bdee18b8002/USER
+> Output dataset DAS URL:		https://cmsweb.cern.ch/das/request?input=%2FDoubleMuon%2Fbelt-crab_CMSDAS_Data_analysis_test0-dfbd2918d11fceef1aa67bdee18b8002%2FUSER&instance=prod%2Fphys03
+> 
+> Warning: the max jobs runtime is less than 30% of the task requested value (1250 min), please consider to request a lower value for failed jobs (allowed through crab resubmit) and/or improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task.
+> 
+> Summary of run jobs:
+>  * Memory: 28MB min, 855MB max, 544MB ave
+>  * Runtime: 0:04:25 min, 0:46:10 max, 0:07:33 ave
+>  * CPU eff: 9% min, 89% max, 64% ave
+>  * Waste: 2:27:43 (39% of total)
+> 
+> Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/crab_CMSDAS_Data_analysis_test0/crab.log
+> ```
+{: .solution}
 
 ## Create reports of data analyzed
 
@@ -475,6 +478,7 @@ crab report
 {: .source}
 
 You'll get something like this:
+> ## Show/Hide
 > ```
 > Running crab status first to fetch necessary information.
 > Will save lumi files into output directory /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/crab_CMSDAS_Data_analysis_test0/results
@@ -494,7 +498,6 @@ You'll get something like this:
 >   Lumis to process written to lumisToProcess.json
 > Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/crab_CMSDAS_Data_analysis_test0/crab.log
 > ```
-> {: .output}
 {: .solution}
 
 > ## Question 5.5
