@@ -156,7 +156,7 @@ ls .git
 > ```
 {: .solution}
 
-When you use `git clone` as we did above, it starts your working area on the default branch for the repository. In this case, that branch is master. (The default branch for a repo can be changed in the "Branches" section of the [GitHub] settings page, which you explored in the previous step.) 
+When you use `git clone` as we did above, it starts your working area on the default branch for the repository. In this case, that branch is main. (The default branch for a repo can be changed in the "Branches" section of the [GitHub] settings page, which you explored in the previous step.) 
 
 Inspect the branches of the repository.
 
@@ -167,12 +167,12 @@ git branch -a
 
 > ## Output
 > ```
-> * master
-  remotes/origin/HEAD -> origin/master
+> * main
+  remotes/origin/HEAD -> origin/main
   remotes/origin/atlas_discovery
   remotes/origin/cms_discovery
   remotes/origin/dune_discovery
-  remotes/origin/master
+  remotes/origin/main
 > ```
 {: .solution}
 
@@ -230,34 +230,34 @@ Before you make edits to your local repo, you should make sure that your fork is
 Check for changes in upstream:
 
 ```shell
-git pull upstream master
+git pull upstream main
 ```
 {: .source}
 
 > ## Output
 > ```
 From github.com:GitHATSLPC/GitHATS
- * branch            master     -> FETCH_HEAD
- * [new branch]      master     -> upstream/master
+ * branch            main     -> FETCH_HEAD
+ * [new branch]      main     -> upstream/main
 Already up-to-date.
 > ```
 {: .solution}
 
 > ## Note
-> `git pull upstream master` is equivalent to the following two commands:
+> `git pull upstream main` is equivalent to the following two commands:
 > ```shell
-> git fetch upstream master
-git merge upstream/master
+> git fetch upstream main
+git merge upstream/main
 > ```
 > {: .source}
 {: .callout}
 
 If you pulled any changes from the upstream repository, you should push them back to origin. (Even if you didn't, you can still practice pushing; nothing will happen.)
 
-Push your local master branch back to your remote fork:
+Push your local main branch back to your remote fork:
 
 ```shell
-git push origin master
+git push origin main
 ```
 {: .source}
 
@@ -399,7 +399,7 @@ Now that you have made your change, you can submit it for inclusion in the centr
 When you open the page to send a pull request on GitHub, you will notice that you can send a pull request to any fork of the repo (and any branch).
 <img src="../fig/github_make_pull_request.png" alt="Make pull request" style="float: center; margin-right; width:800px; border: 5px solid #ded4b9">
 
-Send a pull request to the master branch of the upstream repo (GitHATSLPC).
+Send a pull request to the main branch of the upstream repo (GitHATSLPC).
 <img src="../fig/github_view_pull_request.png" alt="View pull request" style="float: center; margin-right; width:800px; border: 5px solid #ded4b9">
 
 > ## Question 6.1
@@ -409,7 +409,7 @@ Send a pull request to the master branch of the upstream repo (GitHATSLPC).
 {: .challenge}
 
 > ## Optional
-> If you want to practice merging a pull request, you can send a pull request from your branch `MyBranch` to your *own* master branch.
+> If you want to practice merging a pull request, you can send a pull request from your branch `MyBranch` to your *own* main branch.
 {: .challenge}
 
 ## Advanced topics
