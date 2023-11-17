@@ -405,7 +405,7 @@ Send a pull request to the main branch of the upstream repo (GitHATSLPC).
 > ## Question 6.1
 > Post the link to your pull request.
 > 
-> For CMSDAS@LPC {{ site.year }} please submit your answer at the [Google Form fifth set][Set5_form].
+> For CMSDAS@LPC {{ site.year }} please submit your answer at the [Google Form sixth set][Set6_form].
 {: .challenge}
 
 > ## Optional
