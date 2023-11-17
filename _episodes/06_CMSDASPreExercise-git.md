@@ -396,7 +396,7 @@ To github.com:mtonjes/GitHATS.git
 
 Now that you have made your change, you can submit it for inclusion in the central repository.
 
-When you open the page to send a pull request on GitHub, you will notice that you can send a pull request to any fork of the repo (and any branch).
+When you open the web page (the link listed on the command line above to your own fork) to send a pull request on GitHub, you will notice that you can send a pull request to any fork of the repo (and any branch).
 <img src="../fig/github_make_pull_request.png" alt="Make pull request" style="float: center; margin-right; width:800px; border: 5px solid #ded4b9">
 
 Send a pull request to the main branch of the upstream repo (GitHATSLPC).
