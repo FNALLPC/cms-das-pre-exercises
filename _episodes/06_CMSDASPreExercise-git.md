@@ -93,12 +93,8 @@ Optional settings:
 
 Look carefully at the [GitHub] user interface on the main page for the [GitHATSLPC/GitHATS](https://github.com/GitHATSLPC/GitHATS) repository. Click on various tabs.
 
- - Top left row: Code, Issues, Pull Requests, Actions, Projects, Wiki, Security, Insights, Settings
-
-<img src="../fig/GitHATSLPC_GitHATS_1.png" alt="Top left row: Code, Issues, Pull Requests, Actions, Projects, Wiki, Security, Insights, Settings" style="float: center; margin-right; width:800px; border: 5px solid #ded4b9"/>
-
- - Settings: Options, Collaborators, Branches
-<img src="../fig/GitHATSLPC_GitHATS_2.png" alt="Settings: Options, Collaborators, Branches" style="float: center; margin-right; width:800px; border: 5px solid #ded4b9">
+ - Top left row: Code, Issues, Pull Requests, Actions, Projects, Wiki, Security, Insights
+<img src="../fig/GitHATSLPC_GitHATS_1.png" alt="Top left row: Code, Issues, Pull Requests, Actions, Projects, Wiki, Security, Insights" style="float: center; margin-right; width:800px; border: 5px solid #ded4b9"/>
 
  - Top right row: Notifications, Star, Fork
 <img src="../fig/GitHATSLPC_GitHATS_3.png" alt="Top right row: Notifications, Star, Fork" style="float: center; margin-right; width:400px; border: 5px solid #ded4b9">
