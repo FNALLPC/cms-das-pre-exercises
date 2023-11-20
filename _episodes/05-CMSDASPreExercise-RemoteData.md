@@ -49,11 +49,11 @@ dataset dataset=/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20
 
 The first "dataset" indicates that you're searching for whole data sets; the second "dataset=/DYJets..." is a filter, returning only this specific data set. The search results should show exactly one hit, along with several links for more info. 
 
-[image]
+![das dataset]({{site.baseurl}}{% link fig/DAS_dataset.png %})
 
 Let's click on "Files," which actually performs another search (you can see the exact search string in the search bar) for files in this data set. The results show 71 files, mostly around 2 GB in size with about 2 million events per file. 
 
-[image]
+![das dataset]({{site.baseurl}}{% link fig/DAS_files.png %})
 
 Finally, click on "Sites" for a single file. This will show the sites around the world that have this file available. This particular file is available at numerous sites, including T1_US_FNAL_Disk, T2_US_MIT, and T2_US_Purdue in the US. 
 
