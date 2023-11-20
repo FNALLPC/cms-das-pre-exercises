@@ -53,7 +53,7 @@ The first "dataset" indicates that you're searching for whole data sets; the sec
 
 Let's click on "Files," which actually performs another search (you can see the exact search string in the search bar) for files in this data set. The results show 71 files, mostly around 2 GB in size with about 2 million events per file. 
 
-![image_DAS]({{site.baseurl}}{% link fig/DAS_file.png %})
+![image_DAS]({{site.baseurl}}{% link fig/DAS_files.png %})
 
 Finally, click on "Sites" for a single file. This will show the sites around the world that have this file available. This particular file is available at numerous sites, including T1_US_FNAL_Disk, T2_US_MIT, and T2_US_Purdue in the US. 
 
