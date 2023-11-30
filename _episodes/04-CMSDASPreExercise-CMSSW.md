@@ -52,6 +52,9 @@ scram project -n "CMSSW_10_6_30_patch1_cmsdas" CMSSW_10_6_30_patch1
 > For convenience, we suggest you edit your `~/.bash_profile` file to call the `cmsset_default.sh` script automatically upon login. Add the whole line to this script. 
 {: .callout}
 
+> Note that software environments are generally not cross-compatible! Namely, if you setup an LCG software release and CMSSW in the same session (or conda, etc.), things will break. For this exercise, make sure you have logged into a fresh session on cmslpc, so that the LCG environment from the previous exercise is not set up. 
+{: .callout}
+
 > Note the release number, `10_6_30_patch1`: CMSSW is a massive project that is under continuous development, so we define "releases" that corresponds to a fixed snapshot at some point in time. `CMSSW_10_6_*` is actually a fairly old release, used for NanoAOD production in Run 2. The first number in series (`10`) indicates a major cycle, the second number (`6`) a major release with new features with respect to the preceeding release, and the third number (`30_patch1`) a release with minor updates and bug fixes to the preceeding release.
 {: .callout}
 
