@@ -28,7 +28,7 @@ Login to the cluster again from your computer:
 
 ```shell
 kinit <YourUsername>@FNAL.GOV
-ssh Y <YourUsername>@cmslpc-sl7.fnal.gov
+ssh -Y <YourUsername>@cmslpc-sl7.fnal.gov
 ```
  {: .source}
 
