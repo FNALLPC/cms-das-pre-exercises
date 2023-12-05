@@ -237,7 +237,6 @@ CRAB is configured using python configuration files (once again!). The complete 
 ```shell
 cd $CMSSW_BASE/src
 wget fnallpc.github.io/cms-das-pre-exercises/code/cmsdas_mc_crab.py
-wget {{ pages.root }}{% link code/cmsdas_mc_crab.py %}
 ```
 
 Below you also find the file:
