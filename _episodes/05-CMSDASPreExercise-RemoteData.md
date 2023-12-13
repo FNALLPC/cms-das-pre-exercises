@@ -439,31 +439,33 @@ Most of this file is similar to the previous MC generation job, but there are a 
 
 > ## Show/Hide
 > ```
-> CRAB project directory:		/uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/crab_CMSDAS_Data_analysis_test0
-> Task name:			211024_231817:belt_crab_CMSDAS_Data_analysis_test0
-> Grid scheduler - Task Worker:	crab3@vocms0199.cern.ch - crab-prod-tw01
-> Status on the CRAB server:	SUBMITTED
-> Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/211024_231817%3Abelt_crab_CMSDAS_Data_analysis_test0
-> Dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=belt&var-task=211024_231817%3Abelt_crab_CMSDAS_Data_analysis_test0&from=1635113897000&to=now
-> Status on the scheduler:	COMPLETED
+> cmslpc154:~/cmsdas/2024/test/CMSSW_10_6_30_patch1_cmsdas/src/crabsubmit --> crab status -d crab_cmsdas_zpeak_test0/
+> Your user certificate is going to expire in 1 days. See: https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookStartingGrid#ObtainingCert 
+> CRAB project directory:     /uscms_data/d3/dryu/cmsdas/2024/test/CMSSW_10_6_30_patch1_cmsdas/src/crabsubmit/crab_cmsdas_zpeak_test0
+> Task name:          231130_123342:dryu_crab_cmsdas_zpeak_test0
+> Grid scheduler - Task Worker:   crab3@vocms0121.cern.ch - crab-prod-tw01
+> Status on the CRAB server:  SUBMITTED
+> Task URL to use for HELP:   https://cmsweb.cern.ch/crabserver/ui/task/231130_123342%3Adryu_crab_cmsdas_zpeak_test0
+> Dashboard monitoring URL:   https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=dryu&var-task=231130_123342%3Adryu_crab_cmsdas_zpeak_test0&from=1701344022000&to=now
+> Status on the scheduler:    COMPLETED
 > 
-> Jobs status:                    finished     		100.0% (31/31)
+> Jobs status:                    finished            100.0% (31/31)
 > 
-> Publication status of 1 dataset(s):	done         		100.0% (31/31)
-> (from CRAB internal bookkeeping in transferdb)
+> Output dataset:         /FakeDataset/fakefile-FakePublish-93f81f35bfff96a473e04044a2f7a529/USER
 > 
-> Output dataset:			/DoubleMuon/belt-crab_CMSDAS_Data_analysis_test0-dfbd2918d11fceef1aa67bdee18b8002/USER
-> Output dataset DAS URL:		https://cmsweb.cern.ch/das/request?input=%2FDoubleMuon%2Fbelt-crab_CMSDAS_Data_analysis_test0-dfbd2918d11fceef1aa67bdee18b8002%2FUSER&instance=prod%2Fphys03
+> No publication information available yet
 > 
 > Warning: the max jobs runtime is less than 30% of the task requested value (1250 min), please consider to request a lower value for failed jobs (allowed through crab resubmit) and/or improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task.
 > 
-> Summary of run jobs:
->  * Memory: 28MB min, 855MB max, 544MB ave
->  * Runtime: 0:04:25 min, 0:46:10 max, 0:07:33 ave
->  * CPU eff: 9% min, 89% max, 64% ave
->  * Waste: 2:27:43 (39% of total)
+> Warning: the average jobs CPU efficiency is less than 50%, please consider to improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task
 > 
-> Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/crab_CMSDAS_Data_analysis_test0/crab.log
+> Summary of run jobs:
+>  * Memory: 12MB min, 783MB max, 540MB ave
+>  * Runtime: 0:01:44 min, 0:04:03 max, 0:03:52 ave
+>  * CPU eff: 6% min, 63% max, 28% ave
+>  * Waste: 3:15:10 (62% of total)
+> 
+> Log file is /uscms_data/d3/dryu/cmsdas/2024/test/CMSSW_10_6_30_patch1_cmsdas/src/crabsubmit/crab_cmsdas_zpeak_test0/crab.log
 > ```
 {: .solution}
 
@@ -479,28 +481,25 @@ crab report
 You'll get something like this:
 > ## Show/Hide
 > ```
-> Running crab status first to fetch necessary information.
-> Will save lumi files into output directory /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/crab_CMSDAS_Data_analysis_test0/results
 > Summary from jobs in status 'finished':
 >   Number of files processed: 64
->   Number of events read: 1234567890
->   Number of events written in EDM files: 636670
+>   Number of events read: 2167324
+>   Number of events written in EDM files: 0
 >   Number of events written in TFileService files: 0
 >   Number of events written in other type of files: 0
 >   Processed lumis written to processedLumis.json
 > Summary from output datasets in DBS:
 >   Number of events:
->     /DoubleMuon/belt-crab_CMSDAS_Data_analysis_test0-dfbd2918d11fceef1aa67bdee18b8002/USER: 636670
->   Output datasets lumis written to outputDatasetsLumis.json
+>     /FakeDataset/fakefile-FakePublish-93f81f35bfff96a473e04044a2f7a529/USER: 0
 > Additional report lumi files:
 >   Input dataset lumis (from DBS, at task submission time) written to inputDatasetLumis.json
 >   Lumis to process written to lumisToProcess.json
-> Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/crab_CMSDAS_Data_analysis_test0/crab.log
+> Log file is /uscms_data/d3/dryu/cmsdas/2024/test/CMSSW_10_6_30_patch1_cmsdas/src/crabsubmit/crab_cmsdas_zpeak_test0/crab.log
 > ```
 {: .solution}
 
 > ## Question 5.5
-> How many events were analyzed? Use `crab report -d crabsubmit/crab_cmsdas_zpeak_test0`. 
+> How many events were read? Use `crab report -d crabsubmit/crab_cmsdas_zpeak_test0`. 
 {: .challenge}
 
 ## Optional: View the reconstructed Z peak in the combined data
