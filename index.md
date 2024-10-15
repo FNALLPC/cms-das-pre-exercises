@@ -195,12 +195,8 @@ special instructions.
 <p id="instructors">
    <strong>Instructors:</strong>
    {% for name in page.instructor %}
-   {% if forloop.last and page.instructor.size > 1 %}
-, and
-   {% else %}
-   {% unless forloop.first %}
-,
-   {% endunless %}
+   {% if forloop.last and page.instructor.size > 1 %}, and {% else %}
+   {% unless forloop.first %}, {% endunless %}
    {% endif %}
    {{name}}
    {% endfor %}
