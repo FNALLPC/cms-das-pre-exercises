@@ -49,11 +49,11 @@ dataset dataset=/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20
 
 The first "dataset" indicates that you're searching for whole data sets; the second "dataset=/DYJets..." is a filter, returning only this specific data set. The search results should show exactly one hit, along with several links for more info. 
 
-[image]
+![image_DAS]({{site.baseurl}}{% link fig/DAS_dataset.png %})
 
 Let's click on "Files," which actually performs another search (you can see the exact search string in the search bar) for files in this data set. The results show 71 files, mostly around 2 GB in size with about 2 million events per file. 
 
-[image]
+![image_DAS]({{site.baseurl}}{% link fig/DAS_files.png %})
 
 Finally, click on "Sites" for a single file. This will show the sites around the world that have this file available. This particular file is available at numerous sites, including T1_US_FNAL_Disk, T2_US_MIT, and T2_US_Purdue in the US. 
 
@@ -97,7 +97,9 @@ If you do not have the first attribute line listed above, you probably did not f
 > Copy the output corresponding to the text in the output box above, using [Google form 5][Set5_form].
 {: .challenge}
 
-> ## DAS client Question 5.1
+Now that you have a valid grid proxy in the CMS VO, we will be able to run a command line client to check DAS to find CMS files and their information. 
+
+> ## DAS client Question 5.2
 > Now let's use the command line implementation of DAS to find some real collision data. This requires the valid CMS grid proxy. The `dasgoclient` lets you query DAS just like the web interface. On cmslpc, enter the following query (along with a `grep` command to filter the result):
 > ```shell
 > dasgoclient -query="dataset dataset=/JetHT/Run2018C-UL2018_MiniAODv2_NanoAODv9-v1/NANOAOD" -json | grep "nevents"
@@ -107,7 +109,7 @@ If you do not have the first attribute line listed above, you probably did not f
 {: .challenge}
 
 ## Obtain a /store/user area
-This exercise pertains specifically to cmslpc. When you obtained your cmslpc account, you should have automatically been granted EOS storage at `/store/user/YourUsername`. (As a refresher, you can review the instructions for using EOS at [Using EOS at LPC](http://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml#checkEOS).) You will configure your CRAB jobs to write output files to this space. However, **it will not yet be linked to your grid certificate unless you provided it in the application form.** If not linked, put in a Fermilab ServiceNow request following directions for [CMS Storage Space Request](http://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml#createEOSArea). Note that this can take up to 1 business day (FNAL hours). 
+This exercise pertains specifically to cmslpc. When you obtained your cmslpc account, you should have automatically been granted EOS storage at `/store/user/YourUsername`, however if your grid certificate was not provided or linked you may need to [ensure that it is in Fermilab's database](https://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml#createEOSArea). (As a refresher, you can review the instructions for using EOS at [Using EOS at LPC](http://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml#checkEOS).) You will configure your CRAB jobs to write output files to this space. However, **it will not yet be linked to your grid certificate unless you provided it in the application form.** If not linked, put in a Fermilab ServiceNow request following directions for [CMS Storage Space Request](http://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml#createEOSArea). Note that this can take up to 1 business day (FNAL hours). 
 
 # Setting up CRAB
 Once you have a /store/user/ area connected with your grid certificate, we can start using CRAB.
@@ -235,7 +237,6 @@ CRAB is configured using python configuration files (once again!). The complete 
 ```shell
 cd $CMSSW_BASE/src
 wget fnallpc.github.io/cms-das-pre-exercises/code/cmsdas_mc_crab.py
-wget {{ pages.root }}{% link code/cmsdas_mc_crab.py %}
 ```
 
 Below you also find the file:
@@ -304,56 +305,58 @@ crab status -d crabsubmit/cmsdas_minbias_test0
 
 The `crab status` command will produce an output containing the task name, the status of the task as a whole, the details of how many jobs are in which state (submitted, running, transfering, finished, cooloff, etc.) and the location of the CRAB log (`crab.log`) file. It will also print the URLs of two web pages that one can use to monitor the jobs. In summary, it should look something like this:
 
-```
-cmslpc178:~/nobackup/cmsdas/CMSSW_13_0_13_mcgen/src --> crab status -d crabsubmit/crab_cmsdas_minbias_test0
-CRAB project directory:     /uscms_data/d3/username/cmsdas/CMSSW_13_0_13_mcgen/src/crabsubmit/crab_cmsdas_minbias_test0
-Task name:          231110_212908:username_crab_cmsdas_minbias_test0
-Grid scheduler - Task Worker:   crab3@vocms0198.cern.ch - crab-prod-tw01
-Status on the CRAB server:  SUBMITTED
-Task URL to use for HELP:   https://cmsweb.cern.ch/crabserver/ui/task/231110_212908%3Ausername_crab_cmsdas_minbias_test0
-Dashboard monitoring URL:   https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=username&var-task=231110_212908%3Ausername_crab_cmsdas_minbias_test0&from=1699648148000&to=now
-Status on the scheduler:    SUBMITTED
-
-Jobs status:                    idle                100.0% (10/10)
-
-No publication information available yet
-Log file is /uscms_data/d3/username/cmsdas/CMSSW_13_0_13_mcgen/src/crabsubmit/crab_cmsdas_minbias_test0/crab.log
-```
-{: .output}
+> ## Show/Hide
+> ```
+> cmslpc178:~/nobackup/cmsdas/CMSSW_13_0_13_mcgen/src --> crab status -d crabsubmit/crab_cmsdas_minbias_test0
+> CRAB project directory:     /uscms_data/d3/username/cmsdas/CMSSW_13_0_13_mcgen/src/crabsubmit/crab_cmsdas_minbias_test0
+> Task name:          231110_212908:username_crab_cmsdas_minbias_test0
+> Grid scheduler - Task Worker:   crab3@vocms0198.cern.ch - crab-prod-tw01
+> Status on the CRAB server:  SUBMITTED
+> Task URL to use for HELP:   https://cmsweb.cern.ch/crabserver/ui/task/231110_212908%3Ausername_crab_cmsdas_minbias_test0
+> Dashboard monitoring URL:   https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=username&var-task=231110_212908%3Ausername_crab_cmsdas_minbias_test0&from=1699648148000&to=now
+> Status on the scheduler:    SUBMITTED
+> 
+> Jobs status:                    idle                100.0% (10/10)
+> 
+> No publication information available yet
+> Log file is /uscms_data/d3/username/cmsdas/CMSSW_13_0_13_mcgen/src/crabsubmit/crab_cmsdas_minbias_test0/crab.log
+> ```
+{: .solution}
 
 Now you can take a break and have some fun. Come back after couple hours or so and check the status again.
 
-```
-[tonjes@cmslpc101 src]$ crab status crabsubmit/cmsdas_minbias_test0
-CRAB project directory:		/uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/cmsdas_minbias_test0
-Task name:			211024_214242:belt_cmsdas_minbias_test0
-Grid scheduler - Task Worker:	crab3@vocms0122.cern.ch - crab-prod-tw01
-Status on the CRAB server:	SUBMITTED
-Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/211024_214242%3Abelt_cmsdas_minbias_test0
-Dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=belt&var-task=211024_214242%3Abelt_cmsdas_minbias_test0&from=1635108162000&to=now
-Status on the scheduler:	COMPLETED
-
-Jobs status:                    finished     		100.0% (10/10)
-
-Publication status of 1 dataset(s):	done         		100.0% (10/10)
-(from CRAB internal bookkeeping in transferdb)
-
-Output dataset:			/MinBias/belt-CMSDAS2021_CRAB3_MC_generation_test0-67359df6f8a0ef3c567d7c8fea38a809/USER
-Output dataset DAS URL:		https://cmsweb.cern.ch/das/request?input=%2FMinBias%2Fbelt-CMSDAS2021_CRAB3_MC_generation_test0-67359df6f8a0ef3c567d7c8fea38a809%2FUSER&instance=prod%2Fphys03
-
-Warning: the max jobs runtime is less than 30% of the task requested value (1250 min), please consider to request a lower value for failed jobs (allowed through crab resubmit) and/or improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task.
-
-Warning: the average jobs CPU efficiency is less than 50%, please consider to improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task
-
-Summary of run jobs:
- * Memory: 39MB min, 84MB max, 43MB ave
- * Runtime: 0:04:55 min, 0:45:15 max, 0:08:59 ave
- * CPU eff: 7% min, 73% max, 22% ave
- * Waste: 1:15:29 (46% of total)
-
-Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/cmsdas_minbias_test0/crab.log
-```
-{: .output}
+> ## Show/Hide
+> ```
+> [tonjes@cmslpc101 src]$ crab status crabsubmit/cmsdas_minbias_test0
+> CRAB project directory:		/uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/cmsdas_minbias_test0
+> Task name:			211024_214242:belt_cmsdas_minbias_test0
+> Grid scheduler - Task Worker:	crab3@vocms0122.cern.ch - crab-prod-tw01
+> Status on the CRAB server:	SUBMITTED
+> Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/211024_214242%3Abelt_cmsdas_minbias_test0
+> Dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=belt&var-task=211024_214242%3Abelt_cmsdas_minbias_test0&from=1635108162000&to=now
+> Status on the scheduler:	COMPLETED
+> 
+> Jobs status:                    finished     		100.0% (10/10)
+> 
+> Publication status of 1 dataset(s):	done         		100.0% (10/10)
+> (from CRAB internal bookkeeping in transferdb)
+> 
+> Output dataset:			/MinBias/belt-CMSDAS2021_CRAB3_MC_generation_test0-67359df6f8a0ef3c567d7c8fea38a809/USER
+> Output dataset DAS URL:		https://cmsweb.cern.ch/das/request?input=%2FMinBias%2Fbelt-CMSDAS2021_CRAB3_MC_generation_test0-67359df6f8a0ef3c567d7c8fea38a809%2FUSER&instance=prod%2Fphys03
+> 
+> Warning: the max jobs runtime is less than 30% of the task requested value (1250 min), please consider to request a lower value for failed jobs (allowed through crab resubmit) and/or improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task.
+> 
+> Warning: the average jobs CPU efficiency is less than 50%, please consider to improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task
+> 
+> Summary of run jobs:
+>  * Memory: 39MB min, 84MB max, 43MB ave
+>  * Runtime: 0:04:55 min, 0:45:15 max, 0:08:59 ave
+>  * CPU eff: 7% min, 73% max, 22% ave
+>  * Waste: 1:15:29 (46% of total)
+> 
+> Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/cmsdas_minbias_test0/crab.log
+> ```
+{: .solution}
 
 **Note**: If you specified T3_US_FNALLPC as your output directory, CRAB will write the output to your eos area. You can see them at something like `eosls /store/user/username/MinBias/MinBias_TuneCP5_13p6TeV-pythia8_cmsdas2024_test0/...`. 
 
@@ -434,34 +437,37 @@ Most of this file is similar to the previous MC generation job, but there are a 
 
  After a while, you should see something like below:
 
-```
-CRAB project directory:		/uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/crab_CMSDAS_Data_analysis_test0
-Task name:			211024_231817:belt_crab_CMSDAS_Data_analysis_test0
-Grid scheduler - Task Worker:	crab3@vocms0199.cern.ch - crab-prod-tw01
-Status on the CRAB server:	SUBMITTED
-Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/211024_231817%3Abelt_crab_CMSDAS_Data_analysis_test0
-Dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=belt&var-task=211024_231817%3Abelt_crab_CMSDAS_Data_analysis_test0&from=1635113897000&to=now
-Status on the scheduler:	COMPLETED
-
-Jobs status:                    finished     		100.0% (31/31)
-
-Publication status of 1 dataset(s):	done         		100.0% (31/31)
-(from CRAB internal bookkeeping in transferdb)
-
-Output dataset:			/DoubleMuon/belt-crab_CMSDAS_Data_analysis_test0-dfbd2918d11fceef1aa67bdee18b8002/USER
-Output dataset DAS URL:		https://cmsweb.cern.ch/das/request?input=%2FDoubleMuon%2Fbelt-crab_CMSDAS_Data_analysis_test0-dfbd2918d11fceef1aa67bdee18b8002%2FUSER&instance=prod%2Fphys03
-
-Warning: the max jobs runtime is less than 30% of the task requested value (1250 min), please consider to request a lower value for failed jobs (allowed through crab resubmit) and/or improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task.
-
-Summary of run jobs:
- * Memory: 28MB min, 855MB max, 544MB ave
- * Runtime: 0:04:25 min, 0:46:10 max, 0:07:33 ave
- * CPU eff: 9% min, 89% max, 64% ave
- * Waste: 2:27:43 (39% of total)
-
-Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/crab_CMSDAS_Data_analysis_test0/crab.log
-```
-{: .output}
+> ## Show/Hide
+> ```
+> cmslpc154:~/cmsdas/2024/test/CMSSW_10_6_30_patch1_cmsdas/src/crabsubmit --> crab status -d crab_cmsdas_zpeak_test0/
+> Your user certificate is going to expire in 1 days. See: https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookStartingGrid#ObtainingCert 
+> CRAB project directory:     /uscms_data/d3/dryu/cmsdas/2024/test/CMSSW_10_6_30_patch1_cmsdas/src/crabsubmit/crab_cmsdas_zpeak_test0
+> Task name:          231130_123342:dryu_crab_cmsdas_zpeak_test0
+> Grid scheduler - Task Worker:   crab3@vocms0121.cern.ch - crab-prod-tw01
+> Status on the CRAB server:  SUBMITTED
+> Task URL to use for HELP:   https://cmsweb.cern.ch/crabserver/ui/task/231130_123342%3Adryu_crab_cmsdas_zpeak_test0
+> Dashboard monitoring URL:   https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=dryu&var-task=231130_123342%3Adryu_crab_cmsdas_zpeak_test0&from=1701344022000&to=now
+> Status on the scheduler:    COMPLETED
+> 
+> Jobs status:                    finished            100.0% (31/31)
+> 
+> Output dataset:         /FakeDataset/fakefile-FakePublish-93f81f35bfff96a473e04044a2f7a529/USER
+> 
+> No publication information available yet
+> 
+> Warning: the max jobs runtime is less than 30% of the task requested value (1250 min), please consider to request a lower value for failed jobs (allowed through crab resubmit) and/or improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task.
+> 
+> Warning: the average jobs CPU efficiency is less than 50%, please consider to improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task
+> 
+> Summary of run jobs:
+>  * Memory: 12MB min, 783MB max, 540MB ave
+>  * Runtime: 0:01:44 min, 0:04:03 max, 0:03:52 ave
+>  * CPU eff: 6% min, 63% max, 28% ave
+>  * Waste: 3:15:10 (62% of total)
+> 
+> Log file is /uscms_data/d3/dryu/cmsdas/2024/test/CMSSW_10_6_30_patch1_cmsdas/src/crabsubmit/crab_cmsdas_zpeak_test0/crab.log
+> ```
+{: .solution}
 
 ## Create reports of data analyzed
 
@@ -473,30 +479,27 @@ crab report
 {: .source}
 
 You'll get something like this:
+> ## Show/Hide
 > ```
-> Running crab status first to fetch necessary information.
-> Will save lumi files into output directory /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/crab_CMSDAS_Data_analysis_test0/results
 > Summary from jobs in status 'finished':
 >   Number of files processed: 64
->   Number of events read: 1234567890
->   Number of events written in EDM files: 636670
+>   Number of events read: 2167324
+>   Number of events written in EDM files: 0
 >   Number of events written in TFileService files: 0
 >   Number of events written in other type of files: 0
 >   Processed lumis written to processedLumis.json
 > Summary from output datasets in DBS:
 >   Number of events:
->     /DoubleMuon/belt-crab_CMSDAS_Data_analysis_test0-dfbd2918d11fceef1aa67bdee18b8002/USER: 636670
->   Output datasets lumis written to outputDatasetsLumis.json
+>     /FakeDataset/fakefile-FakePublish-93f81f35bfff96a473e04044a2f7a529/USER: 0
 > Additional report lumi files:
 >   Input dataset lumis (from DBS, at task submission time) written to inputDatasetLumis.json
 >   Lumis to process written to lumisToProcess.json
-> Log file is /uscms_data/d3/tonjes/CMSDAS2022/PreExercises/CMSSW_10_6_18/src/crabsubmit/crab_CMSDAS_Data_analysis_test0/crab.log
+> Log file is /uscms_data/d3/dryu/cmsdas/2024/test/CMSSW_10_6_30_patch1_cmsdas/src/crabsubmit/crab_cmsdas_zpeak_test0/crab.log
 > ```
-> {: .output}
 {: .solution}
 
 > ## Question 5.5
-> How many events were analyzed? Use `crab report -d crabsubmit/crab_cmsdas_zpeak_test0`. 
+> How many events were read? Use `crab report -d crabsubmit/crab_cmsdas_zpeak_test0`. 
 {: .challenge}
 
 ## Optional: View the reconstructed Z peak in the combined data
@@ -507,7 +510,7 @@ hadd ZPeak.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_z
 ```
 {: .source}
 
-Note: the author of this exercise did not actually type out this command by hand! Rather, I first obtained a list of files using `eosls /store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/`, and then used multiple cursors in Sublime Text/Visual Studio Code to turn the list into this long command. You could also generate the command programatically. Tricks like this often come in handy. 
+Note: the author of this exercise did not actually type out this command by hand! Rather, I first obtained a list of files using `eosls /store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/`, and then used multiple cursors in Sublime Text/Visual Studio Code to turn the list into this long command. You could also generate the command programatically. Tricks like this often come in handy. Also note that the final file is less than 5GB in size. Many filesystems/networks do not do well with much larger files.
 {: .callout}
 
 Open the new `ZPeak.root` file , and plot the histogram. You should have many more events than the last exercise!
