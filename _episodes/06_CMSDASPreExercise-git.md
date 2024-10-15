@@ -416,6 +416,11 @@ Send a pull request to the main branch of the upstream repo (GitHATSLPC).
 
 Advanced topics not explored in this exercise include: merging, rebasing, cherry-picking, undoing, removing binary files, and CMSSW-specific commands and usage.
 
+If you want to learn more, here are some additional resources:
+- [HEP Software Foundation training modules](https://hsf-training.org/training-center/)
+- [git comprehensive guide](https://git-scm.com/book/en/v2)
+- [CMS-specific git twiki](https://twiki.cern.ch/twiki/bin/view/CMS/CMSGitTutorial).)
+
 Students are encouraged to explore these topics on their own at [CMSGitTutorial](https://twiki.cern.ch/twiki/bin/view/CMS/CMSGitTutorial).
 
 {% include links.md %}
