@@ -196,10 +196,10 @@ special instructions.
    <strong>Instructors:</strong>
    {% for name in page.instructor %}
    {% if forloop.last and page.instructor.size > 1 %}
-   and
+, and
    {% else %}
    {% unless forloop.first %}
-   ,
+,
    {% endunless %}
    {% endif %}
    {{name}}
