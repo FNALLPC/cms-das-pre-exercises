@@ -9,7 +9,7 @@ country: "us"      # lowercase two-letter ISO country code such as "fr" (see htt
 language: "en"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the
 latitude: "41.842258"        # decimal latitude of workshop venue (use https://www.latlong.net/)
 longitude: "-88.245781"       # decimal longitude of the workshop venue (use https://www.latlong.net)
-humandate: "Asynchronously from November 2023 to mid-December 2023"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
+humandate: "Asynchronously from November to mid-December, before the school starts in January"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
 humantime: "24/7"    # human-readable times for the workshop (e.g., "9:00 am - 4:30 pm")
 startdate: 2024-01-08      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
 enddate: 2024-01-12        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
@@ -195,12 +195,8 @@ special instructions.
 <p id="instructors">
    <strong>Instructors:</strong>
    {% for name in page.instructor %}
-   {% if forloop.last and page.instructor.size > 1 %}
-   and
-   {% else %}
-   {% unless forloop.first %}
-   ,
-   {% endunless %}
+   {% if forloop.last and page.instructor.size > 1 %}, and {% else %}
+   {% unless forloop.first %}, {% endunless %}
    {% endif %}
    {{name}}
    {% endfor %}
