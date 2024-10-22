@@ -426,4 +426,4 @@ Students are encouraged to explore these topics on their own at [CMSGitTutorial]
 {% include links.md %}
 
 
-[Set6_form]: https://docs.google.com/forms/d/e/1FAIpQLSdnQjWIzrA_Hdgsx7h6LwPfrfRI1uWurf5T4SvIp_JuGnek_w/viewform?usp=sf_link
+[Set6_form]: https://forms.gle/mD8peahxrxoxDwBS7
