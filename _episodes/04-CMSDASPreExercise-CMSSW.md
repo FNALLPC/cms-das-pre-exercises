@@ -40,12 +40,12 @@ We will learn more about finding data in the next exercise.
 In this exercise, we will learn the basics of CMSSW, from setting up the software environment to running simple jobs. 
 
 # Setting up CMSSW
-Login to cmslpc as usual, and run the following commands to create a CMSSW environment. This will create a folder `CMSSW_10_6_30_patch1_cmsdas`, which contains several subfolders. You primarily care about `CMSSW_10_6_30_patch1_cmsdas/src`, which is where you put your code. 
+Login to cmslpc as usual, and run the following commands to create a CMSSW environment. This will create a folder `CMSSW_13_0_10_cmsdas`, which contains several subfolders. The most important folder is `CMSSW_13_0_10_cmsdas/src`, which is where you put your code. 
 
 ```bash
 cd ~/nobackup/cmsdas
 source /cvmfs/cms.cern.ch/cmsset_default.sh
-scram project -n "CMSSW_10_6_30_patch1_cmsdas" CMSSW_10_6_30_patch1
+scram project -n "CMSSW_13_0_10_cmsdas" CMSSW_13_0_10
 ```
 {: .source}
 
@@ -55,13 +55,13 @@ scram project -n "CMSSW_10_6_30_patch1_cmsdas" CMSSW_10_6_30_patch1
 > Note that software environments are generally not cross-compatible! Namely, if you setup an LCG software release and CMSSW in the same session (or conda, etc.), things will break. For this exercise, make sure you have logged into a fresh session on cmslpc, so that the LCG environment from the previous exercise is not set up. 
 {: .callout}
 
-> Note the release number, `10_6_30_patch1`: CMSSW is a massive project that is under continuous development, so we define "releases" that corresponds to a fixed snapshot at some point in time. `CMSSW_10_6_*` is actually a fairly old release, used for NanoAOD production in Run 2. The first number in series (`10`) indicates a major cycle, the second number (`6`) a major release with new features with respect to the preceeding release, and the third number (`30_patch1`) a release with minor updates and bug fixes to the preceeding release.
+> Note the release number, `13_0_10`: CMSSW is a massive project that is under continuous development, so we define "releases" that corresponds to a fixed snapshot at some point in time. `CMSSW_13_0_*` is the release used for "NanoAODv12," the [https://gitlab.cern.ch/cms-nanoAOD/nanoaod-doc/-/wikis/Releases/NanoAODv12](currently recommended version) for Run 3 analysis. The first number in series (`13`) indicates a major cycle, the second number (`0`) a major release with new features with respect to the preceeding release, and the third number (`10`) a release with minor updates and bug fixes to the preceeding release.
 {: .callout}
 
 Next, execute the following commands to setup the environment in your current shell session:
 
 ```shell
-cd CMSSW_10_6_30_patch1_cmsdas/src
+cd CMSSW_13_0_10_cmsdas/src
 cmsenv
 ```
 {: .source}
@@ -151,4 +151,4 @@ root -l ZPeak.root
 > Using the stat box drawn along with the histogram, what is the mean dimuon mass? Write your answer in the Google form. 
 {: .challenge}
 
-[Set4_form]: https://forms.gle/mSntaw8AAGty2Kmp8
+[Set4_form]: https://forms.gle/h8txhqL2ruGY7YZG7

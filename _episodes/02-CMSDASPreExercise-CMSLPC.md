@@ -21,10 +21,12 @@ In this lesson, we will learn how to use the cmslpc computing cluster, which you
 Information for lxplus users is also provided, where appropriate.
 
 # The basics
-The `cmslpc` cluster consists of a large number of "interactive nodes," which users login to via SSH, and an even larger number of "worker nodes," which are used for large-scale "batch" computing. The cluster currently uses the [Scientific Linux 7](https://scientificlinux.org/) OS, which is a Fermilab rebuild of RedHat Enterprise Linux (note: SL7 is quite old, and the whole LHC community is currently migrating to AlmaLinux 8/9. This will happen mid-2024; but don't worry about it too much, not much will change for us end users). 
-Users are allocated storage space in a few places: (1) a small home directory (2 GB) at `/uscms/home/username`, ; (2) a medium storage directory at `/uscms_data/d[1-3]/dryu`, which is softlinked in your home directory at `/uscms/home/username/nobackup` (200 GB, not backed up!), and (3) a large storage directory on EOS (2 TB) (special filesystem, more info later in this lesson). 
+The `cmslpc` cluster consists of a large number of "interactive nodes," which users login to via SSH, and an even larger number of "worker nodes," which are used for large-scale "batch" computing. 
+We will use the [AlmaLinux 8](https://almalinux.org/) operating system (OS), a community-supported OS that is binary-compatible with Red Hat Enterprise Linux (RHEL).
+AlmaLinux 8 was chosen for CMS Run 3 data processing (AlmaLinux 9 is also available and works for most user software; see [these slides](https://indico.cern.ch/event/1126678/contributions/4786719/attachments/2417994/4138224/OandC-OS-Runs3.pdf) for the gory details). 
+CMS users are allocated storage space in a few places: (1) a small home directory (2 GB) at `/uscms/home/username`, ; (2) a medium storage directory (200 GB, not backed up!) at `/uscms_data/d[1-3]/username`, which is softlinked in your home directory at `/uscms/home/username/nobackup`, and (3) a large storage directory on EOS (2 TB) (special filesystem, more info later in this lesson). 
 
-The `lxplus` cluster is configured similarly, with slightly different paths and quotas allocated to users. 
+The `lxplus` cluster is configured similarly, with slightly different paths and quotas allocated to users (note that `lxplus.cern.ch` is an alias for `lxplus9.cern.ch`, a login node running AlmaLinux 9 OS; use `lxplus8.cern.ch` to get 
 
 # Logging in
 Let's try logging in to `cmslpc` using SSH. SSH is a very widely used program for logging into remote Unix clusters; you can check out the [HSF SSH exercise](https://hsf-training.github.io/hsf-training-ssh-webpage/) to learn more, but for now you can just follow the commands in this exercise. The authentication for cmslpc uses kerberos (your university cluster may allow simple password login or certificate login, which are not covered here). 
@@ -42,15 +44,15 @@ Enter the [kerberos password][https://uscms.org/uscms_at_work/computing/getstart
 Next, execute the following to login:
 
 ```shell
-ssh -Y <YourUsername>@cmslpc-sl7.fnal.gov
-# ssh -Y <YourUsername>@lxplus7.cern.ch for lxplus users
+ssh -Y <YourUsername>@cmslpc-el8.fnal.gov
+# ssh -Y <YourUsername>@lxplus8.cern.ch for lxplus users
 ```
 
-If you see a welcome message followed by a return to a command prompt, congratulations, you have successfully logged in! The commands you enter into the command prompt will now be executed on the cmslpc interactive node. If you see an error message instead, something has probably gone wrong with the authentication; please head to Mattermost and post your error message, and an instructor can help you out. 
+If you see a welcome message followed by a command prompt, congratulations, you have successfully logged in! The commands you enter into the command prompt will now be executed on the cmslpc interactive node. If you see an error message instead, something has probably gone wrong with the authentication; please head to Mattermost and post your error message, and an instructor can help you out. 
 
 # Running simple commands on cmslpc
 
-Note: this exercise will only work on **cmslpc-sl7**.
+Note: this exercise will only work on **cmslpc-el8**.
 
 In this exercise, we will run a few simple commands on cmslpc. At the end, you will type an answer into a spreadsheet (experienced users should feel free to breeze through, but please do upload your answer so we can follow everyone's progress). 
 
@@ -68,7 +70,7 @@ cp ~cmsdas/preexercises/runThisCommand.py .
 ```
 {: .source}
 
- Next, cut and paste the following and then hit return:
+ Next, copy and paste the following and then hit return:
  ```shell
 python3 runThisCommand.py "asdf;klasdjf;kakjsdf;akjf;aksdljf;a" "sldjfqewradsfafaw4efaefawefzdxffasdfw4ffawefawe4fawasdffadsfef"
  ```
@@ -95,7 +97,7 @@ Error: You didn't paste the correct input string
 ```
 {: .output}
 
-If you are not running on cmslpc-sl7 (for example locally on a laptop), trying to run the command will result in:
+If you are not running on cmslpc-el8 (for example locally on a laptop), trying to run the command will result in:
 
 ```
 bash: ./runThisCommand.py: No such file or directory
@@ -120,10 +122,10 @@ The purpose of this exercise is to ensure that the user can edit files. We will 
 Users of cmslpc have several options for editing remote files. Here are a few examples:
 
 - Edit files directly on cmslpc using a terminal-based code editor, such as `nano`, `emacs` (opens a GUI by default, which is slow over SSH; use `emacs -nw` to get a terminal-based editor instead), or `vim`. `emacs` and `vim`, in particular, have lots of features for code editing, but also have a steep learning curve.
-- Edit files on your own computer in the terminal (with the same programs), and upload using, e.g., `sftp myscript.py username@cmslpc-sl7.fnal.gov:my/folder`. 
-- Use an application like Visual Studio Code or Sublime Text, either directly on cmslpc (using a remote filesystem plugin, which makes your directory on cmslpc appear as a folder on your computer) or on your own computer (using an SFTP plugin to automatically upload files to cmslpc). These also have lots of features, and are somewhat easier to learn than `emacs` or `vim`.
+- Edit files on your own computer in the terminal (with the same programs), and upload using, e.g., `sftp myscript.py username@cmslpc-el8.fnal.gov:my/folder`. 
+- Use an application like Visual Studio Code or Sublime Text, either directly on cmslpc (using a remote filesystem plugin, which makes your directory on cmslpc appear as a folder on your computer) or on your own computer (using an SSH or SFTP plugin to automatically upload files to cmslpc). These also have lots of features, and are easier to learn than `emacs` or `vim`.
 
-For the sake of this lesson, will will simply edit a file directly on cmslpc, using `nano`, `emacs`, or `vim`. On the **cmslpc-sl7** cluster, run:
+For the sake of this lesson, will will simply edit a file directly on cmslpc, using `nano`, `emacs`, or `vim`. On the **cmslpc-el8** cluster, run:
 
 ```shell
 cd ~/nobackup/cmsdas
@@ -183,7 +185,7 @@ RuntimeError: You need to comment out this line with a #
 
 # Using the EOS filesystem
 Your biggest storage on cmslpc is the EOS filesystem, which behaves differently from a normal Unix folder. 
-In particular, EOS has dedicated commands for interacting with the filesystem, rather than the usual `ls`, `cp`, `mkdir`, etc. 
+EOS has dedicated commands for interacting with the filesystem, rather than the usual `ls`, `cp`, `mkdir`, etc. 
 Also, files are addressed using so-called "logical filenames" (LFNs), which you can think of as their location inside EOS, rather than their absolute location (or physical filename, PFN). 
 The LFNs usually start with `/store/...`.
 [Click here](https://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml) for the full documentation; here are a few essential commands. 
@@ -206,4 +208,4 @@ The LFNs usually start with `/store/...`.
 > Using `ls -lh DYJetsToLL_M50_NANOAOD.root`, how big is this file? (It's the large number.) Write the answer in the Google form. 
 {: .challenge}
 
-[Set2_form]: https://forms.gle/N8C48nTWoBk3omJKA
+[Set2_form]: https://forms.gle/LYawe9LywFu3XRr79
