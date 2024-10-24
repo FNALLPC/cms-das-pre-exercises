@@ -39,7 +39,7 @@ kinit <YourUsername>@FNAL.GOV
 # kinit <YourUsername>@CERN.CH for lxplus users
 ```
 
-Enter the [kerberos password][https://uscms.org/uscms_at_work/computing/getstarted/password_fermilab.shtml#passwordObtain] for your Fermilab account. You now have login access to cmslpc for 24 hours. If you get an error message, double-check that you [configure kerberos properly](https://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml), or head to Mattermost for help. 
+Enter the [kerberos password](https://uscms.org/uscms_at_work/computing/getstarted/password_fermilab.shtml#passwordObtain) for your Fermilab account. You now have login access to cmslpc for 24 hours. If you get an error message, double-check that you [configure kerberos properly](https://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml), or head to Mattermost for help. 
 
 Next, execute the following to login:
 
