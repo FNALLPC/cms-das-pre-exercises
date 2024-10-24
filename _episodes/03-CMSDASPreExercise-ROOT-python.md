@@ -37,7 +37,7 @@ A quick way to setup ROOT is to use the [LCG (LHC Computing Grid) releases](http
 All you have to do is execute the following script (once per login):
 
 ```shell
-source /cvmfs/sft.cern.ch/lcg/views/LCG_104/x86_64-centos7-gcc12-opt/setup.sh
+source /cvmfs/sft.cern.ch/lcg/views/LCG_106a/x86_64-el8-gcc11-opt/setup.sh
 ```
  {: .source}
 
