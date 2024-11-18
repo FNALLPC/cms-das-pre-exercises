@@ -300,7 +300,7 @@ IMPORTANT: do not modify or delete the files in this directory until you are 100
  After you submitted the job successfully (give it a few moments), you can check the status of a task by executing the following CRAB command:
 
  ```shell
-crab status -d crabsubmit/cmsdas_minbias_test0
+crab status -d crabsubmit/crab_cmsdas_minbias_test0
  ```
  {: .source}
 
