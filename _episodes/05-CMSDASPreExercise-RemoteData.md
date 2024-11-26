@@ -14,6 +14,10 @@ keypoints:
 - "Grid jobs run around the world, typically (but not always) using CPUs at the same site as the data."
 ---
 
+> ## Optional exercise
+> This exercise is *not* a prerequisite for registering for CMSDAS. We encourage all students to do this exercises anyways, as you will certainly need to use the grid for analysis at some point. 
+{: .callout}
+
 > ## Questions
 > For this lesson, please submit your answers using [Google Form 5][Set5_form].
 {: .challenge}
