@@ -26,7 +26,7 @@ keypoints:
 This exercise is intended to provide you with basic familiarity with Git and [GitHub] for personal and collaborative use, including terminology, commands, and user interfaces. The exercise proceeds step-by-step through a standard collaboration "Fork and Pull" workflow. This is a highly condensed version of the tutorial exercises at [CMSGitTutorial](https://twiki.cern.ch/twiki/bin/view/CMS/CMSGitTutorial). Students are encouraged to explore those more in-depth exercises if they want to learn more about using Git. There are also [accompanying slides](https://twiki.cern.ch/twiki/bin/view/CMS/CMSGitTutorial#Accompanying_slides) on that twiki page. Students with no experience using Git or other version control software are recommended to read at least the first set of slides.
 
 > ## Warning
-> As a prerequisite for this exercise, please make sure that you have correctly followed the instructions for obtaining a [GitHub] account in the [setup instructions]({{ relative_root_path }}{% link setup.md %}).
+> As a prerequisite for this exercise, please make sure that you have correctly followed the instructions for obtaining a [GitHub] account in the [setup instructions][lesson-setup].
 {: .prereq}
 
 
@@ -427,8 +427,3 @@ Students are encouraged to explore these topics on their own at [CMSGitTutorial]
 
 
 [Set6_form]: https://forms.gle/mD8peahxrxoxDwBS7
-
-DEBUG
-{{ relative_root_path }}{% link setup.md %}
-
-[Test setup][lesson-setup]
