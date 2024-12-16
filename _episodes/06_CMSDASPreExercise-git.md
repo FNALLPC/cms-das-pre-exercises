@@ -427,3 +427,6 @@ Students are encouraged to explore these topics on their own at [CMSGitTutorial]
 
 
 [Set6_form]: https://forms.gle/mD8peahxrxoxDwBS7
+
+DEBUG
+{{ relative_root_path }}
