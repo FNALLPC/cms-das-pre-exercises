@@ -430,3 +430,5 @@ Students are encouraged to explore these topics on their own at [CMSGitTutorial]
 
 DEBUG
 {{ relative_root_path }}{% link setup.md %}
+
+[Test setup][lesson-setup]
