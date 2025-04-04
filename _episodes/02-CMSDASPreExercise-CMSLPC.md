@@ -26,7 +26,7 @@ We will use the [AlmaLinux 8](https://almalinux.org/) operating system (OS), a c
 AlmaLinux 8 was chosen for CMS Run 3 data processing (AlmaLinux 9 is also available and works for most user software; see [these slides](https://indico.cern.ch/event/1126678/contributions/4786719/attachments/2417994/4138224/OandC-OS-Runs3.pdf) for the gory details). 
 CMS users are allocated storage space in a few places: (1) a small home directory (2 GB) at `/uscms/home/username`, ; (2) a medium storage directory (200 GB, not backed up!) at `/uscms_data/d[1-3]/username`, which is softlinked in your home directory at `/uscms/home/username/nobackup`, and (3) a large storage directory on EOS (2 TB) (special filesystem, more info later in this lesson). 
 
-The `lxplus` cluster is configured similarly, with slightly different paths and quotas allocated to users (note that `lxplus.cern.ch` is an alias for `lxplus9.cern.ch`, a login node running AlmaLinux 9 OS; use `lxplus8.cern.ch` to get 
+The `lxplus` cluster is configured similarly, with slightly different paths and quotas allocated to users (note that `lxplus.cern.ch` is an alias for `lxplus9.cern.ch`, a login node running AlmaLinux 9 OS; use `lxplus8.cern.ch` to access a node running AlmaLinux 8 OS).
 
 # Logging in
 Let's try logging in to `cmslpc` using SSH. SSH is a very widely used program for logging into remote Unix clusters; you can check out the [HSF SSH exercise](https://hsf-training.github.io/hsf-training-ssh-webpage/) to learn more, but for now you can just follow the commands in this exercise. The authentication for cmslpc uses kerberos (your university cluster may allow simple password login or certificate login, which are not covered here). 
@@ -125,7 +125,7 @@ Users of cmslpc have several options for editing remote files. Here are a few ex
 - Edit files on your own computer in the terminal (with the same programs), and upload using, e.g., `sftp myscript.py username@cmslpc-el8.fnal.gov:my/folder`. 
 - Use an application like Visual Studio Code or Sublime Text, either directly on cmslpc (using a remote filesystem plugin, which makes your directory on cmslpc appear as a folder on your computer) or on your own computer (using an SSH or SFTP plugin to automatically upload files to cmslpc). These also have lots of features, and are easier to learn than `emacs` or `vim`.
 
-For the sake of this lesson, will will simply edit a file directly on cmslpc, using `nano`, `emacs`, or `vim`. On the **cmslpc-el8** cluster, run:
+For the sake of this lesson, you will simply edit a file directly on cmslpc, using `nano`, `emacs`, or `vim`. On the **cmslpc-el8** cluster, run:
 
 ```shell
 cd ~/nobackup/cmsdas

@@ -28,7 +28,7 @@ The framework contains a large number of modules (C++), which perform tasks like
 - Interfacing with external generator programs like Pythia and Madgraph_aMC@NLO; 
 - Lots and lots of other things. 
 
-With the advent of NanoAOD, a simple ROOT format that does need CMSSW to be analyzed, CMS analysis is increasingly being performed completely outside of CMSSW. Your analysis group might have a framework that uses standalone ROOT, RDataFrame, or Scientific Python (e.g. numpy) instead. CMSSW is needed if your analysis needs additional variables not present in NanoAOD (for example, long-lived particle analysis often need RECO-level objects like tracker or calorimeter hits). You will also probably need to use CMSSW for detector, trigger, and/or POG work. 
+With the advent of NanoAOD, a simple ROOT format that does not need CMSSW to be analyzed, CMS analysis is increasingly being performed completely outside of CMSSW. Your analysis group might have a framework that uses standalone ROOT, RDataFrame, or Scientific Python (e.g. numpy) instead. CMSSW is needed if your analysis needs additional variables not present in NanoAOD (for example, long-lived particle analysis often need RECO-level objects like tracker or calorimeter hits). You will also probably need to use CMSSW for detector, trigger, and/or POG work. 
 {: .callout}
 
 The framework goes hand-in-hand with the "Event Data Model" (EDM), which is how CMS represents events computationally. 
@@ -55,7 +55,7 @@ scram project -n "CMSSW_13_0_10_cmsdas" CMSSW_13_0_10
 > Note that software environments are generally not cross-compatible! Namely, if you setup an LCG software release and CMSSW in the same session (or conda, etc.), things will break. For this exercise, make sure you have logged into a fresh session on cmslpc, so that the LCG environment from the previous exercise is not set up. 
 {: .callout}
 
-> Note the release number, `13_0_10`: CMSSW is a massive project that is under continuous development, so we define "releases" that corresponds to a fixed snapshot at some point in time. `CMSSW_13_0_*` is the release used for "NanoAODv12," the [https://gitlab.cern.ch/cms-nanoAOD/nanoaod-doc/-/wikis/Releases/NanoAODv12](currently recommended version) for Run 3 analysis. The first number in series (`13`) indicates a major cycle, the second number (`0`) a major release with new features with respect to the preceeding release, and the third number (`10`) a release with minor updates and bug fixes to the preceeding release.
+> Note the release number, `13_0_10`: CMSSW is a massive project that is under continuous development, so we define "releases" that corresponds to a fixed snapshot at some point in time. `CMSSW_13_0_*` is the release used for "NanoAODv12," the [currently recommended version](https://gitlab.cern.ch/cms-nanoAOD/nanoaod-doc/-/wikis/Releases/NanoAODv12) for Run 3 analysis. The first number in series (`13`) indicates a major cycle, the second number (`0`) a major release with new features with respect to the preceeding release, and the third number (`10`) a release with minor updates and bug fixes to the preceeding release.
 {: .callout}
 
 Next, execute the following commands to setup the environment in your current shell session:
