@@ -170,4 +170,4 @@ A plot of the Z boson mass should appear, with a mean value close to the Z boson
 > The plot includes a "stat box" with basic information about the plotted histogram. Please fill in the mean of the distribution in the Google form. 
 {: .challenge}
 
-[Set3_form]: https://forms.gle/Vqj9ZkY7tBtadAr86
+[Set3_form]: https://forms.gle/u7P2FEySFiuoCP7F9 
