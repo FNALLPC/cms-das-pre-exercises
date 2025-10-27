@@ -1,5 +1,5 @@
 ---
-title: "CMSDAS Pre-Exercise 4: CMSSW basics"
+title: "CMSDAS Pre-Exercise 5: CMSSW basics"
 teaching: 0
 exercises: 60
 questions:
@@ -16,7 +16,7 @@ keypoints:
 ---
 
 > ## Questions
-> For this lesson, please submit your answers using [CMSDAS@LPC{{ site.year }} Google Form 4][Set4_form].
+> For this lesson, please submit your answers using [CMSDAS@LPC{{ site.year }} Google Form 5][Set5_form].
 {: .challenge}
 
 # CMSSW
@@ -68,16 +68,16 @@ cmsenv
 
 This will provide you with a number of commands and environment variables. For example `$CMSSW_BASE` is a handy variable that points to your CMSSW folder. 
 
-> ## Question 4.1
-> The following command prints the location of your CMSSW area. Copy-and-paste the answer into the [Google form 4][Set4_form]. 
+> ## Question 5.1
+> The following command prints the location of your CMSSW area. Copy-and-paste the answer into the [Google form 5][Set5_form]. 
 > ```shell
 > echo $CMSSW_BASE
 > ```
 > {: .source}
 {: .challenge}
 
-> ## Question 4.2
-> CMSSW is connected to several external tools, for example the Pythia generator. The following command prints the version of Pythia connected to your current CMSSW release. Fill in the version number in the [Google form 4][Set4_form].
+> ## Question 5.2
+> CMSSW is connected to several external tools, for example the Pythia generator. The following command prints the version of Pythia connected to your current CMSSW release. Fill in the version number in the [Google form 5][Set5_form].
 > ```shell
 > scram tool info pythia8
 > ```
@@ -111,7 +111,7 @@ git clone git@github.com:FNALLPC/LearnCMSSW MyAnalysis/LearnCMSSW
 
 This will copy all the code in the repository to `$CMSSW_BASE/src/MyAnalysis/LearnCMSSW`. Feel free to glance through it. 
 
-> ## Question 4.3: git repo info
+> ## Question 5.3: git repo info
 > When you cloned the repository, you not only downloaded the code, but also setup a local git repository connected to the remote repository. Use the following commands to print out the URL of the remote repository, from which you cloned the code:
 > ```shell
 > cd $CMSSW_BASE/src/MyAnalysis/LearnCMSSW
@@ -147,8 +147,8 @@ root -l ZPeak.root
 [1] dimuonMass->Draw()
 ```
 
-> ## Question 4.4
+> ## Question 5.4
 > Using the stat box drawn along with the histogram, what is the mean dimuon mass? Write your answer in the Google form. 
 {: .challenge}
 
-[Set4_form]: https://forms.gle/h8txhqL2ruGY7YZG7
+[Set5_form]: https://docs.google.com/forms/d/e/1FAIpQLScSRl8kdY3bkxMW-371GvaOGIm6K_th7RRpVRmXH8s3yFgUXw/viewform?usp=preview 

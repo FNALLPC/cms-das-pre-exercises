@@ -1,5 +1,5 @@
 ---
-title: "CMSDAS Pre-Exercise 5: Using the grid"
+title: "CMSDAS Pre-Exercise {{ page.order }}: Using the grid"
 teaching: 0
 exercises: 60
 questions:
@@ -19,7 +19,7 @@ keypoints:
 {: .callout}
 
 > ## Questions
-> For this lesson, please submit your answers using [Google Form 5][Set5_form].
+> For this lesson, please submit your answers using [Google Form {{ page.order }}][Set6_form].
 {: .challenge}
 
 # Before you start
@@ -98,13 +98,13 @@ attribute : /cms/uscms/Role=NULL/Capability=NULL
 {: .output}
 If you do not have the first attribute line listed above, you probably did not finish the VO registration in the [setup](https://dryrun.github.io/cms-das-pre-exercises/setup.html). Double check this first, and otherwise reach out on Mattermost.
 
-> ## Question 5.1
-> Copy the output corresponding to the text in the output box above, using [Google form 5][Set5_form].
+> ## Question {{ page.order }}.1
+> Copy the output corresponding to the text in the output box above, using [Google form {{ page.order }}][Set6_form].
 {: .challenge}
 
 Now that you have a valid grid proxy in the CMS VO, we will be able to run a command line client to check DAS to find CMS files and their information. 
 
-> ## DAS client Question 5.2
+> ## DAS client Question {{ page.order }}.2
 > Now let's use the command line implementation of DAS to find some real collision data. This requires the valid CMS grid proxy. The `dasgoclient` lets you query DAS just like the web interface. On cmslpc, enter the following query (along with a `grep` command to filter the result):
 > ```shell
 > dasgoclient -query="dataset dataset=/JetHT/Run2018C-UL2018_MiniAODv2_NanoAODv9-v1/NANOAOD" -json | grep "nevents"
@@ -229,7 +229,7 @@ cmsRun cmsdas_minbias_cfg.py
 
 This job will take a few minutes to run; you will see quite a lot of output from Pythia as it generates events. Once it finishes, you should have a brand new NANOGEN file, `cmsdas_minbias_nanogen.root`. 
 
-> ## Question 5.3
+> ## Question {{ page.order }}.3
 > What is the file size of `cmsdas_minbias_nanogen.root`? Use `ls -lh`.
 {: .challenge}
 
@@ -370,7 +370,7 @@ From the bottom of the output, you can see the name of the dataset and the DAS l
 There is some magic going on under the hood here. For example, if you were to simply `cmsRun cmsdas_minbias_cfg.py` ten times, you would get 10 identical output files. CRAB takes care of assigning each job an independent seed for the random number generator, so that each file contains unique events!
 {: .callout}
 
-> ## Question 5.4
+> ## Question {{ page.order }}.4
 > What is the dataset name you published?
 {: .challenge}
 
@@ -503,7 +503,7 @@ You'll get something like this:
 > ```
 {: .solution}
 
-> ## Question 5.5
+> ## Question {{ page.order }}.5
 > How many events were read? Use `crab report -d crabsubmit/crab_cmsdas_zpeak_test0`. 
 {: .challenge}
 
@@ -533,4 +533,4 @@ Note also that all CMS members using the Grid subscribe to the [Grid Annoucement
 _Last reviewed: 2024/10/28 by David Yu_
 <br>
 
-[Set5_form]: https://forms.gle/t1AJ9tv8cTn7Q5gC8
+[Set6_form]: https://docs.google.com/forms/d/e/1FAIpQLScuce82NLS0O3Ks6jid-8f1jz2UawGv2yTLVVWML9wIRuOL7Q/viewform?usp=header

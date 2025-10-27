@@ -1,5 +1,5 @@
 ---
-title: "CMSDAS Pre-Exercise 6: Using git"
+title: "CMSDAS Pre-Exercise 4: Using git"
 teaching: 0
 exercises: 30
 questions:
@@ -18,7 +18,7 @@ keypoints:
 ---
 
 > ## Questions
-> Please post your answers to the questions in [Google form 6][Set6_form].
+> Please post your answers to the questions in [Google form 4][Set4_form].
 {: .objectives}
 
 # Introduction
@@ -402,10 +402,10 @@ When you open the web page (the link listed on the command line above to your ow
 Send a pull request to the main branch of the upstream repo (GitHATSLPC).
 <img src="../fig/github_view_pull_request.png" alt="View pull request" style="float: center; margin-right; width:800px; border: 5px solid #ded4b9">
 
-> ## Question 6.1
+> ## Question 4.1
 > Post the link to your pull request.
 > 
-> For CMSDAS@LPC {{ site.year }} please submit your answer at the [Google Form sixth set][Set6_form].
+> For CMSDAS@LPC {{ site.year }} please submit your answer at the [Google Form set 4][Set4_form].
 {: .challenge}
 
 > ## Optional
@@ -426,4 +426,4 @@ Students are encouraged to explore these topics on their own at [CMSGitTutorial]
 {% include links.md %}
 
 
-[Set6_form]: https://forms.gle/mD8peahxrxoxDwBS7
+[Set4_form]: https://docs.google.com/forms/d/e/1FAIpQLScSRl8kdY3bkxMW-371GvaOGIm6K_th7RRpVRmXH8s3yFgUXw/viewform?usp=preview 
