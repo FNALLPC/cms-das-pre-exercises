@@ -11,7 +11,7 @@ keypoints:
 ---
 
 > ## Questions
-> For this lesson, please submit your answers using [Google Form 2][Set2_form].
+> For this lesson, please submit your answers using [CMSDAS@LPC{{ site.year }} Google Form 2][Set2_form].
 {: .challenge}
 
 # Introduction
@@ -129,7 +129,7 @@ Users of cmslpc have several options for editing remote files. Here are a few ex
 - Use an application like Visual Studio Code or Sublime Text, either directly on cmslpc (using a remote filesystem plugin, which makes your directory on cmslpc appear as a folder on your computer) or on your own computer (using an SSH or SFTP plugin to automatically upload files to cmslpc). These also have lots of features, and are easier to learn than `emacs` or `vim`.
 
 For the sake of this lesson, will will simply edit a file directly on cmslpc, using `nano`, `emacs`, or `vim`. 
-If you choose `vim`, watch this [video tutorial](https://www.youtube.com/watch?v=ggSyF1SVFr4) or play with this [interactive tutorial](https://openvim.com/)
+If you choose `vim`, watch this [video tutorial](https://www.youtube.com/watch?v=ggSyF1SVFr4) or play with this [interactive tutorial](https://openvim.com/).
 
 On the **cmslpc-el9** cluster, run:
 

@@ -20,7 +20,7 @@ keypoints:
 
 Python and ROOT are two of the most important software tools in HEP. If you have never used python before, we highly recommend you go through a tutorial, for example the [HSF python lesson](https://swcarpentry.github.io/python-novice-inflammation/). If you are comfortable with basic python, feel free to proceed, as you will learn by doing in the following exercises. 
 
-For ROOT, please follow the lesson on the HEP Software Foundation website for [ROOT](https://github.com/root-project/software-carpentry), up through at least the fifth lesson, "05-tfile-read-write-ttrees.ipynb" (of course, you can keep going and learn about RDataFrames, but we won't use them here). We recommend you click the "SWAN" button, which opens a session in CERN's "Service for Web-based ANalysis." From the service, you can open and run code through Jupyter notebooks, all inside the web browser.
+For ROOT, please follow the lesson on the HEP Software Foundation website for [ROOT](https://github.com/root-project/student-course), up through at least the 3rd lesson, [02-tfile-read-write-ttrees.ipynb](https://github.com/root-project/student-course/blob/main/course/notebooks/core/02-tfile-read-write-ttree.ipynb) (of course, you can keep going and learn about RDataFrames, but we won't use them here). We recommend you click the [SWAN button](https://cern.ch/swanserver/cgi-bin/go?projurl=https://github.com/root-project/student-course.git), which opens a session in CERN's "Service for Web-based ANalysis." From the service, you can open and run code through Jupyter notebooks, all inside the web browser.
 
 # Inspect a NanoAOD file with ROOT
 Once you're comfortable with python and ROOT, let's go back to cmslpc and look at some real CMS data. 
@@ -28,7 +28,7 @@ Login to the cluster again from your computer:
 
 ```shell
 kinit <YourUsername>@FNAL.GOV
-ssh -Y <YourUsername>@cmslpc-el8.fnal.gov
+ssh -Y <YourUsername>@cmslpc-el9.fnal.gov
 ```
  {: .source}
 
@@ -37,7 +37,7 @@ A quick way to setup ROOT is to use the [LCG (LHC Computing Grid) releases](http
 All you have to do is execute the following script (once per login):
 
 ```shell
-source /cvmfs/sft.cern.ch/lcg/views/LCG_106a/x86_64-el8-gcc11-opt/setup.sh
+source /cvmfs/sft.cern.ch/lcg/views/LCG_106a/x86_64-el9-gcc14-opt/setup.sh
 ```
  {: .source}
 
@@ -138,9 +138,12 @@ root [8] Events->Print("Muon*")
 You can also use ROOT in python, almost identically to CINT except with python instead of C++. 
 (This is possible because of pyROOT, a wrapper around ROOT that creates a nearly 1-to-1 map of all the C++ classes to python classes.)
 Make sure you're logged into cmslpc, and that you have called the LCG setup script in the session. 
-Then, let's reopen the NanoAOD file in python. Start a python interactive session by entering `python3` (type ctrl-d or ``exit()`` to quit), then enter the following into the python interpreter:
-
+Then, let's reopen the NanoAOD file in python. Start a python interactive session by entering `python3` (type ctrl-d or ``exit()`` to quit)
 ```shell
+python3
+```
+then enter the following into the python interpreter:
+```python
 import ROOT
 f = ROOT.TFile("DYJetsToLL_M50_NANOAOD.root", "READ")
 f.ls()
