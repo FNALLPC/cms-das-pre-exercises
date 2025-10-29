@@ -74,9 +74,9 @@ For general help or questions about CRAB, see the [CRAB FAQ](https://twiki.cern.
 
 This exercise depends on obtaining a grid certificate and VOMS membership, but does not depend on any previous exercises.
 
-After you've followed all the instructions above and installed your grid certificate, you need to verify it has all the information needed. Please install your grid certificate also on cmslpc-el8.fnal.gov
+After you've followed all the instructions above and installed your grid certificate, you need to verify it has all the information needed. Please install your grid certificate also on cmslpc-el9.fnal.gov
 
-Login to **cmslpc-el8.fnal.gov** and initialize your proxy:
+Login to **cmslpc-el9.fnal.gov** and initialize your proxy:
 ```shell
 voms-proxy-init -voms cms
 ```
@@ -99,7 +99,7 @@ attribute : /cms/uscms/Role=NULL/Capability=NULL
 If you do not have the first attribute line listed above, you probably did not finish the VO registration in the [setup](https://dryrun.github.io/cms-das-pre-exercises/setup.html). Double check this first, and otherwise reach out on Mattermost.
 
 > ## Question 6.1
-> Copy the output corresponding to the text in the output box above, using [Google form 6][Set6_form].
+> Copy the output corresponding to the text in the output box above, using [CMSDAS@LPC{{ site.year }} Google Form 6][Set6_form].
 {: .challenge}
 
 Now that you have a valid grid proxy in the CMS VO, we will be able to run a command line client to check DAS to find CMS files and their information. 
@@ -534,4 +534,4 @@ _Last reviewed: 2024/10/28 by David Yu_
 <br>
 
 [Set6_form]: https://forms.gle/jrGjXgguwnZzzsT17 
-[lesson-setup]: {{ relative_root_path }}{% link setup.md %}
+[lesson-setup]: {{ site.baseurl }}/setup.html
