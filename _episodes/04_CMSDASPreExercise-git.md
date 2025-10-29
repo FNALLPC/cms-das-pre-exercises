@@ -18,7 +18,7 @@ keypoints:
 ---
 
 > ## Questions
-> Please post your answers to the questions in [Google form 4][Set4_form].
+> Please post your answers to the questions in [CMSDAS@LPC{{ site.year }} Google form 4][Set4_form].
 {: .objectives}
 
 # Introduction
@@ -405,7 +405,7 @@ Send a pull request to the main branch of the upstream repo (GitHATSLPC).
 > ## Question 4.1
 > Post the link to your pull request.
 > 
-> For CMSDAS@LPC {{ site.year }} please submit your answer at the [Google Form set 4][Set4_form].
+> For CMSDAS@LPC {{ site.year }} please submit your answer at the [CMSDAS@LPC{{ site.year }} Google Form set 4][Set4_form].
 {: .challenge}
 
 > ## Optional
@@ -419,7 +419,7 @@ Advanced topics not explored in this exercise include: merging, rebasing, cherry
 If you want to learn more, here are some additional resources:
 - [HEP Software Foundation training modules](https://hsf-training.org/training-center/)
 - [git comprehensive guide](https://git-scm.com/book/en/v2)
-- [CMS-specific git twiki](https://twiki.cern.ch/twiki/bin/view/CMS/CMSGitTutorial).)
+- [CMS-specific git twiki](https://twiki.cern.ch/twiki/bin/view/CMS/CMSGitTutorial)
 
 Students are encouraged to explore these topics on their own at [CMSGitTutorial](https://twiki.cern.ch/twiki/bin/view/CMS/CMSGitTutorial).
 
