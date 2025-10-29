@@ -30,7 +30,7 @@ To get a CERN account, please have a look at [Get Account at CERN](https://twiki
 
 > ## Site specific instructions
 >   * [LPC/Fermilab](http://www.uscms.org/uscms_at_work/computing/getstarted/getaccount_fermilab.shtml) - this can take some time (up to 4-6 weeks!) and also requires people to be available to approve accounts, start the request early!
->     * [Configure your laptop to connect to the cmslpc-el8.fnal.gov LPC UAF cluster at Fermilab](http://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml)
+>     * [Configure your laptop to connect to the cmslpc-el9.fnal.gov LPC UAF cluster at Fermilab](http://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml)
 >     * [Windows Kerberos at FNAL](https://fermi.servicenowservices.com/wp/?id=kb_article&sysparm_article=KB0011316)
 {: .callout}
 
@@ -39,7 +39,7 @@ Here are some additional links in case you are using Windows:
   * How to install and configure [PuTTy](http://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml#windowsKerberosPuTTY)
 
 > ## Warning
-> If you are attending CMSDAS at the LPC, you should do the pre-exercises on the **cmslpc-el8.fnal.gov** cluster using the computer you intend to use at CMSDAS.
+> If you are attending CMSDAS at the LPC, you should do the pre-exercises on the **cmslpc-el9.fnal.gov** cluster using the computer you intend to use at CMSDAS.
 {: .caution}
 
 ## Obtain a Grid Certificate and CMS VO Registration

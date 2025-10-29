@@ -96,7 +96,7 @@ attribute : /cms/Role=NULL/Capability=NULL
 attribute : /cms/uscms/Role=NULL/Capability=NULL
 ```
 {: .output}
-If you do not have the first attribute line listed above, you probably did not finish the VO registration in the [setup](https://dryrun.github.io/cms-das-pre-exercises/setup.html). Double check this first, and otherwise reach out on Mattermost.
+If you do not have the first attribute line listed above, you probably did not finish the VO registration in the [setup][lesson-setup]. Double check this first, and otherwise reach out on Mattermost.
 
 > ## Question 6.1
 > Copy the output corresponding to the text in the output box above, using [CMSDAS@LPC{{ site.year }} Google Form 6][Set6_form].
