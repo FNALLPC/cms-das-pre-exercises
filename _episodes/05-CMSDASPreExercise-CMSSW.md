@@ -28,6 +28,7 @@ The framework contains a large number of modules (C++), which perform tasks like
 - Interfacing with external generator programs like Pythia and Madgraph_aMC@NLO; 
 - Lots and lots of other things. 
 
+> ## Why do you need CMSSW?
 > With the advent of NanoAOD, a simple ROOT format that does need CMSSW to be analyzed, CMS analysis is increasingly being performed completely outside of CMSSW. Your analysis group might have a framework that uses standalone ROOT, RDataFrame, or Scientific Python (e.g. numpy) instead. CMSSW is needed if your analysis needs additional variables not present in NanoAOD (for example, long-lived particle analysis often need RECO-level objects like tracker or calorimeter hits). You will also probably need to use CMSSW for detector, trigger, and/or POG work. 
 {: .callout}
 
@@ -47,13 +48,15 @@ cd ~/nobackup/cmsdas
 source /cvmfs/cms.cern.ch/cmsset_default.sh
 scram project -n "CMSSW_13_0_10_cmsdas" CMSSW_13_0_10
 ```
-
+> ## Add `cmsset_default.sh`
 > For convenience, we suggest you edit your `~/.bash_profile` file to call the `cmsset_default.sh` script automatically upon login. Add the whole line to this script. 
 {: .callout}
 
+> ## Beware of your software environment
 > Note that software environments are generally not cross-compatible! Namely, if you setup an LCG software release and CMSSW in the same session (or conda, etc.), things will break. For this exercise, make sure you have logged into a fresh session on cmslpc, so that the LCG environment from the previous exercise is not set up. 
 {: .callout}
 
+> ## What does the `13_0_10` mean?
 > Note the release number, `13_0_10`: CMSSW is a massive project that is under continuous development, so we define "releases" that corresponds to a fixed snapshot at some point in time. `CMSSW_13_0_*` is the release used for "NanoAODv12," the [https://gitlab.cern.ch/cms-nanoAOD/nanoaod-doc/-/wikis/Releases/NanoAODv12](currently recommended version) for Run 3 analysis. The first number in series (`13`) indicates a major cycle, the second number (`0`) a major release with new features with respect to the preceeding release, and the third number (`10`) a release with minor updates and bug fixes to the preceeding release. The `CMSSW_13_0_X` series is used for pp data taking in 2023. For full release schedule, see [CMSSW release schedule](https://twiki.cern.ch/twiki/bin/view/CMS/ReleaseSchedule).
 {: .callout}
 
@@ -86,7 +89,8 @@ This will provide you with a number of commands and environment variables. For e
 # Git
 CMS makes extensive use of `git` for code management, and you will use it throughout CMSDAS (CMSSW itself is managed as a git repository, but it's a rather complicated example, so we won't talk about CMSSW+git here). Here, we will simply use git to download some code. First, if you don't already have a github account, go back to the [setup instructions][lesson-setup] and follow the directions, including setting up the SSH keys. 
 
-Choose your username wisely, it will appear on all your contributions to CMS code! In fact, even if you already have an account, if you have a username like `edgelord1337`, consider either changing it or making a second account.
+> ## Choose your username wisely
+> Choose your username wisely, it will appear on all your contributions to CMS code! In fact, even if you already have an account, if you have a username like `edgelord1337`, consider either changing it or making a second account.
 {: .callout}
 
 Once you have an account, run the following commands to configure git on cmslpc replacing everything including the ``[brackets]``, ``[Account]`` is your github account username:
@@ -126,8 +130,8 @@ Now that we have the source code, we have to compile it. Execute the following t
 cd $CMSSW_BASE/src
 scram b
 ```
-
-`scram b` accept an argument `-j` to use more cores for the compilation. Don't go above `-j4`, as overloading the cores will negatively impact other users on your cmslpc interactive node. 
+> ## Multi-core build
+> `scram b` accept an argument `-j` to use more cores for the compilation. Don't go above `-j4`, as overloading the cores will negatively impact other users on your cmslpc interactive node. 
 {: .callout}
 
 Finally, let's actually run some code. CMSSW jobs are configured through python files. We will use `$CMSSW_BASE/src/MyAnalysis/test/zpeak_cfg.py`, which is a simple configuration file that loads the plugin at `$CMSSW_BASE/src/MyAnalysis/LearnCMSSW/plugins/ZPeakAnalyzer.cc`. The `ZPeakAnalyzer` processes some dimuon events in MiniAOD format and produces some histograms (a bit of an uncommon workflow, as it is typically more efficient to make histograms from NanoAOD or another slimmed-down format). Launch CMSSW with the following:
