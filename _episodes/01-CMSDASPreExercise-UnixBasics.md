@@ -17,7 +17,7 @@ keypoints:
 If you have never used Unix before, please follow the lesson on the [HEP Software Foundation website](https://swcarpentry.github.io/shell-novice/index.html), through at least "3. Working With Files and Directories." The remainder of the pre-exercises takes place in Unix, so you will need to be familiar with the basics. 
 
 > ## Question 1.1
-> All CMSDAS@LPC {{ site.year }} participants should submit answers to the questions in these exercises. Each lesson has it's own Google form. Head to [Google form 1][Set1_form]. The first question verifies that you have a working Unix environment. Copy-and-paste the following into your shell:
+> All CMSDAS@LPC {{ site.year }} participants should submit answers to the questions in these exercises. Each lesson has it's own Google form. Head to [Google form 1][Set1_form]. The first question verifies that you have a working Unix environment on **your personal laptop**. Copy-and-paste the following into your shell:
 > ~~~shell
 > echo "$(whoami) $(date)"
 > ~~~

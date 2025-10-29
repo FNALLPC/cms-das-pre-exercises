@@ -22,17 +22,20 @@ Information for lxplus users is also provided, where appropriate.
 
 # The basics
 The `cmslpc` cluster consists of a large number of "interactive nodes," which users login to via SSH, and an even larger number of "worker nodes," which are used for large-scale "batch" computing. 
-We will use the [AlmaLinux 8](https://almalinux.org/) operating system (OS), a community-supported OS that is binary-compatible with Red Hat Enterprise Linux (RHEL).
-AlmaLinux 8 was chosen for CMS Run 3 data processing (AlmaLinux 9 is also available and works for most user software; see [these slides](https://indico.cern.ch/event/1126678/contributions/4786719/attachments/2417994/4138224/OandC-OS-Runs3.pdf) for the gory details). 
-CMS users are allocated storage space in a few places: (1) a small home directory (2 GB) at `/uscms/home/username`, ; (2) a medium storage directory (200 GB, not backed up!) at `/uscms_data/d[1-3]/username`, which is softlinked in your home directory at `/uscms/home/username/nobackup`, and (3) a large storage directory on EOS (2 TB) (special filesystem, more info later in this lesson). 
+We will use the [AlmaLinux 9](https://almalinux.org/) operating system (OS), a community-supported OS that is binary-compatible with Red Hat Enterprise Linux (RHEL).
+AlmaLinux 8 was chosen for CMS Run 3 data processing, and we are gradually migrating towards the newer AlmaLinux 9. See [these slides](https://indico.cern.ch/event/1126678/contributions/4786719/attachments/2417994/4138224/OandC-OS-Runs3.pdf) for the gory details). 
+CMS users are allocated storage space in a few places: 
+ - (1) a small home directory (2 GB) at `/uscms/home/username`, ;
+ - (2) a medium storage directory (200 GB, not backed up!) at `/uscms_data/d[1-3]/username`, which is softlinked in your home directory at `/uscms/home/username/nobackup`, and 
+ - (3) a large storage directory on EOS (2 TB) (special filesystem, more info later in this lesson). 
 
-The `lxplus` cluster is configured similarly, with slightly different paths and quotas allocated to users (note that `lxplus.cern.ch` is an alias for `lxplus9.cern.ch`, a login node running AlmaLinux 9 OS; use `lxplus8.cern.ch` to get 
+The `lxplus` cluster is configured similarly, with slightly different paths and quotas allocated to users (note that `lxplus.cern.ch` is an alias for `lxplus9.cern.ch`, a login node running AlmaLinux 9 OS; use `lxplus8.cern.ch` to get on a AlmaLinux 8 node.
 
 # Logging in
-Let's try logging in to `cmslpc` using SSH. SSH is a very widely used program for logging into remote Unix clusters; you can check out the [HSF SSH exercise](https://hsf-training.github.io/hsf-training-ssh-webpage/) to learn more, but for now you can just follow the commands in this exercise. The authentication for cmslpc uses kerberos (your university cluster may allow simple password login or certificate login, which are not covered here). 
+Let's try logging in to `cmslpc` using SSH. SSH is a very widely used program for logging into remote Unix clusters; you can check out the [HSF SSH exercise](https://hsf-training.github.io/hsf-training-ssh-webpage/) to learn more, but for now you can just follow the commands in this exercise. The authentication for cmslpc uses [kerberos](https://en.wikipedia.org/wiki/Kerberos_(protocol)) (your university cluster may allow simple password login or certificate login, which are not covered here). 
 
 
-First, if you have not configured SSH and kerberos on your own computer, please follow [these directions](https://uscms.org/uscms_at_work/computing/getstarted/uaf.shtml). Once you have the cmslpc-specific SSH and kerberos configuration, execute the following command in the terminal on your own computer:
+First, if you have not configured SSH and kerberos on your own computer, you will need to set up a Kerberos configuration file (`krb5.conf`)  and a SSH configuration file (`~/.ssh/config`). You can follow the [prerequisites section here](https://www.uscms.org/uscms_at_work/computing/getstarted/uaf.shtml#prerequisites). Once you have the cmslpc-specific SSH and kerberos configuration, execute the following command in the terminal on your own computer:
 
 ```shell
 kinit <YourUsername>@FNAL.GOV
@@ -44,15 +47,15 @@ Enter the [kerberos password](https://uscms.org/uscms_at_work/computing/getstart
 Next, execute the following to login:
 
 ```shell
-ssh -Y <YourUsername>@cmslpc-el8.fnal.gov
-# ssh -Y <YourUsername>@lxplus8.cern.ch for lxplus users
+ssh -Y <YourUsername>@cmslpc-el9.fnal.gov
+# ssh -Y <YourUsername>@lxplus.cern.ch for lxplus users
 ```
 
 If you see a welcome message followed by a command prompt, congratulations, you have successfully logged in! The commands you enter into the command prompt will now be executed on the cmslpc interactive node. If you see an error message instead, something has probably gone wrong with the authentication; please head to Mattermost and post your error message, and an instructor can help you out. 
 
 # Running simple commands on cmslpc
 
-Note: this exercise will only work on **cmslpc-el8**.
+Note: this exercise will only work on **cmslpc-el9**.
 
 In this exercise, we will run a few simple commands on cmslpc. At the end, you will type an answer into a spreadsheet (experienced users should feel free to breeze through, but please do upload your answer so we can follow everyone's progress). 
 
@@ -97,7 +100,7 @@ Error: You didn't paste the correct input string
 ```
 {: .output}
 
-If you are not running on cmslpc-el8 (for example locally on a laptop), trying to run the command will result in:
+If you are not running on cmslpc-el9 (for example locally on a laptop), trying to run the command will result in:
 
 ```
 bash: ./runThisCommand.py: No such file or directory
@@ -122,10 +125,13 @@ The purpose of this exercise is to ensure that the user can edit files. We will 
 Users of cmslpc have several options for editing remote files. Here are a few examples:
 
 - Edit files directly on cmslpc using a terminal-based code editor, such as `nano`, `emacs` (opens a GUI by default, which is slow over SSH; use `emacs -nw` to get a terminal-based editor instead), or `vim`. `emacs` and `vim`, in particular, have lots of features for code editing, but also have a steep learning curve.
-- Edit files on your own computer in the terminal (with the same programs), and upload using, e.g., `sftp myscript.py username@cmslpc-el8.fnal.gov:my/folder`. 
+- Edit files on your own computer in the terminal (with the same programs), and upload using, e.g., `sftp myscript.py username@cmslpc-el9.fnal.gov:my/folder`. 
 - Use an application like Visual Studio Code or Sublime Text, either directly on cmslpc (using a remote filesystem plugin, which makes your directory on cmslpc appear as a folder on your computer) or on your own computer (using an SSH or SFTP plugin to automatically upload files to cmslpc). These also have lots of features, and are easier to learn than `emacs` or `vim`.
 
-For the sake of this lesson, will will simply edit a file directly on cmslpc, using `nano`, `emacs`, or `vim`. On the **cmslpc-el8** cluster, run:
+For the sake of this lesson, will will simply edit a file directly on cmslpc, using `nano`, `emacs`, or `vim`. 
+If you choose `vim`, watch this [video tutorial](https://www.youtube.com/watch?v=ggSyF1SVFr4) or play with this [interactive tutorial](https://openvim.com/)
+
+On the **cmslpc-el9** cluster, run:
 
 ```shell
 cd ~/nobackup/cmsdas
@@ -154,7 +160,7 @@ to:
 ```
 {: .source}
 
-(For vim users: you need to press "i" to insert text.) Save the file (e.g. in emacs, type `ctrl+x ctrl+s` to save, `ctrl+x ctrl+c` to quit the editor; in vim, press ESC to exit insert mode, the ":wq" to save and exit) and execute the command:
+(For vim users: you need to press `i` to insert text.) Save the file (e.g. in emacs, type `ctrl+x ctrl+s` to save, `ctrl+x ctrl+c` to quit the editor; in vim, press ESC to exit insert mode, the ":wq" to save and exit) and execute the command:
 
 ```shell
 ./editThisCommand.py
