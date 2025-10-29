@@ -11,10 +11,10 @@ latitude: "41.842258"        # decimal latitude of workshop venue (use https://w
 longitude: "-88.245781"       # decimal longitude of the workshop venue (use https://www.latlong.net)
 humandate: "Asynchronously from November to mid-December, before the school starts in January"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
 humantime: "24/7"    # human-readable times for the workshop (e.g., "9:00 am - 4:30 pm")
-startdate: 2025-01-13      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
-enddate: 2025-01-17        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
-instructor: ["David Yu", "Gabriele Benelli", "Marguerite Tonjes", ] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
-helper: ["David Yu", "Garvita Agarwal", "Gabriele Benelli", "Hichem Bouchamaoui", "Roy Cruz", "Tamer Elkafrawy", "Lingqiang He", "Andrew Loeliger", "Tetiana Mazurets", "Carlos Perez", "Richa Sharma", "Ali Eren Simsek", "Marguerite Tonjes", "Daniel Wilbern", "Raymond Wynne", "Irene Zoi"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
+startdate: 2026-01-12      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
+enddate: 2026-01-16        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
+instructor: ["Martin Kwok", "Gabriele Benelli", "Marguerite Tonjes", ] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
+helper: ["Martin Kwok", "Garvita Agarwal", "Gabriele Benelli", "Hichem Bouchamaoui", "Roy Cruz", "Tamer Elkafrawy", "Lingqiang He", "Andrew Loeliger", "Tetiana Mazurets", "Carlos Perez", "Richa Sharma", "Ali Eren Simsek", "Marguerite Tonjes", "Daniel Wilbern", "Raymond Wynne", "Irene Zoi"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
 #helper: ["Tamer Elkafrawy", "Pampa Ghose", "Redwan Md Habibullah", "Christopher Madrid", "Christine McLean", "Andrew Melo", "Steve Mrenna", "Jingyu Zhang"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
 email: ["cmsdasatlpc@fnal.gov"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
 collaborative_notes:  # optional: URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document (e.g., https://pad.carpentries.org/2015-01-01-euphoria)

@@ -26,7 +26,7 @@ For CMSDAS@LPC {{ site.year }}, you may e-mail [cmsdasatlpc@fnal.gov](mailto:cms
 
 # Obtain a Computer Account
 
-To get a CERN account, please have a look at [Get Account at CERN](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookGetAccount). Obtaining a CERN account can be time-consuming and requires response from people at CERN during CERN business hours. CERN is closed for the winter holiday (Dec. 21, 2024 - Jan. 5, 2025). CERN account application starts with the institutional team leader filling out a pre-registration form, so your institutional team leader also needs to be available for this task.
+To get a CERN account, please have a look at [Get Account at CERN](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookGetAccount). Obtaining a CERN account can be time-consuming and requires response from people at CERN during CERN business hours. CERN is closed for the winter holiday (Dec. 20, 2025 - Jan. 4, 2026). CERN account application starts with the institutional team leader filling out a pre-registration form, so your institutional team leader also needs to be available for this task.
 
 > ## Site specific instructions
 >   * [LPC/Fermilab](http://www.uscms.org/uscms_at_work/computing/getstarted/getaccount_fermilab.shtml) - this can take some time (up to 4-6 weeks!) and also requires people to be available to approve accounts, start the request early!
