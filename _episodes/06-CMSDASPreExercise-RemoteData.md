@@ -19,11 +19,11 @@ keypoints:
 {: .callout}
 
 > ## Questions
-> For this lesson, please submit your answers using [Google Form 6][Set6_form].
+> For this lesson, please submit your answers using [CMSDAS@LPC{{ site.year }} Google Form 6][Set6_form].
 {: .challenge}
 
 # Before you start
-In this set of exercises, we will learn how to do a full-scale analysis using the Worldwide LHC Computing Grid **This set of exercises will take considerably longer than the others**. Having your storage space set up may take several days, grid jobs can take a few days to run, and there can be problems. Although the actual effort for this exercise is only a few hours, you should **set aside about a week** to complete these exercises. (Note: you may or may not use CRAB during CMSDAS; however, to do a real CMS analysis, you will certainly need to use CRAB and/or the storage resources at /store/user/.)
+In this set of exercises, we will learn how to do a full-scale analysis using the Worldwide LHC Computing Grid **This set of exercises will take considerably longer than the others**. Having your storage space set up may take several days, grid jobs can take a few days to run, and there can be problems. Although the actual effort for this exercise is only a few hours, you should **set aside about a week** to complete these exercises. (Note: you may or may not use CRAB during CMSDAS; however, to do a real CMS analysis, you will certainly need to use CRAB and/or the storage resources at `/store/user/`.)
 
 If you encounter any problems with the exercise, please reach out on Mattermost or send an email to [CMSDASATLPC@fnal.gov](mailto:CMSDASATLPC@fnal.gov) with a detailed description of your problem. Outside of CMSDAS, you can find help at the [CRAB troubleshooting twiki](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3Troubleshoot) or the [Computing Tools forum on cms-talk](https://cms-talk.web.cern.ch/c/offcomp/comptools). 
 
@@ -534,3 +534,4 @@ _Last reviewed: 2024/10/28 by David Yu_
 <br>
 
 [Set6_form]: https://forms.gle/jrGjXgguwnZzzsT17 
+[lesson-setup]: {{ relative_root_path }}{% link setup.md %}
