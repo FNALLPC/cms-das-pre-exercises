@@ -14,15 +14,19 @@ keypoints:
 
 ---
 
-If you have never used Unix before, please follow the lesson on the [HEP Software Foundation website](https://swcarpentry.github.io/shell-novice/index.html), through at least "3. Working With Files and Directories." The remainder of the pre-exercises takes place in Unix, so you will need to be familiar with the basics. 
+{% include submit.md episode=1 %}
+
+All CMSDAS@LPC {{ site.year }} participants should answer the questions in these exercises. Each episode has its own section in the answer form, linked in the box above.
+
+The rest of the pre-exercises take place in Unix. If you have never used it, work through the [Software Carpentry Unix shell lesson](https://swcarpentry.github.io/shell-novice/index.html), up to at least "3. Working With Files and Directories."
 
 > ## Question 1.1
-> All CMSDAS@LPC {{ site.year }} participants should submit answers to the questions in these exercises. Each lesson has it's own Google form. Head to [CMSDAS@LPC{{ site.year }} Google form 1][Set1_form]. The first question verifies that you have a working Unix environment on **your personal laptop**. Copy-and-paste the following into your shell:
+> Check that you have a working Unix shell on **your personal laptop**. Copy-and-paste the following into your shell:
 > ~~~shell
 > echo "$(whoami) $(date)"
 > ~~~
 > {:.source}
-> This should print your username followed by the current date and time. Copy-and-paste the output into the Google form. 
+> This prints your username followed by the current date and time. Enter the output in the answer form.
 {: .challenge}
 
-[Set1_form]: https://forms.gle/6siN1URxSp8ZZDfN6 
+{% include links.md %}
