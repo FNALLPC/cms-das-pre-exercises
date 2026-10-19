@@ -17,24 +17,19 @@ keypoints:
 - "The `pull` and `push` commands will transfer changes between the remote and local copies of the repository."
 ---
 
-> ## Questions
-> Please post your answers to the questions in [CMSDAS@LPC{{ site.year }} Google form 4][Set4_form].
-{: .objectives}
+{% include submit.md episode=4 %}
 
-# Introduction
+## Introduction
+This exercise walks you through the standard GitHub "fork and pull" workflow: copy a repository, make a change, and propose it back as a pull request.
+It is a condensed version of the [CMSGitTutorial](https://twiki.cern.ch/twiki/bin/view/CMS/CMSGitTutorial). If you've never used git or other version control, read at least the first set of its [slides](https://twiki.cern.ch/twiki/bin/view/CMS/CMSGitTutorial#Accompanying_slides) first.
 
-This exercise is intended to provide you with basic familiarity with Git and [GitHub] for personal and collaborative use, including terminology, commands, and user interfaces. The exercise proceeds step-by-step through a standard collaboration "Fork and Pull" workflow. This is a highly condensed version of the tutorial exercises at [CMSGitTutorial](https://twiki.cern.ch/twiki/bin/view/CMS/CMSGitTutorial). Students are encouraged to explore those more in-depth exercises if they want to learn more about using Git. There are also [accompanying slides](https://twiki.cern.ch/twiki/bin/view/CMS/CMSGitTutorial#Accompanying_slides) on that twiki page. Students with no experience using Git or other version control software are recommended to read at least the first set of slides.
-
-> ## Warning
-> As a prerequisite for this exercise, please make sure that you have correctly followed the instructions for obtaining a [GitHub] account in the [setup instructions][lesson-setup].
+> ## Prerequisite
+> You need a [GitHub] account with SSH keys set up, as described in the [setup instructions][lesson-setup].
+> Choose your username wisely: it appears on all your contributions to CMS code. If yours is something like `edgelord1337`, consider changing it or making a second account.
 {: .prereq}
 
-
-# Learning Git and GitHub
-
-## Git Configuration
-
-If you haven't setup git on yet, execute the following three commands (note: you should probably do this both on cmslpc and your own laptop, plus any other clusters or computers you use for development).
+## Configure git
+Tell git who you are. Do this on every computer you develop on (cmslpc, your laptop, ...), replacing the `[brackets]` with your details and GitHub username:
 
 ```shell
 git config --global user.name "[Name]"
@@ -43,172 +38,66 @@ git config --global user.github [Account]
 ```
 {: .source}
 
-Make sure you replace `[Name]`, `[Email]`, and `[Account]` with the values corresponding to your [GitHub] account. After this, you can check the contents of .gitconfig by doing:
+Check the result with `cat ~/.gitconfig`; it should contain a `[user]` section with these three values.
 
-```shell
-cat ~/.gitconfig
-```
-{: .source}
-
-> ## Output
+> ## Optional settings
+> ```shell
+> # Your preferred editor for commit messages
+> git config --global core.editor [your preferred text editor]
+> # Make `git push origin` push the current branch
+> git config --global push.default current
+> # `git lol`: a compact, graphical log
+> git config --global alias.lol 'log --graph --decorate --pretty=oneline --abbrev-commit'
+> # Shortcuts such as `git clone github:GitHATSLPC/GitHATS.git`
+> git config --global url."git@github.com:".insteadOf github:
+> git config --global url."ssh://git@gitlab.cern.ch:7999/".insteadOf gitlab:
 > ```
-> [user]
-    name = [Name]
-    email = [Email]
-    github = [Account]
-> ```
-{: .solution}
+> {: .source}
+{: .callout}
 
-Optional settings:
- - Your preferred editor:
+## The GitHub interface
+Open the [GitHATSLPC/GitHATS](https://github.com/GitHATSLPC/GitHATS) repository and click around:
 
-```shell
-        git config --global core.editor [your preferred text editor]
-```
-{: .source}
-
- - This setting makes Git push the current branch by default, so only the command `git push origin` is needed. (NOTE: do not try to execute that command now; it will not work without a local repository, which you have not created yet.)
-
-```shell
-         git config --global push.default current
-```
-{: .source}
-
- - This is an alias to make the print out of the log more concise and easier to read.
-
-```shell
-        git config --global alias.lol 'log --graph --decorate --pretty=oneline --abbrev-commit'
-```
-{: .source}
-
- - These make it easier to clone repositories from [GitHub] or [CERN GitLab][gitlab], respectively. For example, `git clone github:GitHATSLPC/GitHATS.git`.
-
-```shell
-         git config --global url."git@github.com:".insteadOf github:
-         git config --global url."ssh://git@gitlab.cern.ch:7999/".insteadOf gitlab:
-```
-{: .source}
-
-## GitHub User Interface
-
-Look carefully at the [GitHub] user interface on the main page for the [GitHATSLPC/GitHATS](https://github.com/GitHATSLPC/GitHATS) repository. Click on various tabs.
-
- - Top left row: Code, Issues, Pull Requests, Actions, Projects, Wiki, Security, Insights
+- Top left: Code, Issues, Pull Requests, Actions, Projects, Wiki, Security, Insights
 <img src="../fig/GitHATSLPC_GitHATS_1.png" alt="Top left row: Code, Issues, Pull Requests, Actions, Projects, Wiki, Security, Insights" style="float: center; margin-right; width:800px; border: 5px solid #ded4b9"/>
-
- - Top right row: Notifications, Star, Fork
+- Top right: Notifications, Star, Fork
 <img src="../fig/GitHATSLPC_GitHATS_3.png" alt="Top right row: Notifications, Star, Fork" style="float: center; margin-right; width:400px; border: 5px solid #ded4b9">
-
- - Lower row on Code page: commits, branches, releases, contributors
+- On the Code page: commits, branches, releases, contributors
 <img src="../fig/GitHATSLPC_GitHATS_4.png" alt="Lower row on Code page: commits, branches, releases, contributors" style="float: center; margin-right; width:800px; border: 5px solid #ded4b9">
 
-## Collaboration on GitHub
-
-Fork the repository [GitHATSLPC/GitHATS](https://github.com/GitHATSLPC/GitHATS) repository by clicking "Fork" at the top right corner of the page. This makes a copy of the repository under your [GitHub] account.
-
-Clone your fork of the repository to a scratch directory on your local machine or cmslpc:
+## Fork and clone
+Click **Fork** (top right) on [GitHATSLPC/GitHATS](https://github.com/GitHATSLPC/GitHATS) to make your own copy under your GitHub account.
+Then clone your fork, on cmslpc or your laptop, and look around:
 
 ```shell
 mkdir scratch
 cd scratch
 git clone git@github.com:[user]/GitHATS.git
-```
-{: .source}
-
-> ## Output
-> ```
-> Cloning into 'GitHATS'...
-Enter passphrase for key '/home/------/.ssh/id_rsa': 
-remote: Counting objects: 21, done.
-remote: Total 21 (delta 0), reused 0 (delta 0), pack-reused 21
-Receiving objects: 100% (21/21), done.
-Resolving deltas: 100% (5/5), done.
-Checking connectivity... done.
-> ```
-{: .solution}
-
-What does the `ls` command show?
-
-```shell
 cd GitHATS
 ls -a
-```
-{: .source} 
-
-> ## Output
-> ```
-> .  ..  .git  README.md  standard_model.md
-> ```
-{: .solution}
-
-The .git folder contains a full local copy of the repository.
-
-Inspect the .git directory:
-
-```shell
-ls .git
-```
-{: .source}
-
-> ## Output
-> ```
-> config  description  HEAD  hooks  index  info  logs  objects  packed-refs  refs
-> ```
-{: .solution}
-
-When you use `git clone` as we did above, it starts your working area on the default branch for the repository. In this case, that branch is main. (The default branch for a repo can be changed in the "Branches" section of the [GitHub] settings page, which you explored in the previous step.) 
-
-Inspect the branches of the repository.
-
-```shell
 git branch -a
 ```
 {: .source}
 
-> ## Output
+> ## Expected output
+> `ls -a` shows the files plus a `.git` folder, which holds the full history of the repository:
+> ```
+> .  ..  .git  README.md  standard_model.md
+> ```
+> `git branch -a` shows you are on `main`, the repository's default branch, plus the branches on GitHub:
 > ```
 > * main
-  remotes/origin/HEAD -> origin/main
-  remotes/origin/atlas_discovery
-  remotes/origin/cms_discovery
-  remotes/origin/dune_discovery
-  remotes/origin/main
+>   remotes/origin/HEAD -> origin/main
+>   remotes/origin/atlas_discovery
+>   remotes/origin/cms_discovery
+>   remotes/origin/dune_discovery
+>   remotes/origin/main
 > ```
 {: .solution}
 
-## Adding remotes and synchronizing
-
-Look at your remote(s):
-
-```shell
-git remote
-```
-{: .source}
-
-> ## Output
-> ```
-> origin
-> ```
-{: .solution}
-
-> ## Hint
-> For additional information you can add the `-v` option to the command
-> ```shell
-> git remote -v
-> ```
-> {: .source}
-> 
-> > ## Output
-> > ```
-> > origin  git@github.com:[user]/GitHATS.git (fetch)
-origin  git@github.com:[user]/GitHATS.git (push)
-> > ```
-> {: .solution}
-{: .callout}
-
-The "origin" remote is set by default when you use `git clone`. Because your repository is a fork, you also want to have a remote that points to the original repo, traditionally called "upstream".
-
-Add the upstream remote and inspect the result:
+## Remotes and synchronizing
+A **remote** is a copy of the repository elsewhere. `git clone` creates one called `origin`, pointing to your fork.
+Add a second remote, traditionally called `upstream`, pointing to the original repository:
 
 ```shell
 git remote add upstream git@github.com:GitHATSLPC/GitHATS.git
@@ -216,214 +105,83 @@ git remote -v
 ```
 {: .source}
 
-> ## Output
+> ## Expected output
 > ```
-> origin  git@github.com:[user]/GitHATS.git (fetch)
-origin  git@github.com:[user]/GitHATS.git (push)
-upstream        git@github.com:GitHATSLPC/GitHATS.git (fetch)
-upstream        git@github.com:GitHATSLPC/GitHATS.git (push)
-> ```
-{: .solution}
-
-Before you make edits to your local repo, you should make sure that your fork is up to date with the main repo. (Someone else might have made some updates in the meantime.)
-
-Check for changes in upstream:
-
-```shell
-git pull upstream main
-```
-{: .source}
-
-> ## Output
-> ```
-From github.com:GitHATSLPC/GitHATS
- * branch            main     -> FETCH_HEAD
- * [new branch]      main     -> upstream/main
-Already up-to-date.
+> origin    git@github.com:[user]/GitHATS.git (fetch)
+> origin    git@github.com:[user]/GitHATS.git (push)
+> upstream  git@github.com:GitHATSLPC/GitHATS.git (fetch)
+> upstream  git@github.com:GitHATSLPC/GitHATS.git (push)
 > ```
 {: .solution}
 
-> ## Note
-> `git pull upstream main` is equivalent to the following two commands:
-> ```shell
-> git fetch upstream main
-git merge upstream/main
-> ```
-> {: .source}
-{: .callout}
-
-If you pulled any changes from the upstream repository, you should push them back to origin. (Even if you didn't, you can still practice pushing; nothing will happen.)
-
-Push your local main branch back to your remote fork:
+Before making changes, bring your copy up to date with `upstream` (someone may have changed it), and push any updates to your fork. Here, both will just report that everything is up to date.
 
 ```shell
+git pull upstream main    # same as: git fetch upstream main; git merge upstream/main
 git push origin main
 ```
 {: .source}
 
-> ## Output
-> ```
-Everything up-to-date
-> ```
-{: .solution}
-
-## Making edits and committing
-
-When collaborating with other developers on GitHub, it is best to make a separate topic branch to store any changes you want to submit to the main repo. This way, you can keep the default branch in your fork synchronized with upstream, and then make another topic branch when you want to make more changes.
-
-Make a topic branch:
+## Make and commit a change
+Make your changes on a separate **topic branch**. This keeps `main` in sync with upstream and lets you work on several changes at once.
 
 ```shell
 git checkout -b MyBranch
 ```
 {: .source}
 
-Edit the table standard_model.md to add a new particle. The new particle is called a Giton, with symbol G, spin 2, charge 0, and mass 750 GeV.
+Edit `standard_model.md` and add a row for a new particle, the Giton: symbol G, spin 2, charge 0, mass 750 GeV.
+(Any resemblance to real or imaginary particles is entirely coincidental.)
 
-> ## Note
-> Any resemblance to any other real or imaginary particles is entirely coincidental.
-{: .callout}
-
-Once you have made changes in your working area, you have to stage the changes and then commit them. First, you can inspect the status of your working area.
-
-Try the following commands to show the status:
+Look at what changed:
 
 ```shell
-git status
+git status      # which files changed
+git diff        # what changed in them
 ```
 {: .source}
 
-> ## Output
+> ## Expected output
+> `git status` lists `modified:   standard_model.md` under "Changes not staged for commit". `git diff` shows your new line with a `+`:
 > ```
-> On branch MyBranch
-> Changes not staged for commit:
->   (use "git add ..." to update what will be committed)
->   (use "git checkout -- ..." to discard changes in working directory)
-> 
->         modified:   standard_model.md
-> 
-> no changes added to commit (use "git add" and/or "git commit -a")
+> +| Giton         | G      | 2    | 0       | 750                     |
 > ```
 {: .solution}
 
-```shell
-git status -s
-```
-{: .source}
-
-> ## Output
-> ```
-> M standard_model.md
-> ```
-{: .solution}
-
-```shell
-git diff
-```
-{: .source}
-
-> ## Output
-> ```
-> diff --git a/standard_model.md b/standard_model.md
-index 607b7b6..68f37ad 100644
---- a/standard_model.md
-+++ b/standard_model.md
-@@ -18,4 +18,5 @@ The Standard Model of Particle Physics
- | Z boson       | Z      | 1    | 0       | 91.2                    |
- | W boson       | W      | 1    | ±1      | 80.4                    |
- | gluon         | g      | 1    | 0       | 0                       |
--| Higgs boson   | H      | 0    | 0       | 125                     |
-\ No newline at end of file
-+| Higgs boson   | H      | 0    | 0       | 125                     |
-+| Giton         | G      | 2    | 0       | 750                     |
-> ```
-{: .solution}
-
-Now stage your change, and check the status:
+**Stage** the change (choose what goes into the next commit), **commit** it to your local repository, and **push** the branch to your fork:
 
 ```shell
 git add standard_model.md
-git status -s
-```
-{: .source}
-
-> ## Output
-> ```
-> M  standard_model.md
-> ```
-{: .solution}
-
-Commit your change:
-
-```shell
 git commit -m "add Giton to standard model"
-```
-{: .source}
-
-> ## Output
-> ```
-> [MyBranch b9bc2ce] add Giton to standard model
- 1 file changed, 2 insertions(+), 1 deletion(-)
-> ```
-{: .solution}
-
-Push your topic branch, which now includes the new commit you just made, to origin:
-
-```shell
 git push origin MyBranch
 ```
 {: .source}
 
-> ## Output
+> ## Expected output
+> The push ends with a link for opening a pull request:
 > ```
-Enumerating objects: 5, done.
-Counting objects: 100% (5/5), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 356 bytes | 356.00 KiB/s, done.
-Total 3 (delta 1), reused 0 (delta 0)
-remote: Resolving deltas: 100% (1/1), completed with 1 local object.
-remote: 
-remote: Create a pull request for 'MyBranch' on GitHub by visiting:
-remote:      https://github.com/mtonjes/GitHATS/pull/new/MyBranch
-remote: 
-To github.com:mtonjes/GitHATS.git
- * [new branch]      MyBranch -> MyBranch
+> remote: Create a pull request for 'MyBranch' on GitHub by visiting:
+> remote:      https://github.com/[user]/GitHATS/pull/new/MyBranch
+> ...
+>  * [new branch]      MyBranch -> MyBranch
 > ```
 {: .solution}
 
-## Making a pull request
-
-Now that you have made your change, you can submit it for inclusion in the central repository.
-
-When you open the web page (the link listed on the command line above to your own fork) to send a pull request on GitHub, you will notice that you can send a pull request to any fork of the repo (and any branch).
+## Make a pull request
+A **pull request** (PR) proposes your change for inclusion in another repository.
+Open the link printed by `git push` (or your fork's page on GitHub). You can send a PR to any fork and branch of the repository:
 <img src="../fig/github_make_pull_request.png" alt="Make pull request" style="float: center; margin-right; width:800px; border: 5px solid #ded4b9">
 
-Send a pull request to the main branch of the upstream repo (GitHATSLPC).
+Send it to the `main` branch of the upstream repository (GitHATSLPC):
 <img src="../fig/github_view_pull_request.png" alt="View pull request" style="float: center; margin-right; width:800px; border: 5px solid #ded4b9">
 
 > ## Question 4.1
-> Post the link to your pull request.
-> 
-> For CMSDAS@LPC {{ site.year }} please submit your answer at the [CMSDAS@LPC{{ site.year }} Google Form set 4][Set4_form].
+> Enter the link to your pull request in the answer form.
 {: .challenge}
 
-> ## Optional
-> If you want to practice merging a pull request, you can send a pull request from your branch `MyBranch` to your *own* main branch.
-{: .challenge}
-
-## Advanced topics
-
-Advanced topics not explored in this exercise include: merging, rebasing, cherry-picking, undoing, removing binary files, and CMSSW-specific commands and usage.
-
-If you want to learn more, here are some additional resources:
-- [HEP Software Foundation training modules](https://hsf-training.org/training-center/)
-- [git comprehensive guide](https://git-scm.com/book/en/v2)
-- [CMS-specific git twiki](https://twiki.cern.ch/twiki/bin/view/CMS/CMSGitTutorial)
-
-Students are encouraged to explore these topics on their own at [CMSGitTutorial](https://twiki.cern.ch/twiki/bin/view/CMS/CMSGitTutorial).
+> ## Optional: go further
+> - To practice merging, send a pull request from `MyBranch` to your *own* fork's `main` branch and merge it.
+> - Not covered here: rebasing, cherry-picking, undoing changes, and CMSSW-specific git usage. Learn more from the [CMSGitTutorial](https://twiki.cern.ch/twiki/bin/view/CMS/CMSGitTutorial), the [HSF training modules](https://hsf-training.org/training-center/), and the [Pro Git book](https://git-scm.com/book/en/v2).
+{: .callout}
 
 {% include links.md %}
-
-
-[Set4_form]: https://forms.gle/XCBXw2a7VyQK9vFs6 
