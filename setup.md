@@ -22,7 +22,7 @@ Note that you can access Mattermost via browser or you can download the correspo
 
 ## Support email
 
-For CMSDAS@LPC {{ site.year }}, you may e-mail [cmsdasatlpc@fnal.gov](mailto:cmsdasatlpc@fnal.gov) with a detailed description of your problem. The instructors will be happy to help you.
+For CMSDAS@LPC {{ site.year }}, you may e-mail [cmsdasatlpc@fnal.gov](mailto:cmsdasatlpc@fnal.gov) with a detailed description of your problem. This email reaches the LPC Co-coordinators and the three LPC support staff.
 
 # Obtain a Computer Account
 
