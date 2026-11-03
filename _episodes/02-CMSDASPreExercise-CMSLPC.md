@@ -1,137 +1,98 @@
 ---
 title: "CMSDAS Pre-Exercise 2: Using the cmslpc cluster"
 teaching: 0
-exercises: 10
+exercises: 30
 questions:
-- "Learn how to use the CMSLPC cluster"
+- "How do I log in to the cmslpc cluster?"
+- "How do I run commands and edit files on cmslpc?"
+- "How do I copy files from EOS?"
 objectives:
-- "Learn how to use the CMSLPC cluster"
+- "Log in to cmslpc with kerberos and SSH."
+- "Run a script and edit a file on cmslpc."
+- "Copy a file from EOS to your nobackup area."
 keypoints:
-- "Learn how to use the CMSLPC cluster"
+- "Log in with `kinit <username>@FNAL.GOV` followed by `ssh -Y <username>@cmslpc-el9.fnal.gov`."
+- "Use `~/nobackup` for your work; your home directory is small."
+- "EOS has its own commands (`eosls`, `eosmkdir`, `xrdcp`) and addresses files by LFNs like `/store/user/...`."
 ---
 
-> ## Questions
-> For this lesson, please submit your answers using [CMSDAS@LPC{{ site.year }} Google Form 2][Set2_form].
-{: .challenge}
+{% include submit.md episode=2 %}
 
-# Introduction
-In the previous lesson, you learned how to use Unix on your personal computer. 
-However, the CMS detector produces more than 500 terabytes of data per second, so there's only so much you can do on your laptop.
-In this lesson, we will learn how to use the cmslpc computing cluster, which you will use extensively during CMSDAS and possibly for your actual analysis work as well. 
-Information for lxplus users is also provided, where appropriate.
+## Introduction
+Your laptop can only do so much: CMS analyses run over far more data than fits on it.
+In this episode you will use the **cmslpc** computing cluster at Fermilab, which you will use throughout CMSDAS and possibly for your own analysis.
+Notes for CERN `lxplus` users are included where things differ.
 
-# The basics
-The `cmslpc` cluster consists of a large number of "interactive nodes," which users login to via SSH, and an even larger number of "worker nodes," which are used for large-scale "batch" computing. 
-We will use the [AlmaLinux 9](https://almalinux.org/) operating system (OS), a community-supported OS that is binary-compatible with Red Hat Enterprise Linux (RHEL).
-AlmaLinux 8 was chosen for CMS Run 3 data processing, and we are gradually migrating towards the newer AlmaLinux 9. See [these slides](https://indico.cern.ch/event/1126678/contributions/4786719/attachments/2417994/4138224/OandC-OS-Runs3.pdf) for the gory details). 
-CMS users are allocated storage space in a few places: 
- - (1) a small home directory (2 GB) at `/uscms/home/username`, ;
- - (2) a medium storage directory (200 GB, not backed up!) at `/uscms_data/d[1-3]/username`, which is softlinked in your home directory at `/uscms/home/username/nobackup`, and 
- - (3) a large storage directory on EOS (2 TB) (special filesystem, more info later in this lesson). 
+## The basics
+cmslpc has **interactive nodes**, which you log in to with SSH, and many more **worker nodes** for large-scale batch computing.
+The nodes run [AlmaLinux 9](https://almalinux.org/) (`el9`), a free OS compatible with Red Hat Enterprise Linux.
 
-The `lxplus` cluster is configured similarly, with slightly different paths and quotas allocated to users (note that `lxplus.cern.ch` is an alias for `lxplus9.cern.ch`, a login node running AlmaLinux 9 OS; use `lxplus8.cern.ch` to get on a AlmaLinux 8 node.
+Every user gets three storage areas:
 
-# Logging in
-Let's try logging in to `cmslpc` using SSH. SSH is a very widely used program for logging into remote Unix clusters; you can check out the [HSF SSH exercise](https://hsf-training.github.io/hsf-training-ssh-webpage/) to learn more, but for now you can just follow the commands in this exercise. The authentication for cmslpc uses [kerberos](https://en.wikipedia.org/wiki/Kerberos_(protocol)) (your university cluster may allow simple password login or certificate login, which are not covered here). 
+| Area | Path | Size | Notes |
+|---|---|---|---|
+| Home | `/uscms/home/<username>` | 2 GB | Small: keep only config files here |
+| nobackup | `~/nobackup` (links to `/uscms_data/d[1-3]/<username>`) | 200 GB | Your main work area; **not backed up** |
+| EOS | `/store/user/<username>` | 2 TB | Special filesystem, see [below](#using-the-eos-filesystem) |
 
+`lxplus` is set up similarly, with different paths and quotas. `lxplus.cern.ch` points to AlmaLinux 9 nodes.
 
-First, if you have not configured SSH and kerberos on your own computer, you will need to set up a Kerberos configuration file (`krb5.conf`)  and a SSH configuration file (`~/.ssh/config`). You can follow the [prerequisites section here](https://www.uscms.org/uscms_at_work/computing/getstarted/uaf.shtml#prerequisites). Once you have the cmslpc-specific SSH and kerberos configuration, execute the following command in the terminal on your own computer:
+## Logging in
+cmslpc uses [kerberos](https://en.wikipedia.org/wiki/Kerberos_(protocol)) for authentication and SSH for login.
+If you have never logged in from this computer, first set up `krb5.conf` and `~/.ssh/config` following the [cmslpc prerequisites](https://www.uscms.org/uscms_at_work/computing/getstarted/uaf.shtml#prerequisites).
+(New to SSH? See the [HSF SSH lesson](https://hsf-training.github.io/hsf-training-ssh-webpage/).)
 
-```shell
-kinit <YourUsername>@FNAL.GOV
-# kinit <YourUsername>@CERN.CH for lxplus users
-```
-
-Enter the [kerberos password](https://uscms.org/uscms_at_work/computing/getstarted/password_fermilab.shtml#passwordObtain) for your Fermilab account. You now have login access to cmslpc for 24 hours. If you get an error message, double-check that you [configure kerberos properly](https://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml), or head to Mattermost for help. 
-
-Next, execute the following to login:
+Then, on your own computer, get a kerberos ticket and log in:
 
 ```shell
-ssh -Y <YourUsername>@cmslpc-el9.fnal.gov
-# ssh -Y <YourUsername>@lxplus.cern.ch for lxplus users
+kinit <YourUsername>@FNAL.GOV        # lxplus: kinit <YourUsername>@CERN.CH
+ssh -Y <YourUsername>@cmslpc-el9.fnal.gov   # lxplus: ssh -Y <YourUsername>@lxplus.cern.ch
 ```
+{: .source}
 
-If you see a welcome message followed by a command prompt, congratulations, you have successfully logged in! The commands you enter into the command prompt will now be executed on the cmslpc interactive node. If you see an error message instead, something has probably gone wrong with the authentication; please head to Mattermost and post your error message, and an instructor can help you out. 
+`kinit` asks for your [Fermilab kerberos password](https://uscms.org/uscms_at_work/computing/getstarted/password_fermilab.shtml#passwordObtain) and is valid for 24 hours.
+If you see a welcome message and a prompt, you're in: commands now run on cmslpc.
+If you get an error, re-check your [kerberos configuration](https://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml), then post the error on Mattermost.
 
-# Running simple commands on cmslpc
+## Running simple commands on cmslpc
+These steps only work on **cmslpc-el9**. Experienced users can breeze through, but please still submit your answers so we can follow everyone's progress.
 
-Note: this exercise will only work on **cmslpc-el9**.
+Make a folder for your CMSDAS work, copy in the `runThisCommand.py` script, and run it with these exact arguments (copy-and-paste them):
 
-In this exercise, we will run a few simple commands on cmslpc. At the end, you will type an answer into a spreadsheet (experienced users should feel free to breeze through, but please do upload your answer so we can follow everyone's progress). 
-
-First, make a folder for your CMSDAS work, and `cd` into that directory:
 ```shell
 mkdir ~/nobackup/cmsdas
-cd nobackup/cmsdas
-```
-{: .source}
-
-
-Use the following command to copy the `runThisCommand.py` script:
-```shell
+cd ~/nobackup/cmsdas
 cp ~cmsdas/preexercises/runThisCommand.py .
+python3 runThisCommand.py "asdf;klasdjf;kakjsdf;akjf;aksdljf;a" "sldjfqewradsfafaw4efaefawefzdxffasdfw4ffawefawe4fawasdffadsfef"
 ```
 {: .source}
 
- Next, copy and paste the following and then hit return:
- ```shell
-python3 runThisCommand.py "asdf;klasdjf;kakjsdf;akjf;aksdljf;a" "sldjfqewradsfafaw4efaefawefzdxffasdfw4ffawefawe4fawasdffadsfef"
- ```
-{: .source}
-
- The response should be your username followed by alphanumeric string of characters unique to your username, for example for a user named `gbenelli`:
+It prints your username followed by a string unique to you. For example, for user `gbenelli`:
 
 ```
 success: gbenelli toraryyv
 ```
 {: .output}
 
-If you executed the command without copy-pasting (i.e. only `./runThisCommand.py` without the additional arguments) the command will return:
-
-```
-Error: You must provide the secret key
-```
-{: .output}
-
-Alternatively, copying incorrectly (i.e. different arguments) will return:
-
-```
-Error: You didn't paste the correct input string
-```
-{: .output}
-
-If you are not running on cmslpc-el9 (for example locally on a laptop), trying to run the command will result in:
-
-```
-bash: ./runThisCommand.py: No such file or directory
-```
-{: .output}
-
-or (for example):
-
-```
-Unknown user: gbenelli.
-```
-{: .output}
+> ## Seeing an error instead?
+> - `Error: You must provide the secret key`: you left out the two arguments.
+> - `Error: You didn't paste the correct input string`: the arguments were mistyped; copy-and-paste them.
+> - `No such file or directory` or `Unknown user`: you are not on cmslpc-el9 (for example, you ran it on your laptop).
+{: .callout}
 
 > ## Question 2.1
-> Copy-and-paste the alphanumeric string of characters unique to your username in the Google form.
+> Enter the alphanumeric string unique to your username in the answer form.
 {: .challenge}
 
-# Editing files on cmslpc
+## Editing files on cmslpc
+You'll edit code on cmslpc constantly. Common options:
 
-The purpose of this exercise is to ensure that the user can edit files. We will first copy and then edit the [editThisCommand.py]({{ page.root }}{% link code/editThisCommand.py %}) script. 
+- A terminal editor directly on cmslpc: `nano` (simplest), `vim`, or `emacs -nw` (plain `emacs` opens a slow GUI over SSH).
+- A desktop editor such as VS Code with a remote/SSH plugin, which shows your cmslpc folder as if it were local.
+- Editing on your laptop and copying with `scp`/`sftp`.
 
-Users of cmslpc have several options for editing remote files. Here are a few examples:
-
-- Edit files directly on cmslpc using a terminal-based code editor, such as `nano`, `emacs` (opens a GUI by default, which is slow over SSH; use `emacs -nw` to get a terminal-based editor instead), or `vim`. `emacs` and `vim`, in particular, have lots of features for code editing, but also have a steep learning curve.
-- Edit files on your own computer in the terminal (with the same programs), and upload using, e.g., `sftp myscript.py username@cmslpc-el9.fnal.gov:my/folder`. 
-- Use an application like Visual Studio Code or Sublime Text, either directly on cmslpc (using a remote filesystem plugin, which makes your directory on cmslpc appear as a folder on your computer) or on your own computer (using an SSH or SFTP plugin to automatically upload files to cmslpc). These also have lots of features, and are easier to learn than `emacs` or `vim`.
-
-For the sake of this lesson, will will simply edit a file directly on cmslpc, using `nano`, `emacs`, or `vim`. 
-If you choose `vim`, watch this [video tutorial](https://www.youtube.com/watch?v=ggSyF1SVFr4) or play with this [interactive tutorial](https://openvim.com/).
-
-On the **cmslpc-el9** cluster, run:
+For this exercise, use a terminal editor on cmslpc. (New to `vim`? Try this [interactive tutorial](https://openvim.com/).)
+Copy the [editThisCommand.py]({{ page.root }}{% link code/editThisCommand.py %}) script:
 
 ```shell
 cd ~/nobackup/cmsdas
@@ -139,79 +100,52 @@ cp ~cmsdas/preexercises/editThisCommand.py .
 ```
 {: .source}
 
-Then open `editThisCommand.py` with your favorite editor (e.g. `emacs -nw editThisCommand.py`). 
-The 11th line of this python script throws an error, meaning that python prints an error message and ends the program immediately. 
-For this exercise, add a `#` character at the start of the 11th line, which turns the line of code into a comment that is skipped by the python interpreter. 
-Specifically, change:
+Open it (e.g. `nano editThisCommand.py`). Line 11 deliberately raises an error. Add a `#` at the start of the line to turn it into a comment:
 
 ```python
-# Please comment the line below out by adding a '#' to the front of
-# the line.
-raise RuntimeError("You need to comment out this line with a #")
-```
-{: .source}
-
-to:
-
-```python
-# Please comment the line below out by adding a '#' to the front of
-# the line.
 #raise RuntimeError("You need to comment out this line with a #")
 ```
 {: .source}
 
-(For vim users: you need to press `i` to insert text.) Save the file (e.g. in emacs, type `ctrl+x ctrl+s` to save, `ctrl+x ctrl+c` to quit the editor; in vim, press ESC to exit insert mode, the ":wq" to save and exit) and execute the command:
+Save and quit (nano: `ctrl+o`, `ctrl+x`; vim: `i` to type, then `Esc` and `:wq`; emacs: `ctrl+x ctrl+s`, `ctrl+x ctrl+c`), then run:
 
 ```shell
 ./editThisCommand.py
 ```
 {: .source}
 
-If this is successful, the result will be:
-
-```
-success:  gbenelli 0x6D0DB4E0
-```
-{: .output}
-
-If the file has not been successfully edited, an error message will result such as:
-
-```
-Traceback (most recent call last):
-  File "./editThisCommand.py", line 11, in ?
-    raise RuntimeError, "You need to comment out this line with a #"
-RuntimeError: You need to comment out this line with a #
-```
-{: .output}
+If the edit worked, you'll see a line like `success:  gbenelli 0x6D0DB4E0`.
+If you see `RuntimeError: You need to comment out this line with a #`, the edit wasn't saved.
 
 > ## Question 2.2
-> Copy-and-paste the line beginning with "success", resulting from the execution of `./editThisCommand.py`, into the Google form.
+> Enter the line beginning with "success", printed by `./editThisCommand.py`, in the answer form.
 {: .challenge}
 
+## Using the EOS filesystem
+EOS is your largest storage area, but it is not a normal Unix folder and has its own commands.
+Files on EOS are named by **logical filenames** (LFNs), which start with `/store/...`.
+The essential commands are below; see [Using EOS at LPC](https://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml) for everything else.
 
-# Using the EOS filesystem
-Your biggest storage on cmslpc is the EOS filesystem, which behaves differently from a normal Unix folder. 
-EOS has dedicated commands for interacting with the filesystem, rather than the usual `ls`, `cp`, `mkdir`, etc. 
-Also, files are addressed using so-called "logical filenames" (LFNs), which you can think of as their location inside EOS, rather than their absolute location (or physical filename, PFN). 
-The LFNs usually start with `/store/...`.
-[Click here](https://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml) for the full documentation; here are a few essential commands. 
+| Unix | EOS on cmslpc | Example |
+|---|---|---|
+| `ls` | `eosls` | `eosls -alh /store/user/cmsdas/preexercises/` |
+| `mkdir`, `mv` | `eosmkdir`, `eosmv` | |
+| `cp` | `xrdcp` | `xrdcp root://cmseos.fnal.gov//store/user/<file> .` |
 
-- On cmslpc, the equivalent of `ls` is `eosls`: for example, `eosls /store/user/cmsdas/preexercises/`. This is actually a cmslpc-specific alias for `eos root://cmseos.fnal.gov ls`; on other clusters, you'll have to use this full command. A useful flag is `eosls -alh`, which will print folder and file sizes. 
-- Similarly to `ls`, the cmslpc-specific equivalents of `mkdir` and `mv` are `eosmkdir` and `eosmv`. (You can do `alias eosmkdir` to see the full command behind the alias.)
-- The equivalent of `cp` is `xrdcp`: for example, `xrdcp root://cmseos.fnal.gov//store/user/cmsdas/preexercises/DYJetsToLL_M50_NANOAOD.root .`. The `root://cmseos.fnal.gov` bit tells `xrdcp` which EOS instance to use (only one instance for cmslpc users; lxplus has several, e.g., `root://eoscms.cern.ch` for CMS data and `root://eosuser.cern.ch` for user data). 
+The `eos*` commands are cmslpc shortcuts for `eos root://cmseos.fnal.gov ...`; run `alias eosls` to see the full command, which you need on other clusters.
+In `xrdcp`, the `root://cmseos.fnal.gov` prefix names the EOS instance. lxplus has several, such as `root://eoscms.cern.ch` (CMS data) and `root://eosuser.cern.ch` (user data).
 
 > ## Question 2.3
-> We will copy a small file from EOS to your nobackup area, containing 10,000 simulated $Z\rightarrow\mu^+\mu^-$ events in the CMS NanoAOD format. We will use this file in later exercises, so make sure not to lose track of it. 
-> 
-> Execute the following:
-> 
+> Copy a small file from EOS to your nobackup area. It holds 10,000 simulated $Z\rightarrow\mu^+\mu^-$ events in the CMS NanoAOD format, and later episodes use it, so keep it.
+>
 > ```shell
 > cd ~/nobackup/cmsdas/
 > xrdcp root://cmseos.fnal.gov//store/user/cmsdas/preexercises/DYJetsToLL_M50_NANOAOD.root .
+> ls -lh DYJetsToLL_M50_NANOAOD.root
 > ```
 > {: .source}
-> 
-> Using `ls -lh DYJetsToLL_M50_NANOAOD.root`, how big is this file? (It's the large number.) Write the answer in the Google form. 
+>
+> How big is the file? (It's the large number in the `ls -lh` output.) Enter it in the answer form.
 {: .challenge}
 
-[Set2_form]: https://forms.gle/137f5RT5HJvcxQj16 
+{% include links.md %}
