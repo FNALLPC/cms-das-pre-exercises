@@ -21,28 +21,29 @@ You do **not** need to create a new form or edit any form links.
 
 ### 1. Create the form
 
-Create a form with these questions on the first page (titles must start as shown; the grading
-script finds columns by these prefixes):
+Create a form with these questions on the first page. The grading script finds columns by the
+words shown in bold, so keep those in the titles:
 
 | Title | Type | Notes |
 |---|---|---|
 | (email) | Settings → Responses → Collect email addresses | Becomes the `Email Address` column |
-| `Name` | Short answer, required | |
-| `cmslpc username` | Short answer | |
-| `School year` | Short answer, required | Pre-filled from `site.year` |
-| `Episode` | Dropdown, required | Options exactly `Episode 1` … `Episode 6`; "Go to section based on answer" |
+| Please enter your **name** (FirstName LastName) | Short answer, required | |
+| Please enter your **Fermilab username** | Short answer, required | |
+| Please enter your CERN username | Short answer | Optional; not used by the script |
+| **School year** | Short answer, required | Pre-filled from `site.year` |
+| **Episode** | Dropdown, required | Options exactly `Episode 1` … `Episode 6`; "Go to section based on answer" |
 
-Then add one section per episode. Each question title starts with its ID, matching the
-`## Question N.M` boxes in `_episodes/`:
+Then add one section per episode. Each question title starts with its ID (`Question 3.1: …`),
+matching the `## Question N.M` boxes in `_episodes/`:
 
 | Section | Questions |
 |---|---|
-| Episode 1 | `Q1.1` |
-| Episode 2 | `Q2.1`, `Q2.2`, `Q2.3` |
-| Episode 3 | `Q3.1`, `Q3.2` |
-| Episode 4 | `Q4.1` |
-| Episode 5 | `Q5.1`, `Q5.2`, `Q5.3`, `Q5.4` |
-| Episode 6 | `Q6.1` (paragraph), `Q6.2`, `Q6.3`, `Q6.4`, `Q6.5` |
+| Episode 1 | `Question 1.1` |
+| Episode 2 | 2.1, 2.2, 2.3 |
+| Episode 3 | 3.1, 3.2 |
+| Episode 4 | 4.1 (paragraph) |
+| Episode 5 | 5.1, 5.2, 5.3, 5.4 |
+| Episode 6 | 6.1, 6.4, 6.5 (paragraph); 6.2, 6.3 |
 
 Make each episode section end with "Submit form", so a student only sees one episode's questions.
 Allow multiple responses per person; the dashboard keeps the latest submission for each episode.
@@ -87,5 +88,5 @@ Allow multiple responses per person; the dashboard keeps the latest submission f
 ## Adding or changing a question
 
 1. Edit the `> ## Question N.M` box in the episode under `_episodes/`.
-2. Add or edit the matching `QN.M …` question in that episode's form section.
+2. Add or edit the matching `Question N.M: …` question in that episode's form section.
 3. Add or update its row in the **Key** tab.

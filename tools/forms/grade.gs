@@ -40,23 +40,26 @@ function updateDashboard() {
  */
 function buildDashboard(responses, key) {
   var header = responses[0].map(String);
+
+  // Question columns: headers that start with an ID such as "Question 3.1", "Q3.1" or "3.1".
+  var questionCols = {};
+  header.forEach(function (h, i) {
+    var m = h.match(/^(?:Question|Q)?\s*(\d+\.\d+)/i);
+    if (m) questionCols[m[1]] = i;
+  });
+  var isQuestion = function (h) { return /^(?:Question|Q)?\s*\d+\.\d+/i.test(h); };
+
+  // Identity columns, matched only among the non-question columns.
   var col = function (pattern) {
-    for (var i = 0; i < header.length; i++) if (pattern.test(header[i])) return i;
+    for (var i = 0; i < header.length; i++) if (!isQuestion(header[i]) && pattern.test(header[i])) return i;
     return -1;
   };
   var cTime = col(/^timestamp/i);
-  var cEmail = col(/^e-?mail/i);
-  var cName = col(/^name/i);
-  var cUser = col(/^cmslpc username/i);
-  var cYear = col(/^school year/i);
+  var cEmail = col(/e-?mail/i);
+  var cName = col(/\bname\b/i);
+  var cUser = col(/(fermilab|cmslpc) username/i);
+  var cYear = col(/year/i);
   var cEpisode = col(/^episode/i);
-
-  // Question columns: headers that start with an ID such as "Q3.1" or "3.1".
-  var questionCols = {};
-  header.forEach(function (h, i) {
-    var m = h.match(/^Q?\s*(\d+\.\d+)/i);
-    if (m) questionCols[m[1]] = i;
-  });
 
   // Keep only the latest submission per (email, year, episode).
   var latest = {};
