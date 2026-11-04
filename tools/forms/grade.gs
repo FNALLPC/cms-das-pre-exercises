@@ -122,10 +122,12 @@ function findKey(key, question, year) {
  *   number: the first number in the answer is within Tolerance of Expected (commas ignored)
  *   regex:  the answer matches Expected (case-insensitive). {fermilab} and {cern} in Expected
  *           are replaced by the student's usernames from page 1 of the form.
- *   rot13:  "success: <user> <token>" from runThisCommand.py, where <user> is the student's
- *           Fermilab username and <token> its ROT13 (Question 2.1)
- *   crc32:  "success: <user> 0x<hex>" from editThisCommand.py, where <hex> is the CRC32 of the
- *           student's Fermilab username (Question 2.2)
+ *   rot13:  the token printed by runThisCommand.py, the ROT13 of the student's Fermilab
+ *           username (Question 2.1)
+ *   crc32:  the 0x<hex> token printed by editThisCommand.py, the CRC32 of the student's
+ *           Fermilab username (Question 2.2)
+ *           For both, the answer can be the token alone or the whole "success: <user> <token>"
+ *           line, whose <user> must then be the student's Fermilab username.
  *   any:    the answer is non-empty (no key row behaves the same way)
  * who: { fermilab, cern } usernames of the student who submitted.
  */
@@ -147,10 +149,17 @@ function checkAnswer(answer, keyRow, who) {
     return new RegExp(pattern, 'i').test(text);
   }
   if (check === 'rot13' || check === 'crc32') {
-    var s = text.match(/success:\s*(\S+)\s+(\S+)/i);
-    if (!s || !who.fermilab || s[1].toLowerCase() !== who.fermilab) return false;
-    var expected = check === 'rot13' ? rot13(s[1]) : '0x' + crc32(s[1]).toString(16).toUpperCase();
-    return s[2] === expected;
+    // Accept the whole "success: <user> <token>" line or just the token.
+    if (!who.fermilab) return false;
+    var token = text;
+    var line = text.match(/success:\s*(\S+)\s+(\S+)/i);
+    if (line) {
+      if (line[1].toLowerCase() !== who.fermilab) return false;
+      token = line[2];
+    }
+    token = token.toLowerCase().replace(/^0x/, '');
+    var expected = check === 'rot13' ? rot13(who.fermilab) : crc32(who.fermilab).toString(16);
+    return token === expected;
   }
   return true;
 }

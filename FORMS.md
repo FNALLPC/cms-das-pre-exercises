@@ -91,10 +91,11 @@ Allow multiple responses per person; the dashboard keeps the latest submission f
      - `number`: the first number in the answer is within *Tolerance* of *Expected* (commas ignored).
      - `regex`: the answer matches *Expected* (case-insensitive). `{fermilab}` and `{cern}` are replaced
        by the usernames the student entered on page 1, for answers that contain them.
-     - `rot13` (Q2.1) and `crc32` (Q2.2): the `success: <user> <token>` line must name the student's
-       Fermilab username, and the token must be what `code/runThisCommand.py` /
-       `code/editThisCommand.py` print for that username. *Expected* is left empty. This assumes the
-       copies in `~cmsdas/preexercises/` on cmslpc match the ones in `code/`.
+     - `rot13` (Q2.1) and `crc32` (Q2.2): the token must be what `code/runThisCommand.py` /
+       `code/editThisCommand.py` print for the Fermilab username the student entered on page 1.
+       The answer can be the token alone or the whole `success: <user> <token>` line (then `<user>`
+       must be that username). *Expected* is left empty. This assumes the copies in
+       `~cmsdas/preexercises/` on cmslpc match the ones in `code/`.
      - `any`: just non-empty. Questions with no Key row behave the same way.
    - Leave **Year** blank for an answer that holds every year; add a row with a year to override it.
    - Format the **Question** column as plain text (Format → Number → Plain text) so Sheets keeps `3.1`
