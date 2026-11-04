@@ -59,7 +59,7 @@ function buildDashboard(responses, key) {
   var cName = col(/\bname\b/i);
   var cUser = col(/(fermilab|cmslpc) username/i);
   var cYear = col(/year/i);
-  var cEpisode = col(/^episode/i);
+  var cEpisode = col(/episode/i);
 
   // Keep only the latest submission per (email, year, episode).
   var latest = {};

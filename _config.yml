@@ -46,7 +46,7 @@ flavor: "C++/Python"
 title: "CMS DAS Pre-Exercises"
 
 # Overall year for the Workshop
-year: 2026
+year: 2027
 mattermost_invitelink: https://mattermost.web.cern.ch/signup_user_complete/?id=6yhf11uumid9dmkoondkkwu5ah&md=link&sbr=su
 
 # Permanent answer-submission form (one form for all episodes and all years).
@@ -56,9 +56,9 @@ mattermost_invitelink: https://mattermost.web.cern.ch/signup_user_complete/?id=6
 #   year_entry:    pre-fill ID of the "School year" question, e.g. "entry.123456789"
 #   episode_entry: pre-fill ID of the "Episode" question, e.g. "entry.987654321"
 submission:
-  form_url: ""
-  year_entry: ""
-  episode_entry: ""
+  form_url: "https://docs.google.com/forms/d/e/1FAIpQLSc9duGMYo6WrYXtE_fpM1nDBQpGto4CfKwEwHFLjUzT_TmevA/viewform"
+  year_entry: "entry.1310790695"
+  episode_entry: "entry.1309488967"
 
 #------------------------------------------------------------
 # Generic settings (should not need to change).

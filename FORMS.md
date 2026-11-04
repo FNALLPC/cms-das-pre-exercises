@@ -31,7 +31,7 @@ words shown in bold, so keep those in the titles:
 | Please enter your **Fermilab username** | Short answer, required | |
 | Please enter your CERN username | Short answer | Optional; not used by the script |
 | **School year** | Short answer, required | Pre-filled from `site.year` |
-| **Episode** | Dropdown, required | Options exactly `Episode 1` … `Episode 6`; "Go to section based on answer" |
+| Which **episode**? | Dropdown, required | Options exactly `Episode 1` … `Episode 6`; "Go to section based on answer" |
 
 Then add one section per episode. Each question title starts with its ID (`Question 3.1: …`),
 matching the `## Question N.M` boxes in `_episodes/`:
