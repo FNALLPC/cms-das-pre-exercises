@@ -73,7 +73,7 @@ Allow multiple responses per person; the dashboard keeps the latest submission f
    | 1.1 | | any | | |
    | 2.1 | | rot13 | | |
    | 2.2 | | crc32 | | |
-   | 2.3 | | regex | `^\s*`*(size, e.g. 19M)*`\s*$` | |
+   | 2.3 | | size | *(size, e.g. 19M)* | |
    | 3.1 | | number | *(value)* | 0 |
    | 3.2 | | number | *(value)* | 0.05 |
    | 4.1 | | regex | `github\.com/GitHATSLPC/GitHATS/pull/\d+` | |
@@ -83,12 +83,15 @@ Allow multiple responses per person; the dashboard keeps the latest submission f
    | 5.4 | | number | *(value)* | 0.05 |
    | 6.1 | | regex | `CN={cern}/[\s\S]*attribute\s*:\s*/cms/` | |
    | 6.2 | | number | *(value)* | 0 |
-   | 6.3 | | regex | *(size)* | |
+   | 6.3 | | size | *(size, e.g. 138K)* | |
    | 6.4 | | regex | `^\s*/MinBias/{cern}-.*cmsdas\d{4}_test0-[0-9a-f]+/USER\s*$` | |
    | 6.5 | | number | *(value)* | 0 |
 
    - **Check** is one of:
      - `number`: the first number in the answer is within *Tolerance* of *Expected* (commas ignored).
+     - `size`: a file size such as `19M`. The answer may be `19M`, `19 MB`, `19 Megabytes`, `19 Mb`,
+       or the whole `ls -lh` line. *Tolerance* is in the same unit as *Expected* (default 0.5,
+       the rounding of `ls -lh`).
      - `regex`: the answer matches *Expected* (case-insensitive). `{fermilab}` and `{cern}` are replaced
        by the usernames the student entered on page 1, for answers that contain them.
      - `rot13` (Q2.1) and `crc32` (Q2.2): the token must be what `code/runThisCommand.py` /

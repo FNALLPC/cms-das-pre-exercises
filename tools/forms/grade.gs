@@ -127,6 +127,9 @@ function findKey(key, question, year) {
 /**
  * Key row columns: Question | Year | Check | Expected | Tolerance.
  *   number: the first number in the answer is within Tolerance of Expected (commas ignored)
+ *   size:   a file size, e.g. Expected "19M". The answer may be "19M", "19 MB", "19 Megabytes",
+ *           or a whole `ls -lh` line; a bare number is read in Expected's unit. Tolerance is in
+ *           Expected's unit too (default 0.5, the rounding of `ls -lh`). Units are powers of 1024.
  *   regex:  the answer matches Expected (case-insensitive). {fermilab} and {cern} in Expected
  *           are replaced by the student's usernames from page 1 of the form.
  *   rot13:  the token printed by runThisCommand.py, the ROT13 of the student's Fermilab
@@ -149,6 +152,14 @@ function checkAnswer(answer, keyRow, who) {
     if (!m) return false;
     return Math.abs(Number(m[0]) - Number(keyRow[3])) <= Number(keyRow[4] || 0);
   }
+  if (check === 'size') {
+    var want = parseSize(String(keyRow[3]), 'B');
+    if (!want) return false;
+    var got = parseSize(text, want.unit);
+    if (!got) return false;
+    var tol = keyRow[4] === '' || keyRow[4] == null ? 0.5 : Number(keyRow[4]);
+    return Math.abs(got.bytes - want.bytes) <= tol * UNIT_BYTES[want.unit];
+  }
   if (check === 'regex') {
     var pattern = String(keyRow[3])
       .replace(/\{fermilab\}/g, escapeRegex(who.fermilab || ''))
@@ -169,6 +180,25 @@ function checkAnswer(answer, keyRow, who) {
     return token === expected;
   }
   return true;
+}
+
+var UNIT_BYTES = { B: 1, K: 1024, M: Math.pow(1024, 2), G: Math.pow(1024, 3), T: Math.pow(1024, 4) };
+
+/**
+ * "19M", "19 MB", "19.5 megabytes", "19 Mb", or an `ls -l(h)` line -> { bytes, unit }.
+ * A number without a unit is read in defaultUnit. Returns null if no size is found.
+ */
+function parseSize(text, defaultUnit) {
+  text = String(text).trim();
+  // `ls -l` line: permissions, links, owner, group, SIZE, date, name. Without -h, SIZE is in bytes.
+  if (/^[-dlbcps][rwxsStT-]{9}/.test(text)) {
+    text = text.split(/\s+/)[4] || '';
+    defaultUnit = 'B';
+  }
+  var m = text.match(/(\d+(?:\.\d+)?)\s*(bytes?|[kmgt](?:i?b|ilobytes?|egabytes?|igabytes?|erabytes?)?|b)?(?![a-z])/i);
+  if (!m) return null;
+  var unit = m[2] ? m[2].charAt(0).toUpperCase() : defaultUnit;
+  return { bytes: Number(m[1]) * UNIT_BYTES[unit], unit: unit };
 }
 
 /** "Kkwok@FNAL.GOV " -> "kkwok" */
