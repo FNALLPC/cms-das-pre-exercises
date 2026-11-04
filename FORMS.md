@@ -65,20 +65,40 @@ Allow multiple responses per person; the dashboard keeps the latest submission f
 ### 3. Set up grading
 
 1. From the form's **Responses** tab, link it to a new spreadsheet.
-2. Add a tab named **Key** with this header row, then one row per question:
+2. Add a tab named **Key** with the header row `Question | Year | Check | Expected | Tolerance`
+   and one row per question. A starting point (fill in the *(value)* cells yourself):
 
    | Question | Year | Check | Expected | Tolerance |
    |---|---|---|---|---|
+   | 1.1 | | any | | |
+   | 2.1 | | rot13 | | |
+   | 2.2 | | crc32 | | |
+   | 2.3 | | regex | `^\s*`*(size, e.g. 19M)*`\s*$` | |
    | 3.1 | | number | *(value)* | 0 |
    | 3.2 | | number | *(value)* | 0.05 |
-   | 2.3 | | regex | `^\s*NNM\s*$` | |
-   | 2.1 | | regex | `success:\s*\S+\s+\S+` | |
+   | 4.1 | | regex | `github\.com/GitHATSLPC/GitHATS/pull/\d+` | |
+   | 5.1 | | regex | `^/uscms_data/d\d+/{fermilab}/.*CMSSW_` | |
+   | 5.2 | | regex | *(Pythia version, e.g. `8\.309`)* | |
+   | 5.3 | | regex | `github\.com[:/]FNALLPC/LearnCMSSW` | |
+   | 5.4 | | number | *(value)* | 0.05 |
+   | 6.1 | | regex | `CN={cern}/[\s\S]*attribute\s*:\s*/cms/` | |
+   | 6.2 | | number | *(value)* | 0 |
+   | 6.3 | | regex | *(size)* | |
+   | 6.4 | | regex | `^\s*/MinBias/{cern}-.*cmsdas\d{4}_test0-[0-9a-f]+/USER\s*$` | |
+   | 6.5 | | number | *(value)* | 0 |
 
-   - **Check** is `number` (first number in the answer within *Tolerance* of *Expected*),
-     `regex` (case-insensitive match), or `any` (just non-empty).
+   - **Check** is one of:
+     - `number`: the first number in the answer is within *Tolerance* of *Expected* (commas ignored).
+     - `regex`: the answer matches *Expected* (case-insensitive). `{fermilab}` and `{cern}` are replaced
+       by the usernames the student entered on page 1, for answers that contain them.
+     - `rot13` (Q2.1) and `crc32` (Q2.2): the `success: <user> <token>` line must name the student's
+       Fermilab username, and the token must be what `code/runThisCommand.py` /
+       `code/editThisCommand.py` print for that username. *Expected* is left empty. This assumes the
+       copies in `~cmsdas/preexercises/` on cmslpc match the ones in `code/`.
+     - `any`: just non-empty. Questions with no Key row behave the same way.
    - Leave **Year** blank for an answer that holds every year; add a row with a year to override it.
-   - Questions with no Key row only need a non-empty answer. Per-student answers (2.1, 2.2, 5.1,
-     5.3, 6.1, 6.4) should get a format `regex` at most.
+   - Format the **Question** column as plain text (Format → Number → Plain text) so Sheets keeps `3.1`
+     as text.
    - **Never commit expected answers to this repository**; it is public.
 3. Open **Extensions → Apps Script**, paste in `tools/forms/grade.gs`, and run `installTrigger` once
    (authorize when asked). Each submission now rebuilds the **Dashboard** tab: one row per student

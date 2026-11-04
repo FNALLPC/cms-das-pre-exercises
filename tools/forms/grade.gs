@@ -58,6 +58,7 @@ function buildDashboard(responses, key) {
   var cEmail = col(/e-?mail/i);
   var cName = col(/\bname\b/i);
   var cUser = col(/(fermilab|cmslpc) username/i);
+  var cCern = col(/cern username/i);
   var cYear = col(/year/i);
   var cEpisode = col(/episode/i);
 
@@ -81,11 +82,12 @@ function buildDashboard(responses, key) {
       email: String(r[cEmail]).trim(), name: r[cName], user: r[cUser], year: year, eps: {}, wrong: []
     });
 
+    var who = { fermilab: cleanUser(r[cUser]), cern: cleanUser(r[cCern]) };
     var nRight = 0, nTotal = 0;
     Object.keys(questionCols).forEach(function (q) {
       if (Number(q.split('.')[0]) !== episode) return;
       nTotal++;
-      if (checkAnswer(r[questionCols[q]], findKey(key, q, year))) nRight++;
+      if (checkAnswer(r[questionCols[q]], findKey(key, q, year), who)) nRight++;
       else s.wrong.push(q);
     });
     s.eps[episode] = nRight === nTotal ? '✅ ' + nRight + '/' + nTotal : '❌ ' + nRight + '/' + nTotal;
@@ -118,10 +120,17 @@ function findKey(key, question, year) {
 /**
  * Key row columns: Question | Year | Check | Expected | Tolerance.
  *   number: the first number in the answer is within Tolerance of Expected (commas ignored)
- *   regex:  the answer matches Expected (case-insensitive)
+ *   regex:  the answer matches Expected (case-insensitive). {fermilab} and {cern} in Expected
+ *           are replaced by the student's usernames from page 1 of the form.
+ *   rot13:  "success: <user> <token>" from runThisCommand.py, where <user> is the student's
+ *           Fermilab username and <token> its ROT13 (Question 2.1)
+ *   crc32:  "success: <user> 0x<hex>" from editThisCommand.py, where <hex> is the CRC32 of the
+ *           student's Fermilab username (Question 2.2)
  *   any:    the answer is non-empty (no key row behaves the same way)
+ * who: { fermilab, cern } usernames of the student who submitted.
  */
-function checkAnswer(answer, keyRow) {
+function checkAnswer(answer, keyRow, who) {
+  who = who || {};
   var text = String(answer == null ? '' : answer).trim();
   if (!text) return false;
   if (!keyRow) return true;
@@ -131,8 +140,46 @@ function checkAnswer(answer, keyRow) {
     if (!m) return false;
     return Math.abs(Number(m[0]) - Number(keyRow[3])) <= Number(keyRow[4] || 0);
   }
-  if (check === 'regex') return new RegExp(String(keyRow[3]), 'i').test(text);
+  if (check === 'regex') {
+    var pattern = String(keyRow[3])
+      .replace(/\{fermilab\}/g, escapeRegex(who.fermilab || ''))
+      .replace(/\{cern\}/g, escapeRegex(who.cern || ''));
+    return new RegExp(pattern, 'i').test(text);
+  }
+  if (check === 'rot13' || check === 'crc32') {
+    var s = text.match(/success:\s*(\S+)\s+(\S+)/i);
+    if (!s || !who.fermilab || s[1].toLowerCase() !== who.fermilab) return false;
+    var expected = check === 'rot13' ? rot13(s[1]) : '0x' + crc32(s[1]).toString(16).toUpperCase();
+    return s[2] === expected;
+  }
   return true;
+}
+
+/** "Kkwok@FNAL.GOV " -> "kkwok" */
+function cleanUser(u) {
+  return String(u == null ? '' : u).trim().replace(/@.*$/, '').toLowerCase();
+}
+
+function escapeRegex(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/** Same letter rotation as code/runThisCommand.py. */
+function rot13(s) {
+  return s.replace(/[a-z]/gi, function (c) {
+    var base = c <= 'Z' ? 65 : 97;
+    return String.fromCharCode((c.charCodeAt(0) - base + 13) % 26 + base);
+  });
+}
+
+/** zlib.crc32 of an ASCII string, as in code/editThisCommand.py. */
+function crc32(s) {
+  var crc = 0xFFFFFFFF;
+  for (var i = 0; i < s.length; i++) {
+    crc ^= s.charCodeAt(i);
+    for (var k = 0; k < 8; k++) crc = (crc >>> 1) ^ (0xEDB88320 & -(crc & 1));
+  }
+  return (crc ^ 0xFFFFFFFF) >>> 0;
 }
 
 if (typeof module !== 'undefined') module.exports = { buildDashboard: buildDashboard, checkAnswer: checkAnswer };
