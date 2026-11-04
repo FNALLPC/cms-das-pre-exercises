@@ -2,7 +2,8 @@
  * Grading and completion tracking for the permanent CMSDAS pre-exercise answer form.
  *
  * Paste this file into the response spreadsheet (Extensions -> Apps Script) and run
- * `installTrigger` once. Every new submission then rebuilds the "Dashboard" tab.
+ * `installTrigger` once. Every new submission, and every edit of the "Key" tab, then
+ * rebuilds the "Dashboard" tab.
  * Setup and the expected layout of the "Key" tab are described in FORMS.md.
  *
  * The answer key lives only in the private spreadsheet, never in this public repository.
@@ -13,11 +14,17 @@ var KEY_SHEET = 'Key';
 var DASHBOARD_SHEET = 'Dashboard';
 var EPISODES = [1, 2, 3, 4, 5, 6];
 
+/** Safe to run again: removes this script's old triggers first, so nothing runs twice. */
 function installTrigger() {
-  ScriptApp.newTrigger('updateDashboard')
-    .forSpreadsheet(SpreadsheetApp.getActive())
-    .onFormSubmit()
-    .create();
+  ScriptApp.getProjectTriggers().forEach(function (t) { ScriptApp.deleteTrigger(t); });
+  var ss = SpreadsheetApp.getActive();
+  ScriptApp.newTrigger('updateDashboard').forSpreadsheet(ss).onFormSubmit().create();
+  ScriptApp.newTrigger('onSheetEdit').forSpreadsheet(ss).onEdit().create();
+}
+
+/** Regrade when the answer key changes. */
+function onSheetEdit(e) {
+  if (e && e.range && e.range.getSheet().getName() === KEY_SHEET) updateDashboard();
 }
 
 function updateDashboard() {

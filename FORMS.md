@@ -101,10 +101,12 @@ Allow multiple responses per person; the dashboard keeps the latest submission f
    - Format the **Question** column as plain text (Format → Number → Plain text) so Sheets keeps `3.1`
      as text.
    - **Never commit expected answers to this repository**; it is public.
-3. Open **Extensions → Apps Script**, paste in `tools/forms/grade.gs`, and run `installTrigger` once
-   (authorize when asked). Each submission now rebuilds the **Dashboard** tab: one row per student
-   and year, ✅/❌ with the number of correct answers per episode, and a list of questions that need
-   attention. Run `updateDashboard` by hand after editing the Key tab.
+3. Open **Extensions → Apps Script**, paste in `tools/forms/grade.gs`, save, and run `installTrigger`
+   once (authorize when asked). From then on the **Dashboard** tab rebuilds automatically on every
+   new submission and every edit of the **Key** tab: one row per student and year, ✅/❌ with the
+   number of correct answers per episode, and the questions that need attention. Check the triggers
+   under the clock icon (**Triggers**) in Apps Script. Running `installTrigger` again is safe; it
+   replaces the old triggers. After pasting a new version of `grade.gs`, run `updateDashboard` once.
 
 ## Adding or changing a question
 
