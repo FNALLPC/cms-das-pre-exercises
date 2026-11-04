@@ -139,6 +139,7 @@ exclude:
   - .Rproj.user/
   - FORMS.md
   - tools/
+  - vendor/
 
 # Turn on built-in syntax highlighting.
 highlighter: rouge
