@@ -2,8 +2,8 @@
  * Grading and completion tracking for the permanent CMSDAS pre-exercise answer form.
  *
  * Paste this file into the response spreadsheet (Extensions -> Apps Script) and run
- * `installTrigger` once. Every new submission, and every edit of the "Key" tab, then
- * rebuilds the "Dashboard" tab.
+ * `installTrigger` once. Every new submission, and every hand edit of the "Key" or
+ * responses tab, then rebuilds the "Dashboard" tab.
  * Setup and the expected layout of the "Key" tab are described in FORMS.md.
  *
  * The answer key lives only in the private spreadsheet, never in this public repository.
@@ -22,9 +22,11 @@ function installTrigger() {
   ScriptApp.newTrigger('onSheetEdit').forSpreadsheet(ss).onEdit().create();
 }
 
-/** Regrade when the answer key changes. */
+/** Regrade when the answer key or a response is edited by hand in the spreadsheet. */
 function onSheetEdit(e) {
-  if (e && e.range && e.range.getSheet().getName() === KEY_SHEET) updateDashboard();
+  if (!e || !e.range) return;
+  var name = e.range.getSheet().getName();
+  if (name === KEY_SHEET || name === RESPONSES_SHEET) updateDashboard();
 }
 
 function updateDashboard() {
