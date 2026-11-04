@@ -18,7 +18,7 @@ keypoints:
 
 All CMSDAS@LPC {{ site.year }} participants should answer the questions in these exercises. Each episode has its own section in the answer form, linked in the box above.
 
-The rest of the pre-exercises take place in Unix. If you have never used it, work through the [Software Carpentry Unix shell lesson](https://swcarpentry.github.io/shell-novice/index.html), up to at least "3. Working With Files and Directories."
+The rest of the pre-exercises take place in Unix. If you have never used it, work through the [HEP Software Foundation training](https://hsf-training.github.io/hsf-training-unix-shell/01-intro.html), up to at least "3. Working With Files and Directories."
 
 > ## Question 1.1
 > Check that you have a working Unix shell on **your personal laptop**. Copy-and-paste the following into your shell:
