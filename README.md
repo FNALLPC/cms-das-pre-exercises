@@ -22,7 +22,7 @@ Look for the tag ![good_first_issue](https://img.shields.io/badge/-good%20first%
 Current maintainers of this lesson are
 
 * [Gabriele Benelli](mailto:gabriele.benelli@cern.ch)
-* [Alexx Perloff](mailto:alexx.stephen.perloff@cern.ch)
+* [Martin Kwok](mailto:kkwok@fnal.gov)
 * [Marguerite Tonjes](mailto:marguerite.belt.tonjes@cern.ch)
 
 ## Authors
