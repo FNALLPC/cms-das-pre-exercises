@@ -3,6 +3,9 @@ title: "CMSDAS Pre-Exercise 5: CMSSW basics"
 teaching: 0
 exercises: 60
 questions:
+- "What is CMSSW, and when do I need it?"
+- "How do I set up a CMSSW release?"
+- "How do I compile and run a CMSSW job?"
 objectives:
 - "Setup a CMSSW environment"
 - "Use git to download an example EDAnalyzer"
@@ -15,63 +18,51 @@ keypoints:
 - "Analyzing simple ROOT ntuples like NanoAOD does not need CMSSW!"
 ---
 
-> ## Questions
-> For this lesson, please submit your answers using [CMSDAS@LPC{{ site.year }} Google Form 5][Set5_form].
-{: .challenge}
+{% include submit.md episode=5 %}
 
-# CMSSW
-CMSSW is CMS's software framework for analyzing the data produced by the CMS detector. 
-The framework contains a large number of modules (C++), which perform tasks like:
-- Loading RAW data (bits from the detector) into nice C++ objects; 
-- Reconstructing detector hits, physics objects (tracks, electrons, muons, hadrons, jets, ...); 
-- Loading calibrations from databases and applying to physics objects; 
-- Interfacing with external generator programs like Pythia and Madgraph_aMC@NLO; 
-- Lots and lots of other things. 
+## CMSSW
+CMSSW is CMS's software framework for processing and analyzing data. It is made of many C++ modules that, for example:
+- turn RAW detector data into C++ objects;
+- reconstruct hits and physics objects (tracks, electrons, muons, jets, ...);
+- load calibrations from databases and apply them;
+- run event generators like Pythia and MadGraph5_aMC@NLO.
 
-> ## Why do you need CMSSW?
-> With the advent of NanoAOD, a simple ROOT format that does need CMSSW to be analyzed, CMS analysis is increasingly being performed completely outside of CMSSW. Your analysis group might have a framework that uses standalone ROOT, RDataFrame, or Scientific Python (e.g. numpy) instead. CMSSW is needed if your analysis needs additional variables not present in NanoAOD (for example, long-lived particle analysis often need RECO-level objects like tracker or calorimeter hits). You will also probably need to use CMSSW for detector, trigger, and/or POG work. 
+CMS stores events in a chain of formats, each smaller than the last:
+**RAW** (straight from the detector) → **RECO** (reconstructed) → **AOD** → **MiniAOD** → **NanoAOD**.
+The early formats are mostly archived on tape; MiniAOD and NanoAOD are usually on disk. You'll learn to find them in the next episode.
+
+> ## Do you need CMSSW?
+> NanoAOD is a plain ROOT format that does **not** need CMSSW, and many analyses now run entirely outside it, using ROOT, RDataFrame, or scientific python.
+> You do need CMSSW if your analysis needs information missing from NanoAOD (for example, long-lived particle searches often need tracker or calorimeter hits), and for most detector, trigger, and POG work.
 {: .callout}
 
-The framework goes hand-in-hand with the "Event Data Model" (EDM), which is how CMS represents events computationally. 
-CMS saves events in several formats along the reconstruction chain, including RAW (data straight from detector), RECO (reconstruction performed), AOD (analysis object data=reduced RECO for analysis), MiniAOD (reduced AOD to fit in CMS's disk space in Run 2), and NanoAOD (even further reduced MiniAOD). 
-The upstream data formats are typically archived to tape storage, and must be loaded onto disk to be used. 
-MiniAOD and NanoAOD are typically available on disk. 
-We will learn more about finding data in the next exercise. 
+## Setting up CMSSW
+CMSSW comes in **releases**, fixed snapshots of the code. A release name such as `CMSSW_13_0_10` gives the major cycle (`13`), a feature release (`0`), and a bug-fix release (`10`).
+`CMSSW_13_0_X` was used for 2023 data taking and for [NanoAODv12](https://gitlab.cern.ch/cms-nanoAOD/nanoaod-doc/-/wikis/Releases/NanoAODv12). See the [release schedule](https://twiki.cern.ch/twiki/bin/view/CMS/ReleaseSchedule) for the full list.
 
-In this exercise, we will learn the basics of CMSSW, from setting up the software environment to running simple jobs. 
+> ## Start from a fresh login
+> Software environments don't mix: if the LCG setup from the previous episode (or conda, etc.) is active in the same session, CMSSW will break. Log out and back in to cmslpc first.
+{: .callout}
 
-# Setting up CMSSW
-Login to cmslpc as usual, and run the following commands to create a CMSSW environment. This will create a folder `CMSSW_13_0_10_cmsdas`, which contains several subfolders. The most important folder is `CMSSW_13_0_10_cmsdas/src`, which is where you put your code. 
+Create a CMSSW area in your work folder. This makes a folder `CMSSW_13_0_10_cmsdas`; your code goes in its `src` subfolder.
 
-```bash
+<!-- TODO(organizers): check whether CMSSW_13_0_10 should be updated for the school year (also used in Episode 6). -->
+```shell
 cd ~/nobackup/cmsdas
 source /cvmfs/cms.cern.ch/cmsset_default.sh
 scram project -n "CMSSW_13_0_10_cmsdas" CMSSW_13_0_10
-```
-> ## Add `cmsset_default.sh`
-> For convenience, we suggest you edit your `~/.bash_profile` file to call the `cmsset_default.sh` script automatically upon login. Add the whole line to this script. 
-{: .callout}
-
-> ## Beware of your software environment
-> Note that software environments are generally not cross-compatible! Namely, if you setup an LCG software release and CMSSW in the same session (or conda, etc.), things will break. For this exercise, make sure you have logged into a fresh session on cmslpc, so that the LCG environment from the previous exercise is not set up. 
-{: .callout}
-
-> ## What does the `13_0_10` mean?
-> Note the release number, `13_0_10`: CMSSW is a massive project that is under continuous development, so we define "releases" that corresponds to a fixed snapshot at some point in time. `CMSSW_13_0_*` is the release used for "NanoAODv12," the [https://gitlab.cern.ch/cms-nanoAOD/nanoaod-doc/-/wikis/Releases/NanoAODv12](currently recommended version) for Run 3 analysis. The first number in series (`13`) indicates a major cycle, the second number (`0`) a major release with new features with respect to the preceeding release, and the third number (`10`) a release with minor updates and bug fixes to the preceeding release. The `CMSSW_13_0_X` series is used for pp data taking in 2023. For full release schedule, see [CMSSW release schedule](https://twiki.cern.ch/twiki/bin/view/CMS/ReleaseSchedule).
-{: .callout}
-
-Next, execute the following commands to setup the environment in your current shell session:
-
-```shell
 cd CMSSW_13_0_10_cmsdas/src
 cmsenv
 ```
 {: .source}
 
-This will provide you with a number of commands and environment variables. For example `$CMSSW_BASE` is a handy variable that points to your CMSSW folder. 
+`cmsenv` sets up the release in your current shell; run it again (from inside `src`) every time you log in.
+Tip: add the `source /cvmfs/cms.cern.ch/cmsset_default.sh` line to your `~/.bash_profile` so it runs at every login.
+
+`cmsenv` also defines handy variables, such as `$CMSSW_BASE`, which points to your CMSSW folder.
 
 > ## Question 5.1
-> The following command prints the location of your CMSSW area. Copy-and-paste the answer into the [Google form 5][Set5_form]. 
+> Print the location of your CMSSW area, and enter it in the answer form:
 > ```shell
 > echo $CMSSW_BASE
 > ```
@@ -79,30 +70,16 @@ This will provide you with a number of commands and environment variables. For e
 {: .challenge}
 
 > ## Question 5.2
-> CMSSW is connected to several external tools, for example the Pythia generator. The following command prints the version of Pythia connected to your current CMSSW release. Fill in the version number in the [Google form 5][Set5_form].
+> Each release comes with external tools, such as the Pythia generator. Print the Pythia version in your release and enter the version number in the answer form:
 > ```shell
 > scram tool info pythia8
 > ```
+> {: .source}
 {: .challenge}
 
-
-# Git
-CMS makes extensive use of `git` for code management, and you will use it throughout CMSDAS (CMSSW itself is managed as a git repository, but it's a rather complicated example, so we won't talk about CMSSW+git here). Here, we will simply use git to download some code. First, if you don't already have a github account, go back to the [setup instructions][lesson-setup] and follow the directions, including setting up the SSH keys. 
-
-> ## Choose your username wisely
-> Choose your username wisely, it will appear on all your contributions to CMS code! In fact, even if you already have an account, if you have a username like `edgelord1337`, consider either changing it or making a second account.
-{: .callout}
-
-Once you have an account, run the following commands to configure git on cmslpc replacing everything including the ``[brackets]``, ``[Account]`` is your github account username:
-
-```shell
-git config --global user.name "[Your name]"
-git config --global user.email [Email]
-git config --global user.github [Account]
-```
-{: .source}
-
-Next, run the following commands to "clone" a repository. Make sure not to skip the `cd` line, as the code has to end up in the correct folder structure. 
+## Getting the example code with git
+Configure git on cmslpc as in [Episode 4]({{ page.root }}{% link _episodes/04-CMSDASPreExercise-git.md %}#configure-git), if you haven't already.
+Then clone the example analysis. The `cd` matters: CMSSW expects code in `src/<Package>/<SubPackage>`.
 
 ```shell
 cd $CMSSW_BASE/src
@@ -110,31 +87,29 @@ git clone git@github.com:FNALLPC/LearnCMSSW MyAnalysis/LearnCMSSW
 ```
 {: .source}
 
-> If the `git clone` fails, it's possible your SSH key was not setup correctly. Double check the [setup instructions][lesson-setup], and head to Mattermost for help. 
-
-This will copy all the code in the repository to `$CMSSW_BASE/src/MyAnalysis/LearnCMSSW`. Feel free to glance through it. 
+If the clone fails, your SSH key is probably not set up on GitHub; see the [setup instructions][lesson-setup].
 
 > ## Question 5.3: git repo info
-> When you cloned the repository, you not only downloaded the code, but also setup a local git repository connected to the remote repository. Use the following commands to print out the URL of the remote repository, from which you cloned the code:
+> Cloning also set up a local git repository connected to the one on GitHub. Print the address of that remote repository:
 > ```shell
 > cd $CMSSW_BASE/src/MyAnalysis/LearnCMSSW
 > git remote -v
 > ```
-> Copy and paste the first line into the Google form. 
+> {: .source}
+> Enter the first line of the output in the answer form.
 {: .challenge}
 
-# Running a CMSSW job
-Now that we have the source code, we have to compile it. Execute the following to compile the package using [scram](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideScram), CMSSW's build tool:
+## Running a CMSSW job
+Compile the code with [scram](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideScram), CMSSW's build tool. (`scram b -j4` uses 4 cores; don't go higher on the shared interactive nodes.)
 
 ```shell
 cd $CMSSW_BASE/src
 scram b
 ```
-> ## Multi-core build
-> `scram b` accept an argument `-j` to use more cores for the compilation. Don't go above `-j4`, as overloading the cores will negatively impact other users on your cmslpc interactive node. 
-{: .callout}
+{: .source}
 
-Finally, let's actually run some code. CMSSW jobs are configured through python files. We will use `$CMSSW_BASE/src/MyAnalysis/test/zpeak_cfg.py`, which is a simple configuration file that loads the plugin at `$CMSSW_BASE/src/MyAnalysis/LearnCMSSW/plugins/ZPeakAnalyzer.cc`. The `ZPeakAnalyzer` processes some dimuon events in MiniAOD format and produces some histograms (a bit of an uncommon workflow, as it is typically more efficient to make histograms from NanoAOD or another slimmed-down format). Launch CMSSW with the following:
+CMSSW jobs are configured with python files and run with `cmsRun`.
+The configuration `MyAnalysis/LearnCMSSW/test/zpeak_cfg.py` runs the `ZPeakAnalyzer` module (`MyAnalysis/LearnCMSSW/plugins/ZPeakAnalyzer.cc`), which reads dimuon events in MiniAOD format and fills some histograms:
 
 ```shell
 cd $CMSSW_BASE/src/MyAnalysis/LearnCMSSW/test
@@ -142,16 +117,17 @@ cmsRun zpeak_cfg.py
 ```
 {: .source}
 
-The job will take a minute to run, periodically updating you on the progress. When it's done, you should see a file `ZPeak.root`. Let's open it and plot the Z peak:
+The job takes about a minute and writes `ZPeak.root`. Open it and plot the Z peak:
 
 ```shell
 root -l ZPeak.root
-[0] TH1D* dimuonMass = (TH1D*)_file0->Get("zpeak_analyzer/dimuonMass")
-[1] dimuonMass->Draw()
+root [0] TH1D* dimuonMass = (TH1D*)_file0->Get("zpeak_analyzer/dimuonMass")
+root [1] dimuonMass->Draw()
 ```
+{: .source}
 
 > ## Question 5.4
-> Using the stat box drawn along with the histogram, what is the mean dimuon mass? Write your answer in the Google form. 
+> What is the mean dimuon mass shown in the histogram's stat box? Enter it in the answer form.
 {: .challenge}
 
-[Set5_form]: https://forms.gle/oRuhfW16F4zeymw77 
+{% include links.md %}

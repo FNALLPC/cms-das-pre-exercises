@@ -49,6 +49,17 @@ title: "CMS DAS Pre-Exercises"
 year: 2027
 mattermost_invitelink: https://mattermost.web.cern.ch/signup_user_complete/?id=6coqxirohf8dd8ix8x4ehahy8c
 
+# Permanent answer-submission form (one form for all episodes and all years).
+# The episode "Submit" boxes (_includes/submit.md) pre-fill the year and episode,
+# so bumping `year` above is the only yearly change. See FORMS.md.
+#   form_url:      the form's ".../viewform" URL (no query string)
+#   year_entry:    pre-fill ID of the "School year" question, e.g. "entry.123456789"
+#   episode_entry: pre-fill ID of the "Episode" question, e.g. "entry.987654321"
+submission:
+  form_url: "https://docs.google.com/forms/d/e/1FAIpQLSc9duGMYo6WrYXtE_fpM1nDBQpGto4CfKwEwHFLjUzT_TmevA/viewform"
+  year_entry: "entry.1310790695"
+  episode_entry: "entry.1309488967"
+
 #------------------------------------------------------------
 # Generic settings (should not need to change).
 #------------------------------------------------------------
@@ -126,6 +137,9 @@ exclude:
   - Makefile
   - bin/
   - .Rproj.user/
+  - FORMS.md
+  - tools/
+  - vendor/
 
 # Turn on built-in syntax highlighting.
 highlighter: rouge

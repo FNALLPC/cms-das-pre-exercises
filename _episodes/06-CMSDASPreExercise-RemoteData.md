@@ -3,6 +3,9 @@ title: "CMSDAS Pre-Exercise 6: Using the grid"
 teaching: 0
 exercises: 60
 questions:
+- "How do I find CMS data on the grid?"
+- "How do I run jobs on the grid with CRAB?"
+- "How do I publish and retrieve my CRAB output?"
 objectives:
 - "Learn how to find CMS data on the grid"
 - "Launch a MC (Monte Carlo) generation job using CRAB"
@@ -14,81 +17,55 @@ keypoints:
 - "Grid jobs run around the world, typically (but not always) using CPUs at the same site as the data."
 ---
 
-> ## Optional exercise
-> This exercise is *not* a prerequisite for registering for CMSDAS. We encourage all students to do this exercises anyways, as you will certainly need to use the grid for analysis at some point. 
+> ## Optional, but start early
+> This episode is *not* required to register for CMSDAS, but we encourage everyone to do it: any real CMS analysis uses the grid.
+> It takes only a few hours of work, but storage requests and grid jobs can take days, so **set aside about a week**.
 {: .callout}
 
-> ## Questions
-> For this lesson, please submit your answers using [CMSDAS@LPC{{ site.year }} Google Form 6][Set6_form].
-{: .challenge}
+{% include submit.md episode=6 %}
 
-# Before you start
-In this set of exercises, we will learn how to do a full-scale analysis using the Worldwide LHC Computing Grid **This set of exercises will take considerably longer than the others**. Having your storage space set up may take several days, grid jobs can take a few days to run, and there can be problems. Although the actual effort for this exercise is only a few hours, you should **set aside about a week** to complete these exercises. (Note: you may or may not use CRAB during CMSDAS; however, to do a real CMS analysis, you will certainly need to use CRAB and/or the storage resources at `/store/user/`.)
+## Before you start
+You need:
+- a cmslpc account, a grid certificate, and CMS VO membership (see the [setup instructions][lesson-setup]);
+- write access to `T3_US_FNALLPC`, i.e. your EOS area `/store/user/<username>` linked to your grid certificate (checked [below](#obtain-a-storeuser-area)).
 
-If you encounter any problems with the exercise, please reach out on Mattermost or send an email to [CMSDASATLPC@fnal.gov](mailto:CMSDASATLPC@fnal.gov) with a detailed description of your problem. Outside of CMSDAS, you can find help at the [CRAB troubleshooting twiki](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3Troubleshoot) or the [Computing Tools forum on cms-talk](https://cms-talk.web.cern.ch/c/offcomp/comptools). 
+lxplus users who already know CRAB can do everything at CERN instead.
+After CMSDAS, you can use the same steps to write to your university's Tier 2 or Tier 3 storage.
 
+If you get stuck, ask on Mattermost or email [CMSDASATLPC@fnal.gov](mailto:CMSDASATLPC@fnal.gov) with a detailed description of the problem.
+Outside CMSDAS, see the [CRAB troubleshooting twiki](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3Troubleshoot) or the [Computing Tools forum on cms-talk](https://cms-talk.web.cern.ch/c/offcomp/comptools).
 
-> ## Note
-> **This section assumes that you have an account on the LPC computers
-> at FNAL.** How to get one is explained in the [setup instructions][lesson-setup]. However,
-> those familiar with the CERN computing environment and somewhat
-> familiar with CRAB can answer all the questions running at CERN
-> only. For CMSDAS, we recommend using a LPC account at FNAL and making sure you have write access to T3\_US\_FNALLPC. For T3\_US\_FNALLPC, you can get your EOS area mapped to your grid
-> certificate by following [these instructions](https://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml#createEOSArea) to do a CMS Storage
-> Space Request.
->
-> Later on, you can check with your university contact for Tier 2 or Tier 3 storage area. Once you are granted the write permission to the specified site, for later analysis you can use CRAB as the below exercise but store the output to your Tier 2 or Tier 3 storage area.
->
-> AGAIN: To perform this set of exercises, an LPC account, Grid Certificate, and CMS VO membership are required. You should already have these things, but if not, follow the [setup instructions][lesson-setup].
-{: .callout}
+## Finding data on the grid
+CMS data is spread over computing sites around the world (Tier 1, 2, and 3). To find it, use the **Data Aggregation Service (DAS)**, not to be confused with this school!
 
+Open the [DAS website](https://cmsweb.cern.ch/das) (your browser needs your grid certificate; you may have to accept a security warning) and search for:
 
-# Finding data on the grid
-In this exercise, we will learn to locate CMS data on the grid. CMS data is stored around the world at various T1, T2, and T3 computing sites. We will first learn how to use the **Data Aggregation Service (DAS)** to locate data (not to be confused with the data analysis school in which you are partaking!). 
-
-There are two ways to use DAS to find data: through a website or via the command line. First, let's use the [DAS](https://cmsweb.cern.ch/das) website. You will be asked for your grid certificate, which you should have loaded into your browser. (Also note that there may be a security warning message, which you will need to bypass.) Enter the following into the form:
-
+<!-- TODO(organizers): Run 2 datasets in this episode (here, Q6.2, and the CRAB Z-peak config) may need updating. -->
 ```
 dataset dataset=/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1/NANOAODSIM
 ```
 
-The first "dataset" indicates that you're searching for whole data sets; the second "dataset=/DYJets..." is a filter, returning only this specific data set. The search results should show exactly one hit, along with several links for more info. 
+The first `dataset` says you're searching for datasets; `dataset=/DYJets...` filters to this one. You should get exactly one result.
 
 ![image_DAS]({{site.baseurl}}{% link fig/DAS_dataset.png %})
 
-Let's click on "Files," which actually performs another search (you can see the exact search string in the search bar) for files in this data set. The results show 71 files, mostly around 2 GB in size with about 2 million events per file. 
+Click **Files** to list the files in the dataset: 71 files, mostly about 2 GB with about 2 million events each.
 
 ![image_DAS]({{site.baseurl}}{% link fig/DAS_files.png %})
 
-Finally, click on "Sites" for a single file. This will show the sites around the world that have this file available. This particular file is available at numerous sites, including T1_US_FNAL_Disk, T2_US_MIT, and T2_US_Purdue in the US. 
+Click **Sites** for one file to see where it is stored, for example T1_US_FNAL_Disk, T2_US_MIT, and T2_US_Purdue.
+More on DAS: the [DAS FAQ](https://cmsweb.cern.ch/das/faq) and [WorkBookDataSamples](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookDataSamples).
 
-More information about accessing data in the [Data Aggregation Service](https://cmsweb.cern.ch/das/faq) can be found in [WorkBookDataSamples](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookDataSamples).
+## Verify your grid certificate
+Install your grid certificate on cmslpc-el9 too (see the [setup instructions][lesson-setup]). Then log in to **cmslpc-el9.fnal.gov**, create a grid proxy, and inspect it:
 
-
-# CRAB introduction and prerequisites
-Using DAS, we can locate our desired input data using, e.g., `file dataset=/DYJetsToLL...`. We could download all the files from the grid using [xrootd](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookXrootdService). However, if you were to try this, you would quickly fill up your quota! Instead, we can use the **CMS Remote Analysis Builder** ([CRAB](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideCrab)). CRAB is a utility that distributes CMSSW jobs to the CMS grid (typically, but not always, _using CPUs at the site where the input data is stored_). The jobs will then transfer the reduced output (e.g., skimmed/slimmed ntuples or even histograms) to your /store/user/ space. CRAB is your entry point to the CMS's significant CPU and storage resources around the world. 
-
-For general help or questions about CRAB, see the [CRAB FAQ](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideCrab#Getting_support). The most recent CRAB tutorial can be found in the [WorkBook](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBook) under [WorkBookCRABTutorial](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookCRAB3Tutorial). This tutorial provides complete instructions for both beginner and expert CRAB users. We strongly recommend you to follow the CRAB tutorial after you finish these exercises. 
-
-## Verify your grid certificate is OK
-
-This exercise depends on obtaining a grid certificate and VOMS membership, but does not depend on any previous exercises.
-
-After you've followed all the instructions above and installed your grid certificate, you need to verify it has all the information needed. Please install your grid certificate also on cmslpc-el9.fnal.gov
-
-Login to **cmslpc-el9.fnal.gov** and initialize your proxy:
 ```shell
 voms-proxy-init -voms cms
-```
-{: .source}
-
-Then run the following command:
-```shell
 voms-proxy-info -all | grep -Ei "role|subject"
 ```
 {: .source}
 
-The response should look like this:
+The output should look like this:
 ```
 subject   : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=haweber/CN=713242/CN=Hannsjorg Weber/CN=2282089851
 subject   : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=haweber/CN=713242/CN=Hannsjorg Weber
@@ -96,31 +73,37 @@ attribute : /cms/Role=NULL/Capability=NULL
 attribute : /cms/uscms/Role=NULL/Capability=NULL
 ```
 {: .output}
-If you do not have the first attribute line listed above, you probably did not finish the VO registration in the [setup][lesson-setup]. Double check this first, and otherwise reach out on Mattermost.
+
+No `attribute : /cms/...` line? Your CMS VO registration is probably incomplete; check the [setup instructions][lesson-setup], then ask on Mattermost.
 
 > ## Question 6.1
-> Copy the output corresponding to the text in the output box above, using [CMSDAS@LPC{{ site.year }} Google Form 6][Set6_form].
+> Enter your output of the command above in the answer form.
 {: .challenge}
 
-Now that you have a valid grid proxy in the CMS VO, we will be able to run a command line client to check DAS to find CMS files and their information. 
+With a valid proxy, you can also query DAS from the command line with `dasgoclient`.
 
-> ## DAS client Question 6.2
-> Now let's use the command line implementation of DAS to find some real collision data. This requires the valid CMS grid proxy. The `dasgoclient` lets you query DAS just like the web interface. On cmslpc, enter the following query (along with a `grep` command to filter the result):
+> ## Question 6.2: DAS client
+> On cmslpc, find the number of events in a real collision dataset:
 > ```shell
 > dasgoclient -query="dataset dataset=/JetHT/Run2018C-UL2018_MiniAODv2_NanoAODv9-v1/NANOAOD" -json | grep "nevents"
 > ```
 > {: .source}
-> How many events are in this dataset? Enter the result in the Google form. 
+> Enter the number of events in the answer form.
 {: .challenge}
 
 ## Obtain a /store/user area
-This exercise pertains specifically to cmslpc. When you obtained your cmslpc account, you should have automatically been granted EOS storage at `/store/user/YourUsername`, however if your grid certificate was not provided or linked you may need to [ensure that it is in Fermilab's database](https://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml#createEOSArea). (As a refresher, you can review the instructions for using EOS at [Using EOS at LPC](http://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml#checkEOS).) You will configure your CRAB jobs to write output files to this space. However, **it will not yet be linked to your grid certificate unless you provided it in the application form.** If not linked, put in a Fermilab ServiceNow request following directions for [CMS Storage Space Request](http://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml#createEOSArea). Note that this can take up to 1 business day (FNAL hours). 
+Your cmslpc account comes with EOS storage at `/store/user/<username>` (see [Using EOS at LPC](https://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml#checkEOS)), and CRAB will write its output there.
+But CRAB can only write there if the area is **linked to your grid certificate**. If you didn't give your certificate in the cmslpc account application, file a [CMS Storage Space Request](https://uscms.org/uscms_at_work/computing/LPC/usingEOSAtLPC.shtml#createEOSArea). It can take up to one business day (Fermilab hours).
 
-# Setting up CRAB
-Once you have a /store/user/ area connected with your grid certificate, we can start using CRAB.
-In this exercise, you will generate a small MC sample yourself, and then publish it using DAS. 
-We will use `CMSSW_13_0_13`. Let's setup a new CMSSW area for this exercise:
+## CRAB introduction
+Downloading a whole dataset with `xrdcp` would quickly fill your quota. Instead, the **CMS Remote Analysis Builder** ([CRAB](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideCrab)) sends your CMSSW jobs to the grid, usually to CPUs at the site where the input data is stored, and copies the (much smaller) output to your `/store/user` area.
 
+After this episode, we strongly recommend the full [CRAB tutorial](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookCRAB3Tutorial).
+
+### Set up CRAB
+Set up a new CMSSW area for this exercise. CRAB comes with CMSSW: `which crab` should then print something like `/cvmfs/cms.cern.ch/common/crab`.
+
+<!-- TODO(organizers): unify this CMSSW release with Episode 5 if possible. -->
 ```shell
 cd ~/nobackup/cmsdas/
 scram project -n "CMSSW_13_0_13_mcgen" CMSSW_13_0_13
@@ -129,85 +112,61 @@ cmsenv
 ```
 {: .source}
 
-CRAB is packaged along with CMSSW, so you should have it available now. Verify this by executing `which crab`; this should return something like `/cvmfs/cms.cern.ch/common/crab`. 
-
-Next, we will verify that your CRAB jobs have permission to write to your EOS storage. First, initialize your proxy:
-
-```shell
-voms-proxy-init -voms cms
-```
-{: .source}
-
-Use the following command to check if CRAB has write access to your EOS area:
-
-```shell
-crab checkwrite --site= <site-name>
-```
-{: .source}
-
-Specifically, for your cmslpc EOS storage, you should execute:
+Check that CRAB can write to your EOS area (with a valid proxy from `voms-proxy-init -voms cms`):
 
 ```shell
 crab checkwrite --site=T3_US_FNALLPC
 ```
 {: .source}
 
- You should see a fair amount of output as CRAB tries several operations in your EOS storage space. At the end, hopefully you will see something like:
+After a fair amount of output, it should end with:
 
-```shell
-Will check write permission in the default location /store/user/<username>
-Validating LFN /store/user/YourCERNUsername...
-LFN /store/user/YourUsername is valid.
-Will use `gfal-copy`, `gfal-rm` commands for checking write permissions
-Will check write permission in /store/user/YourCERNUsername on site T3_US_FNALLPC
-...
-...
-Success: Able to write in /store/user/YourCERNUsername on site T3_US_FNALLPC
+```
+Success: Able to write in /store/user/<username> on site T3_US_FNALLPC
 ```
 {: .output}
 
+## Generate and publish a minimum-bias sample with CRAB
+Next you'll generate a small minimum-bias Monte Carlo (MC) sample, first locally and then on the grid.
 
-
-# Generate and publish a minimum-bias dataset with CRAB
-
-In this exercise, we will generate a minimum bias Monte Carlo (MC) sample. 
-A typical CMS MC job is configured with a "python fragment," which is a small piece of python containing the necessary code to configure the generator inside CMSSW. 
-Let's download a recent minimum bias fragment:
+A CMS MC job starts from a **fragment**, a short piece of python that configures the event generator inside CMSSW. Download a recent minimum-bias fragment:
 
 ```shell
 cd $CMSSW_BASE/src
 curl -s -k https://cms-pdmv-prod.web.cern.ch/mcm/public/restapi/requests/get_fragment/PPD-Run3Summer23GS-00003 --retry 3 --create-dirs -o Configuration/GenProduction/python/PPD-Run3Summer23GS-00003-fragment.py
 ```
-
-The fragment contains the following lines; it mostly just sets up a special EDFilter module that runs Pythia inside CMSSW, along with a number of Pythia-specific settings:
-```python
-import FWCore.ParameterSet.Config as cms
-
-from Configuration.Generator.Pythia8CommonSettings_cfi import *
-from Configuration.Generator.MCTunesRun3ECM13p6TeV.PythiaCP5Settings_cfi import *
-
-generator = cms.EDFilter("Pythia8ConcurrentGeneratorFilter",
-    maxEventsToPrint = cms.untracked.int32(1),
-    pythiaPylistVerbosity = cms.untracked.int32(1),
-    filterEfficiency = cms.untracked.double(1.0),
-    pythiaHepMCVerbosity = cms.untracked.bool(False),
-    comEnergy = cms.double(13600.),
-    PythiaParameters = cms.PSet(
-        pythia8CommonSettingsBlock,
-        pythia8CP5SettingsBlock,
-        processParameters = cms.vstring(
-              'SoftQCD:inelastic = on'
-       ),
-        parameterSets = cms.vstring('pythia8CommonSettings',
-                                    'pythia8CP5Settings',
-                                    'processParameters',
-                                    )
-    )
-)
-```
 {: .source}
 
-Next, we need to turn the fragment into a full-fledged CMSSW configuration file. We can do this with the helpful `cmsDriver.py` utility. Execute the following:
+> ## Show the fragment
+> It sets up a module that runs Pythia inside CMSSW, plus Pythia settings:
+> ```python
+> import FWCore.ParameterSet.Config as cms
+>
+> from Configuration.Generator.Pythia8CommonSettings_cfi import *
+> from Configuration.Generator.MCTunesRun3ECM13p6TeV.PythiaCP5Settings_cfi import *
+>
+> generator = cms.EDFilter("Pythia8ConcurrentGeneratorFilter",
+>     maxEventsToPrint = cms.untracked.int32(1),
+>     pythiaPylistVerbosity = cms.untracked.int32(1),
+>     filterEfficiency = cms.untracked.double(1.0),
+>     pythiaHepMCVerbosity = cms.untracked.bool(False),
+>     comEnergy = cms.double(13600.),
+>     PythiaParameters = cms.PSet(
+>         pythia8CommonSettingsBlock,
+>         pythia8CP5SettingsBlock,
+>         processParameters = cms.vstring(
+>               'SoftQCD:inelastic = on'
+>        ),
+>         parameterSets = cms.vstring('pythia8CommonSettings',
+>                                     'pythia8CP5Settings',
+>                                     'processParameters',
+>                                     )
+>     )
+> )
+> ```
+{: .solution}
+
+Turn the fragment into a full CMSSW configuration with `cmsDriver.py`. (`scram b` first, so CMSSW knows about the new file.)
 
 ```shell
 cd $CMSSW_BASE/src
@@ -215,38 +174,36 @@ scram b
 cmsDriver.py Configuration/GenProduction/python/PPD-Run3Summer23GS-00003-fragment.py --python_filename cmsdas_minbias_cfg.py --eventcontent NANOAODGEN --step GEN,NANOGEN --datatier NANOAODSIM --customise Configuration/DataProcessing/Utils.addMonitoring --fileout file:cmsdas_minbias_nanogen.root --conditions 130X_mcRun3_2023_realistic_forMB_v1 --beamspot Realistic25ns13p6TeVEarly2023Collision --geometry DB:Extended --era Run3_2023 --no_exec --mc -n 20
 ```
 {: .source}
-Note: the `scram b` is necessary for CMSSW to be aware of the newly downloaded fragment file. This should have created a new file, `cmsdas_minbias_cfg.py`. Look over this file, and appreciate how much effort `cmsDriver.py` has saved us in creating this file automatically! This specific job will run 20 events through the GEN step (i.e. launching Pythia to generate truth-level events) and the NANOGEN step (which just dumps the truth particle info to a NanoAOD file); for simplicity, we are skipping the detector simulation. 
 
+This writes `cmsdas_minbias_cfg.py`; skim it to see how much `cmsDriver.py` wrote for you.
+The job generates 20 events with Pythia (the GEN step) and saves the generated particles to a NanoAOD file (NANOGEN), skipping detector simulation to keep things fast.
 
-## Generating MC events locally
-
-We want to test this Configuration file locally for a small number of events before we submit to CRAB for massive generation. To test this file, we can run
+### Test locally
+Always test a few events locally before sending jobs to the grid. This takes a few minutes and prints a lot of Pythia output:
 
 ```shell
 cmsRun cmsdas_minbias_cfg.py
 ```
 {: .source}
 
-This job will take a few minutes to run; you will see quite a lot of output from Pythia as it generates events. Once it finishes, you should have a brand new NANOGEN file, `cmsdas_minbias_nanogen.root`. 
-
 > ## Question 6.3
-> What is the file size of `cmsdas_minbias_nanogen.root`? Use `ls -lh`.
+> What is the size of the output file `cmsdas_minbias_nanogen.root`? Use `ls -lh`, and enter it in the answer form.
 {: .challenge}
 
+### Submit to CRAB
+CRAB is configured with (once again!) a python file; see [CRAB3ConfigurationFile](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile) for all the options. Download our config and submit it:
 
-## Generate and publish MC dataset using CRAB
-
-We usually need millions of MC events for a CMS analysis. The collaboration produces a lot of samples centrally, but you will occasionally need to make new samples for your analysis, or test MC. In this example, we will use CRAB to launch many minimum bias production jobs on the grid. 
-
-CRAB is configured using python configuration files (once again!). The complete documentation for these configuration files is here: [CRAB3ConfigurationFile](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile). For now, we have prepared a CRAB config for you; download it to cmslpc using:
 ```shell
 cd $CMSSW_BASE/src
 wget fnallpc.github.io/cms-das-pre-exercises/code/cmsdas_mc_crab.py
+crab submit -c cmsdas_mc_crab.py
 ```
+{: .source}
 
-Below you also find the file:
-> ## Show/Hide
-> ```
+<!-- TODO(organizers): outputDatasetTag in code/cmsdas_mc_crab.py still says cmsdas2025; update it there and here together. -->
+> ## Show the CRAB config
+> It runs 10 jobs of 20 events each and publishes the output as a dataset:
+> ```python
 > from WMCore.Configuration import Configuration
 > config = Configuration()
 >
@@ -273,142 +230,78 @@ Below you also find the file:
 > ```
 {: .solution}
 
+You may be asked for your grid certificate password. A successful submission ends with:
 
-To submit, simply execute the following:
-
-```shell
-crab submit -c cmsdas_mc_crab.py
 ```
-{: .source}
-
-(For the detail of the crab command, see [CRABCommands](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookCRAB3Tutorial#CRAB_commands).) You might be requested to enter your grid certificate password. You should get an output similar to this:
-```
-Will use CRAB configuration file cmsdas_mc_crab.py
-Enter GRID pass phrase for this identity:
-Importing CMSSW configuration cmsdas_minbias_cfg.py
-Finished importing CMSSW configuration cmsdas_minbias_cfg.py
-Sending the request to the server at cmsweb.cern.ch
 Success: Your task has been delivered to the prod CRAB3 server.
-Task name: 231110_212908:dryu_crab_cmsdas_minbias_test0
+Task name: 231110_212908:<username>_crab_cmsdas_minbias_test0
 Project dir: crabsubmit/crab_cmsdas_minbias_test0
 Please use ' crab status -d crabsubmit/crab_cmsdas_minbias_test0 ' to check how the submission process proceeds.
-Log file is /uscms_data/d3/username/cmsdas/CMSSW_13_0_13_mcgen/src/crabsubmit/crab_cmsdas_minbias_test0/crab.log
 ```
 {: .output}
 
- Now you might notice a directory called `crabsubmit` is created under `CMSSW_13_0_13_mcgen/src/`. This directory contains all the essential metadata for your CRAB job, and is your main tool for interacting with your running jobs. Use `crab status -d crabsubmit`
-
-IMPORTANT: do not modify or delete the files in this directory until you are 100% sure your job is finished! Your jobs will occasionally fail (for example, if the computing site is misconfigured, a network error occurs, the power goes out, ...). You can use `crab resubmit -d crabsubmit/the_job_dir` to resubmit the jobs, but not if you have deleted the directory. 
+> ## Don't delete the project directory
+> `crabsubmit/crab_cmsdas_minbias_test0` holds everything CRAB needs to manage your task. Jobs sometimes fail (site problems, network errors, ...) and can be retried with `crab resubmit -d <project dir>`, but only if the directory still exists. Don't modify or delete it until the task is completely finished.
 {: .callout}
 
- After you submitted the job successfully (give it a few moments), you can check the status of a task by executing the following CRAB command:
+### Monitor the task
+Check the status of your task (see [CRAB commands](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookCRAB3Tutorial#CRAB_commands) for others):
 
- ```shell
+```shell
 crab status -d crabsubmit/crab_cmsdas_minbias_test0
- ```
- {: .source}
+```
+{: .source}
 
-The `crab status` command will produce an output containing the task name, the status of the task as a whole, the details of how many jobs are in which state (submitted, running, transfering, finished, cooloff, etc.) and the location of the CRAB log (`crab.log`) file. It will also print the URLs of two web pages that one can use to monitor the jobs. In summary, it should look something like this:
+This shows how many jobs are in each state (idle, running, transferring, finished, failed, ...) and links to monitoring web pages.
+Jobs usually take a few hours; take a break and check back. When the task is done, the output looks like this (abridged):
 
-> ## Show/Hide
-> ```
-> cmslpc178:~/nobackup/cmsdas/CMSSW_13_0_13_mcgen/src --> crab status -d crabsubmit/crab_cmsdas_minbias_test0
-> CRAB project directory:     /uscms_data/d3/username/cmsdas/CMSSW_13_0_13_mcgen/src/crabsubmit/crab_cmsdas_minbias_test0
-> Task name:          231110_212908:username_crab_cmsdas_minbias_test0
-> Grid scheduler - Task Worker:   crab3@vocms0198.cern.ch - crab-prod-tw01
-> Status on the CRAB server:  SUBMITTED
-> Task URL to use for HELP:   https://cmsweb.cern.ch/crabserver/ui/task/231110_212908%3Ausername_crab_cmsdas_minbias_test0
-> Dashboard monitoring URL:   https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=username&var-task=231110_212908%3Ausername_crab_cmsdas_minbias_test0&from=1699648148000&to=now
-> Status on the scheduler:    SUBMITTED
-> 
-> Jobs status:                    idle                100.0% (10/10)
-> 
-> No publication information available yet
-> Log file is /uscms_data/d3/username/cmsdas/CMSSW_13_0_13_mcgen/src/crabsubmit/crab_cmsdas_minbias_test0/crab.log
-> ```
-{: .solution}
+```
+Status on the scheduler:    COMPLETED
 
-Now you can take a break and have some fun. Come back after couple hours or so and check the status again.
+Jobs status:                    finished            100.0% (10/10)
 
-> ## Show/Hide
-> ```
-> [tonjes@cmslpc101 src]$ crab status crabsubmit/cmsdas_minbias_test0
-> CRAB project directory:		/uscms_data/d3/username/cmsdas/CMSSW_13_0_13_mcgen/src/crabsubmit/crab_cmsdas_minbias_test0
-> Task name:			231110_212908:username_crab_cmsdas_minbias_test0
-> Grid scheduler - Task Worker:	crab3@vocms0122.cern.ch - crab-prod-tw01
-> Status on the CRAB server:	SUBMITTED
-> Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/211024_214242%3Abelt_cmsdas_minbias_test0
-> Dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=belt&var-task=211024_214242%3Abelt_cmsdas_minbias_test0&from=1635108162000&to=now
-> Status on the scheduler:	COMPLETED
-> 
-> Jobs status:                    finished     		100.0% (10/10)
-> 
-> Publication status of 1 dataset(s):	done         		100.0% (10/10)
-> (from CRAB internal bookkeeping in transferdb)
-> 
-> Output dataset:			/MinBias/belt-CMSDAS2021_CRAB3_MC_generation_test0-67359df6f8a0ef3c567d7c8fea38a809/USER
-> Output dataset DAS URL:		https://cmsweb.cern.ch/das/request?input=%2FMinBias%2Fbelt-CMSDAS2021_CRAB3_MC_generation_test0-67359df6f8a0ef3c567d7c8fea38a809%2FUSER&instance=prod%2Fphys03
-> 
-> Warning: the max jobs runtime is less than 30% of the task requested value (1250 min), please consider to request a lower value for failed jobs (allowed through crab resubmit) and/or improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task.
-> 
-> Warning: the average jobs CPU efficiency is less than 50%, please consider to improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task
-> 
-> Summary of run jobs:
->  * Memory: 39MB min, 84MB max, 43MB ave
->  * Runtime: 0:04:55 min, 0:45:15 max, 0:08:59 ave
->  * CPU eff: 7% min, 73% max, 22% ave
->  * Waste: 1:15:29 (46% of total)
-> 
-> Log file is /uscms_data/d3/username/cmsdas/CMSSW_13_0_13_mcgen/src/crabsubmit/crab_cmsdas_minbias_test0/crab.log
-> ```
-{: .solution}
+Publication status of 1 dataset(s):  done           100.0% (10/10)
 
-**Note**: If you specified T3_US_FNALLPC as your output directory, CRAB will write the output to your eos area. You can see them at something like `eosls /store/user/username/MinBias/MinBias_TuneCP5_13p6TeV-pythia8_cmsdas2025_test0/...`. 
+Output dataset:         /MinBias/<username>-MinBias_TuneCP5_13p6TeV-pythia8_cmsdas2025_test0-<hash>/USER
+Output dataset DAS URL: https://cmsweb.cern.ch/das/request?input=...&instance=prod%2Fphys03
+...
+```
+{: .output}
 
-From the bottom of the output, you can see the name of the dataset and the DAS link to it. Congratulations! This is the your first CMS dataset.
+The output files are in your EOS area, e.g. `eosls /store/user/<username>/MinBias/MinBias_TuneCP5_13p6TeV-pythia8_cmsdas2025_test0/`.
+The **Output dataset** line is the name of your published dataset: congratulations, your first CMS dataset!
 
-There is some magic going on under the hood here. For example, if you were to simply `cmsRun cmsdas_minbias_cfg.py` ten times, you would get 10 identical output files. CRAB takes care of assigning each job an independent seed for the random number generator, so that each file contains unique events!
-{: .callout}
+Note that CRAB gives each job its own random-number seed. Running `cmsRun cmsdas_minbias_cfg.py` ten times yourself would give ten identical files.
 
 > ## Question 6.4
-> What is the dataset name you published?
+> Enter the name of the dataset you published in the answer form.
 {: .challenge}
 
-# Processing MiniAOD with CRAB
-In this exercise, we will use CRAB to run the ZPeakAnalyzer module from the previous exercise. Remember that we were using a different CMSSW release, `CMSSW_13_0_10_cmsdas`, so make sure to logout, login, and setup the correct release:
+## Processing MiniAOD with CRAB
+Now run the `ZPeakAnalyzer` from Episode 5 on real data with CRAB. It uses the Episode 5 release, so log out, log back in, and set it up:
 
 ```shell
 cd ~/nobackup/cmsdas/CMSSW_13_0_10_cmsdas/src
 cmsenv
-```
-{: .source}
-
-Download another CRAB configuration file, 
-
-```shell
-cd $CMSSW_BASE/src
 wget fnallpc.github.io/cms-das-pre-exercises/code/cmsdas_zpeak_crab.py
 ```
 {: .source}
 
-The configuration file looks like this:
-
-> ## Show/Hide
->
+> ## Show the CRAB config
 > ```python
 > import os
 > from WMCore.Configuration import Configuration
 > config = Configuration()
-> 
+>
 > config.section_("General")
 > config.General.requestName = 'cmsdas_zpeak_test0'
 > config.General.workArea = 'crabsubmit'
-> 
+>
 > config.section_("JobType")
 > config.JobType.pluginName = 'Analysis'
 > config.JobType.psetName = os.path.expandvars('$CMSSW_BASE/src/MyAnalysis/LearnCMSSW/test/zpeak_cfg.py')
 > config.JobType.allowUndistributedCMSSW = True
-> 
+>
 > config.section_("Data")
 > config.Data.inputDataset = '/DoubleMuon/Run2016C-03Feb2017-v1/MINIAOD'
 > config.Data.inputDBS = 'global'
@@ -416,122 +309,65 @@ The configuration file looks like this:
 > config.Data.unitsPerJob = 50
 > config.Data.lumiMask = 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions16/13TeV/Cert_271036-275783_13TeV_PromptReco_Collisions16_JSON.txt'
 > config.Data.runRange = '275776-275782'
-> 
+>
 > config.section_("Site")
 > config.Site.storageSite = 'T3_US_FNALLPC'
 > ```
 {: .solution}
 
-Most of this file is similar to the previous MC generation job, but there are a few key differences. The `runRange` parameter is used to process only a small number of runs (to save time, effort, and CO2 in this exercise). The `lumiMask` parameter specifies which runs and lumisections are good for analysis (each detector is responsible for certifying which lumisections are good or bad; for example, HCAL would mark data as bad if the bias voltage for the photomultipliers was incorrect). 
+Compared with the MC config, two settings are new:
+- `runRange` processes only a few runs, to save time and CO2;
+- `lumiMask` lists the runs and lumisections certified as good for analysis. Each detector group marks data as bad when it had problems, for example a wrong HCAL photomultiplier voltage.
 
-## Run CRAB
-
- Now go through the same process for this config file. You submit it with
-
- ```shell
- crab submit -c cmsdas_zpeak_crab.py
- ```
- {: .source}
-
- and check the status with
-
- ```shell
- crab status
- ```
- {: .source}
-
- After a while, you should see something like below:
-
-> ## Show/Hide
-> ```
-> cmslpc154:~/cmsdas/2025/test/CMSSW_13_0_10_cmsdas/src/crabsubmit --> crab status -d crab_cmsdas_zpeak_test0/
-> Your user certificate is going to expire in 1 days. See: https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookStartingGrid#ObtainingCert 
-> CRAB project directory:     /uscms_data/d3/dryu/cmsdas/2025/test/CMSSW_13_0_10_cmsdas/src/crabsubmit/crab_cmsdas_zpeak_test0
-> Task name:          231130_123342:dryu_crab_cmsdas_zpeak_test0
-> Grid scheduler - Task Worker:   crab3@vocms0121.cern.ch - crab-prod-tw01
-> Status on the CRAB server:  SUBMITTED
-> Task URL to use for HELP:   https://cmsweb.cern.ch/crabserver/ui/task/231130_123342%3Adryu_crab_cmsdas_zpeak_test0
-> Dashboard monitoring URL:   https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=dryu&var-task=231130_123342%3Adryu_crab_cmsdas_zpeak_test0&from=1701344022000&to=now
-> Status on the scheduler:    COMPLETED
-> 
-> Jobs status:                    finished            100.0% (31/31)
-> 
-> Output dataset:         /FakeDataset/fakefile-FakePublish-93f81f35bfff96a473e04044a2f7a529/USER
-> 
-> No publication information available yet
-> 
-> Warning: the max jobs runtime is less than 30% of the task requested value (1250 min), please consider to request a lower value for failed jobs (allowed through crab resubmit) and/or improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task.
-> 
-> Warning: the average jobs CPU efficiency is less than 50%, please consider to improve the jobs splitting (e.g. config.Data.splitting = 'Automatic') in a new task
-> 
-> Summary of run jobs:
->  * Memory: 12MB min, 783MB max, 540MB ave
->  * Runtime: 0:01:44 min, 0:04:03 max, 0:03:52 ave
->  * CPU eff: 6% min, 63% max, 28% ave
->  * Waste: 3:15:10 (62% of total)
-> 
-> Log file is /uscms_data/d3/dryu/cmsdas/2025/test/CMSSW_13_0_10_cmsdas/src/crabsubmit/crab_cmsdas_zpeak_test0/crab.log
-> ```
-{: .solution}
-
-## Create reports of data analyzed
-
-Once all jobs are **finished** (see `crab status` above), you can print a summary:
+Submit the task and check on it as before:
 
 ```shell
-crab report
-````
-{: .source}
-
-You'll get something like this:
-> ## Show/Hide
-> ```
-> Summary from jobs in status 'finished':
->   Number of files processed: 64
->   Number of events read: 2167324
->   Number of events written in EDM files: 0
->   Number of events written in TFileService files: 0
->   Number of events written in other type of files: 0
->   Processed lumis written to processedLumis.json
-> Summary from output datasets in DBS:
->   Number of events:
->     /FakeDataset/fakefile-FakePublish-93f81f35bfff96a473e04044a2f7a529/USER: 0
-> Additional report lumi files:
->   Input dataset lumis (from DBS, at task submission time) written to inputDatasetLumis.json
->   Lumis to process written to lumisToProcess.json
-> Log file is /uscms_data/d3/dryu/cmsdas/2025/test/CMSSW_13_0_10_cmsdas/src/crabsubmit/crab_cmsdas_zpeak_test0/crab.log
-> ```
-{: .solution}
-
-> ## Question 6.5
-> How many events were read? Use `crab report -d crabsubmit/crab_cmsdas_zpeak_test0`. 
-{: .challenge}
-
-## Optional: View the reconstructed Z peak in the combined data
-Using CRAB, we have analyzed a lot more events than the local job in the previous exercise. Let's plot the fruits of our labor. We can use the `hadd` command to combine the histograms from the several CRAB output files:
-
-```shell
-hadd ZPeak.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_1.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_10.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_11.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_13.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_14.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_15.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_16.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_17.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_18.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_19.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_2.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_20.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_21.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_22.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_25.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_26.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_27.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_28.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_29.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_3.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_30.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_31.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_4.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_5.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_6.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_7.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_8.root root://cmseos.fnal.gov//store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/ZPeak_9.root 
+crab submit -c cmsdas_zpeak_crab.py
+crab status -d crabsubmit/crab_cmsdas_zpeak_test0
 ```
 {: .source}
 
-Note: the author of this exercise did not actually type out this command by hand! Rather, I first obtained a list of files using `eosls /store/user/dryu/DoubleMuon/crab_cmsdas_zpeak_test0/231110_214958/0000/`, and then used multiple cursors in Sublime Text/Visual Studio Code to turn the list into this long command. You could also generate the command programatically. Tricks like this often come in handy. Also note that the final file is less than 5GB in size. Many filesystems/networks do not do well with much larger files.
-{: .callout}
+Once all jobs are **finished**, print a summary of what was processed:
 
-Open the new `ZPeak.root` file , and plot the histogram. You should have many more events than the last exercise!
+```shell
+crab report -d crabsubmit/crab_cmsdas_zpeak_test0
+```
+{: .source}
 
-# Where to find more on CRAB
+```
+Summary from jobs in status 'finished':
+  Number of files processed: 64
+  Number of events read: 2167324
+  ...
+```
+{: .output}
 
-- [CRAB Home](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideCrab) <br>
-- [CRAB FAQ](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3FAQ) <br>
-- [CRAB troubleshooting guide](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3Troubleshoot): Steps to address the problems you experience with CRAB and how to ask for support. <br>
-- [CMS Computing Tools mailing list](https://hypernews.cern.ch/HyperNews/CMS/get/computing-tools.html), where to send feedback and ask support in case of jobs problem (please send to us your crab task HELP URL from crab status output). <br>
+> ## Question 6.5
+> How many events were read? Enter the number from your `crab report` in the answer form.
+{: .challenge}
 
-Note also that all CMS members using the Grid subscribe to the [Grid Annoucements CMS HyperNews forum](https://hypernews.cern.ch/HyperNews/CMS/get/gridAnnounce.html). Important CRAB announcements will be announced on the [CERN Computing Announcement HyperNews forum](https://hypernews.cern.ch/HyperNews/CMS/get/cernCompAnnounce.html). <br>
+> ## Optional: View the Z peak from the combined data
+> CRAB processed far more events than your local job in Episode 5. Combine the histograms from all output files with `hadd`.
+> First find your output folder, which is named after the task's submission time:
+> ```shell
+> eosls /store/user/<username>/DoubleMuon/crab_cmsdas_zpeak_test0/
+> ```
+> {: .source}
+> Then list the files with `xrdfs` and pass them all to `hadd`:
+> ```shell
+> DIR=/store/user/<username>/DoubleMuon/crab_cmsdas_zpeak_test0/<timestamp>/0000
+> hadd ZPeak.root $(xrdfs root://cmseos.fnal.gov ls $DIR | grep ZPeak | sed 's|^|root://cmseos.fnal.gov/|')
+> ```
+> {: .source}
+> Open `ZPeak.root` and plot `zpeak_analyzer/dimuonMass` as in Episode 5: there should be many more events.
+> Tip: keep merged files below about 5 GB; many filesystems and networks handle larger files poorly.
+{: .solution}
 
-<br><br>
+## Where to find more on CRAB
+- [CRAB home](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideCrab) and [CRAB FAQ](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3FAQ)
+- [CRAB troubleshooting guide](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3Troubleshoot): how to fix common problems and ask for support
+- [Computing Tools forum on cms-talk](https://cms-talk.web.cern.ch/c/offcomp/comptools): ask for help with job problems (include the task's HELP URL from `crab status`), and follow CRAB and grid announcements
+
 _Last reviewed: 2024/10/28 by David Yu_
-<br>
 
-[Set6_form]: https://forms.gle/jrGjXgguwnZzzsT17 
-[lesson-setup]: {{ site.baseurl }}/setup.html
+{% include links.md %}

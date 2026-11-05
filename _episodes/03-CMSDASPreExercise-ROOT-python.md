@@ -3,146 +3,88 @@ title: "CMSDAS Pre-Exercise 3: ROOT and python basics"
 teaching: 0
 exercises: 60
 questions:
+- "How do I set up ROOT and python on cmslpc?"
+- "How do I inspect a NanoAOD file?"
+- "How do I make a quick plot with pyROOT?"
 objectives:
 - "Learn how to use ROOT and python"
 - "Use ROOT and python to inspect a CMS NanoAOD file"
 keypoints:
 - "ROOT and python are two key software tools in HEP."
 - "Many CMS analyses use the NanoAOD format, which are simple ROOT ntuples that can be analyzed with standalone ROOT or pyROOT."
-- "There are numerous ways to use ROOT, including the build-in command line interface (based on CINT, a C++ interpreter), pyROOT, Jupyter notebooks, compiled C++, and more."
+- "There are numerous ways to use ROOT, including the built-in C++ interpreter (Cling), pyROOT, Jupyter notebooks, compiled C++, and more."
 ---
 
-> ## Questions
-> For this lesson, please submit your answers for the [CMSDAS@LPC{{ site.year }} Google Form 3][Set3_form].
-{: .challenge}
+{% include submit.md episode=3 %}
 
-# Python and ROOT
+## Python and ROOT
+Python and ROOT are two of the most important software tools in HEP. Before starting:
 
-Python and ROOT are two of the most important software tools in HEP. If you have never used python before, we highly recommend you go through a tutorial, for example the [HSF python lesson](https://swcarpentry.github.io/python-novice-inflammation/). If you are comfortable with basic python, feel free to proceed, as you will learn by doing in the following exercises. 
+- **Python:** if you've never used it, work through the [Software Carpentry python lesson](https://swcarpentry.github.io/python-novice-inflammation/). If you know the basics, carry on; you'll learn by doing.
+- **ROOT:** work through the [ROOT student course](https://github.com/root-project/student-course) up to at least [02-tfile-read-write-ttree](https://github.com/root-project/student-course/blob/main/course/notebooks/core/02-tfile-read-write-ttree.ipynb). The easiest way is the [SWAN button](https://cern.ch/swanserver/cgi-bin/go?projurl=https://github.com/root-project/student-course.git), which runs the notebooks in your browser on CERN's analysis service.
 
-For ROOT, please follow the lesson on the HEP Software Foundation website for [ROOT](https://github.com/root-project/student-course), up through at least the 3rd lesson, [02-tfile-read-write-ttrees.ipynb](https://github.com/root-project/student-course/blob/main/course/notebooks/core/02-tfile-read-write-ttree.ipynb) (of course, you can keep going and learn about RDataFrames, but we won't use them here). We recommend you click the [SWAN button](https://cern.ch/swanserver/cgi-bin/go?projurl=https://github.com/root-project/student-course.git), which opens a session in CERN's "Service for Web-based ANalysis." From the service, you can open and run code through Jupyter notebooks, all inside the web browser.
+## Inspect a NanoAOD file with ROOT
+Now let's look at real CMS data on cmslpc. Log in as in [Episode 2]({{ page.root }}{% link _episodes/02-CMSDASPreExercise-CMSLPC.md %}#logging-in).
 
-# Inspect a NanoAOD file with ROOT
-Once you're comfortable with python and ROOT, let's go back to cmslpc and look at some real CMS data. 
-Login to the cluster again from your computer:
+A fresh cmslpc login has no ROOT and an old python. The [LCG releases](https://lcgdocs.web.cern.ch/lcgdocs/lcgreleases/introduction/) provide both; run this once per login:
 
-```shell
-kinit <YourUsername>@FNAL.GOV
-ssh -Y <YourUsername>@cmslpc-el9.fnal.gov
-```
- {: .source}
-
-By default, your shell environment will not have ROOT, and will have some very old version of python. 
-A quick way to setup ROOT is to use the [LCG (LHC Computing Grid) releases](https://lcgdocs.web.cern.ch/lcgdocs/lcgreleases/introduction/). 
-All you have to do is execute the following script (once per login):
-
+<!-- TODO(organizers): check this LCG release is still current for the school year. -->
 ```shell
 source /cvmfs/sft.cern.ch/lcg/views/LCG_106a/x86_64-el9-gcc14-opt/setup.sh
 ```
- {: .source}
+{: .source}
 
- First, let's inspect a ROOT file using ROOT's built-in C++ interpreter, CINT. 
- Run the following to launch ROOT and simultaneously open a file (the same file we copied from EOS in the previous exercise).
+Open the NanoAOD file you copied in Episode 2 with ROOT's C++ interpreter (`-l` skips the slow splash screen; type `.q` to quit):
 
- ```shell
+```shell
 cd ~/nobackup/cmsdas
 root -l DYJetsToLL_M50_NANOAOD.root
-# Note: the -l option stops ROOT from displaying its logo image, which is very slow over SSH
 ```
- {: .source}
+{: .source}
 
-CINT is a quick way to inspect files (to exit CINT/ROOT, just type `.q`). First, let's see what's in the file. Enter `_file0->ls()` into the interpreter:
+At the ROOT prompt, list the file's contents:
 
 ```shell
 root [1] _file0->ls()
-TFile**		DYJetsToLL_M50_NANOAOD.root	
- TFile*		DYJetsToLL_M50_NANOAOD.root	
+TFile**		DYJetsToLL_M50_NANOAOD.root
+ TFile*		DYJetsToLL_M50_NANOAOD.root
   KEY: TTree	Events;1	Events
 ```
 {: .output}
 
-The file contains just one interesting object, a TTree named Events. Next, let's check the basic contents of Events. For the number of events in the TTree:
+The file contains one TTree, `Events`. Count its entries:
+
 ```shell
-root [4] Events->GetEntries()
+root [2] Events->GetEntries()
 (long long) 10000
 ```
 {: .output}
 
-For the branches in Events, try:
-```shell
-root [6] Events->Print()
-******************************************************************************
-*Tree    :Events    : Events                                                 *
-*Entries :    10000 : Total =        65055196 bytes  File  Size =   19389904 *
-*        :          : Tree compression factor =   3.33                       *
-******************************************************************************
-*Br    0 :run       : run/i                                                  *
-*Entries :    10000 : Total  Size=      40621 bytes  File Size  =        410 *
-*Baskets :        2 : Basket Size=      29696 bytes  Compression=  97.91     *
-*............................................................................*
-*Br    1 :luminosityBlock : luminosityBlock/i                                *
-*Entries :    10000 : Total  Size=      40693 bytes  File Size  =        493 *
-*Baskets :        2 : Basket Size=      29696 bytes  Compression=  81.48     *
-*............................................................................*
-*Br    2 :event     : event/l                                                *
-*Entries :    10000 : Total  Size=      80641 bytes  File Size  =      20690 *
-*Baskets :        2 : Basket Size=      58880 bytes  Compression=   3.87     *
-...
-...
-...
-*............................................................................*
-*Br 1626 :HLTriggerFinalPath : HLTriggerFinalPath/O                          *
-*Entries :    10000 : Total  Size=      10705 bytes  File Size  =        280 *
-*Baskets :        2 : Basket Size=       8192 bytes  Compression=  36.34     *
-*............................................................................*
-*Br 1627 :L1simulation_step : L1simulation_step/O                            *
-*Entries :    10000 : Total  Size=      10699 bytes  File Size  =        279 *
-*Baskets :        2 : Basket Size=       8192 bytes  Compression=  36.46     *
-*............................................................................*
-
-```
-{: .output}
-
-This prints out a super long list of branches, because NanoAOD assigns a branch for every trigger in CMS. You can filter to looks at, e.g., only muon branches:
+`Events->Print()` lists every branch, but NanoAOD has a branch for every CMS trigger, so the list is very long (over 1600 branches). Filter it instead, for example to muon branches only:
 
 ```shell
-root [8] Events->Print("Muon*")
-******************************************************************************
-*Tree    :Events    : Events                                                 *
-*Entries :    10000 : Total =        65055196 bytes  File  Size =   19389904 *
-*        :          : Tree compression factor =   3.33                       *
-******************************************************************************
+root [3] Events->Print("Muon*")
+...
 *Br    0 :Muon_dxy  : Float_t dxy (with sign) wrt first PV, in cm            *
-*Entries :    10000 : Total  Size=      67214 bytes  File Size  =      29269 *
-*Baskets :        4 : Basket Size=      32000 bytes  Compression=   2.28     *
-*............................................................................*
 *Br    1 :Muon_dxyErr : Float_t dxy uncertainty, in cm                       *
-*Entries :    10000 : Total  Size=      67222 bytes  File Size  =      21835 *
-*Baskets :        4 : Basket Size=      32000 bytes  Compression=   3.05     *
 ...
 ```
 {: .output}
-
 
 > ## Question 3.1
-> The method ``Long64_t TTree:GetEntries (const char *selection)`` accepts a selection string, and returns the number of events passing the selection criteria (note: written in C++). Use this method to get the number of events with two reconstructed muons:
-> 
+> `TTree::GetEntries(const char *selection)` returns the number of events passing a selection (written in C++). Count the events with at least two reconstructed muons:
+>
 > ```shell
-> root [0] Events->GetEntries("nMuon >= 2")
+> root [4] Events->GetEntries("nMuon >= 2")
 > ```
-> 
-> Write the number of events with at least 2 muon candidates in the Google form. 
+>
+> Enter the number in the answer form.
 {: .challenge}
 
-# Plotting with pyROOT
-You can also use ROOT in python, almost identically to CINT except with python instead of C++. 
-(This is possible because of pyROOT, a wrapper around ROOT that creates a nearly 1-to-1 map of all the C++ classes to python classes.)
-Make sure you're logged into cmslpc, and that you have called the LCG setup script in the session. 
-Then, let's reopen the NanoAOD file in python. Start a python interactive session by entering `python3` (type ctrl-d or ``exit()`` to quit)
-```shell
-python3
-```
-then enter the following into the python interpreter:
+## Plotting with pyROOT
+pyROOT lets you use ROOT from python with almost the same commands as in C++.
+On cmslpc, with the LCG setup above, start `python3` (`ctrl-d` or `exit()` to quit) and reopen the file:
+
 ```python
 import ROOT
 f = ROOT.TFile("DYJetsToLL_M50_NANOAOD.root", "READ")
@@ -150,14 +92,10 @@ f.ls()
 ```
 {: .source}
 
-You should see the same contents of the file as before. 
+`TTree::Draw(varexp, selection)` is the fastest way to plot from a TTree: `varexp` is what to plot (a branch or an expression) and `selection` filters the events.
+Let's plot the mass of the generator-level Z bosons, i.e. the "truth" particles from the event generator, before detector simulation.
+`GenPart_mass` holds the mass of each generated particle, and `GenPart_pdgId` its [PDG ID](https://pdg.lbl.gov/2023/mcdata/mc_particle_id_contents.html) (23 for a Z boson):
 
-`Long64_t TTree::Draw(const char * varexp, const char * selection, ...)` is a fast way to make a plot from a TTree. 
-The first argument, `varexp`, is what you want to plot (accepts single branches as well as expressions; the string is compiled on the fly by CINT). 
-The second argument, `selection`, allows you to filter events before plotting. 
-Let's use this function to plot the generator-level Z boson mass distribution, i.e., the truth particles generated by Madgraph (versus the reconstructed particles after the CMS detector simulation has been run). 
-The branch `GenPart_mass` contains the mass of all generator-level particles. 
-The branch `GenPart_pdgId` contains the so-called [PDG ID](https://pdg.lbl.gov/2023/mcdata/mc_particle_id_contents.html) of the generator-level particles; Z bosons are assigned a PDG ID of 23. 
 ```python
 events = f.Get("Events")
 c = ROOT.TCanvas()
@@ -166,11 +104,11 @@ c.Draw()
 ```
 {: .source}
 
-A plot of the Z boson mass should appear, with a mean value close to the Z boson mass of 91.1876 GeV. (If no plot appears, something is probably wrong with the X window system that displays graphical windows over SSH. Following [the cmslpc instructions](https://uscms.org/uscms_at_work/computing/getstarted/uaf.shtml), make sure you have an X windows program installed on your computer, and that you logged in using `ssh -Y`; ask Mattermost for more help.)
-
+A plot should appear with a mean close to the Z mass, 91.1876 GeV.
+No window? Check that you have an X server on your computer and logged in with `ssh -Y` (see the [cmslpc instructions](https://uscms.org/uscms_at_work/computing/getstarted/uaf.shtml)).
 
 > ## Question 3.2: Z mass plot
-> The plot includes a "stat box" with basic information about the plotted histogram. Please fill in the mean of the distribution in the Google form. 
+> The plot has a "stat box" with basic information about the histogram. Enter the mean of the distribution in the answer form.
 {: .challenge}
 
-[Set3_form]: https://forms.gle/u7P2FEySFiuoCP7F9 
+{% include links.md %}
