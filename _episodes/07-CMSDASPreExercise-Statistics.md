@@ -1,5 +1,5 @@
 ---
-title: "CMSDAS Pre-Exercise 7: Statistics reading course (optional)"
+title: "CMSDAS Pre-Exercise 7: Statistics reading course"
 teaching: 0
 exercises: 0
 questions:
@@ -14,9 +14,11 @@ keypoints:
 - "Ask questions in the StatisticsReadingCourse Mattermost channel."
 ---
 
-> ## Optional episode
-> This episode is **optional** and has no questions to submit.
-> We strongly encourage it anyway: almost every CMSDAS exercise ends in a fit, a limit, or a significance, and you'll get much more out of the school if the basic ideas are already familiar.
+> ## Optional, but a real head start
+> This episode is *not* required to register for CMSDAS and has no questions to submit, but we strongly encourage everyone to do it.
+> Almost every CMSDAS exercise ends in a fit, a significance, or a limit. Students who arrive knowing the basic concepts can focus on the physics, instead of learning the statistics under time pressure during the school.
+> The same concepts are behind every CMS result you will work on after CMSDAS, so the effort pays off well beyond the school.
+> Covering the basics takes steady effort over a few weeks, so **start early**.
 {: .callout}
 
 ## The course
