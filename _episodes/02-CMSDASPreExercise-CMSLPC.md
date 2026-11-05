@@ -31,7 +31,7 @@ Every user gets three storage areas:
 
 | Area | Path | Size | Notes |
 |---|---|---|---|
-| Home | `/uscms/home/<username>` | 2 GB | Small: keep only config files here |
+| Home | `/uscms/home/<username>` | 3 GB | Small: keep only config files here |
 | nobackup | `~/nobackup` (links to `/uscms_data/d[1-3]/<username>`) | 200 GB | Your main work area; **not backed up** |
 | EOS | `/store/user/<username>` | 2 TB | Special filesystem, see [below](#using-the-eos-filesystem) |
 
