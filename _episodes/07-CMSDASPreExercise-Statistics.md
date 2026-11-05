@@ -16,7 +16,7 @@ keypoints:
 
 > ## Optional, but a real head start
 > - This episode is *not* required to register for CMSDAS and has no questions to submit, but we strongly encourage everyone to do it.
-> - Almost every CMSDAS exercise ends in a fit, a significance, or a limit. Students who arrive knowing the basic concepts can focus on the physics, instead of learning the statistics under time pressure during the school.
+> - Almost every CMSDAS Long exercise ends in a fit, a significance, or a limit. Students who arrive knowing the basic concepts will have a real advantage, instead of learning the statistics under time pressure during the school.
 > - The same concepts are behind every CMS result you will work on after CMSDAS, so the effort pays off well beyond the school.
 > - Covering the basics takes steady effort over a few weeks, so **start early**.
 {: .callout}
