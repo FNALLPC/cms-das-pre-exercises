@@ -37,6 +37,8 @@ To get a CERN account, please have a look at [Get Account at CERN](https://twiki
 Here are some additional links in case you are using Windows:
   * [Hints for setting up Cygwin - preferred](http://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml#windowsXServers)
   * How to install and configure [PuTTy](http://uscms.org/uscms_at_work/physics/computing/getstarted/uaf.shtml#windowsKerberosPuTTY)
+  * If you would like to use cygwin, you will need to install [winpty](https://github.com/rprichard/winpty) and prefix your docker command like `winpty docker`.
+  * Windows Subsystem for Linux can also be used; once installed (whichever flavor of Linux you prefer), you can largely follow the Unix instructions. Ensure your incoming ssh is off before using Linux onsite at Fermilab. 
 
 > ## Warning
 > If you are attending CMSDAS at the LPC, you should do the pre-exercises on the **cmslpc-el9.fnal.gov** cluster using the portable computer you intend to use at CMSDAS.
@@ -57,9 +59,5 @@ In order to checkout and develop CMS software, you will need a github account, w
   * You may also find it useful to launch `ssh-agent` at login time. Instructions are at [CMSGitTutorialPublic#bash](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CMSGitTutorialPublic#bash) .
 
 
-## Windows specific setup
-
-If you would like to use cygwin, you will need to install [winpty](https://github.com/rprichard/winpty) and prefix your docker command like `winpty docker`.
-Windows Subsystem for Linux can also be used; once installed (whichever flavor of Linux you prefer), you can largely follow the Unix instructions. 
 
 {% include links.md %}
